@@ -1,0 +1,70 @@
+@import "tailwindcss";
+
+@theme {
+  --font-serif: "Cormorant Garamond", Georgia, serif;
+  --font-sans: "Plus Jakarta Sans", -apple-system, BlinkMacSystemFont, sans-serif;
+  --color-beige-bg: #FAF8F5;
+  --color-beige-card: #F4EFE6;
+  --color-beige-border: #E5DEC9;
+  --color-navy-dark: #0F172A;
+  --color-navy-deep: #1B263B;
+  --color-navy-light: #2D3E50;
+  --color-gold-accent: #C5A059;
+}
+
+/* Custom Utilities & Animations */
+@keyframes focusBlurLoop {
+  0% {
+    filter: blur(12px);
+    opacity: 0.45;
+    transform: scale(1.04);
+  }
+  35% {
+    filter: blur(0px);
+    opacity: 0.95;
+    transform: scale(1);
+  }
+  70% {
+    filter: blur(0px);
+    opacity: 0.95;
+    transform: scale(1);
+  }
+  100% {
+    filter: blur(12px);
+    opacity: 0.45;
+    transform: scale(1.04);
+  }
+}
+
+.animate-focus-blur {
+  animation: focusBlurLoop 9s ease-in-out infinite;
+}
+
+/* Custom scrollbar for horizontal carousels and page */
+::-webkit-scrollbar {
+  height: 6px;
+  width: 6px;
+}
+::-webkit-scrollbar-track {
+  background: rgba(15, 23, 42, 0.05);
+}
+::-webkit-scrollbar-thumb {
+  background: rgba(15, 23, 42, 0.25);
+  border-radius: 9999px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(15, 23, 42, 0.45);
+}
+
+/* Smooth hide scrollbars for clean UI when dragging */
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+.serif-title {
+  font-family: var(--font-serif);
+}
