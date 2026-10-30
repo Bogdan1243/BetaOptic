@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { motion } from 'framer-motion';
+import doctorPlaceholder from '../assets/doctors/doctor-placeholder.jpg';
 import {
   ArrowLeft,
   Calendar,
@@ -167,8 +168,8 @@ export default function DoctorsPage({ onBack }) {
       </section>
 
       {/* Main Doctors Cards Grid Section */}
-      <section className="py-16 px-6 md:px-16 w-full max-w-6xl mx-auto">
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+      <section className="py-16 px-6 md:px-16 w-full max-w-7xl mx-auto">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
           
           {DOCTORS_DATA.map((doctor, index) => (
             <motion.div
@@ -178,19 +179,23 @@ export default function DoctorsPage({ onBack }) {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.4, delay: index * 0.05 }}
-              className="rounded-3xl bg-[#F4EFE6] border border-[#E5DEC9] p-8 sm:p-10 shadow-xs hover:shadow-md hover:border-[#0F172A]/30 transition-all duration-300 flex flex-col justify-between group"
+              className="rounded-3xl bg-[#F4EFE6] border border-[#E5DEC9] p-6 shadow-xs hover:shadow-md hover:border-[#0F172A]/30 transition-all duration-300 flex flex-col justify-between group"
             >
               <div>
-                <div className="flex items-center justify-between mb-6">
-                  <span className="text-xs uppercase tracking-widest font-semibold text-[#C5A059]">
-                    {doctor.title}
-                  </span>
-                  <span className="px-3 py-0.5 rounded-full bg-[#0F172A]/5 text-[#0F172A]/70 text-[11px] font-medium border border-[#0F172A]/10">
-                    Beta Optic
-                  </span>
+                {/* Doctor Avatar with Eye */}
+                <div className="w-full aspect-square rounded-2xl overflow-hidden bg-white border border-[#E5DEC9] flex items-center justify-center p-6 mb-5 shadow-2xs group-hover:border-[#0F172A]/20 transition-colors">
+                  <img
+                    src={doctorPlaceholder}
+                    alt={doctor.name}
+                    className="w-full h-full object-contain group-hover:scale-105 transition-transform duration-500"
+                  />
                 </div>
 
-                <h2 className="serif-title text-3xl sm:text-4xl font-bold text-[#0F172A] leading-tight mb-2">
+                <span className="text-[11px] uppercase tracking-widest font-semibold text-[#C5A059] block mb-1.5">
+                  {doctor.title}
+                </span>
+
+                <h2 className="serif-title text-2xl font-bold text-[#0F172A] leading-snug">
                   {doctor.name}
                 </h2>
               </div>
@@ -198,7 +203,7 @@ export default function DoctorsPage({ onBack }) {
               {/* Program consultații (schedule) - lăsat comentat */}
               {/*
               {doctor.schedule && (
-                <div className="pt-6 mt-6 border-t border-[#0F172A]/10 flex items-center gap-2 text-xs text-[#0F172A]/70">
+                <div className="pt-4 mt-4 border-t border-[#0F172A]/10 flex items-center gap-2 text-xs text-[#0F172A]/70">
                   <Clock className="w-4 h-4 text-[#C5A059]" />
                   <span>Program: {doctor.schedule}</span>
                 </div>
@@ -207,10 +212,10 @@ export default function DoctorsPage({ onBack }) {
 
               {/* Booking CTA Button (comentat) */}
               {/*
-              <div className="pt-6 mt-6 border-t border-[#0F172A]/10">
+              <div className="pt-4 mt-4 border-t border-[#0F172A]/10">
                 <button
                   onClick={() => setSelectedDoctorForModal(doctor)}
-                  className="w-full inline-flex items-center justify-center gap-2 px-6 py-3 rounded-full bg-[#0F172A] text-[#FAF8F5] text-xs font-semibold uppercase tracking-wider hover:bg-[#C5A059] hover:text-[#0F172A] transition-all duration-300 shadow-sm cursor-pointer"
+                  className="w-full inline-flex items-center justify-center gap-2 px-5 py-2.5 rounded-full bg-[#0F172A] text-[#FAF8F5] text-xs font-semibold uppercase tracking-wider hover:bg-[#C5A059] hover:text-[#0F172A] transition-all duration-300 shadow-sm cursor-pointer"
                 >
                   <Calendar className="w-4 h-4" />
                   <span>Programează Consult</span>
