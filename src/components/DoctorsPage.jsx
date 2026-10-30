@@ -1,26 +1,22 @@
 import React, { useEffect, useState } from 'react';
 import { motion } from 'framer-motion';
-import doctorPlaceholder from '../assets/doctors/doctor-placeholder.jpg';
 import {
   ArrowLeft,
-  Stethoscope,
-  GraduationCap,
   Calendar,
   Clock,
-  Sparkles,
-  Phone,
-  MessageCircle,
-  MapPin,
-  Eye,
-  CheckCircle2,
   Award,
-  ChevronRight,
+  Sparkles,
   ShieldCheck,
-  Send
+  CheckCircle2,
+  Eye,
+  MapPin,
+  MessageCircle,
+  Send,
+  Stethoscope,
 } from 'lucide-react';
 import { DOCTORS_DATA } from '../data/doctorsData';
 
-const WHATSAPP_NUMBER = '40744557723';
+const WHATSAPP_NUMBER = '40721316224';
 
 export default function DoctorsPage({ onBack }) {
   const [selectedDoctorForModal, setSelectedDoctorForModal] = useState(null);
@@ -48,7 +44,7 @@ export default function DoctorsPage({ onBack }) {
     return () => window.removeEventListener('keydown', onKeyDown);
   }, [selectedDoctorForModal]);
 
-  // No backend: the request is sent via WhatsApp with a prefilled message
+  // Appointment submission via WhatsApp
   const handleBookingSubmit = (e) => {
     e.preventDefault();
     const name = patientName.trim().slice(0, 100);
@@ -111,8 +107,6 @@ export default function DoctorsPage({ onBack }) {
             </button>
           </div>
 
-          {/* Quick Call Header CTA */}
-
         </div>
       </header>
 
@@ -173,194 +167,56 @@ export default function DoctorsPage({ onBack }) {
       </section>
 
       {/* Main Doctors Cards Grid Section */}
-      <section className="py-16 px-6 md:px-16 w-full max-w-7xl mx-auto">
-        <div className="space-y-16">
+      <section className="py-16 px-6 md:px-16 w-full max-w-6xl mx-auto">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
           
           {DOCTORS_DATA.map((doctor, index) => (
             <motion.div
               key={doctor.id}
-              initial={{ opacity: 0, y: 30 }}
+              id={doctor.id}
+              initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: '-50px' }}
-              transition={{ duration: 0.6, delay: index * 0.1 }}
-              className="rounded-3xl bg-[#F4EFE6] border border-[#E5DEC9] shadow-sm hover:shadow-md transition-shadow duration-300 overflow-hidden"
+              viewport={{ once: true }}
+              transition={{ duration: 0.4, delay: index * 0.05 }}
+              className="rounded-3xl bg-[#F4EFE6] border border-[#E5DEC9] p-8 sm:p-10 shadow-xs hover:shadow-md hover:border-[#0F172A]/30 transition-all duration-300 flex flex-col justify-between group"
             >
-              <div className="grid grid-cols-1 lg:grid-cols-12 gap-0 items-stretch">
-                
-                {/* Doctor Portrait & Quick Info Column (Left) */}
-                <div className="lg:col-span-4 bg-[#FAF8F5] p-6 sm:p-8 flex flex-col justify-between border-b lg:border-b-0 lg:border-r border-[#E5DEC9]">
-                  <div className="space-y-6">
-                    
-                    {/* Portrait Image Container */}
-                    <div className={`relative rounded-2xl overflow-hidden aspect-[4/5] shadow-inner ${doctor.image ? 'bg-[#0F172A]/5' : 'bg-white border border-[#E5DEC9]'}`}>
-                      {doctor.image ? (
-                          <img
-                            src={doctor.image}
-                            alt={doctor.name}
-                            className="w-full h-full object-cover object-top filter contrast-[1.03]"
-                          />
-                      ) : (
-                          /* Placeholder icon until a real portrait is provided */
-                          <img
-                            src={doctorPlaceholder}
-                            alt={doctor.name}
-                            className="w-full h-full object-contain px-8 pt-12 pb-20"
-                          />
-                      )}
-                      <div className="absolute inset-0 bg-gradient-to-t from-[#0F172A]/70 via-transparent to-transparent" />
-                      
-                      {/* Badge Top Left */}
-                      <span className="absolute top-3 left-3 px-3 py-1 rounded-full text-[10px] uppercase font-bold tracking-wider bg-[#FAF8F5]/90 backdrop-blur-md text-[#0F172A] border border-[#0F172A]/10">
-                        {doctor.badge}
-                      </span>
-
-                      {/* Experience Bottom Left */}
-                      <div className="absolute bottom-3 left-3 right-3 text-[#FAF8F5]">
-                        <span className="block text-[11px] uppercase tracking-widest text-[#C5A059] font-semibold">
-                          Experiență Clinică
-                        </span>
-                        <strong className="text-sm font-bold">
-                          {doctor.experienceYears}
-                        </strong>
-                      </div>
-                    </div>
-
-                    {/* Schedule & Availability Box */}
-                    <div className="p-4 rounded-xl bg-[#F4EFE6] border border-[#0F172A]/10 space-y-2 text-xs">
-                      <div className="flex items-center gap-2 text-[#0F172A] font-semibold">
-                        <Clock className="w-4 h-4 text-[#C5A059] flex-none" />
-                        <span>Program Consultații:</span>
-                      </div>
-                      <p className="text-[#0F172A]/80 font-medium pl-6">
-                        {doctor.schedule}
-                      </p>
-                      <p className="text-[11px] text-[#0F172A]/60 italic pl-6">
-                        {doctor.contactNote}
-                      </p>
-                    </div>
-
-                  </div>
-
-                  {/* Booking CTA Button on Left Column */}
-                  <div className="pt-6">
-                    <button
-                      onClick={() => setSelectedDoctorForModal(doctor)}
-                      className="w-full inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-full bg-[#0F172A] text-[#FAF8F5] text-xs font-semibold uppercase tracking-wider hover:bg-[#C5A059] hover:text-[#0F172A] transition-all duration-300 shadow-sm cursor-pointer"
-                    >
-                      <Calendar className="w-4 h-4" />
-                      <span>Programează Consult</span>
-                    </button>
-                  </div>
+              <div>
+                <div className="flex items-center justify-between mb-6">
+                  <span className="text-xs uppercase tracking-widest font-semibold text-[#C5A059]">
+                    {doctor.title}
+                  </span>
+                  <span className="px-3 py-0.5 rounded-full bg-[#0F172A]/5 text-[#0F172A]/70 text-[11px] font-medium border border-[#0F172A]/10">
+                    Beta Optic
+                  </span>
                 </div>
 
-                {/* Doctor Bio & Deep Experience Details (Right) */}
-                <div className="lg:col-span-8 p-6 sm:p-10 md:p-12 flex flex-col justify-between space-y-8">
-                  <div className="space-y-6">
-                    
-                    {/* Header: Name and Title */}
-                    <div>
-                      <div className="flex flex-wrap items-center justify-between gap-2 mb-2">
-                        <span className="text-xs uppercase tracking-widest font-semibold text-[#C5A059]">
-                          {doctor.title}
-                        </span>
-                        <span className="px-3 py-0.5 rounded-full bg-[#0F172A]/5 text-[#0F172A]/70 text-[11px] font-medium border border-[#0F172A]/10">
-                          Beta Optic Specialist
-                        </span>
-                      </div>
-
-                      <h2 className="serif-title text-3xl sm:text-4xl md:text-5xl font-bold text-[#0F172A] leading-tight">
-                        {doctor.name}
-                      </h2>
-                      
-                      <p className="text-xs sm:text-sm font-medium text-[#0F172A]/75 mt-1">
-                        {doctor.credentials}
-                      </p>
-                    </div>
-
-                    {/* Specialties Pill Badges */}
-                    <div>
-                      <span className="block text-[11px] uppercase tracking-wider font-bold text-[#0F172A]/60 mb-2.5">
-                        Arii de Competență & Specializări:
-                      </span>
-                      <div className="flex flex-wrap gap-2">
-                        {doctor.specialties.map((spec, i) => (
-                          <span
-                            key={i}
-                            className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#FAF8F5] border border-[#0F172A]/15 text-[#0F172A] text-xs font-medium"
-                          >
-                            <span className="w-1.5 h-1.5 rounded-full bg-[#C5A059]" />
-                            <span>{spec}</span>
-                          </span>
-                        ))}
-                      </div>
-                    </div>
-
-                    {/* Bio Block (Editable in doctorsData.js; hidden when empty) */}
-                    {(doctor.experienceSummary || doctor.bio) && (
-                    <div className="space-y-3 pt-2">
-                      <span className="block text-[11px] uppercase tracking-wider font-bold text-[#0F172A]/60">
-                        Profil Profesional & Detalii Clinice:
-                      </span>
-                      
-                      <div className="p-5 rounded-2xl bg-[#FAF8F5] border border-[#0F172A]/10 space-y-3 text-sm text-[#0F172A]/85 leading-relaxed font-normal">
-                        {doctor.experienceSummary && (
-                        <p className="font-medium text-[#0F172A]">
-                          {doctor.experienceSummary}
-                        </p>
-                        )}
-                        {doctor.bio && (
-                        <p className="text-[#0F172A]/80 leading-relaxed font-light">
-                          {doctor.bio}
-                        </p>
-                        )}
-                      </div>
-                    </div>
-                    )}
-
-                    {/* Education & Accreditations */}
-                    <div className="space-y-3 pt-2">
-                      <span className="block text-[11px] uppercase tracking-wider font-bold text-[#0F172A]/60">
-                        Educație & Acreditări Profesionale:
-                      </span>
-
-                      <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5">
-                        {doctor.education.map((edu, idx) => (
-                          <div
-                            key={idx}
-                            className="p-3 rounded-xl bg-[#FAF8F5]/70 border border-[#0F172A]/10 flex items-start gap-2.5 text-xs text-[#0F172A]/80 font-medium"
-                          >
-                            <GraduationCap className="w-4 h-4 text-[#C5A059] flex-none mt-0.5" />
-                            <span>{edu}</span>
-                          </div>
-                        ))}
-                      </div>
-                    </div>
-
-                  </div>
-
-                  {/* Direct Contact Footer Line */}
-                  <div className="pt-6 border-t border-[#0F172A]/10 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 text-xs text-[#0F172A]/70">
-                    <div className="flex items-center gap-2">
-                      <MapPin className="w-4 h-4 text-[#C5A059]" />
-                      <span>Cabinet Beta Optic, Str. Lucian Blaga 7, Timișoara</span>
-                    </div>
-
-                    <a
-                      href={`https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(
-                        `Bună ziua! Aș dori să programez o consultație cu ${doctor.name} la Beta Optic.`
-                      )}`}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="inline-flex items-center gap-2 text-[#0F172A] hover:text-[#C5A059] font-semibold transition-colors"
-                    >
-                      <MessageCircle className="w-4 h-4 text-[#C5A059]" />
-                      <span>Întrebare rapidă pe WhatsApp</span>
-                    </a>
-                  </div>
-
-                </div>
-
+                <h2 className="serif-title text-3xl sm:text-4xl font-bold text-[#0F172A] leading-tight mb-2">
+                  {doctor.name}
+                </h2>
               </div>
+
+              {/* Program consultații (schedule) - lăsat comentat */}
+              {/*
+              {doctor.schedule && (
+                <div className="pt-6 mt-6 border-t border-[#0F172A]/10 flex items-center gap-2 text-xs text-[#0F172A]/70">
+                  <Clock className="w-4 h-4 text-[#C5A059]" />
+                  <span>Program: {doctor.schedule}</span>
+                </div>
+              )}
+              */}
+
+              {/* Booking CTA Button (comentat) */}
+              {/*
+              <div className="pt-6 mt-6 border-t border-[#0F172A]/10">
+                <button
+                  onClick={() => setSelectedDoctorForModal(doctor)}
+                  className="w-full inline-flex items-center justify-center gap-2 px-6 py-3 rounded-full bg-[#0F172A] text-[#FAF8F5] text-xs font-semibold uppercase tracking-wider hover:bg-[#C5A059] hover:text-[#0F172A] transition-all duration-300 shadow-sm cursor-pointer"
+                >
+                  <Calendar className="w-4 h-4" />
+                  <span>Programează Consult</span>
+                </button>
+              </div>
+              */}
             </motion.div>
           ))}
 
@@ -387,8 +243,6 @@ export default function DoctorsPage({ onBack }) {
             </p>
           </div>
 
-
-
           <div className="pt-8 text-xs text-[#FAF8F5]/50 border-t border-[#FAF8F5]/10 flex flex-col sm:flex-row items-center justify-between gap-3">
             <span>Strada Lucian Blaga 7, Timișoara • Luni - Vineri: 09:00 - 18:00</span>
             <span>Beta Optic © {new Date().getFullYear()}</span>
@@ -397,7 +251,7 @@ export default function DoctorsPage({ onBack }) {
         </div>
       </section>
 
-      {/* Appointment Booking Modal */}
+      {/* Appointment Booking Modal (lăsat pregătit / comentat dacă este necesar) */}
       {selectedDoctorForModal && (
         <div
           className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-[#0F172A]/75 backdrop-blur-sm"
