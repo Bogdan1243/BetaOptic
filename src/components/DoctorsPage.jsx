@@ -20,7 +20,7 @@ import {
 } from 'lucide-react';
 import { DOCTORS_DATA } from '../data/doctorsData';
 
-const WHATSAPP_NUMBER = '40721316224';
+const WHATSAPP_NUMBER = '40744557723';
 
 export default function DoctorsPage({ onBack }) {
   const [selectedDoctorForModal, setSelectedDoctorForModal] = useState(null);
