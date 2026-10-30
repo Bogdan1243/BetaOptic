@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { motion } from 'framer-motion';
+import doctorPlaceholder from '../assets/doctors/doctor-placeholder.jpg';
 import {
   ArrowLeft,
   Stethoscope,
@@ -19,6 +20,8 @@ import {
 } from 'lucide-react';
 import { DOCTORS_DATA } from '../data/doctorsData';
 
+const WHATSAPP_NUMBER = '40721316224';
+
 export default function DoctorsPage({ onBack }) {
   const [selectedDoctorForModal, setSelectedDoctorForModal] = useState(null);
   const [patientName, setPatientName] = useState('');
@@ -30,17 +33,45 @@ export default function DoctorsPage({ onBack }) {
     window.scrollTo({ top: 0, behavior: 'smooth' });
   }, []);
 
+  const closeBookingModal = () => {
+    setSelectedDoctorForModal(null);
+    setBookingSuccess(false);
+  };
+
+  // Close the booking modal with the Escape key
+  useEffect(() => {
+    if (!selectedDoctorForModal) return;
+    const onKeyDown = (e) => {
+      if (e.key === 'Escape') closeBookingModal();
+    };
+    window.addEventListener('keydown', onKeyDown);
+    return () => window.removeEventListener('keydown', onKeyDown);
+  }, [selectedDoctorForModal]);
+
+  // No backend: the request is sent via WhatsApp with a prefilled message
   const handleBookingSubmit = (e) => {
     e.preventDefault();
-    if (!patientPhone.trim()) return;
+    const name = patientName.trim().slice(0, 100);
+    const phone = patientPhone.trim().slice(0, 30);
+    if (!name || !phone) return;
+
+    const lines = [
+      `Bună ziua! Aș dori o programare la ${selectedDoctorForModal.name} (Beta Optic).`,
+      `Nume: ${name}`,
+      `Telefon: ${phone}`,
+    ];
+    if (patientDate) lines.push(`Ziua preferată: ${patientDate}`);
+
+    const url = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(lines.join('\n'))}`;
+    window.open(url, '_blank', 'noopener,noreferrer');
+
     setBookingSuccess(true);
     setTimeout(() => {
-      setBookingSuccess(false);
-      setSelectedDoctorForModal(null);
+      closeBookingModal();
       setPatientName('');
       setPatientPhone('');
       setPatientDate('');
-    }, 3000);
+    }, 4000);
   };
 
   return (
@@ -81,16 +112,6 @@ export default function DoctorsPage({ onBack }) {
           </div>
 
           {/* Quick Call Header CTA */}
-          <div className="flex items-center gap-3">
-            <a
-              href="tel:+40721316224"
-              className="inline-flex items-center gap-2 px-4 sm:px-5 py-2 rounded-full bg-[#0F172A] text-[#FAF8F5] hover:bg-[#C5A059] hover:text-[#0F172A] text-xs font-semibold uppercase tracking-wider transition-all duration-300 shadow-xs"
-            >
-              <Phone className="w-3.5 h-3.5 text-[#C5A059]" />
-              <span className="hidden sm:inline">Programări:</span>
-              <span>0721 316 224</span>
-            </a>
-          </div>
 
         </div>
       </header>
@@ -171,12 +192,21 @@ export default function DoctorsPage({ onBack }) {
                   <div className="space-y-6">
                     
                     {/* Portrait Image Container */}
-                    <div className="relative rounded-2xl overflow-hidden aspect-[4/5] bg-[#0F172A]/5 shadow-inner">
-                      <img
-                        src={doctor.image}
-                        alt={doctor.name}
-                        className="w-full h-full object-cover object-top filter contrast-[1.03]"
-                      />
+                    <div className={`relative rounded-2xl overflow-hidden aspect-[4/5] shadow-inner ${doctor.image ? 'bg-[#0F172A]/5' : 'bg-white border border-[#E5DEC9]'}`}>
+                      {doctor.image ? (
+                          <img
+                            src={doctor.image}
+                            alt={doctor.name}
+                            className="w-full h-full object-cover object-top filter contrast-[1.03]"
+                          />
+                      ) : (
+                          /* Placeholder icon until a real portrait is provided */
+                          <img
+                            src={doctorPlaceholder}
+                            alt={doctor.name}
+                            className="w-full h-full object-contain px-8 pt-12 pb-20"
+                          />
+                      )}
                       <div className="absolute inset-0 bg-gradient-to-t from-[#0F172A]/70 via-transparent to-transparent" />
                       
                       {/* Badge Top Left */}
@@ -265,21 +295,27 @@ export default function DoctorsPage({ onBack }) {
                       </div>
                     </div>
 
-                    {/* Bio / Lorem Ipsum Block (Editable by User) */}
+                    {/* Bio Block (Editable in doctorsData.js; hidden when empty) */}
+                    {(doctor.experienceSummary || doctor.bio) && (
                     <div className="space-y-3 pt-2">
                       <span className="block text-[11px] uppercase tracking-wider font-bold text-[#0F172A]/60">
                         Profil Profesional & Detalii Clinice:
                       </span>
                       
                       <div className="p-5 rounded-2xl bg-[#FAF8F5] border border-[#0F172A]/10 space-y-3 text-sm text-[#0F172A]/85 leading-relaxed font-normal">
+                        {doctor.experienceSummary && (
                         <p className="font-medium text-[#0F172A]">
                           {doctor.experienceSummary}
                         </p>
+                        )}
+                        {doctor.bio && (
                         <p className="text-[#0F172A]/80 leading-relaxed font-light">
                           {doctor.bio}
                         </p>
+                        )}
                       </div>
                     </div>
+                    )}
 
                     {/* Education & Accreditations */}
                     <div className="space-y-3 pt-2">
@@ -310,7 +346,7 @@ export default function DoctorsPage({ onBack }) {
                     </div>
 
                     <a
-                      href={`https://wa.me/40721316224?text=${encodeURIComponent(
+                      href={`https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(
                         `Bună ziua! Aș dori să programez o consultație cu ${doctor.name} la Beta Optic.`
                       )}`}
                       target="_blank"
@@ -351,23 +387,7 @@ export default function DoctorsPage({ onBack }) {
             </p>
           </div>
 
-          <div className="flex flex-wrap items-center justify-center gap-4 pt-2">
-            <a
-              href="tel:+40721316224"
-              className="inline-flex items-center gap-2.5 px-8 py-4 rounded-full bg-[#C5A059] text-[#0F172A] text-xs font-bold uppercase tracking-wider hover:bg-[#FAF8F5] transition-all shadow-md"
-            >
-              <Phone className="w-4 h-4" />
-              <span>Sună pentru Programare: 0721 316 224</span>
-            </a>
 
-            <button
-              onClick={onBack}
-              className="inline-flex items-center gap-2 px-8 py-4 rounded-full bg-[#FAF8F5]/10 hover:bg-[#FAF8F5] text-[#FAF8F5] hover:text-[#0F172A] border border-[#FAF8F5]/20 text-xs font-semibold uppercase tracking-wider transition-all duration-300 cursor-pointer"
-            >
-              <ArrowLeft className="w-4 h-4" />
-              <span>Înapoi la Pagina Principală</span>
-            </button>
-          </div>
 
           <div className="pt-8 text-xs text-[#FAF8F5]/50 border-t border-[#FAF8F5]/10 flex flex-col sm:flex-row items-center justify-between gap-3">
             <span>Strada Lucian Blaga 7, Timișoara • Luni - Vineri: 09:00 - 18:00</span>
@@ -379,7 +399,13 @@ export default function DoctorsPage({ onBack }) {
 
       {/* Appointment Booking Modal */}
       {selectedDoctorForModal && (
-        <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-[#0F172A]/75 backdrop-blur-sm">
+        <div
+          className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-[#0F172A]/75 backdrop-blur-sm"
+          onClick={(e) => { if (e.target === e.currentTarget) closeBookingModal(); }}
+          role="dialog"
+          aria-modal="true"
+          aria-labelledby="booking-modal-title"
+        >
           <motion.div
             initial={{ opacity: 0, scale: 0.95 }}
             animate={{ opacity: 1, scale: 1 }}
@@ -390,7 +416,7 @@ export default function DoctorsPage({ onBack }) {
                 <span className="text-[10px] uppercase tracking-widest text-[#C5A059] font-bold block">
                   Programare Consultație
                 </span>
-                <h3 className="serif-title text-2xl font-bold text-[#0F172A]">
+                <h3 id="booking-modal-title" className="serif-title text-2xl font-bold text-[#0F172A]">
                   {selectedDoctorForModal.name}
                 </h3>
                 <p className="text-xs text-[#0F172A]/60">
@@ -399,7 +425,8 @@ export default function DoctorsPage({ onBack }) {
               </div>
 
               <button
-                onClick={() => setSelectedDoctorForModal(null)}
+                onClick={closeBookingModal}
+                aria-label="Închide"
                 className="w-8 h-8 rounded-full border border-[#0F172A]/20 flex items-center justify-center hover:bg-[#0F172A] hover:text-[#FAF8F5] text-xs transition-colors"
               >
                 ✕
@@ -412,21 +439,24 @@ export default function DoctorsPage({ onBack }) {
                   <CheckCircle2 className="w-8 h-8" />
                 </div>
                 <h4 className="serif-title text-2xl font-bold text-[#0F172A]">
-                  Solicitare Înregistrată!
+                  Continuă în WhatsApp
                 </h4>
                 <p className="text-xs text-[#0F172A]/75 max-w-xs mx-auto">
-                  Mulțumim{patientName ? `, ${patientName}` : ''}! Te vom contacta în scurt timp la <strong>{patientPhone}</strong> pentru confirmarea orei exacte.
+                  Mulțumim{patientName ? `, ${patientName}` : ''}! Am deschis WhatsApp cu mesajul precompletat — apasă „Trimite” acolo, iar noi te contactăm la <strong>{patientPhone}</strong> pentru confirmarea orei exacte.
                 </p>
               </div>
             ) : (
               <form onSubmit={handleBookingSubmit} className="space-y-4">
                 <div>
-                  <label className="block text-xs font-semibold uppercase tracking-wider text-[#0F172A]/70 mb-1.5">
+                  <label htmlFor="booking-name" className="block text-xs font-semibold uppercase tracking-wider text-[#0F172A]/70 mb-1.5">
                     Nume și Prenume *
                   </label>
                   <input
+                    id="booking-name"
                     type="text"
                     required
+                    maxLength={100}
+                    autoComplete="name"
                     placeholder="ex. Popescu Ion"
                     value={patientName}
                     onChange={(e) => setPatientName(e.target.value)}
@@ -435,12 +465,17 @@ export default function DoctorsPage({ onBack }) {
                 </div>
 
                 <div>
-                  <label className="block text-xs font-semibold uppercase tracking-wider text-[#0F172A]/70 mb-1.5">
+                  <label htmlFor="booking-phone" className="block text-xs font-semibold uppercase tracking-wider text-[#0F172A]/70 mb-1.5">
                     Număr de Telefon *
                   </label>
                   <input
+                    id="booking-phone"
                     type="tel"
                     required
+                    maxLength={30}
+                    pattern="[0-9+()\s.\-]{6,30}"
+                    title="Introdu un număr de telefon valid"
+                    autoComplete="tel"
                     placeholder="ex. 0721 000 000"
                     value={patientPhone}
                     onChange={(e) => setPatientPhone(e.target.value)}
@@ -449,11 +484,13 @@ export default function DoctorsPage({ onBack }) {
                 </div>
 
                 <div>
-                  <label className="block text-xs font-semibold uppercase tracking-wider text-[#0F172A]/70 mb-1.5">
+                  <label htmlFor="booking-date" className="block text-xs font-semibold uppercase tracking-wider text-[#0F172A]/70 mb-1.5">
                     Ziua Preferată (Opțional)
                   </label>
                   <input
+                    id="booking-date"
                     type="date"
+                    min={new Date().toISOString().split('T')[0]}
                     value={patientDate}
                     onChange={(e) => setPatientDate(e.target.value)}
                     className="w-full px-4 py-3 rounded-xl bg-[#F4EFE6] border border-[#0F172A]/20 text-[#0F172A] text-sm focus:outline-none focus:border-[#0F172A]"
@@ -463,7 +500,7 @@ export default function DoctorsPage({ onBack }) {
                 <div className="pt-2 flex gap-3">
                   <button
                     type="button"
-                    onClick={() => setSelectedDoctorForModal(null)}
+                    onClick={closeBookingModal}
                     className="w-1/2 py-3 rounded-xl border border-[#0F172A]/20 text-xs uppercase font-semibold text-[#0F172A] hover:bg-[#F4EFE6] transition-colors"
                   >
                     Anulează
@@ -474,7 +511,7 @@ export default function DoctorsPage({ onBack }) {
                     className="w-1/2 py-3 rounded-xl bg-[#0F172A] text-[#FAF8F5] hover:bg-[#C5A059] hover:text-[#0F172A] text-xs uppercase font-semibold transition-colors flex items-center justify-center gap-2"
                   >
                     <Send className="w-3.5 h-3.5" />
-                    <span>Confirmă</span>
+                    <span>Trimite pe WhatsApp</span>
                   </button>
                 </div>
               </form>

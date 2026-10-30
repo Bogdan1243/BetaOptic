@@ -4,8 +4,8 @@ import ProcessTimelineSection from './components/ProcessTimelineSection';
 import AtelierSection from './components/AtelierSection';
 import LensBrandsSection from './components/LensBrandsSection';
 import FrameBrandsSection from './components/FrameBrandsSection';
-import QAFormSection from './components/QAFormSection';
-import InstagramSection from './components/InstagramSection';
+// InstagramSection is hidden until real posts are available (re-enable import + JSX below)
+// import InstagramSection from './components/InstagramSection';
 import LocationSection from './components/LocationSection';
 import DoctorsPage from './components/DoctorsPage';
 import { AtelierGalleryModal, ExtraFramesModal } from './components/Modals';
@@ -25,6 +25,19 @@ export default function App() {
     window.addEventListener('hashchange', handleHashChange);
     return () => window.removeEventListener('hashchange', handleHashChange);
   }, []);
+
+  // Close any open modal with the Escape key
+  useEffect(() => {
+    if (!isGalleryOpen && !isFramesModalOpen) return;
+    const onKeyDown = (e) => {
+      if (e.key === 'Escape') {
+        setIsGalleryOpen(false);
+        setIsFramesModalOpen(false);
+      }
+    };
+    window.addEventListener('keydown', onKeyDown);
+    return () => window.removeEventListener('keydown', onKeyDown);
+  }, [isGalleryOpen, isFramesModalOpen]);
 
   const navigateTo = (view) => {
     if (view === 'doctors') {
@@ -58,11 +71,8 @@ export default function App() {
       {/* Secțiunea 5: Branduri Rame + Pictograme */}
       <FrameBrandsSection onOpenExtraFrames={() => setIsFramesModalOpen(true)} />
 
-      {/* Secțiunea 6: Formular (Q&A) */}
-      <QAFormSection />
-
-      {/* Secțiunea 7: Instagram */}
-      <InstagramSection />
+      {/* Secțiunea 7: Instagram (hidden until real posts are available) */}
+      {/* <InstagramSection /> */}
 
       {/* Secțiunea 8: Locație */}
       <LocationSection />

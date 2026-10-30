@@ -1,55 +1,54 @@
 import myVideo from '../assets/Video_Atelier.mp4';
+import pozaAtelier from '../assets/A-53.jpg'
 export const HERO_DATA = {
   slogan: "Vizibilitatea ta, viziunea noastră",
   welcomeMessages: [
-    "personalizează-ți acuitatea vizuală cu suportul nostru, analizăm nevoile vizuale,",
-    "construim cele mai corecte variante, avem nevoie de mai mulți ochelari :)",
-    "te așteptăm cu rețeta de la medicul tău, actualizată",
-    "analizăm istoricul, urmărim evoluția"
+    "te așteptăm cu rețeta actualizată, de la medicul tău",
+    "analizăm istoricul, urmărim modificările",
+    "vom discuta despre nevoile tale vizuale ",
+    "activitate uzuală, timp liber, sport"
   ]
 };
 
 export const PROCESS_STEPS = [
   {
     number: "01",
-    title: "Analiza Nevoilor Vizuale",
-    description: "Analiza nevoilor vizuale corelată cu activitatea ta (serviciu, timp liber, sport etc.)",
+    title: "Analiza nevoilor tale vizuale",
+    description: "Începem prin a analiza activitatea ta curentă",
     icon: "Activity"
   },
   {
     number: "02",
-    title: "Alegerea Ramelor",
-    description: "Alegerea ramelor adaptate stilului personal și activităților",
+    title: "Alegerea ramelor",
+    description: "Îți vom selecta o varietate de rame de ochelari, pentru a alege ceea ce te definește și te reprezintă",
     icon: "Glasses"
   },
   {
     number: "03",
-    title: "Alegerea Lentilelor",
-    description: "Alegerea lentilelor tehnologizate conform specificațiilor optice ideale",
+    title: "Despre lentile",
+    description: "Vom analiza împreună activitățiile complexe de zi cu zi",
     icon: "Disc"
   },
   {
     number: "04",
-    title: "Măsurarea Parametrilor",
-    description: "Măsurarea parametrilor personalizați cu rigurozitate milimetrică",
-    icon: "Ruler"
-  },
-  {
-    number: "05",
-    title: "Ajustarea Ramei",
-    description: "Ajustarea anatomică a ramei pentru un confort purtării fără presiune",
+    title: "Ajustarea ramei pentru a o simți confortabil",
     icon: "Sliders"
   },
   {
+    number: "05",
+    title: "Măsurarea parametrilor",
+    description: "Măsurarea parametrilor personalizați, specifici lentilelor pe care le vom selecta",
+    icon: "Ruler"
+  },
+  {
     number: "06",
-    title: "Montarea în Laborator",
-    description: "Montarea lentilelor în laboratorul nostru de înaltă precizie",
+    title: "Montarea lentilelor în laborator propriu",
+    description: "Se vor introduce datele personalizate în vederea optimizării detaliilor personale",
     icon: "Wrench"
   },
   {
     number: "07",
-    title: "Verificarea Parametrilor",
-    description: "Verificarea parametrilor și controlul de calitate la finalizarea ochelarilor",
+    title: "Verificarea monturii, ajustarea și recomandările de utilizare a ochelarului ",
     icon: "CheckCircle2"
   }
 ];
@@ -86,6 +85,17 @@ export const LENS_BRANDS_MAIN = [
     origin: "Franța",
     badge: "Inovație Continuă",
     text: "Essilor: Tradiția și inovația franceză, dedicate unui confort vizual obținut fără cel mai mic efort. Inventatori ai lentilei progresive, Essilor transformă complexitatea științifică într-o experiență vizuală fluidă. Un lux al vederii perfect adaptate, care însoțește un stil de viață exigent cu o discreție tehnologică absolută."
+  },
+
+  {
+    id: "itallenti",
+    name: "ItalLenti",
+    tagline: "Pionieri ai Lentilei Progresive",
+    origin: "Italia",
+    badge: "Inovație Continuă",
+    text: "Catalogul de lentile ITAL-LENTI se caracterizează printr-o amploare și complexitate extremă a gamei de produse: de la lentile progresive de ultimă generație, cu tehnologie FREE-FORM, ultra personalizate până la lentilele monofocale disponibile în toate materialele, trecând prin lentilele degresive, lentile cu asistență acomodativă, lentile fotocromatice, lentile speciale pentru ochelari de sport sau lentile polarizante pentru o vedere optimă în toate activitățile externe.\n" +
+        "\n" +
+        "Există mereu o soluție disponibilă în gama ITAL-LENTI pentru fiecare nevoie vizuală."
   }
 ];
 
@@ -95,6 +105,7 @@ export const FRAME_BRANDS_MAIN = [
   {
     id: "brunello-cucinelli",
     name: "Brunello Cucinelli",
+    featured: true, // Ocupă 2 coloane
     tagline: "Eleganță Subtilă din Solomeo",
     materials: "Corn Natural • Titan • Acetat Fin",
     text: "Brunello Cucinelli: O expresie desăvârșită a filozofiei din Solomeo, unde luxul nu strigă, ci se simte. Ramele Brunello Cucinelli sunt eliberate de orice monogramă ostentativă, prestanța lor fiind trădată exclusiv de noblețea absolută a materialelor: corn natural, titan și acetați fini. O estetică a rafinamentului suprem, dedicată celor care preferă o eleganță asumată, rezervată și invizibilă maselor."
@@ -102,13 +113,31 @@ export const FRAME_BRANDS_MAIN = [
   {
     id: "linda-farrow",
     name: "Linda Farrow",
+    featured: false, // Ocupă 1 coloană (se poziționează în dreapta lui Brunello Cucinelli)
     tagline: "Piese de Moștenire & Detalii din Aur",
     materials: "Acetat Japonez • Aur 22K • Titan",
     text: "Linda Farrow: O reinterpretare a siluetelor iconice ale anilor ’70, transformate în veritabile piese de moștenire. Departe de capriciile modei trecătoare, ramele Linda Farrow se disting prin densitatea excepțională a acetaților japonezi și strălucirea caldă a detaliilor din metale prețioase. Un echilibru perfect între o prezență vizuală marcantă și un rafinament clasic, de o prestanță incontestabilă."
   },
   {
+    id: "henry-jullien",
+    name: "Henry Jullien",
+    featured: true, // Ocupă 2 coloane
+    tagline: "Haute Lunetterie Franceză & Aur Laminat (Doublé Or)",
+    materials: "Aur Laminat (Doublé Or) • Titan Premium • Oțel Aerospațial",
+    text: "Maison Henry Jullien: Fondat în 1921 în regiunea Jura, leagănul opticii franceze, brandul ridică rama de ochelari la rangul de bijuterie fină. Recunoscut la nivel mondial pentru măiestria tehnicii de Aur Laminat (Doublé Or), Henry Jullien îmbină meșteșugul artizanal de patrimoniu cu materiale de înaltă tehnologie pentru un confort și o durabilitate excepțională."
+  },
+  {
+    id: "charriol",
+    name: "Charriol",
+    featured: false, // Ocupă 1 coloană (se poziționează în dreapta lui Henry Jullien)
+    tagline: "Eleganță Elvețiană & Detalii de Prestigiu",
+    materials: "Cablu din Oțel Nobil • Aur 22K • Titan",
+    text: "Charriol: Adresat celor care cunosc și apreciază brandurile de prestigiu, dorind să poarte accesorii remarcabile printr-un stil sofisticat ce combină o mare doză de originalitate, cu echilibrul dintre tradiție și modernitate. Se diferențiază prin calitatea excepțională a finisării suprafețelor, prin juxtapuneri de materiale și texturi."
+  },
+  {
     id: "blackfin",
     name: "Blackfin",
+    featured: false,
     tagline: "Minimalism Arhitectural din Dolomiți",
     materials: "Titan Japonez Pur • Prelucrare Manuală",
     text: "Blackfin: Minimalismul arhitectural ridicat la rang de artă în inima Dolomiților. Ramele Blackfin redefinesc discreția prin puritatea absolută a titanului prelucrat manual. Fără artificii de design sau detalii inutile, ele oferă luxul suprem al imponderabilității și o estetică esențializată, menită să completeze o ținută impecabilă prin rigoare și proporții perfecte."
@@ -116,6 +145,7 @@ export const FRAME_BRANDS_MAIN = [
   {
     id: "alain-mikli",
     name: "Alain Mikli",
+    featured: false,
     tagline: "Identitate Artistică & Eleganță Intelectuală",
     materials: "Acetați Exclusivi • Cromatică Profundă",
     text: "Alain Mikli: O fuziune rară între vocația artistică și rigoarea optică. Creațiile Alain Mikli transcend noțiunea de simplu accesoriu, devenind piese cu o identitate puternică, dar profund rafinată. Prin utilizarea acetaților exclusivi și a nuanțelor profunde, nestridente, aceste rame se adresează spiritelor erudite, care apreciază o formă de eleganță intelectuală și sofisticată."
@@ -123,9 +153,38 @@ export const FRAME_BRANDS_MAIN = [
   {
     id: "charmant",
     name: "Charmant",
+    featured: false,
     tagline: "Luxul Tăcut al Ingineriei Japoneze",
     materials: "Excellence Titan • Ergonomie Sensorială",
     text: "Charmant: Luxul tăcut al ingineriei japoneze de excepție. Artizanii Charmant creează ochelari a căror complexitate tehnologică este ascunsă sub un design de o simplitate dezarmantă. Excelența lor nu este făcută pentru a fi privită, ci pentru a fi purtată: un confort absolut și o flexibilitate inegalabilă, reprezentând o experiență senzorială rezervată exclusiv purtătorului."
+  }
+];
+
+// Branduri de ochelari de soare (afișate sub separatorul "Ochelari de Soare")
+export const SUNGLASS_BRANDS_MAIN = [
+  {
+    id: "miu-miu",
+    name: "Miu Miu",
+    featured: false,
+    tagline: "Avangardă Chic Italiană",
+    materials: "Acetat Sculptural • Cristale • Metal Aurit",
+    text: "Miu Miu: Spiritul nonconformist al casei Prada, tradus într-o estetică jucăușă și profund sofisticată. Ochelarii de soare Miu Miu îmbină geometrii îndrăznețe cu detalii prețioase și finisaje de atelier, creând piese cu o personalitate magnetică. O feminitate modernă, curajoasă și rafinată, pentru cele care tratează stilul ca pe o formă de exprimare personală."
+  },
+  {
+    id: "oakley",
+    name: "Oakley",
+    featured: false,
+    tagline: "Performanță Optică fără Compromis",
+    materials: "O-Matter • Lentile Prizm™ • Aliaje C-5",
+    text: "Oakley: Etalonul mondial al performanței optice sportive, născut în California. Fiecare model Oakley este conceput în jurul preciziei vizuale și al stabilității anatomice, iar tehnologia Prizm™ amplifică contrastul și detaliile pentru o percepție superioară a mediului. Ochelari creați pentru mișcare, rezistență și claritate absolută, indiferent de condiții."
+  },
+  {
+    id: "maui-jim",
+    name: "Maui Jim",
+    featured: false,
+    tagline: "Claritate Polarizată din Hawaii",
+    materials: "Lentile PolarizedPlus2® • Titan • Nylon Premium",
+    text: "Maui Jim: Născut sub soarele intens al insulelor Hawaii, Maui Jim a transformat protecția vizuală într-o experiență senzorială. Tehnologia brevetată PolarizedPlus2® elimină reflexiile și intensifică culorile naturale, dezvăluind lumea în nuanțe vii și contraste profunde. O combinație rară între confort lejer, protecție UV completă și o claritate cu adevărat remarcabilă."
   }
 ];
 
@@ -206,27 +265,6 @@ export const FRAME_BRANDS_EXTRA = [
     category: "Minimalism Ultra-Ușor",
     material: "Titan High-Tech & Polimer SPX",
     desc: "Ochelari fără ramă de o imponderabilitate legendară, precizie anatomică absolută"
-  },
-  {
-    name: "Miu Miu",
-    origin: "Italia",
-    category: "Avangardă Chic",
-    material: "Acetat Sculptural & Cristale",
-    desc: "Creativitate nonconformistă, geometrii îndrăznețe și spirit sofisticat modern"
-  },
-  {
-    name: "Oakley",
-    origin: "SUA",
-    category: "Performanță Sportivă",
-    material: "O-Matter & Aliaje C-5",
-    desc: "Performanță optică sportivă fără compromis, geometrie anatomică de mare stabilitate"
-  },
-  {
-    name: "Henry Jullien",
-    origin: "Franța",
-    category: "Artizanat Istoric Francez",
-    material: "Aur Dublat Laminat & Titan",
-    desc: "Capodopere din aur laminat realizate manual în munții Jura conform tradiției din 1921"
   },
   {
     name: "Persol",
@@ -365,11 +403,9 @@ export const FRAME_BRANDS_EXTRA = [
 
 export const ATELIER_GALLERY = [
   {
-    title: "Centrare 3D și Vizualizare Parametri",
-    subtitle: "Măsurători digitale de precizie sub-milimetrică",
+    title: "Atelierul Beta Optic",
     type: "photo",
-    image: "https://images.unsplash.com/photo-1591076482161-42ce6da69f67?auto=format&fit=crop&w=1200&q=80",
-    detail: "Scanăm poziția pupilară și unghiul pantoscopic în raport cu anatomia feței tale."
+    image: pozaAtelier,
   },
   {
     title: "Laboratorul de Șlefuire Automatizată",
@@ -377,22 +413,7 @@ export const ATELIER_GALLERY = [
     type: "video",
     image: myVideo,
     detail: "Lentilele sunt prelucrate cu diamant sintetic pentru o fixare impecabilă în șanțul ramei."
-  },
-  {
-    title: "Finisare Manuală a Ramei",
-    subtitle: "Ajustări anatomice bespoke",
-    type: "photo",
-    image: "https://images.unsplash.com/photo-1574258495973-f010dfbb5371?auto=format&fit=crop&w=1200&q=80",
-    detail: "Brațele și puntea nazală sunt aduse la echilibrul termic ideal pentru a preveni orice punct de presiune."
-  },
-  {
-    title: "Controlul de Calitate și Verificarea Focalei",
-    subtitle: "Frontofocometrie digitală",
-    type: "photo",
-    image: "https://images.unsplash.com/photo-1577401239170-897942555fb3?auto=format&fit=crop&w=1200&q=80",
-    detail: "Fiecare pereche este supusă la 12 teste stricte de convergență și claritate a tratamentului antireflex."
-  }
-];
+  }];
 
 export const INSTAGRAM_POSTS = [
   {

@@ -60,7 +60,6 @@ npm run preview
 
 ```
 BetaOptic/
-├── public/                 # Static assets
 ├── src/
 │   ├── assets/             # Images and videos
 │   ├── components/         # React UI sections & modals
@@ -72,9 +71,9 @@ BetaOptic/
 │   │   ├── LensBrandsSection.jsx
 │   │   ├── LocationSection.jsx
 │   │   ├── Modals.jsx
-│   │   ├── ProcessTimelineSection.jsx
-│   │   └── QAFormSection.jsx
+│   │   └── ProcessTimelineSection.jsx
 │   ├── data/               # Dynamic data and content
+│   │   ├── brandLogos.js       # Auto-loads logos from assets/brand-logos
 │   │   ├── doctorsData.js
 │   │   └── opticData.js
 │   ├── App.jsx             # Main application component & routing
@@ -82,7 +81,7 @@ BetaOptic/
 │   └── main.jsx            # React root mount
 ├── index.html              # HTML entry point
 ├── package.json            # Scripts & dependencies
-├── vercel.json             # Vercel deployment & SPA routing configuration
+├── vercel.json             # Vercel deployment, SPA routing, security & cache headers
 └── vite.config.js          # Vite configuration
 ```
 
