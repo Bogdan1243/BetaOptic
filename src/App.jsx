@@ -23,14 +23,13 @@ export default function App() {
   const [isFramesModalOpen, setIsFramesModalOpen] = useState(false);
   const [activeOfferTab, setActiveOfferTab] = useState(null);
 
-  const [currentView, setCurrentView] = useState(() => {
-    return getViewFromHash(window.location.hash);
-  });
+  const [currentView, setCurrentView] = useState('home');
 
   useEffect(() => {
     const handleHashChange = () => {
       setCurrentView(getViewFromHash(window.location.hash));
     };
+    handleHashChange();
     window.addEventListener('hashchange', handleHashChange);
     return () => window.removeEventListener('hashchange', handleHashChange);
   }, []);

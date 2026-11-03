@@ -56,7 +56,7 @@ export default function HeroSection({ onOpenDoctors, onOpenOffer, onOpenOutlet }
       {/* Top Ambient Branding Watermark & Top-Right Action Buttons */}
       <header className="relative z-30 w-full pt-8 sm:pt-10 px-6 sm:px-8 md:px-16 flex flex-wrap items-center justify-between gap-4">
         <motion.div
-          initial={{ opacity: 0, y: -10 }}
+          initial={false}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1 }}
           className="flex items-center gap-3"
@@ -78,7 +78,7 @@ export default function HeroSection({ onOpenDoctors, onOpenOffer, onOpenOutlet }
         <nav aria-label="Navigare principală" className="flex flex-wrap items-center gap-2.5 sm:gap-3">
           {/* 1. Medicii Noștri Button */}
           <motion.button
-            initial={{ opacity: 0, y: -10 }}
+            initial={false}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 1, delay: 0.1 }}
             onClick={onOpenDoctors}
@@ -94,7 +94,7 @@ export default function HeroSection({ onOpenDoctors, onOpenOffer, onOpenOutlet }
           {/* 2. Oferte Button with Dropdown */}
           <div className="relative" ref={offersMenuRef}>
             <motion.button
-              initial={{ opacity: 0, y: -10 }}
+              initial={false}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 1, delay: 0.15 }}
               onClick={() => setIsOffersMenuOpen((prev) => !prev)}
@@ -175,7 +175,7 @@ export default function HeroSection({ onOpenDoctors, onOpenOffer, onOpenOutlet }
 
           {/* 3. Outlet Button */}
           <motion.button
-            initial={{ opacity: 0, y: -10 }}
+            initial={false}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 1, delay: 0.2 }}
             onClick={onOpenOutlet}
@@ -192,17 +192,9 @@ export default function HeroSection({ onOpenDoctors, onOpenOffer, onOpenOutlet }
 
       {/* Main Hero Content */}
       <div className="relative z-10 max-w-5xl mx-auto px-6 py-16 md:py-24 text-center flex flex-col items-center justify-center my-auto">
-        {/* Subtle Luxury Tag */}
-        <motion.div
-          initial={{ opacity: 0, scale: 0.9 }}
-          animate={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 0.8, delay: 0.2 }}
-        >
-        </motion.div>
-
         {/* Main Slogan strictly requested */}
         <motion.h1
-          initial={{ opacity: 0, y: 20 }}
+          initial={false}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1, delay: 0.4 }}
           className="serif-title text-5xl sm:text-7xl md:text-8xl lg:text-9xl font-semibold text-[#0F172A] tracking-tight leading-none mb-10 lowercase"
@@ -212,8 +204,8 @@ export default function HeroSection({ onOpenDoctors, onOpenOffer, onOpenOutlet }
 
         {/* Welcoming Statements Grid / Cards */}
         <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 0.8, y: 0 }}
+          initial={false}
+          animate={{ opacity: 0.85, y: 0 }}
           transition={{ duration: 1, delay: 0.6 }}
           className="grid grid-cols-1 md:grid-cols-2 gap-4 max-w-4xl w-full text-left"
         >

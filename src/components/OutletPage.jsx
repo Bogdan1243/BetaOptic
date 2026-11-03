@@ -342,7 +342,7 @@ export default function OutletPage({ onBack }) {
               </div>
 
               {/* Inline Category Selector: Oferta zilei / Oferta săptămânii / Oferta lunii */}
-              <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 p-2 rounded-3xl bg-[#FAF8F5] border border-[#E5DEC9] shadow-xs mb-8">
+              <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 p-2 rounded-3xl bg-[#0F172A] border border-[#0F172A] shadow-lg mb-8">
                 {OUTLET_OFFER_TABS.map((tab) => {
                   const Icon = tab.icon;
                   const isSelected = selectedOfferTab === tab.id;
@@ -350,17 +350,18 @@ export default function OutletPage({ onBack }) {
                       <button
                           key={tab.id}
                           onClick={() => setSelectedOfferTab(tab.id)}
+                          aria-pressed={isSelected}
                           className={`flex items-center gap-3 p-4 rounded-2xl text-left transition-all duration-300 cursor-pointer ${
                               isSelected
-                                  ? 'bg-[#0F172A] text-[#FAF8F5] shadow-md'
-                                  : 'hover:bg-[#F4EFE6] text-[#0F172A]'
+                                  ? 'bg-[#FAF8F5] text-[#0F172A] shadow-md'
+                                  : 'hover:bg-[#FAF8F5]/10 text-[#FAF8F5]'
                           }`}
                       >
                         <div
                             className={`w-10 h-10 rounded-full flex items-center justify-center shrink-0 border ${
                                 isSelected
-                                    ? 'bg-[#FAF8F5]/10 border-[#FAF8F5]/20 text-[#C5A059]'
-                                    : 'bg-[#F4EFE6] border-[#E5DEC9] text-[#C5A059]'
+                                    ? 'bg-[#F4EFE6] border-[#E5DEC9] text-[#C5A059]'
+                                    : 'bg-[#FAF8F5]/10 border-[#FAF8F5]/20 text-[#C5A059]'
                             }`}
                         >
                           <Icon className="w-5 h-5" />
@@ -371,7 +372,7 @@ export default function OutletPage({ onBack }) {
                       </span>
                           <span
                               className={`block text-xs truncate ${
-                                  isSelected ? 'text-[#FAF8F5]/70' : 'text-[#0F172A]/60'
+                                  isSelected ? 'text-[#0F172A]/60' : 'text-[#FAF8F5]/65'
                               }`}
                           >
                         {tab.subtitle}
@@ -390,27 +391,27 @@ export default function OutletPage({ onBack }) {
                     animate={{ opacity: 1, y: 0 }}
                     exit={{ opacity: 0, y: -12 }}
                     transition={{ duration: 0.25 }}
-                    className="rounded-3xl bg-[#FAF8F5] border border-[#E5DEC9] p-8 sm:p-12 shadow-sm text-center max-w-3xl mx-auto space-y-5"
+                    className="rounded-3xl bg-[#0F172A] border border-[#0F172A] p-8 sm:p-12 shadow-2xl text-center max-w-3xl mx-auto space-y-5"
                 >
-                  <div className="w-16 h-16 rounded-full bg-[#F4EFE6] border border-[#E5DEC9] flex items-center justify-center mx-auto text-[#C5A059]">
+                  <div className="w-16 h-16 rounded-full bg-[#FAF8F5]/10 border border-[#FAF8F5]/20 flex items-center justify-center mx-auto text-[#C5A059]">
                     <activeOffer.icon className="w-7 h-7 stroke-[1.5]" />
                   </div>
 
-                  <span className="inline-flex items-center gap-1.5 px-3.5 py-1 rounded-full bg-[#C5A059]/20 text-[#0F172A] text-[11px] uppercase tracking-widest font-bold">
+                  <span className="inline-flex items-center gap-1.5 px-3.5 py-1 rounded-full bg-[#C5A059]/20 border border-[#C5A059]/30 text-[#FAF8F5] text-[11px] uppercase tracking-widest font-bold">
                   <Sparkles className="w-3.5 h-3.5 text-[#C5A059]" />
                     {activeOffer.label} • Outlet
                 </span>
 
-                  <h3 className="serif-title text-3xl sm:text-4xl font-bold text-[#0F172A]">
+                  <h3 className="serif-title text-3xl sm:text-4xl font-bold text-[#FAF8F5]">
                     {activeOffer.title}
                   </h3>
 
-                  <p className="text-sm sm:text-base text-[#0F172A]/80 leading-relaxed max-w-xl mx-auto">
+                  <p className="text-sm sm:text-base text-[#FAF8F5]/80 leading-relaxed max-w-xl mx-auto">
                     {activeOffer.description}
                   </p>
 
                   <div className="pt-4">
-                  <span className="inline-block px-5 py-2.5 rounded-full bg-[#F4EFE6] border border-[#E5DEC9] text-xs uppercase tracking-wider font-semibold text-[#0F172A]/75">
+                  <span className="inline-block px-5 py-2.5 rounded-full bg-[#FAF8F5]/10 border border-[#FAF8F5]/20 text-xs uppercase tracking-wider font-semibold text-[#FAF8F5]/75">
                     Noile postere promoționale pentru {activeOffer.label.toLowerCase()} vor fi afișate aici
                   </span>
                   </div>
