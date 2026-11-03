@@ -152,7 +152,7 @@ export default function OutletPage({ onBack }) {
             <div className="relative w-full h-full overflow-hidden">
               <img
                   src={outletExterior}
-                  alt="Beta Optic Outlet Exterior"
+                  alt="Fațada magazinului Beta Optic Outlet din Timișoara"
                   width="1920"
                   height="1076"
                   fetchPriority="high"
@@ -162,7 +162,7 @@ export default function OutletPage({ onBack }) {
             <div className="relative w-full h-full overflow-hidden hidden md:block">
               <img
                   src={outletInterior}
-                  alt="Beta Optic Outlet Interior"
+                  alt="Interiorul magazinului Beta Optic Outlet din Timișoara"
                   width="1200"
                   height="1600"
                   className="w-full h-full object-cover scale-100 filter brightness-75 contrast-[1.05]"
@@ -174,7 +174,7 @@ export default function OutletPage({ onBack }) {
           </div>
 
           {/* Top Bar inside Hero (matches main page HeroSection, does not follow on scroll) */}
-          <div className="relative z-30 w-full pt-8 sm:pt-10 px-6 sm:px-8 md:px-16 flex flex-wrap items-center justify-between gap-4">
+          <header className="relative z-30 w-full pt-8 sm:pt-10 px-6 sm:px-8 md:px-16 flex flex-wrap items-center justify-between gap-4">
             <motion.button
                 initial={{ opacity: 0, y: -10 }}
                 animate={{ opacity: 1, y: 0 }}
@@ -207,7 +207,7 @@ export default function OutletPage({ onBack }) {
               Pagina Principală
             </span>
             </motion.button>
-          </div>
+          </header>
 
           {/* Hero Foreground Content */}
           <div className="relative z-10 max-w-5xl mx-auto px-6 md:px-16 py-16 md:py-24 text-center flex flex-col items-center justify-center my-auto">
@@ -555,10 +555,10 @@ export default function OutletPage({ onBack }) {
                     </p>
                   </div>
 
-                  <div className="space-y-6 text-sm text-[#FAF8F5]/90">
+                  <address className="not-italic space-y-6 text-sm text-[#FAF8F5]/90">
                     <div className="flex items-start gap-4">
                       <div className="w-10 h-10 rounded-xl bg-[#FAF8F5]/10 flex items-center justify-center text-[#C5A059] flex-none">
-                        <MapPin className="w-5 h-5" />
+                        <MapPin className="w-5 h-5" aria-hidden="true" />
                       </div>
                       <div>
                         <strong className="block text-xs uppercase tracking-wider text-[#FAF8F5]/50 mb-1">
@@ -570,7 +570,7 @@ export default function OutletPage({ onBack }) {
 
                     <div className="flex items-start gap-4">
                       <div className="w-10 h-10 rounded-xl bg-[#FAF8F5]/10 flex items-center justify-center text-[#C5A059] flex-none">
-                        <Clock className="w-5 h-5" />
+                        <Clock className="w-5 h-5" aria-hidden="true" />
                       </div>
                       <div>
                         <strong className="block text-xs uppercase tracking-wider text-[#FAF8F5]/50 mb-1">
@@ -584,7 +584,7 @@ export default function OutletPage({ onBack }) {
 
                     <div className="flex items-start gap-4">
                       <div className="w-10 h-10 rounded-xl bg-[#FAF8F5]/10 flex items-center justify-center text-[#C5A059] flex-none">
-                        <Phone className="w-5 h-5" />
+                        <Phone className="w-5 h-5" aria-hidden="true" />
                       </div>
                       <div>
                         <strong className="block text-xs uppercase tracking-wider text-[#FAF8F5]/50 mb-1">
@@ -601,7 +601,7 @@ export default function OutletPage({ onBack }) {
 
                     <div className="flex items-start gap-4">
                       <div className="w-10 h-10 rounded-xl bg-[#FAF8F5]/10 flex items-center justify-center text-[#C5A059] flex-none">
-                        <Mail className="w-5 h-5" />
+                        <Mail className="w-5 h-5" aria-hidden="true" />
                       </div>
                       <div>
                         <strong className="block text-xs uppercase tracking-wider text-[#FAF8F5]/50 mb-1">
@@ -615,7 +615,7 @@ export default function OutletPage({ onBack }) {
                         </a>
                       </div>
                     </div>
-                  </div>
+                  </address>
                 </div>
 
                 <div className="pt-8 mt-8 border-t border-[#FAF8F5]/15">
@@ -651,12 +651,12 @@ export default function OutletPage({ onBack }) {
             </div>
 
             {/* Footer Copyright */}
-            <div className="mt-20 pt-8 border-t border-[#FAF8F5]/10 text-center text-xs text-[#FAF8F5]/50 flex flex-col sm:flex-row items-center justify-between gap-4">
+            <footer className="mt-20 pt-8 border-t border-[#FAF8F5]/10 text-center text-xs text-[#FAF8F5]/50 flex flex-col sm:flex-row items-center justify-between gap-4">
               <span>© {new Date().getFullYear()} Beta Optic. Toate drepturile rezervate.</span>
               <span className="serif-title text-base font-semibold tracking-widest text-[#FAF8F5]/80 uppercase">
               „Vizibilitatea ta, viziunea noastră”
             </span>
-            </div>
+            </footer>
           </div>
         </section>
 

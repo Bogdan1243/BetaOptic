@@ -30,42 +30,30 @@ export default function ProcessTimelineSection() {
 
         {/* The Text Rows (Your existing text code goes here) */}
         <div className="relative z-10 select-none text-center w-full h-full flex flex-col justify-between py-26 md:py-80">
-
-
-
           <div className="serif-title font-bold text-[#0F172A] tracking-[0.3em] leading-none whitespace-nowrap" style={{ filter: 'blur(0px)' }}>
             <span className="text-6xl md:text-8xl lg:text-7xl">BETA OPTIC</span>
           </div>
-
           <div className="serif-title font-bold text-[#0F172A] tracking-[0.25em] leading-none whitespace-nowrap" style={{ filter: 'blur(0.6px)' }}>
             <span className="text-4xl md:text-6xl lg:text-6xl">BETA OPTIC &nbsp;&nbsp; BETA OPTIC</span>
           </div>
-
           <div className="serif-title font-bold text-[#0F172A] tracking-[0.2em] leading-none whitespace-nowrap" style={{ filter: 'blur(1.2px)' }}>
             <span className="text-3xl md:text-5xl lg:text-5xl">BETA OPTIC &nbsp;&nbsp; BETA OPTIC &nbsp;&nbsp; BETA OPTIC</span>
           </div>
-
           <div className="serif-title font-bold text-[#0F172A] tracking-[0.18em] leading-none whitespace-nowrap" style={{ filter: 'blur(2px)' }}>
             <span className="text-2xl md:text-4xl lg:text-4xl">BETA OPTIC &nbsp; BETA OPTIC &nbsp; BETA OPTIC &nbsp; BETA OPTIC</span>
           </div>
-
           <div className="serif-title font-bold text-[#0F172A] tracking-[0.15em] leading-none whitespace-nowrap" style={{ filter: 'blur(2.5px)' }}>
             <span className="text-xl md:text-3xl lg:text-3xl">BETA OPTIC &nbsp; BETA OPTIC &nbsp; BETA OPTIC &nbsp; BETA OPTIC &nbsp; BETA OPTIC</span>
           </div>
-
           <div className="serif-title font-bold text-[#0F172A] tracking-[0.12em] leading-none whitespace-nowrap" style={{ filter: 'blur(2.7px)' }}>
             <span className="text-lg md:text-2xl lg:text-2xl">BETA OPTIC &nbsp; BETA OPTIC &nbsp; BETA OPTIC &nbsp; BETA OPTIC &nbsp; BETA OPTIC &nbsp; BETA OPTIC</span>
           </div>
-
           <div className="serif-title font-bold text-[#0F172A] tracking-[0.1em] leading-none whitespace-nowrap" style={{ filter: 'blur(2.9px)' }}>
             <span className="text-base md:text-xl lg:text-xl">BETA OPTIC &nbsp; BETA OPTIC &nbsp; BETA OPTIC &nbsp; BETA OPTIC &nbsp; BETA OPTIC &nbsp; BETA OPTIC &nbsp; BETA OPTIC</span>
           </div>
-
-
-
-
-
-
+          <div className="serif-title font-bold text-[#0F172A] tracking-[0.08em] leading-none whitespace-nowrap" style={{ filter: 'blur(3.2px)' }}>
+            <span className="text-sm md:text-lg lg:text-xl">BETA OPTIC &nbsp; BETA OPTIC &nbsp; BETA OPTIC &nbsp; BETA OPTIC &nbsp; BETA OPTIC &nbsp; BETA OPTIC &nbsp; BETA OPTIC &nbsp; BETA OPTIC</span>
+          </div>
         </div>
         {/* Soft vignette overlay for blending edges */}
         <div className="absolute inset-0 bg-radial from-transparent via-[#FAF8F5]/40 to-[#FAF8F5]" />
