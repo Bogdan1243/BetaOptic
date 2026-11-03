@@ -1,6 +1,6 @@
 import React, { useState, useRef, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import heroImage from '../assets/PozaBuna.jpg';
+import heroImage from '../assets/PozaBuna.webp';
 import { Eye, Stethoscope, ArrowRight, Gift, ChevronDown, Clock, Calendar, Store } from 'lucide-react';
 import { HERO_DATA } from '../data/opticData';
 
@@ -43,6 +43,8 @@ export default function HeroSection({ onOpenDoctors, onOpenOffer, onOpenOutlet }
           src={heroImage}
           alt=""
           aria-hidden="true"
+          width="1920"
+          height="1440"
           fetchPriority="high"
           className="w-full h-full object-cover scale-100 filter brightness-80 contrast-[1.05]"
         />

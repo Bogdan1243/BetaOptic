@@ -3,7 +3,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { X, Disc, Glasses, Sparkles, ShieldCheck, Check, Gift, Calendar, Clock } from 'lucide-react';
 import { ATELIER_GALLERY, FRAME_BRANDS_EXTRA } from '../data/opticData';
 import { getBrandLogo } from '../data/brandLogos';
-import ofertaLuniiImage from '../assets/oferta-lunii-nikon.jpg';
+import ofertaLuniiImage from '../assets/oferta-lunii-nikon.webp';
 
 // Extended frame brands grid content for modal
 const ALL_FRAME_BRANDS_GRID = [
@@ -84,6 +84,9 @@ export function AtelierGalleryModal({ isOpen, onClose }) {
                             <img
                                 src={item.image}
                                 alt={item.title}
+                                width="1200"
+                                height="800"
+                                loading="lazy"
                                 className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                             />
                         )}
@@ -159,6 +162,8 @@ export function ExtraFramesModal({ isOpen, onClose }) {
                                 <img
                                     src={getBrandLogo(f.name)}
                                     alt={`Logo ${f.name}`}
+                                    width="32"
+                                    height="32"
                                     className="w-8 h-8 object-contain"
                                     loading="lazy"
                                 />
@@ -300,6 +305,9 @@ export function OffersModal({ isOpen, activeTab = 'luna', onTabChange, onClose }
                   <img
                     src={ofertaLuniiImage}
                     alt="Oferta lunii Nikon - 1+1 Cadou lentile progresive Presio Z"
+                    width="819"
+                    height="1024"
+                    loading="lazy"
                     className="w-full max-h-[62vh] object-contain"
                   />
                 </div>

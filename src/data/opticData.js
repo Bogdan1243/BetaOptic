@@ -1,5 +1,5 @@
 import myVideo from '../assets/Video_Atelier.mp4';
-import pozaAtelier from '../assets/A-53.jpg'
+import pozaAtelier from '../assets/A-53.webp';
 export const HERO_DATA = {
   slogan: "Vizibilitatea ta, viziunea noastră",
   welcomeMessages: [

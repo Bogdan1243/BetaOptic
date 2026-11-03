@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import doctorPlaceholder from '../assets/doctors/doctor-placeholder.jpg';
-import outletExterior from '../assets/outlet-exterior.jpg';
-import outletInterior from '../assets/outlet-interior.jpg';
+import doctorPlaceholder from '../assets/doctors/doctor-placeholder.webp';
+import outletExterior from '../assets/outlet-exterior.webp';
+import outletInterior from '../assets/outlet-interior.webp';
 import {
   ArrowLeft,
   Sparkles,
@@ -60,12 +60,16 @@ export const OUTLET_GALLERY_IMAGES = [
   {
     id: 'outlet-ext',
     src: outletExterior,
+    width: 1920,
+    height: 1076,
     title: 'Fațada Beta Optic Outlet',
     caption: 'Exteriorul showroom-ului Beta Optic Outlet',
   },
   {
     id: 'outlet-int',
     src: outletInterior,
+    width: 1200,
+    height: 1600,
     title: 'Interiorul Beta Optic Outlet',
     caption: 'Spațiu modern de consiliere și expunere a ramelor',
   },
@@ -101,6 +105,9 @@ export default function OutletPage({ onBack }) {
             <img
               src={outletExterior}
               alt="Beta Optic Outlet Exterior"
+              width="1920"
+              height="1076"
+              fetchPriority="high"
               className="w-full h-full object-cover scale-100 filter brightness-75 contrast-[1.05]"
             />
           </div>
@@ -108,6 +115,8 @@ export default function OutletPage({ onBack }) {
             <img
               src={outletInterior}
               alt="Beta Optic Outlet Interior"
+              width="1200"
+              height="1600"
               className="w-full h-full object-cover scale-100 filter brightness-75 contrast-[1.05]"
             />
           </div>
@@ -216,7 +225,7 @@ export default function OutletPage({ onBack }) {
             <span>Cabinet Oftalmologic Outlet</span>
           </div>
           <h2 className="serif-title text-4xl sm:text-5xl font-bold text-[#0F172A] leading-tight mb-4">
-            Medicii Noștri din Outlet
+            Medicii Noștri
           </h2>
           <p className="text-[#0F172A]/75 text-sm sm:text-base font-light">
             Echipa de medici specialiști oftalmologi care oferă consultații în cadrul locației Beta Optic Outlet.
@@ -240,6 +249,9 @@ export default function OutletPage({ onBack }) {
                   <img
                     src={doctorPlaceholder}
                     alt={doctor.name}
+                    width="600"
+                    height="600"
+                    loading="lazy"
                     className="w-full h-full object-contain group-hover:scale-105 transition-transform duration-500"
                   />
                 </div>
@@ -386,6 +398,9 @@ export default function OutletPage({ onBack }) {
               <img
                 src={img.src}
                 alt={img.title}
+                width={img.width || 1200}
+                height={img.height || 900}
+                loading="lazy"
                 className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-[#0F172A]/80 via-transparent to-transparent opacity-85 group-hover:opacity-95 transition-opacity" />

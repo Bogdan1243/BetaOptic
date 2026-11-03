@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { motion } from 'framer-motion';
-import doctorPlaceholder from '../assets/doctors/doctor-placeholder.jpg';
+import doctorPlaceholder from '../assets/doctors/doctor-placeholder.webp';
 import {
   ArrowLeft,
   Calendar,
@@ -182,6 +182,9 @@ export default function DoctorsPage({ onBack }) {
                   <img
                     src={doctorPlaceholder}
                     alt={doctor.name}
+                    width="600"
+                    height="600"
+                    loading="lazy"
                     className="w-full h-full object-contain group-hover:scale-105 transition-transform duration-500"
                   />
                 </div>

@@ -172,6 +172,8 @@ export default function FrameBrandsSection({ onOpenExtraFrames }) {
                           <img
                               src={getBrandLogo(item.name)}
                               alt={`Logo ${item.name}`}
+                              width="32"
+                              height="32"
                               className="w-8 h-8 object-contain"
                               loading="lazy"
                           />
