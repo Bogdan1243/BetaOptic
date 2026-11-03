@@ -131,7 +131,7 @@ export default function DoctorsPage({ onBack }) {
             transition={{ duration: 0.7, delay: 0.1 }}
             className="serif-title text-4xl sm:text-6xl md:text-7xl font-semibold text-[#0F172A] leading-tight mb-6"
           >
-            Medicii și Specialiștii Beta Optic
+            Medici Colaboratori Beta Optic
           </motion.h1>
 
           <motion.p
@@ -140,7 +140,6 @@ export default function DoctorsPage({ onBack }) {
             transition={{ duration: 0.7, delay: 0.2 }}
             className="text-[#0F172A]/80 text-base sm:text-xl font-light max-w-2xl mx-auto leading-relaxed mb-8"
           >
-            O echipă de medici oftalmologi și optometriști dedicați acuității tale vizuale. Combinăm rigoarea diagnosticului medical modern cu arta montajului de precizie.
           </motion.p>
 
           {/* Key Value Badges */}
@@ -157,10 +156,6 @@ export default function DoctorsPage({ onBack }) {
             <div className="px-4 py-2 rounded-full bg-[#FAF8F5] border border-[#0F172A]/15 flex items-center gap-2 shadow-2xs">
               <Award className="w-4 h-4 text-[#C5A059]" />
               <span>Medici Primari & Specialiști Certificați</span>
-            </div>
-            <div className="px-4 py-2 rounded-full bg-[#FAF8F5] border border-[#0F172A]/15 flex items-center gap-2 shadow-2xs">
-              <Sparkles className="w-4 h-4 text-[#C5A059]" />
-              <span>Cabinet Integrat cu Atelierul Nostru</span>
             </div>
           </motion.div>
 

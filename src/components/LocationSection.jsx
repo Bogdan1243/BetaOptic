@@ -1,6 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { MapPin, Phone, Mail, Clock, Navigation, ExternalLink } from 'lucide-react';
+import { MapPin, Phone, Mail, Clock, Navigation, ExternalLink, Smile } from 'lucide-react';
 
 export default function LocationSection() {
   return (
@@ -30,13 +30,17 @@ export default function LocationSection() {
           </motion.h2>
 
           <motion.p
-            initial={{ opacity: 0 }}
-            whileInView={{ opacity: 1 }}
-            viewport={{ once: true }}
-            transition={{ delay: 0.2 }}
-            className="text-[#FAF8F5]/70 text-base md:text-lg font-light"
+              initial={{ opacity: 0 }}
+              whileInView={{ opacity: 1 }}
+              viewport={{ once: true }}
+              transition={{ delay: 0.2 }}
+              className="text-[#FAF8F5]/70 text-base md:text-lg font-light"
           >
-            O atmosferă primitoare, degustare de cafea de origine și servicii dedicate vederii tale.
+            O atmosferă primitoare, cu atenție la detalii și servicii dedicate vederii tale.
+            <Smile
+                strokeWidth={1.25}
+                className="inline-block w-5 h-5 md:w-6 md:h-6 ml-2 -mt-1 text-[#C5A059] align-middle"
+            />
           </motion.p>
         </div>
 
@@ -52,7 +56,7 @@ export default function LocationSection() {
             <div className="space-y-8">
               <div>
                 <h3 className="serif-title text-3xl font-bold text-[#FAF8F5] mb-2">Beta Optic Timișoara</h3>
-                <p className="text-xs uppercase tracking-widest text-[#C5A059]">Atelier & Showroom Flagship</p>
+                <p className="text-xs uppercase tracking-widest text-[#C5A059]">Oftalmologie-Optometrie-Optică medicală-Atelier</p>
               </div>
 
               <div className="space-y-6 text-sm text-[#FAF8F5]/90">
@@ -93,7 +97,7 @@ export default function LocationSection() {
                   </div>
                   <div>
                     <strong className="block text-xs uppercase tracking-wider text-[#FAF8F5]/50 mb-1">Email Oficial</strong>
-                    <a href="mailto:contact@betaoptic.ro" className="hover:text-[#C5A059] transition-colors">contact@betaoptic.ro</a>
+                    <a href="mailto:betaoptic@yahoo.com" className="hover:text-[#C5A059] transition-colors">betaoptic@yahoo.com</a>
                   </div>
                 </div>
               </div>
@@ -122,12 +126,12 @@ export default function LocationSection() {
           >
             {/* Google Maps Embed iframe */}
             <iframe
-              title="Locație Beta Optic Google Maps"
-              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2783.8547802408234!2d21.2251246!3d45.7540572!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47455d7ff8235135%3A0xa3750d3f6ff5eecc!2sBeta%20Optic!5e0!3m2!1sro!2sro!4v1710000000000!5m2!1sro!2sro"
-              className="w-full h-full min-h-[420px] border-0 filter contrast-125 saturate-75 opacity-90"
-              allowFullScreen=""
-              loading="lazy"
-              referrerPolicy="no-referrer-when-downgrade"
+                title="Locație Beta Optic Google Maps"
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d700!2d21.2277049!3d45.7540535!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47455d7ff8235135%3A0xa3750d3f6ff5eecc!2sBeta%20Optic!5e0!3m2!1sro!2sro!4v1710000000000!5m2!1sro!2sro"
+                className="w-full h-full min-h-[420px] border-0 filter contrast-125 saturate-75 opacity-90"
+                allowFullScreen=""
+                loading="lazy"
+                referrerPolicy="no-referrer-when-downgrade"
             />
             
             {/* Soft Pin Card Badge */}

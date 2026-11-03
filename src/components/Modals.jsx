@@ -1,8 +1,9 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { X, Disc, Glasses, Sparkles, ShieldCheck, Check } from 'lucide-react';
+import { X, Disc, Glasses, Sparkles, ShieldCheck, Check, Gift, Calendar, Clock } from 'lucide-react';
 import { ATELIER_GALLERY, FRAME_BRANDS_EXTRA } from '../data/opticData';
 import { getBrandLogo } from '../data/brandLogos';
+import ofertaLuniiImage from '../assets/oferta-lunii-nikon.jpg';
 
 // Extended frame brands grid content for modal
 const ALL_FRAME_BRANDS_GRID = [
@@ -193,5 +194,205 @@ export function ExtraFramesModal({ isOpen, onClose }) {
           </motion.div>
         </div>
       </AnimatePresence>
+  );
+}
+
+const OFFER_TABS = [
+  { id: 'zi', label: 'Oferta zilei', icon: Clock },
+  { id: 'saptamana', label: 'Oferta săptămânii', icon: Calendar },
+  { id: 'luna', label: 'Oferta lunii', icon: Gift, hasActiveOffer: true },
+];
+
+export function OffersModal({ isOpen, activeTab = 'luna', onTabChange, onClose }) {
+  const [selectedTab, setSelectedTab] = useState(activeTab || 'luna');
+
+  useEffect(() => {
+    if (activeTab) {
+      setSelectedTab(activeTab);
+    }
+  }, [activeTab, isOpen]);
+
+  if (!isOpen) return null;
+
+  const handleSelectTab = (tabId) => {
+    setSelectedTab(tabId);
+    if (onTabChange) onTabChange(tabId);
+  };
+
+  return (
+    <AnimatePresence>
+      <div className="fixed inset-0 z-50 flex items-center justify-center p-4 sm:p-6 md:p-10 overflow-y-auto">
+        {/* Backdrop */}
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          exit={{ opacity: 0 }}
+          onClick={onClose}
+          className="fixed inset-0 bg-[#0F172A]/80 backdrop-blur-md"
+        />
+
+        {/* Modal Window */}
+        <motion.div
+          initial={{ opacity: 0, scale: 0.95, y: 20 }}
+          animate={{ opacity: 1, scale: 1, y: 0 }}
+          exit={{ opacity: 0, scale: 0.95, y: 20 }}
+          className="relative w-full max-w-4xl bg-[#FAF8F5] text-[#0F172A] rounded-3xl shadow-2xl overflow-hidden border border-[#E5DEC9] my-auto z-10 max-h-[92vh] flex flex-col"
+        >
+          {/* Modal Header */}
+          <div className="px-6 sm:px-8 py-5 bg-[#F4EFE6] border-b border-[#E5DEC9] flex flex-col gap-4 flex-none">
+            <div className="flex items-center justify-between">
+              <div>
+                <span className="text-xs uppercase tracking-widest font-semibold text-[#C5A059] flex items-center gap-1.5 mb-1">
+                  <Sparkles className="w-3.5 h-3.5" />
+                  Promoții Exclusive Beta Optic
+                </span>
+                <h3 className="serif-title text-2xl sm:text-3xl font-bold text-[#0F172A]">
+                  Ofertele Noastre
+                </h3>
+              </div>
+              <button
+                onClick={onClose}
+                className="w-10 h-10 rounded-full border border-[#0F172A]/20 bg-[#FAF8F5] text-[#0F172A] flex items-center justify-center hover:bg-[#0F172A] hover:text-[#FAF8F5] transition-all cursor-pointer"
+                aria-label="Închide modal"
+              >
+                <X className="w-5 h-5" />
+              </button>
+            </div>
+
+            {/* Category Tabs: Oferta zilei / Oferta săptămânii / Oferta lunii */}
+            <div className="grid grid-cols-3 gap-2 p-1.5 rounded-2xl bg-[#FAF8F5] border border-[#E5DEC9]">
+              {OFFER_TABS.map((tab) => {
+                const Icon = tab.icon;
+                const isActive = selectedTab === tab.id;
+                return (
+                  <button
+                    key={tab.id}
+                    onClick={() => handleSelectTab(tab.id)}
+                    className={`relative flex items-center justify-center gap-2 py-2.5 px-3 rounded-xl text-xs sm:text-sm font-semibold transition-all duration-200 cursor-pointer ${
+                      isActive
+                        ? 'bg-[#0F172A] text-[#FAF8F5] shadow-sm'
+                        : 'text-[#0F172A]/75 hover:text-[#0F172A] hover:bg-[#F4EFE6]/70'
+                    }`}
+                  >
+                    <Icon className={`w-3.5 h-3.5 shrink-0 ${isActive ? 'text-[#C5A059]' : 'text-[#C5A059]'}`} />
+                    <span className="truncate">{tab.label}</span>
+                    {tab.hasActiveOffer && (
+                      <span className="w-2 h-2 rounded-full bg-[#C5A059] shrink-0 animate-pulse" />
+                    )}
+                  </button>
+                );
+              })}
+            </div>
+          </div>
+
+          {/* Modal Body */}
+          <div className="p-6 sm:p-8 overflow-y-auto flex-1">
+            {selectedTab === 'luna' ? (
+              <motion.div
+                key="luna"
+                initial={{ opacity: 0, y: 10 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.3 }}
+                className="grid grid-cols-1 md:grid-cols-12 gap-6 sm:gap-8 items-center"
+              >
+                {/* Offer Poster Image */}
+                <div className="md:col-span-7 rounded-2xl overflow-hidden bg-[#0F172A] border border-[#E5DEC9] shadow-lg flex items-center justify-center">
+                  <img
+                    src={ofertaLuniiImage}
+                    alt="Oferta lunii Nikon - 1+1 Cadou lentile progresive Presio Z"
+                    className="w-full max-h-[62vh] object-contain"
+                  />
+                </div>
+
+                {/* Offer Details */}
+                <div className="md:col-span-5 flex flex-col justify-between space-y-5">
+                  <div className="space-y-4">
+                    <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#C5A059]/20 text-[#0F172A] border border-[#C5A059]/40 text-[11px] uppercase tracking-wider font-bold">
+                      <Gift className="w-3.5 h-3.5 text-[#C5A059]" />
+                      Oferta Lunii • Activă
+                    </span>
+
+                    <h4 className="serif-title text-3xl sm:text-4xl font-bold text-[#0F172A] leading-tight">
+                      Nikon 1+1 Cadou
+                    </h4>
+
+                    <p className="text-sm font-semibold text-[#C5A059] uppercase tracking-wider">
+                      Vezi bine. Economisești inteligent.
+                    </p>
+
+                    <p className="text-sm text-[#0F172A]/85 leading-relaxed">
+                      La achiziția unei perechi de lentile progresive <strong>Nikon Presio Z</strong>, primești <strong>CADOU</strong> încă o pereche de lentile progresive.*
+                    </p>
+
+                    <div className="p-4 rounded-2xl bg-[#F4EFE6] border border-[#E5DEC9] space-y-2 text-xs text-[#0F172A]/80">
+                      <div className="flex items-start gap-2">
+                        <Check className="w-4 h-4 text-[#C5A059] shrink-0 mt-0.5" />
+                        <span>Oferta perfectă pentru o pereche de rezervă sau o a doua ramă!</span>
+                      </div>
+                      <div className="flex items-start gap-2">
+                        <Check className="w-4 h-4 text-[#C5A059] shrink-0 mt-0.5" />
+                        <span>Tehnologia Z Suite Progressives — puterea contrastului și o nouă eră de lentile progresive.</span>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div className="pt-4 border-t border-[#E5DEC9] space-y-1.5 text-[11px] text-[#0F172A]/60 leading-relaxed">
+                    <p>*Acordarea perechii gratuite este condiționată de achiziția unei rame noi din magazinul partener.</p>
+                    <p>*Promoție valabilă până la data de 31 decembrie 2026.</p>
+                  </div>
+                </div>
+              </motion.div>
+            ) : (
+              <motion.div
+                key={selectedTab}
+                initial={{ opacity: 0, y: 10 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.3 }}
+                className="py-12 px-6 text-center max-w-lg mx-auto space-y-5"
+              >
+                <div className="w-16 h-16 rounded-full bg-[#F4EFE6] border border-[#E5DEC9] flex items-center justify-center mx-auto text-[#C5A059]">
+                  {selectedTab === 'zi' ? (
+                    <Clock className="w-7 h-7 stroke-[1.5]" />
+                  ) : (
+                    <Calendar className="w-7 h-7 stroke-[1.5]" />
+                  )}
+                </div>
+
+                <div className="space-y-2">
+                  <span className="text-xs uppercase tracking-widest font-semibold text-[#C5A059]">
+                    {selectedTab === 'zi' ? 'Oferta Zilei' : 'Oferta Săptămânii'}
+                  </span>
+                  <h4 className="serif-title text-3xl font-bold text-[#0F172A]">
+                    În pregătire pentru tine
+                  </h4>
+                  <p className="text-sm text-[#0F172A]/75 leading-relaxed">
+                    Momentan pregătim o nouă surpriză pentru această secțiune. Până atunci, te invităm să descoperi promoția activă a lunii!
+                  </p>
+                </div>
+
+                <button
+                  onClick={() => handleSelectTab('luna')}
+                  className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-[#0F172A] text-[#FAF8F5] text-xs uppercase tracking-widest font-semibold hover:bg-[#C5A059] hover:text-[#0F172A] transition-all cursor-pointer shadow-sm"
+                >
+                  <Gift className="w-4 h-4 text-[#C5A059] group-hover:text-[#0F172A]" />
+                  <span>Vezi Oferta Lunii (Nikon 1+1)</span>
+                </button>
+              </motion.div>
+            )}
+          </div>
+
+          {/* Modal Footer */}
+          <div className="px-6 sm:px-8 py-4 bg-[#F4EFE6] border-t border-[#E5DEC9] flex items-center justify-between flex-none text-xs text-[#0F172A]/70">
+            <span>Te așteptăm în showroom-ul Beta Optic Timișoara pentru detalii</span>
+            <button
+              onClick={onClose}
+              className="px-6 py-2 rounded-full bg-[#0F172A] text-[#FAF8F5] uppercase tracking-wider font-semibold hover:bg-[#C5A059] hover:text-[#0F172A] transition-all cursor-pointer"
+            >
+              Închide
+            </button>
+          </div>
+        </motion.div>
+      </div>
+    </AnimatePresence>
   );
 }

@@ -73,15 +73,7 @@ export default function FrameBrandsSection({ onOpenExtraFrames }) {
 
           {/* Section Header */}
           <div className="text-center max-w-3xl mx-auto mb-20">
-            <motion.div
-                initial={{ opacity: 0, y: 15 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full border border-[#0F172A]/15 bg-[#F4EFE6] text-[#0F172A] text-xs uppercase tracking-widest mb-4"
-            >
-              <Glasses className="w-3.5 h-3.5 text-[#C5A059]" />
-              <span>Colecții Bespoke & Haute Lunetterie</span>
-            </motion.div>
+           
 
             <motion.h2
                 initial={{ opacity: 0, y: 20 }}

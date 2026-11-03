@@ -1,10 +1,39 @@
-import React from 'react';
-import { motion } from 'framer-motion';
-import heroImage from '../assets/Beta_Optic_afara2.webp';
-import { Eye, Stethoscope, ArrowRight } from 'lucide-react';
+import React, { useState, useRef, useEffect } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
+import heroImage from '../assets/PozaBuna.jpg';
+import { Eye, Stethoscope, ArrowRight, Gift, ChevronDown, Clock, Calendar } from 'lucide-react';
 import { HERO_DATA } from '../data/opticData';
 
-export default function HeroSection({ onOpenDoctors }) {
+const OFFER_MENU_ITEMS = [
+  { id: 'zi', label: 'Oferta zilei', subtitle: 'Promoții zilnice', icon: Clock },
+  { id: 'saptamana', label: 'Oferta săptămânii', subtitle: 'Selecția săptămânii', icon: Calendar },
+  { id: 'luna', label: 'Oferta lunii', subtitle: 'Nikon 1+1 Cadou', icon: Gift, badge: 'Activă' },
+];
+
+export default function HeroSection({ onOpenDoctors, onOpenOffer }) {
+  const [isOffersMenuOpen, setIsOffersMenuOpen] = useState(false);
+  const offersMenuRef = useRef(null);
+
+  useEffect(() => {
+    if (!isOffersMenuOpen) return;
+    const handleClickOutside = (e) => {
+      if (offersMenuRef.current && !offersMenuRef.current.contains(e.target)) {
+        setIsOffersMenuOpen(false);
+      }
+    };
+    const handleKeyDown = (e) => {
+      if (e.key === 'Escape') {
+        setIsOffersMenuOpen(false);
+      }
+    };
+    document.addEventListener('mousedown', handleClickOutside);
+    window.addEventListener('keydown', handleKeyDown);
+    return () => {
+      document.removeEventListener('mousedown', handleClickOutside);
+      window.removeEventListener('keydown', handleKeyDown);
+    };
+  }, [isOffersMenuOpen]);
+
   return (
       <section className="relative min-h-[75vh] md:min-h-[80vh] w-full flex flex-col justify-between overflow-hidden bg-[#FAF8F5]">
       {/* Background Image with Subtle Overlay */}
@@ -23,8 +52,8 @@ export default function HeroSection({ onOpenDoctors }) {
         <div className="absolute inset-0 bg-[#0F172A]/10 mix-blend-overlay" />
       </div>
 
-      {/* Top Ambient Branding Watermark & Doctors Button */}
-      <div className="relative z-10 w-full pt-10 px-8 md:px-16 flex items-center justify-between">
+      {/* Top Ambient Branding Watermark & Top-Right Action Buttons */}
+      <div className="relative z-30 w-full pt-8 sm:pt-10 px-6 sm:px-8 md:px-16 flex flex-wrap items-center justify-between gap-4">
         <motion.div
           initial={{ opacity: 0, y: -10 }}
           animate={{ opacity: 1, y: 0 }}
@@ -35,29 +64,114 @@ export default function HeroSection({ onOpenDoctors }) {
             <Eye className="w-5 h-5 stroke-[1.5]" />
           </div>
           <div>
-            <span className="serif-title text-2xl font-bold tracking-widest text-[#0F172A] uppercase">
-              BETA OPTIC
-            </span>
+  <span className="font-[Arial] text-2xl font-bold tracking-widest text-[#0F172A] uppercase">
+    BETA OPTIC
+  </span>
             <span className="block text-[10px] tracking-[0.25em] text-[#0F172A]/70 uppercase font-medium">
-              Timișoara
-            </span>
+    Timișoara
+  </span>
           </div>
         </motion.div>
 
-        {/* Top-Right Button: Access to Doctors Page */}
-        <motion.button
-          initial={{ opacity: 0, y: -10 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 1, delay: 0.15 }}
-          onClick={onOpenDoctors}
-          className="inline-flex items-center gap-2.5 px-5 py-2.5 rounded-full bg-[#FAF8F5]/85 hover:bg-[#0F172A] border border-[#0F172A]/20 hover:border-[#0F172A] backdrop-blur-md text-[#0F172A] hover:text-[#FAF8F5] transition-all duration-300 shadow-sm cursor-pointer group"
-        >
-          <Stethoscope className="w-4 h-4 text-[#C5A059] group-hover:scale-110 transition-transform" />
-          <span className="text-xs uppercase tracking-widest font-semibold">
-            Medicii Noștri
-          </span>
-          <ArrowRight className="w-3.5 h-3.5 opacity-60 group-hover:opacity-100 group-hover:translate-x-1 transition-all" />
-        </motion.button>
+        {/* Top-Right Action Group: Oferte Dropdown + Medicii Noștri */}
+        <div className="flex items-center gap-2.5 sm:gap-3">
+          {/* Oferte Button with Dropdown */}
+          <div className="relative" ref={offersMenuRef}>
+            <motion.button
+              initial={{ opacity: 0, y: -10 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 1, delay: 0.1 }}
+              onClick={() => setIsOffersMenuOpen((prev) => !prev)}
+              aria-expanded={isOffersMenuOpen}
+              aria-haspopup="true"
+              className={`inline-flex items-center gap-2 px-4 sm:px-5 py-2.5 rounded-full border backdrop-blur-md transition-all duration-300 shadow-sm cursor-pointer group ${
+                isOffersMenuOpen
+                  ? 'bg-[#0F172A] border-[#0F172A] text-[#FAF8F5]'
+                  : 'bg-[#FAF8F5]/85 hover:bg-[#0F172A] border-[#0F172A]/20 hover:border-[#0F172A] text-[#0F172A] hover:text-[#FAF8F5]'
+              }`}
+            >
+              <span className="relative flex items-center justify-center">
+                <Gift className="w-4 h-4 text-[#C5A059] group-hover:scale-110 transition-transform" />
+                <span className="absolute -top-0.5 -right-0.5 w-1.5 h-1.5 rounded-full bg-[#C5A059] animate-pulse" />
+              </span>
+              <span className="text-xs uppercase tracking-widest font-semibold">
+                Oferte
+              </span>
+              <ChevronDown
+                className={`w-3.5 h-3.5 opacity-70 transition-transform duration-300 ${
+                  isOffersMenuOpen ? 'rotate-180 opacity-100' : 'group-hover:opacity-100'
+                }`}
+              />
+            </motion.button>
+
+            <AnimatePresence>
+              {isOffersMenuOpen && (
+                <motion.div
+                  initial={{ opacity: 0, y: 8, scale: 0.96 }}
+                  animate={{ opacity: 1, y: 0, scale: 1 }}
+                  exit={{ opacity: 0, y: 8, scale: 0.96 }}
+                  transition={{ duration: 0.2 }}
+                  className="absolute right-0 mt-2.5 w-64 rounded-2xl bg-[#FAF8F5]/95 backdrop-blur-xl border border-[#E5DEC9] shadow-xl p-2 z-40"
+                >
+                  <div className="px-3 py-1.5 border-b border-[#0F172A]/10 mb-1">
+                    <span className="text-[10px] uppercase tracking-widest font-bold text-[#C5A059]">
+                      Alege categoria
+                    </span>
+                  </div>
+                  <div className="space-y-1">
+                    {OFFER_MENU_ITEMS.map((item) => {
+                      const Icon = item.icon;
+                      return (
+                        <button
+                          key={item.id}
+                          onClick={() => {
+                            setIsOffersMenuOpen(false);
+                            if (onOpenOffer) onOpenOffer(item.id);
+                          }}
+                          className="w-full flex items-center justify-between gap-3 px-3 py-2.5 rounded-xl text-left hover:bg-[#0F172A] text-[#0F172A] hover:text-[#FAF8F5] transition-all duration-200 group cursor-pointer"
+                        >
+                          <div className="flex items-center gap-2.5 min-w-0">
+                            <div className="w-8 h-8 rounded-full bg-[#F4EFE6] group-hover:bg-[#FAF8F5]/15 border border-[#E5DEC9] group-hover:border-transparent flex items-center justify-center shrink-0 transition-colors">
+                              <Icon className="w-4 h-4 text-[#C5A059]" />
+                            </div>
+                            <div className="truncate">
+                              <span className="block text-xs font-semibold tracking-wide">
+                                {item.label}
+                              </span>
+                              <span className="block text-[10px] text-[#0F172A]/60 group-hover:text-[#FAF8F5]/75 truncate">
+                                {item.subtitle}
+                              </span>
+                            </div>
+                          </div>
+                          {item.badge && (
+                            <span className="px-2 py-0.5 rounded-full text-[9px] uppercase tracking-wider font-bold bg-[#C5A059] text-[#0F172A] shrink-0">
+                              {item.badge}
+                            </span>
+                          )}
+                        </button>
+                      );
+                    })}
+                  </div>
+                </motion.div>
+              )}
+            </AnimatePresence>
+          </div>
+
+          {/* Top-Right Button: Access to Doctors Page */}
+          <motion.button
+            initial={{ opacity: 0, y: -10 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 1, delay: 0.15 }}
+            onClick={onOpenDoctors}
+            className="inline-flex items-center gap-2 sm:gap-2.5 px-4 sm:px-5 py-2.5 rounded-full bg-[#FAF8F5]/85 hover:bg-[#0F172A] border border-[#0F172A]/20 hover:border-[#0F172A] backdrop-blur-md text-[#0F172A] hover:text-[#FAF8F5] transition-all duration-300 shadow-sm cursor-pointer group"
+          >
+            <Stethoscope className="w-4 h-4 text-[#C5A059] group-hover:scale-110 transition-transform" />
+            <span className="text-xs uppercase tracking-widest font-semibold">
+              Medicii Noștri
+            </span>
+            <ArrowRight className="w-3.5 h-3.5 opacity-60 group-hover:opacity-100 group-hover:translate-x-1 transition-all hidden sm:block" />
+          </motion.button>
+        </div>
       </div>
 
       {/* Main Hero Content */}
