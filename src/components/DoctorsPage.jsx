@@ -164,7 +164,7 @@ export default function DoctorsPage({ onBack }) {
 
       {/* Main Doctors Cards Grid Section */}
       <section className="py-16 px-6 md:px-16 w-full max-w-7xl mx-auto">
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+        <div className="grid grid-cols-1 sm:grid-cols-2 max-w-2xl mx-auto gap-6">
           
           {DOCTORS_DATA.map((doctor, index) => (
             <motion.div

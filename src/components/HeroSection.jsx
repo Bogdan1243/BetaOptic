@@ -1,7 +1,7 @@
 import React, { useState, useRef, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import heroImage from '../assets/PozaBuna.jpg';
-import { Eye, Stethoscope, ArrowRight, Gift, ChevronDown, Clock, Calendar } from 'lucide-react';
+import { Eye, Stethoscope, ArrowRight, Gift, ChevronDown, Clock, Calendar, Store } from 'lucide-react';
 import { HERO_DATA } from '../data/opticData';
 
 const OFFER_MENU_ITEMS = [
@@ -10,7 +10,7 @@ const OFFER_MENU_ITEMS = [
   { id: 'luna', label: 'Oferta lunii', subtitle: 'Nikon 1+1 Cadou', icon: Gift, badge: 'Activă' },
 ];
 
-export default function HeroSection({ onOpenDoctors, onOpenOffer }) {
+export default function HeroSection({ onOpenDoctors, onOpenOffer, onOpenOutlet }) {
   const [isOffersMenuOpen, setIsOffersMenuOpen] = useState(false);
   const offersMenuRef = useRef(null);
 
@@ -73,14 +73,29 @@ export default function HeroSection({ onOpenDoctors, onOpenOffer }) {
           </div>
         </motion.div>
 
-        {/* Top-Right Action Group: Oferte Dropdown + Medicii Noștri */}
-        <div className="flex items-center gap-2.5 sm:gap-3">
-          {/* Oferte Button with Dropdown */}
+        {/* Top-Right Action Group: Medicii Noștri + Oferte Dropdown + Outlet */}
+        <div className="flex flex-wrap items-center gap-2.5 sm:gap-3">
+          {/* 1. Medicii Noștri Button */}
+          <motion.button
+            initial={{ opacity: 0, y: -10 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 1, delay: 0.1 }}
+            onClick={onOpenDoctors}
+            className="inline-flex items-center gap-2 sm:gap-2.5 px-4 sm:px-5 py-2.5 rounded-full bg-[#FAF8F5]/85 hover:bg-[#0F172A] border border-[#0F172A]/20 hover:border-[#0F172A] backdrop-blur-md text-[#0F172A] hover:text-[#FAF8F5] transition-all duration-300 shadow-sm cursor-pointer group"
+          >
+            <Stethoscope className="w-4 h-4 text-[#C5A059] group-hover:scale-110 transition-transform" />
+            <span className="text-xs uppercase tracking-widest font-semibold">
+              Medicii Noștri
+            </span>
+            <ArrowRight className="w-3.5 h-3.5 opacity-60 group-hover:opacity-100 group-hover:translate-x-1 transition-all hidden sm:block" />
+          </motion.button>
+
+          {/* 2. Oferte Button with Dropdown */}
           <div className="relative" ref={offersMenuRef}>
             <motion.button
               initial={{ opacity: 0, y: -10 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 1, delay: 0.1 }}
+              transition={{ duration: 1, delay: 0.15 }}
               onClick={() => setIsOffersMenuOpen((prev) => !prev)}
               aria-expanded={isOffersMenuOpen}
               aria-haspopup="true"
@@ -157,17 +172,17 @@ export default function HeroSection({ onOpenDoctors, onOpenOffer }) {
             </AnimatePresence>
           </div>
 
-          {/* Top-Right Button: Access to Doctors Page */}
+          {/* 3. Outlet Button */}
           <motion.button
             initial={{ opacity: 0, y: -10 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 1, delay: 0.15 }}
-            onClick={onOpenDoctors}
+            transition={{ duration: 1, delay: 0.2 }}
+            onClick={onOpenOutlet}
             className="inline-flex items-center gap-2 sm:gap-2.5 px-4 sm:px-5 py-2.5 rounded-full bg-[#FAF8F5]/85 hover:bg-[#0F172A] border border-[#0F172A]/20 hover:border-[#0F172A] backdrop-blur-md text-[#0F172A] hover:text-[#FAF8F5] transition-all duration-300 shadow-sm cursor-pointer group"
           >
-            <Stethoscope className="w-4 h-4 text-[#C5A059] group-hover:scale-110 transition-transform" />
+            <Store className="w-4 h-4 text-[#C5A059] group-hover:scale-110 transition-transform" />
             <span className="text-xs uppercase tracking-widest font-semibold">
-              Medicii Noștri
+              Outlet
             </span>
             <ArrowRight className="w-3.5 h-3.5 opacity-60 group-hover:opacity-100 group-hover:translate-x-1 transition-all hidden sm:block" />
           </motion.button>

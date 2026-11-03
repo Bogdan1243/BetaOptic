@@ -11,6 +11,9 @@ export const DOCTORS_DATA = [
     title: "Medic Specialist Oftalmolog",
     // schedule: "Marți & Joi: 09:00 - 16:30",
   },
+];
+
+export const OUTLET_DOCTORS_DATA = [
   {
     id: "dr-calaver-iancu-daniela",
     name: "Dr. Calaver Iancu Daniela",
@@ -22,5 +25,11 @@ export const DOCTORS_DATA = [
     name: "Dr. Costache Georgiana Larisa",
     title: "Medic Specialist Oftalmolog",
     // schedule: "Luni - Vineri: 09:00 - 18:00",
-  }
+  },
+  {
+    id: "dr-zinculescu-laura-miruna",
+    name: "Dr. Zinculescu Laura Miruna",
+    title: "Medic Specialist Oftalmolog",
+    // schedule: "Luni - Vineri: 09:00 - 18:00",
+  },
 ];

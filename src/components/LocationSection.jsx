@@ -36,7 +36,7 @@ export default function LocationSection() {
               transition={{ delay: 0.2 }}
               className="text-[#FAF8F5]/70 text-base md:text-lg font-light"
           >
-            O atmosferă primitoare, cu atenție la detalii și servicii dedicate vederii tale.
+            O atmosferă primitoare, cu atenție la detalii tehnice și servicii dedicate optimizării vederii tale.
             <Smile
                 strokeWidth={1.25}
                 className="inline-block w-5 h-5 md:w-6 md:h-6 ml-2 -mt-1 text-[#C5A059] align-middle"
