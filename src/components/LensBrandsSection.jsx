@@ -56,7 +56,7 @@ export default function LensBrandsSection() {
               className="p-8 sm:p-10 rounded-3xl bg-[#F4EFE6]/90 border border-[#E5DEC9] shadow-xs hover:shadow-lg hover:border-[#0F172A]/30 transition-all duration-300 flex flex-col justify-between group relative overflow-hidden"
             >
               {/* Subtle background emblem */}
-              <div className="absolute -right-8 -bottom-8 opacity-5 text-[#0F172A] pointer-events-none font-serif text-9xl uppercase font-bold">
+              <div aria-hidden="true" className="absolute -right-8 -bottom-8 opacity-5 text-[#0F172A] pointer-events-none font-serif text-9xl uppercase font-bold">
                 {brand.name[0]}
               </div>
 

@@ -20,7 +20,7 @@ const renderBrandCard = (brand, index) => {
           }`}
       >
         {/* Subtle background letter mark */}
-        <div className="absolute -right-6 -bottom-6 opacity-5 text-[#0F172A] pointer-events-none font-serif text-9xl uppercase font-bold">
+        <div aria-hidden="true" className="absolute -right-6 -bottom-6 opacity-5 text-[#0F172A] pointer-events-none font-serif text-9xl uppercase font-bold">
           {brand.name[0]}
         </div>
 
@@ -127,9 +127,9 @@ export default function FrameBrandsSection({ onOpenExtraFrames }) {
           <div className="p-8 rounded-3xl bg-[#F4EFE6] border border-[#E5DEC9]">
             <div className="flex items-center justify-between mb-6">
               <div>
-                <h4 className="serif-title text-2xl font-semibold text-[#0F172A]">
+                <h3 className="serif-title text-2xl font-semibold text-[#0F172A]">
                   Alte Branduri de Rame Premium
-                </h4>
+                </h3>
                 <p className="text-xs text-[#0F172A]/70">
                   Case de design internaționale disponibile pentru probă fizică
                 </p>
@@ -164,7 +164,7 @@ export default function FrameBrandsSection({ onOpenExtraFrames }) {
                       className="flex-none min-w-[240px] p-4 rounded-xl bg-[#FAF8F5] border border-[#0F172A]/10 hover:border-[#0F172A]/30 transition-all flex items-center justify-between"
                   >
                     <div>
-                      <h5 className="serif-title text-lg font-bold text-[#0F172A]">{item.name}</h5>
+                      <h4 className="serif-title text-lg font-bold text-[#0F172A]">{item.name}</h4>
                       <span className="text-[11px] text-[#0F172A]/60 block">{item.origin}</span>
                     </div>
                     <div className="w-12 h-12 rounded-full bg-white border border-[#0F172A]/10 flex items-center justify-center text-[#0F172A] overflow-hidden shrink-0 ml-3">

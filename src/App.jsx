@@ -70,30 +70,31 @@ export default function App() {
 
   return (
     <div className="w-full min-h-screen bg-[#FAF8F5] text-[#0F172A] selection:bg-[#0F172A] selection:text-[#FAF8F5] font-sans antialiased overflow-x-hidden">
-      
-      {/* Secțiunea 1: Hero / Introducere */}
-      <HeroSection
-        onOpenDoctors={() => navigateTo('doctors')}
-        onOpenOffer={(tab) => setActiveOfferTab(tab || 'luna')}
-        onOpenOutlet={() => navigateTo('outlet')}
-      />
+      <main>
+        {/* Secțiunea 1: Hero / Introducere */}
+        <HeroSection
+          onOpenDoctors={() => navigateTo('doctors')}
+          onOpenOffer={(tab) => setActiveOfferTab(tab || 'luna')}
+          onOpenOutlet={() => navigateTo('outlet')}
+        />
 
-      {/* Secțiunea 2: Pașii către o viziune mai bună (Optotip Blur-Focus + Horizontal Timeline) */}
-      <ProcessTimelineSection />
+        {/* Secțiunea 2: Pașii către o viziune mai bună (Optotip Blur-Focus + Horizontal Timeline) */}
+        <ProcessTimelineSection />
 
-      {/* Secțiunea 3: Atelierul Nostru */}
-      <AtelierSection onOpenGallery={() => setIsGalleryOpen(true)} />
+        {/* Secțiunea 3: Atelierul Nostru */}
+        <AtelierSection onOpenGallery={() => setIsGalleryOpen(true)} />
 
-      {/* Secțiunea 4: Branduri Lentile + Pictograme */}
-      <LensBrandsSection />
+        {/* Secțiunea 4: Branduri Lentile + Pictograme */}
+        <LensBrandsSection />
 
-      {/* Secțiunea 5: Branduri Rame + Pictograme */}
-      <FrameBrandsSection onOpenExtraFrames={() => setIsFramesModalOpen(true)} />
+        {/* Secțiunea 5: Branduri Rame + Pictograme */}
+        <FrameBrandsSection onOpenExtraFrames={() => setIsFramesModalOpen(true)} />
 
-      {/* Secțiunea 7: Instagram (hidden until real posts are available) */}
-      {/* <InstagramSection /> */}
+        {/* Secțiunea 7: Instagram (hidden until real posts are available) */}
+        {/* <InstagramSection /> */}
+      </main>
 
-      {/* Secțiunea 8: Locație */}
+      {/* Secțiunea 8: Locație & Footer */}
       <LocationSection />
 
       {/* Modal Pop-ups for Sections 1, 3, 4, and 5 */}

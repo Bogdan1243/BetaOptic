@@ -181,7 +181,7 @@ export default function DoctorsPage({ onBack }) {
                 <div className="w-full aspect-square rounded-2xl overflow-hidden bg-white border border-[#E5DEC9] flex items-center justify-center p-6 mb-5 shadow-2xs group-hover:border-[#0F172A]/20 transition-colors">
                   <img
                     src={doctorPlaceholder}
-                    alt={doctor.name}
+                    alt={`Portret ilustrativ — ${doctor.name}, ${doctor.title} la Beta Optic Timișoara`}
                     width="600"
                     height="600"
                     loading="lazy"

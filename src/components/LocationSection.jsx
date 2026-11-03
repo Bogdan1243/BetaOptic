@@ -59,10 +59,10 @@ export default function LocationSection() {
                 <p className="text-xs uppercase tracking-widest text-[#C5A059]">Oftalmologie-Optometrie-Optică medicală-Atelier</p>
               </div>
 
-              <div className="space-y-6 text-sm text-[#FAF8F5]/90">
+              <address className="not-italic space-y-6 text-sm text-[#FAF8F5]/90">
                 <div className="flex items-start gap-4">
                   <div className="w-10 h-10 rounded-xl bg-[#FAF8F5]/10 flex items-center justify-center text-[#C5A059] flex-none">
-                    <MapPin className="w-5 h-5" />
+                    <MapPin className="w-5 h-5" aria-hidden="true" />
                   </div>
                   <div>
                     <strong className="block text-xs uppercase tracking-wider text-[#FAF8F5]/50 mb-1">Adresă Sediu Principal</strong>
@@ -72,7 +72,7 @@ export default function LocationSection() {
 
                 <div className="flex items-start gap-4">
                   <div className="w-10 h-10 rounded-xl bg-[#FAF8F5]/10 flex items-center justify-center text-[#C5A059] flex-none">
-                    <Clock className="w-5 h-5" />
+                    <Clock className="w-5 h-5" aria-hidden="true" />
                   </div>
                   <div>
                     <strong className="block text-xs uppercase tracking-wider text-[#FAF8F5]/50 mb-1">Program Programări & Consult</strong>
@@ -83,7 +83,7 @@ export default function LocationSection() {
 
                 <div className="flex items-start gap-4">
                   <div className="w-10 h-10 rounded-xl bg-[#FAF8F5]/10 flex items-center justify-center text-[#C5A059] flex-none">
-                    <Phone className="w-5 h-5" />
+                    <Phone className="w-5 h-5" aria-hidden="true" />
                   </div>
                   <div>
                     <strong className="block text-xs uppercase tracking-wider text-[#FAF8F5]/50 mb-1">Telefon & WhatsApp</strong>
@@ -93,14 +93,14 @@ export default function LocationSection() {
 
                 <div className="flex items-start gap-4">
                   <div className="w-10 h-10 rounded-xl bg-[#FAF8F5]/10 flex items-center justify-center text-[#C5A059] flex-none">
-                    <Mail className="w-5 h-5" />
+                    <Mail className="w-5 h-5" aria-hidden="true" />
                   </div>
                   <div>
                     <strong className="block text-xs uppercase tracking-wider text-[#FAF8F5]/50 mb-1">Email Oficial</strong>
-                    <a href="mailto:betaoptic@yahoo.com" className="hover:text-[#C5A059] transition-colors">betaoptic@yahoo.com</a>
+                    <a href="mailto:contact@betaoptic.ro" className="hover:text-[#C5A059] transition-colors">contact@betaoptic.ro</a>
                   </div>
                 </div>
-              </div>
+              </address>
             </div>
 
             <div className="pt-8 mt-8 border-t border-[#FAF8F5]/15">
@@ -141,12 +141,12 @@ export default function LocationSection() {
         </div>
 
         {/* Footer Copyright */}
-        <div className="mt-20 pt-8 border-t border-[#FAF8F5]/10 text-center text-xs text-[#FAF8F5]/50 flex flex-col sm:flex-row items-center justify-between gap-4">
+        <footer className="mt-20 pt-8 border-t border-[#FAF8F5]/10 text-center text-xs text-[#FAF8F5]/50 flex flex-col sm:flex-row items-center justify-between gap-4">
           <span>© {new Date().getFullYear()} Beta Optic. Toate drepturile rezervate.</span>
           <span className="serif-title text-base font-semibold tracking-widest text-[#FAF8F5]/80 uppercase">
             „Vizibilitatea ta, viziunea noastră”
           </span>
-        </div>
+        </footer>
 
       </div>
     </section>

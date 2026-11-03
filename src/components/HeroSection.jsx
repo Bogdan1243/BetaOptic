@@ -41,8 +41,7 @@ export default function HeroSection({ onOpenDoctors, onOpenOffer, onOpenOutlet }
         {/* Storefront photo with subtle dark/beige ambient overlay */}
         <img
           src={heroImage}
-          alt=""
-          aria-hidden="true"
+          alt="Fațada și vitrina magazinului de optică medicală Beta Optic din Timișoara"
           width="1920"
           height="1440"
           fetchPriority="high"
@@ -55,7 +54,7 @@ export default function HeroSection({ onOpenDoctors, onOpenOffer, onOpenOutlet }
       </div>
 
       {/* Top Ambient Branding Watermark & Top-Right Action Buttons */}
-      <div className="relative z-30 w-full pt-8 sm:pt-10 px-6 sm:px-8 md:px-16 flex flex-wrap items-center justify-between gap-4">
+      <header className="relative z-30 w-full pt-8 sm:pt-10 px-6 sm:px-8 md:px-16 flex flex-wrap items-center justify-between gap-4">
         <motion.div
           initial={{ opacity: 0, y: -10 }}
           animate={{ opacity: 1, y: 0 }}
@@ -63,20 +62,20 @@ export default function HeroSection({ onOpenDoctors, onOpenOffer, onOpenOutlet }
           className="flex items-center gap-3"
         >
           <div className="w-10 h-10 rounded-full border border-[#0F172A]/30 flex items-center justify-center bg-[#FAF8F5]/60 backdrop-blur-md text-[#0F172A]">
-            <Eye className="w-5 h-5 stroke-[1.5]" />
+            <Eye className="w-5 h-5 stroke-[1.5]" aria-hidden="true" />
           </div>
           <div>
-  <span className="font-[Arial] text-2xl font-bold tracking-widest text-[#0F172A] uppercase">
-    BETA OPTIC
-  </span>
+            <span className="font-[Arial] text-2xl font-bold tracking-widest text-[#0F172A] uppercase">
+              BETA OPTIC
+            </span>
             <span className="block text-[10px] tracking-[0.25em] text-[#0F172A]/70 uppercase font-medium">
-    Timișoara
-  </span>
+              Timișoara
+            </span>
           </div>
         </motion.div>
 
         {/* Top-Right Action Group: Medicii Noștri + Oferte Dropdown + Outlet */}
-        <div className="flex flex-wrap items-center gap-2.5 sm:gap-3">
+        <nav aria-label="Navigare principală" className="flex flex-wrap items-center gap-2.5 sm:gap-3">
           {/* 1. Medicii Noștri Button */}
           <motion.button
             initial={{ opacity: 0, y: -10 }}
@@ -188,8 +187,8 @@ export default function HeroSection({ onOpenDoctors, onOpenOffer, onOpenOutlet }
             </span>
             <ArrowRight className="w-3.5 h-3.5 opacity-60 group-hover:opacity-100 group-hover:translate-x-1 transition-all hidden sm:block" />
           </motion.button>
-        </div>
-      </div>
+        </nav>
+      </header>
 
       {/* Main Hero Content */}
       <div className="relative z-10 max-w-5xl mx-auto px-6 py-16 md:py-24 text-center flex flex-col items-center justify-center my-auto">
