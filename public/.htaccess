@@ -1,0 +1,51 @@
+<IfModule mod_rewrite.c>
+  RewriteEngine On
+  RewriteBase /
+
+  # 1. Redirect www.betaoptic.ro to non-www https://betaoptic.ro (301)
+  RewriteCond %{HTTP_HOST} ^www\.betaoptic\.ro$ [NC]
+  RewriteRule ^(.*)$ https://betaoptic.ro/$1 [R=301,L]
+
+  # 2. Force HTTPS with a 301 redirect
+  RewriteCond %{HTTPS} !=on
+  RewriteCond %{HTTP:X-Forwarded-Proto} !https [NC]
+  RewriteRule ^(.*)$ https://%{HTTP_HOST}/$1 [R=301,L]
+
+  # 3. SPA fallback: do not rewrite existing files (robots.txt, sitemap.xml, og-image.jpg, /assets/*) or directories
+  RewriteRule ^index\.html$ - [L]
+  RewriteCond %{REQUEST_FILENAME} !-f
+  RewriteCond %{REQUEST_FILENAME} !-d
+  RewriteRule . /index.html [L]
+</IfModule>
+
+# Enable Gzip / Deflate compression for text-based resources
+<IfModule mod_deflate.c>
+  AddOutputFilterByType DEFLATE text/html text/plain text/css text/xml application/xml application/xhtml+xml application/rss+xml application/javascript application/x-javascript application/ld+json application/json image/svg+xml font/ttf font/otf font/woff font/woff2
+</IfModule>
+
+# Cache-Control headers:
+# - Hashed assets in /assets/ get 1 year immutable cache
+# - index.html gets no-cache so deployments take effect immediately
+<IfModule mod_headers.c>
+  <FilesMatch "\.(html|htm)$">
+    Header set Cache-Control "no-cache, no-store, must-revalidate"
+    Header set Pragma "no-cache"
+    Header set Expires "0"
+  </FilesMatch>
+
+  # Long-term immutable cache for fingerprinted Vite assets in /assets/
+  SetEnvIf Request_URI "^/assets/" IS_HASHED_ASSET
+  Header set Cache-Control "public, max-age=31536000, immutable" env=IS_HASHED_ASSET
+</IfModule>
+
+<IfModule mod_expires.c>
+  ExpiresActive On
+  ExpiresByType text/html "access plus 0 seconds"
+  ExpiresByType text/css "access plus 1 year"
+  ExpiresByType application/javascript "access plus 1 year"
+  ExpiresByType image/webp "access plus 1 year"
+  ExpiresByType image/jpeg "access plus 1 month"
+  ExpiresByType image/png "access plus 1 year"
+  ExpiresByType image/svg+xml "access plus 1 year"
+  ExpiresByType video/mp4 "access plus 1 year"
+</IfModule>
