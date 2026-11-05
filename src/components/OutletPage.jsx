@@ -177,11 +177,17 @@ export default function OutletPage({ onBack }) {
 
           {/* Top Bar inside Hero (matches main page HeroSection, does not follow on scroll) */}
           <header className="relative z-30 w-full pt-8 sm:pt-10 px-6 sm:px-8 md:px-16 flex flex-wrap items-center justify-between gap-4">
-            <motion.button
+            <motion.a
+                href="/"
                 initial={{ opacity: 0, y: -10 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 1 }}
-                onClick={onBack}
+                onClick={(e) => {
+                  if (!e.metaKey && !e.ctrlKey && !e.shiftKey && !e.altKey && e.button === 0) {
+                    e.preventDefault();
+                    if (onBack) onBack();
+                  }
+                }}
                 className="flex items-center gap-3 text-left cursor-pointer"
             >
               <div className="w-10 h-10 rounded-full border border-[#0F172A]/30 flex items-center justify-center bg-[#FAF8F5]/60 backdrop-blur-md text-[#0F172A]">
@@ -195,20 +201,26 @@ export default function OutletPage({ onBack }) {
                 Outlet Timișoara
               </span>
               </div>
-            </motion.button>
+            </motion.a>
 
-            <motion.button
+            <motion.a
+                href="/"
                 initial={{ opacity: 0, y: -10 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 1, delay: 0.1 }}
-                onClick={onBack}
+                onClick={(e) => {
+                  if (!e.metaKey && !e.ctrlKey && !e.shiftKey && !e.altKey && e.button === 0) {
+                    e.preventDefault();
+                    if (onBack) onBack();
+                  }
+                }}
                 className="inline-flex items-center gap-2 sm:gap-2.5 px-4 sm:px-5 py-2.5 rounded-full bg-[#FAF8F5]/85 hover:bg-[#0F172A] border border-[#0F172A]/20 hover:border-[#0F172A] backdrop-blur-md text-[#0F172A] hover:text-[#FAF8F5] transition-all duration-300 shadow-sm cursor-pointer group"
             >
               <ArrowLeft className="w-4 h-4 text-[#C5A059] group-hover:-translate-x-1 transition-transform" />
               <span className="text-xs uppercase tracking-widest font-semibold">
               Pagina Principală
             </span>
-            </motion.button>
+            </motion.a>
           </header>
 
           {/* Hero Foreground Content */}

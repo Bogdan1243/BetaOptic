@@ -1,3 +1,5 @@
+DirectoryIndex index.html
+
 <IfModule mod_rewrite.c>
   RewriteEngine On
   RewriteBase /
@@ -11,7 +13,11 @@
   RewriteCond %{HTTP:X-Forwarded-Proto} !https [NC]
   RewriteRule ^(.*)$ https://%{HTTP_HOST}/$1 [R=301,L]
 
-  # 3. SPA fallback: do not rewrite existing files (robots.txt, sitemap.xml, og-image.jpg, /assets/*) or directories
+  # 3. Serve prerendered sub-routes directly (with or without trailing slash)
+  RewriteRule ^outlet/?$ /outlet/index.html [L]
+  RewriteRule ^medici/?$ /medici/index.html [L]
+
+  # 4. SPA fallback: do not rewrite existing files (robots.txt, sitemap.xml, og-image.jpg, /assets/*) or directories
   RewriteRule ^index\.html$ - [L]
   RewriteCond %{REQUEST_FILENAME} !-f
   RewriteCond %{REQUEST_FILENAME} !-d
@@ -25,7 +31,7 @@
 
 # Cache-Control headers:
 # - Hashed assets in /assets/ get 1 year immutable cache
-# - index.html gets no-cache so deployments take effect immediately
+# - HTML files get no-cache so deployments take effect immediately
 <IfModule mod_headers.c>
   <FilesMatch "\.(html|htm)$">
     Header set Cache-Control "no-cache, no-store, must-revalidate"

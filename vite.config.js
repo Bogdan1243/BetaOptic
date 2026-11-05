@@ -2,9 +2,23 @@ import { defineConfig } from 'vite'
 import react from '@vitejs/plugin-react'
 import tailwindcss from '@tailwindcss/vite'
 
+const prerenderRoutesPreviewPlugin = () => ({
+  name: 'prerender-routes-preview',
+  configurePreviewServer(server) {
+    server.middlewares.use((req, _res, next) => {
+      if (req.url === '/outlet' || req.url === '/outlet/') {
+        req.url = '/outlet/index.html'
+      } else if (req.url === '/medici' || req.url === '/medici/') {
+        req.url = '/medici/index.html'
+      }
+      next()
+    })
+  },
+})
+
 // https://vite.dev/config/
 export default defineConfig(({ isSsrBuild }) => ({
-  plugins: [react(), tailwindcss()],
+  plugins: [react(), tailwindcss(), prerenderRoutesPreviewPlugin()],
   build: {
     rollupOptions: isSsrBuild
       ? {}

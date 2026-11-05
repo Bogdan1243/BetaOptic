@@ -78,11 +78,17 @@ export default function HeroSection({ onOpenDoctors, onOpenOffer, onOpenOutlet }
         {/* Top-Right Action Group: Medicii Noștri + Oferte Dropdown + Outlet */}
         <nav aria-label="Navigare principală" className="flex flex-wrap items-center gap-2.5 sm:gap-3">
           {/* 1. Medicii Noștri Button */}
-          <motion.button
+          <motion.a
+            href="/medici"
             initial={{ opacity: 0, y: -10 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 1, delay: 0.1 }}
-            onClick={onOpenDoctors}
+            onClick={(e) => {
+              if (!e.metaKey && !e.ctrlKey && !e.shiftKey && !e.altKey && e.button === 0) {
+                e.preventDefault();
+                if (onOpenDoctors) onOpenDoctors();
+              }
+            }}
             className="inline-flex items-center gap-2 sm:gap-2.5 px-4 sm:px-5 py-2.5 rounded-full bg-[#FAF8F5]/85 hover:bg-[#0F172A] border border-[#0F172A]/20 hover:border-[#0F172A] backdrop-blur-md text-[#0F172A] hover:text-[#FAF8F5] transition-all duration-300 shadow-sm cursor-pointer group"
           >
             <Stethoscope className="w-4 h-4 text-[#C5A059] group-hover:scale-110 transition-transform" />
@@ -90,7 +96,7 @@ export default function HeroSection({ onOpenDoctors, onOpenOffer, onOpenOutlet }
               Medicii Noștri
             </span>
             <ArrowRight className="w-3.5 h-3.5 opacity-60 group-hover:opacity-100 group-hover:translate-x-1 transition-all hidden sm:block" />
-          </motion.button>
+          </motion.a>
 
           {/* 2. Oferte Button with Dropdown */}
           <div className="relative" ref={offersMenuRef}>
@@ -175,11 +181,17 @@ export default function HeroSection({ onOpenDoctors, onOpenOffer, onOpenOutlet }
           </div>
 
           {/* 3. Outlet Button */}
-          <motion.button
+          <motion.a
+            href="/outlet"
             initial={{ opacity: 0, y: -10 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 1, delay: 0.2 }}
-            onClick={onOpenOutlet}
+            onClick={(e) => {
+              if (!e.metaKey && !e.ctrlKey && !e.shiftKey && !e.altKey && e.button === 0) {
+                e.preventDefault();
+                if (onOpenOutlet) onOpenOutlet();
+              }
+            }}
             className="inline-flex items-center gap-2 sm:gap-2.5 px-4 sm:px-5 py-2.5 rounded-full bg-[#FAF8F5]/85 hover:bg-[#0F172A] border border-[#0F172A]/20 hover:border-[#0F172A] backdrop-blur-md text-[#0F172A] hover:text-[#FAF8F5] transition-all duration-300 shadow-sm cursor-pointer group"
           >
             <Store className="w-4 h-4 text-[#C5A059] group-hover:scale-110 transition-transform" />
@@ -187,7 +199,7 @@ export default function HeroSection({ onOpenDoctors, onOpenOffer, onOpenOutlet }
               Outlet
             </span>
             <ArrowRight className="w-3.5 h-3.5 opacity-60 group-hover:opacity-100 group-hover:translate-x-1 transition-all hidden sm:block" />
-          </motion.button>
+          </motion.a>
         </nav>
       </header>
 

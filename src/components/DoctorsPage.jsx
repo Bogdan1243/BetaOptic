@@ -80,18 +80,30 @@ export default function DoctorsPage({ onBack }) {
           
           {/* Back Button + Brand Logo */}
           <div className="flex items-center gap-4 sm:gap-6">
-            <button
-              onClick={onBack}
+            <a
+              href="/"
+              onClick={(e) => {
+                if (!e.metaKey && !e.ctrlKey && !e.shiftKey && !e.altKey && e.button === 0) {
+                  e.preventDefault();
+                  if (onBack) onBack();
+                }
+              }}
               className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-[#0F172A]/20 bg-[#F4EFE6] hover:bg-[#0F172A] hover:text-[#FAF8F5] text-xs uppercase tracking-wider font-semibold transition-all duration-300 shadow-xs group cursor-pointer"
             >
               <ArrowLeft className="w-3.5 h-3.5 text-[#C5A059] group-hover:text-[#FAF8F5] group-hover:-translate-x-1 transition-transform" />
               <span>Pagina Principală</span>
-            </button>
+            </a>
 
             <div className="h-6 w-px bg-[#0F172A]/15 hidden sm:block" />
 
-            <button
-              onClick={onBack}
+            <a
+              href="/"
+              onClick={(e) => {
+                if (!e.metaKey && !e.ctrlKey && !e.shiftKey && !e.altKey && e.button === 0) {
+                  e.preventDefault();
+                  if (onBack) onBack();
+                }
+              }}
               className="flex items-center gap-2.5 text-left cursor-pointer group"
             >
               <div className="w-8 h-8 rounded-full border border-[#0F172A]/30 flex items-center justify-center bg-[#FAF8F5] text-[#0F172A] group-hover:border-[#C5A059] transition-colors">
@@ -105,7 +117,7 @@ export default function DoctorsPage({ onBack }) {
                   Timișoara
                 </span>
               </div>
-            </button>
+            </a>
           </div>
 
         </div>

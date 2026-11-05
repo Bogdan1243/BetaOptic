@@ -11,26 +11,55 @@ import DoctorsPage from './components/DoctorsPage';
 import OutletPage from './components/OutletPage';
 import { AtelierGalleryModal, ExtraFramesModal, OffersModal } from './components/Modals';
 
-function getViewFromHash(hash) {
+export const PAGE_TITLES = {
+  home: 'Beta Optic: Optică Medicală, Consult Oftalmologic Timișoara',
+  outlet: 'Beta Optic Outlet Timișoara: Rame, Ochelari de Soare & Consult Oftalmologic',
+  doctors: 'Medici Oftalmologi Colaboratori — Beta Optic Timișoara',
+};
+
+export function getViewFromLocation(pathname = '/', hash = '') {
+  const cleanPath = pathname.replace(/\/+$/, '') || '/';
+  if (cleanPath === '/medici') return 'doctors';
+  if (cleanPath === '/outlet') return 'outlet';
   if (hash === '#medici') return 'doctors';
   if (hash === '#outlet' || hash.startsWith('#outlet-')) return 'outlet';
   return 'home';
 }
 
-export default function App() {
+export function getPathForView(view) {
+  if (view === 'doctors') return '/medici';
+  if (view === 'outlet') return '/outlet';
+  return '/';
+}
+
+export default function App({ initialView = 'home' }) {
   const [isGalleryOpen, setIsGalleryOpen] = useState(false);
   const [isFramesModalOpen, setIsFramesModalOpen] = useState(false);
   const [activeOfferTab, setActiveOfferTab] = useState(null);
 
-  const [currentView, setCurrentView] = useState('home');
+  const [currentView, setCurrentView] = useState(initialView);
 
   useEffect(() => {
-    const handleHashChange = () => {
-      setCurrentView(getViewFromHash(window.location.hash));
+    const syncViewFromUrl = () => {
+      const { pathname, hash } = window.location;
+      const view = getViewFromLocation(pathname, hash);
+
+      // Upgrade legacy hash URLs (#outlet, #medici) to clean paths
+      if (hash === '#medici' || hash === '#outlet') {
+        window.history.replaceState({}, '', getPathForView(view));
+      }
+
+      setCurrentView(view);
+      document.title = PAGE_TITLES[view] || PAGE_TITLES.home;
     };
-    handleHashChange();
-    window.addEventListener('hashchange', handleHashChange);
-    return () => window.removeEventListener('hashchange', handleHashChange);
+
+    syncViewFromUrl();
+    window.addEventListener('popstate', syncViewFromUrl);
+    window.addEventListener('hashchange', syncViewFromUrl);
+    return () => {
+      window.removeEventListener('popstate', syncViewFromUrl);
+      window.removeEventListener('hashchange', syncViewFromUrl);
+    };
   }, []);
 
   // Close any open modal with the Escape key
@@ -48,15 +77,13 @@ export default function App() {
   }, [isGalleryOpen, isFramesModalOpen, activeOfferTab]);
 
   const navigateTo = (view) => {
-    if (view === 'doctors') {
-      window.location.hash = 'medici';
-    } else if (view === 'outlet') {
-      window.location.hash = 'outlet';
-    } else {
-      window.location.hash = '';
-      window.scrollTo({ top: 0, behavior: 'smooth' });
+    const targetPath = getPathForView(view);
+    if (window.location.pathname !== targetPath || window.location.hash) {
+      window.history.pushState({}, '', targetPath);
     }
     setCurrentView(view);
+    document.title = PAGE_TITLES[view] || PAGE_TITLES.home;
+    window.scrollTo({ top: 0, behavior: 'smooth' });
   };
 
   if (currentView === 'doctors') {
