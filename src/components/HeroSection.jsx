@@ -210,6 +210,8 @@ export default function HeroSection({ onOpenDoctors, onOpenOffer, onOpenOutlet }
           „{HERO_DATA.slogan}”
         </motion.h1>
 
+        <h2 className="sr-only">Întrebări despre vizita la Beta Optic</h2>
+
         {/* Welcoming Statements Grid / Cards */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
@@ -217,17 +219,22 @@ export default function HeroSection({ onOpenDoctors, onOpenOffer, onOpenOutlet }
           transition={{ duration: 1, delay: 0.6 }}
           className="grid grid-cols-1 md:grid-cols-2 gap-4 max-w-4xl w-full text-left"
         >
-          {HERO_DATA.welcomeMessages.map((msg, index) => (
+          {HERO_DATA.cards.map((card, index) => (
             <div
               key={index}
               className="p-6 rounded-2xl bg-[#FAF8F5]/90 border border-[#0F172A]/10 shadow-sm backdrop-blur-md hover:border-[#0F172A]/30 transition-all duration-300 flex items-start gap-4 group"
             >
               <span className="serif-title text-xl font-medium text-[#C5A059] group-hover:scale-110 transition-transform">
-                0{index + 1}
+                {String(index + 1).padStart(2, '0')}
               </span>
-              <p className="text-[#0F172A]/90 text-sm md:text-base leading-relaxed font-normal">
-                "{msg}"
-              </p>
+              <div>
+                <h3 className="text-[#0F172A]/90 text-sm md:text-base leading-relaxed font-semibold">
+                  {card.question}
+                </h3>
+                <p className="text-[#0F172A]/90 text-sm md:text-base leading-relaxed font-normal">
+                  {card.answer}
+                </p>
+              </div>
             </div>
           ))}
         </motion.div>

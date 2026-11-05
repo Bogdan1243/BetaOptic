@@ -2,11 +2,46 @@ import myVideo from '../assets/Video_Atelier.mp4';
 import pozaAtelier from '../assets/A-53.webp';
 export const HERO_DATA = {
   slogan: "Vizibilitatea ta, viziunea noastră",
-  welcomeMessages: [
-    "te așteptăm cu rețeta actualizată, de la medicul tău",
-    "analizăm istoricul, urmărim modificările",
-    "vom discuta despre nevoile tale vizuale în activitatea ta zilnică, timp liber, sport, etc. ",
-    "Lentilele tale, personalizate, se vor prelucra, conform rețetei și parametrilor oculari la producătorii de lentile selecționați și se vor monta în ramă în atelierul nostru."
+  // Carduri afișate în secțiunea Hero (câte 4 pe pagină).
+  // Pentru a păstra paginile complete în carusel, adaugă sau șterge carduri în multipli de 4 (ex: 4, 8, 12).
+  // Fiecare card are forma { question: "...", answer: "..." }.
+  cards: [
+    // DE VERIFICAT: Adaugă prețul consultului oftalmologic/optometric și eventualele condiții de gratuitate la achiziția ochelarilor sau decontare CNAS.
+    {
+      question: "Am nevoie de rețetă ca să îmi fac ochelari?",
+      answer: "Te așteptăm cu rețeta actualizată de la medicul tău sau poți efectua consultul direct în cabinetul nostru oftalmologic din Timișoara, alături de Dr. Gherman Cristiana și Dr. Oroș Nicoleta."
+    },
+    {
+      question: "Ce trebuie să aduc la consultul oftalmologic?",
+      answer: "Îți recomandăm să aduci ochelarii actuali și rețetele anterioare. Analizăm istoricul tău vizual și urmărim modificările dioptriilor în timp, pentru o prescripție cât mai precisă."
+    },
+    {
+      question: "Cum aleg lentilele potrivite pentru mine?",
+      answer: "Alegem lentilele împreună, discutând despre nevoile tale vizuale zilnice: lucrul la calculator, condusul, cititul, timpul liber sau sportul, pentru o soluție optică adaptată stilului tău de viață."
+    },
+    {
+      question: "Unde se realizează lentilele și cine le montează?",
+      answer: "Lentilele tale personalizate se prelucrează conform rețetei și parametrilor oculari la producătorii selecționați, apoi se montează în ramă în atelierul nostru propriu, cu echipamente Nidek și Essilor Mr. Blue."
+    },
+    // DE VERIFICAT: Adaugă timpul mediu de așteptare pentru o programare la consultul oftalmologic.
+    {
+      question: "Cum mă programez și care este programul?",
+      answer: "Te poți programa telefonic sau pe WhatsApp la +40 721 316 224 ori în sediul de pe Strada Lucian Blaga 7, Timișoara, de luni până vineri (09:00–18:00) și sâmbăta (09:00–13:00)."
+    },
+    // DE VERIFICAT: Adaugă numărul exact de zile lucrătoare pentru lentilele pe stoc și pentru lentilele personalizate de comandă / progresive.
+    {
+      question: "În cât timp sunt gata ochelarii comandați?",
+      answer: "Timpul de realizare depinde de tipul lentilelor alese, monofocale sau progresive personalizate. Deoarece șlefuirea și montajul se fac în laboratorul nostru propriu din Timișoara, predarea este rapidă și atent verificată."
+    },
+    {
+      question: "Ce branduri de lentile și rame găsesc la Beta Optic?",
+      answer: "Colaborăm cu Nikon — ca unici parteneri oficiali în Timișoara —, Zeiss, Hoya, Essilor și ItalLenti, iar portofoliul de rame include Brunello Cucinelli, Linda Farrow, Henry Jullien, Blackfin, Miu Miu, Maui Jim, Tom Ford și Ray-Ban."
+    },
+    // DE VERIFICAT: Adaugă perioada exactă de garanție comercială (ex. 24 luni) pentru rame și tratamentele lentilelor.
+    {
+      question: "Oferiți garanție și ajustarea ramelor după achiziție?",
+      answer: "Da, toate ramele și lentilele achiziționate la Beta Optic beneficiază de garanție oficială conform standardului ISO 8980, precum și de serviciul gratuit de ajustare anatomică și verificare a monturii în atelierul nostru."
+    }
   ]
 };
 
