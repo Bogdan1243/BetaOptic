@@ -3,6 +3,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 import heroImage from '../assets/PozaBuna.webp';
 import { Eye, Stethoscope, ArrowRight, Gift, ChevronDown, Clock, Calendar, Store } from 'lucide-react';
 import { HERO_DATA } from '../data/opticData';
+import CardCarousel from './CardCarousel';
 
 const OFFER_MENU_ITEMS = [
   { id: 'zi', label: 'Oferta zilei', subtitle: 'Promoții zilnice', icon: Clock },
@@ -213,31 +214,10 @@ export default function HeroSection({ onOpenDoctors, onOpenOffer, onOpenOutlet }
         <h2 className="sr-only">Întrebări despre vizita la Beta Optic</h2>
 
         {/* Welcoming Statements Grid / Cards */}
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 0.8, y: 0 }}
-          transition={{ duration: 1, delay: 0.6 }}
-          className="grid grid-cols-1 md:grid-cols-2 gap-4 max-w-4xl w-full text-left"
-        >
-          {HERO_DATA.cards.map((card, index) => (
-            <div
-              key={index}
-              className="p-6 rounded-2xl bg-[#FAF8F5]/90 border border-[#0F172A]/10 shadow-sm backdrop-blur-md hover:border-[#0F172A]/30 transition-all duration-300 flex items-start gap-4 group"
-            >
-              <span className="serif-title text-xl font-medium text-[#C5A059] group-hover:scale-110 transition-transform">
-                {String(index + 1).padStart(2, '0')}
-              </span>
-              <div>
-                <h3 className="text-[#0F172A]/90 text-sm md:text-base leading-relaxed font-semibold">
-                  {card.question}
-                </h3>
-                <p className="text-[#0F172A]/90 text-sm md:text-base leading-relaxed font-normal">
-                  {card.answer}
-                </p>
-              </div>
-            </div>
-          ))}
-        </motion.div>
+        <CardCarousel
+          cards={HERO_DATA.cards}
+          label="Întrebări și răspunsuri despre vizita la Beta Optic"
+        />
       </div>
 
 
