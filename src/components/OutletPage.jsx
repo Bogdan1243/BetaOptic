@@ -24,6 +24,8 @@ import {
   Smile,
 } from 'lucide-react';
 import { OUTLET_DOCTORS_DATA } from '../data/doctorsData';
+import { OUTLET_HERO_DATA } from '../data/opticData';
+import CardCarousel from './CardCarousel';
 
 const OUTLET_OFFER_TABS = [
   {
@@ -244,7 +246,7 @@ export default function OutletPage({ onBack }) {
                 initial={{ opacity: 0, scale: 0.95 }}
                 animate={{ opacity: 1, scale: 1 }}
                 transition={{ duration: 0.7, delay: 0.3 }}
-                className="flex flex-wrap items-center justify-center gap-3 sm:gap-4 text-xs font-semibold text-[#0F172A]/90"
+                className="flex flex-wrap items-center justify-center gap-3 sm:gap-4 text-xs font-semibold text-[#0F172A]/90 mb-10"
             >
               <div className="px-4 py-2 rounded-full bg-[#FAF8F5]/90 backdrop-blur-md border border-[#0F172A]/15 flex items-center gap-2 shadow-xs">
                 <Stethoscope className="w-4 h-4 text-[#C5A059]" />
@@ -259,6 +261,13 @@ export default function OutletPage({ onBack }) {
                 <span>Calitate Garantată Beta Optic</span>
               </div>
             </motion.div>
+
+            <h2 className="sr-only">Întrebări despre Beta Optic Outlet Timișoara</h2>
+
+            <CardCarousel
+              cards={OUTLET_HERO_DATA.cards}
+              label="Întrebări și răspunsuri despre Beta Optic Outlet Timișoara"
+            />
           </div>
         </section>
 

@@ -45,6 +45,48 @@ export const HERO_DATA = {
   ]
 };
 
+export const OUTLET_HERO_DATA = {
+  // Carduri afișate în secțiunea Hero a paginii Outlet (câte 4 pe pagină).
+  // Adaugă sau șterge carduri în multipli de 4 (ex: 4, 8, 12) pentru pagini complete.
+  cards: [
+    {
+      question: "Ce este Beta Optic Outlet și ce găsesc aici?",
+      answer: "Beta Optic Outlet este showroom-ul nostru din Timișoara unde găsești colecții de rame de vedere și ochelari de soare atent selecționate la prețuri speciale de outlet, alături de propriul cabinet oftalmologic."
+    },
+    {
+      question: "Unde se află Beta Optic Outlet și ce program are?",
+      answer: "Showroom-ul Beta Optic Outlet se află pe Strada Paris 2a, 300003 Timișoara. Te așteptăm de luni până vineri în intervalul orar 10:00–18:00 (sâmbăta și duminica este închis)."
+    },
+    // DE VERIFICAT: Adaugă prețul consultului oftalmologic în locația Outlet și eventualele reduceri la achiziția ochelarilor.
+    {
+      question: "Se fac consultații oftalmologice și în locația Outlet?",
+      answer: "Da, Beta Optic Outlet dispune de propriul cabinet oftalmologic, unde oferă consultații medicii specialiști oftalmologi Dr. Calaver Iancu Daniela, Dr. Costache Georgiana Larisa și Dr. Zinculescu Laura Miruna."
+    },
+    // DE VERIFICAT: Adaugă procentul de reducere sau exemple concrete de promoții active în Outlet.
+    {
+      question: "Ce promoții și oferte găsesc la Beta Optic Outlet?",
+      answer: "În showroom pregătim constant trei categorii de promoții dedicate exclusiv acestei locații: Oferta Zilei la rame și ochelari de soare, Oferta Săptămânii cu pachete rame plus lentile și Oferta Lunii."
+    },
+    {
+      question: "Cum mă pot programa la Beta Optic Outlet?",
+      answer: "Pentru programări la consultul oftalmologic sau informații despre colecțiile disponibile în Outlet, ne poți contacta telefonic ori pe WhatsApp la 0748 241 952 sau prin email la betaoptic@yahoo.com."
+    },
+    {
+      question: "Pot comanda ochelari compleți cu lentile personalizate în Outlet?",
+      answer: "Da, ramele alese în Outlet pot fi echipate cu lentile oftalmice personalizate conform rețetei tale, prelucrate și montate cu precizie în atelierul propriu Beta Optic din Timișoara."
+    },
+    // DE VERIFICAT: Adaugă perioada exactă de garanție pentru ramele și lentilele achiziționate în Outlet.
+    {
+      question: "Ramele din Outlet au aceeași calitate și garanție?",
+      answer: "Absolut: toate ramele de vedere, ochelarii de soare și lentilele din Beta Optic Outlet sunt originale și beneficiază de aceeași calitate garantată, consiliere de specialitate și montaj verificat Beta Optic."
+    },
+    {
+      question: "Care este diferența dintre sediul central și Beta Optic Outlet?",
+      answer: "Sediul de pe Str. Lucian Blaga 7 reunește colecțiile actuale de lux și atelierul de montaj, iar Outlet-ul de pe Str. Paris 2a oferă colecții selecționate la prețuri speciale și cabinet oftalmologic propriu."
+    }
+  ]
+};
+
 export const PROCESS_STEPS = [
   {
     number: "01",
