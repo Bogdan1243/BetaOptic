@@ -298,10 +298,10 @@ export default function OutletPage({ onBack }) {
                 <span>Cabinet Oftalmologic Outlet</span>
               </div>
               <h2 className="serif-title text-4xl sm:text-5xl font-bold text-[#0F172A] leading-tight mb-4">
-                Medicii Noștri
+                Medicii Colaboratori
               </h2>
               <p className="text-[#0F172A]/75 text-sm sm:text-base font-light">
-                Echipa de medici specialiști oftalmologi care oferă consultații în cadrul locației Beta Optic Outlet.
+                Un hub de medici tineri, specialiști oftalmologi care oferă consultații în cadrul locației Beta Optic Outlet.
               </p>
             </div>
 

@@ -9,7 +9,7 @@ export const HERO_DATA = {
     // DE VERIFICAT: Adaugă prețul consultului oftalmologic/optometric și eventualele condiții de gratuitate la achiziția ochelarilor sau decontare CNAS.
     {
       question: "Am nevoie de rețetă ca să îmi fac ochelari?",
-      answer: "Te așteptăm cu rețeta actualizată de la medicul tău sau poți efectua consultul direct în cabinetul nostru oftalmologic din Timișoara, alături de Dr. Gherman Cristiana și Dr. Oroș Nicoleta."
+      answer: "Te așteptăm cu rețeta actualizată de la medicul tău sau putem programa un consult în cabinetul nostru la Dr. Gherman Cristiana sau Dr. Oroș Nicoleta."
     },
     {
       question: "Ce trebuie să aduc la consultul oftalmologic?",
@@ -17,21 +17,21 @@ export const HERO_DATA = {
     },
     {
       question: "Cum aleg lentilele potrivite pentru mine?",
-      answer: "Alegem lentilele împreună, discutând despre nevoile tale vizuale zilnice: lucrul la calculator, condusul, cititul, timpul liber sau sportul, pentru o soluție optică adaptată stilului tău de viață."
+      answer: "Alegem lentilele împreună, discutând despre nevoile tale vizuale zilnice: lucrul la calculator, condusul, cititul, timpul liber sau sportul, pentru o soluție optică adaptată stilului tău de viață potrivit."
     },
     {
       question: "Unde se realizează lentilele și cine le montează?",
-      answer: "Lentilele tale personalizate se prelucrează conform rețetei și parametrilor oculari la producătorii selecționați, apoi se montează în ramă în atelierul nostru propriu, cu echipamente Nidek și Essilor Mr. Blue."
+      answer: "Lentilele se personalizează introducând datele din prescripție și măsurătorile individuale. Montajul lentilelor comandate se face în atelierul nostru propriu, cu echipamente Nidek și Essilor Mr. Blue."
     },
     // DE VERIFICAT: Adaugă timpul mediu de așteptare pentru o programare la consultul oftalmologic.
     {
       question: "Cum mă programez și care este programul?",
-      answer: "Te poți programa telefonic sau pe WhatsApp la +40 721 316 224 ori în sediul de pe Strada Lucian Blaga 7, Timișoara, de luni până vineri (09:00–18:00) și sâmbăta (09:00–13:00)."
+      answer: "Te poți programa telefonic la: +40 721 316 224 ori în sediul de pe Strada Lucian Blaga 7, Timișoara, de luni până vineri (09:00–18:00) și sâmbăta (09:00–13:00)."
     },
     // DE VERIFICAT: Adaugă numărul exact de zile lucrătoare pentru lentilele pe stoc și pentru lentilele personalizate de comandă / progresive.
     {
       question: "În cât timp sunt gata ochelarii comandați?",
-      answer: "Timpul de realizare depinde de tipul lentilelor alese, monofocale sau progresive personalizate. Deoarece șlefuirea și montajul se fac în laboratorul nostru propriu din Timișoara, predarea este rapidă și atent verificată."
+      answer: "Timpul alocat finalizării comenzii depinde de tipul lentilelor alese. Deoarece montajul se face în laboratorul nostru propriu din Timișoara, predarea este rapidă și atent verificată."
     },
     {
       question: "Ce branduri de lentile și rame găsesc la Beta Optic?",
@@ -51,7 +51,7 @@ export const OUTLET_HERO_DATA = {
   cards: [
     {
       question: "Ce este Beta Optic Outlet și ce găsesc aici?",
-      answer: "Beta Optic Outlet este showroom-ul nostru din Timișoara unde găsești colecții de rame de vedere și ochelari de soare atent selecționate la prețuri speciale de outlet, alături de propriul cabinet oftalmologic."
+      answer: "Beta Optic Outlet este showroom-ul nostru din Timișoara unde găsești colecții de rame de vedere și ochelari de soare atent selecționate la prețuri speciale de outlet."
     },
     {
       question: "Unde se află Beta Optic Outlet și ce program are?",
@@ -65,11 +65,11 @@ export const OUTLET_HERO_DATA = {
     // DE VERIFICAT: Adaugă procentul de reducere sau exemple concrete de promoții active în Outlet.
     {
       question: "Ce promoții și oferte găsesc la Beta Optic Outlet?",
-      answer: "În showroom pregătim constant trei categorii de promoții dedicate exclusiv acestei locații: Oferta Zilei la rame și ochelari de soare, Oferta Săptămânii cu pachete rame plus lentile și Oferta Lunii."
+      answer: "Rame începând de la 100 de lei, iar în lunile Noiembrie și Decembrie beneficiați de consult gratuit."
     },
     {
       question: "Cum mă pot programa la Beta Optic Outlet?",
-      answer: "Pentru programări la consultul oftalmologic sau informații despre colecțiile disponibile în Outlet, ne poți contacta telefonic ori pe WhatsApp la 0748 241 952 sau prin email la betaoptic@yahoo.com."
+      answer: "Te poți programa telefonic la: +40 748 241 952 ori în sediul de pe Strada Paris 2a, Timișoara, de luni până vineri (10:00–18:00)."
     },
     {
       question: "Pot comanda ochelari compleți cu lentile personalizate în Outlet?",

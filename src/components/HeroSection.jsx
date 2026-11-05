@@ -93,7 +93,7 @@ export default function HeroSection({ onOpenDoctors, onOpenOffer, onOpenOutlet }
           >
             <Stethoscope className="w-4 h-4 text-[#C5A059] group-hover:scale-110 transition-transform" />
             <span className="text-xs uppercase tracking-widest font-semibold">
-              Medicii Noștri
+              Medicii Colaboratori
             </span>
             <ArrowRight className="w-3.5 h-3.5 opacity-60 group-hover:opacity-100 group-hover:translate-x-1 transition-all hidden sm:block" />
           </motion.a>
