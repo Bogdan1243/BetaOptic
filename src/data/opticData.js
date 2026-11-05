@@ -5,8 +5,8 @@ export const HERO_DATA = {
   welcomeMessages: [
     "te așteptăm cu rețeta actualizată, de la medicul tău",
     "analizăm istoricul, urmărim modificările",
-    "vom discuta despre nevoile tale vizuale ",
-    "activitate uzuală, timp liber, sport"
+    "vom discuta despre nevoile tale vizuale în activitatea ta zilnică, timp liber, sport, etc. ",
+    "Lentilele tale, personalizate, se vor prelucra, conform rețetei și parametrilor oculari la producătorii de lentile selecționați și se vor monta în ramă în atelierul nostru."
   ]
 };
 
@@ -443,44 +443,5 @@ export const INSTAGRAM_POSTS = [
     caption: "Imponderabilitate din Dolomiți. Blackfin Titanium — doar 9 grame de rafinament arhitectural. #BlackfinEyewear",
     likes: "529",
     comments: "33"
-  }
-];
-
-export const FAQ_ITEMS = [
-  {
-    id: "faq-programare",
-    question: "Cum mă pot programa pentru un consult oftalmologic la Beta Optic Timișoara?",
-    answer:
-      "Te poți programa telefonic sau pe WhatsApp la numărul +40 (721) 316 224, prin email la contact@betaoptic.ro sau direct în sediul nostru de pe Strada Lucian Blaga 7, Timișoara, de luni până vineri între orele 09:00–18:00 și sâmbătă între 09:00–13:00. [DE COMPLETAT: detalii suplimentare despre programare și timpul de așteptare]"
-  },
-  {
-    id: "faq-pret-consult",
-    question: "Care este prețul unui consult oftalmologic sau optometric?",
-    answer:
-      "Tariful pentru consultație este [DE COMPLETAT: preț consult oftalmologic / optometric]. [DE COMPLETAT: condiții de gratuitate sau reducere la achiziția unei perechi complete de ochelari]."
-  },
-  {
-    id: "faq-decontare-cnas",
-    question: "Decontați consultații sau ochelari prin Casa de Asigurări de Sănătate (CNAS) ori carduri de beneficii?",
-    answer:
-      "[DE COMPLETAT: detalii despre decontare CNAS / bilete de trimitere / plata în rate sau carduri de beneficii]."
-  },
-  {
-    id: "faq-timp-executie",
-    question: "În cât timp sunt gata ochelarii comandați?",
-    answer:
-      "Montajul lentilelor se realizează în laboratorul nostru propriu din Timișoara, dotat cu echipamente Nidek și Essilor Mr. Blue. Termenul de execuție este de [DE COMPLETAT: timp de execuție pentru lentile pe stoc] pentru lentilele aflate în stoc și [DE COMPLETAT: timp de livrare și montaj pentru lentile de comandă / progresive] pentru lentilele personalizate de comandă."
-  },
-  {
-    id: "faq-branduri",
-    question: "Ce branduri de lentile oftalmice și rame găsesc la Beta Optic?",
-    answer:
-      "Colaborăm cu producători de lentile oftalmice precum Nikon (fiind singurii parteneri oficiali Nikon din Timișoara), Hoya, Zeiss, Essilor și ItalLenti. Portofoliul nostru de rame de vedere și ochelari de soare include case precum Brunello Cucinelli, Linda Farrow, Henry Jullien, Charriol, Blackfin, Alain Mikli, Charmant, Miu Miu, Oakley, Maui Jim și multe altele."
-  },
-  {
-    id: "faq-garantie",
-    question: "Oferiți garanție și servicii de ajustare pentru ochelari?",
-    answer:
-      "Toate ramele și lentilele achiziționate de la Beta Optic beneficiază de garanție oficială de [DE COMPLETAT: perioadă și condiții de garanție pentru rame și lentile], precum și de serviciul gratuit de ajustare anatomică a ramelor în atelierul nostru."
   }
 ];

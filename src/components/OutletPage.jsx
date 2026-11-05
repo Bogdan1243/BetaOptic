@@ -152,7 +152,7 @@ export default function OutletPage({ onBack }) {
             <div className="relative w-full h-full overflow-hidden">
               <img
                   src={outletExterior}
-                  alt="Fațada magazinului Beta Optic Outlet din Timișoara"
+                  alt="Fațada și vitrina showroom-ului Beta Optic Outlet de pe Strada Paris 2a din Timișoara"
                   width="1920"
                   height="1076"
                   fetchPriority="high"
@@ -162,7 +162,7 @@ export default function OutletPage({ onBack }) {
             <div className="relative w-full h-full overflow-hidden hidden md:block">
               <img
                   src={outletInterior}
-                  alt="Interiorul magazinului Beta Optic Outlet din Timișoara"
+                  alt="Interiorul showroom-ului Beta Optic Outlet Timișoara cu zona de consiliere și expunere a ramelor"
                   width="1200"
                   height="1600"
                   className="w-full h-full object-cover scale-100 filter brightness-75 contrast-[1.05]"

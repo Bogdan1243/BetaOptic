@@ -4,7 +4,6 @@ import ProcessTimelineSection from './components/ProcessTimelineSection';
 import AtelierSection from './components/AtelierSection';
 import LensBrandsSection from './components/LensBrandsSection';
 import FrameBrandsSection from './components/FrameBrandsSection';
-import FaqSection from './components/FaqSection';
 // InstagramSection is hidden until real posts are available (re-enable import + JSX below)
 // import InstagramSection from './components/InstagramSection';
 import LocationSection from './components/LocationSection';
@@ -89,9 +88,6 @@ export default function App() {
 
         {/* Secțiunea 5: Branduri Rame + Pictograme */}
         <FrameBrandsSection onOpenExtraFrames={() => setIsFramesModalOpen(true)} />
-
-        {/* Secțiunea 6: Întrebări Frecvente (FAQ) */}
-        <FaqSection />
 
         {/* Secțiunea 7: Instagram (hidden until real posts are available) */}
         {/* <InstagramSection /> */}
