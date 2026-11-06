@@ -3,15 +3,10 @@ import { motion } from 'framer-motion';
 import doctorPlaceholder from '../assets/doctors/doctor-placeholder.webp';
 import {
   ArrowLeft,
-  Calendar,
-  Clock,
   Award,
-  Sparkles,
   ShieldCheck,
   CheckCircle2,
   Eye,
-  MapPin,
-  MessageCircle,
   Send,
   Stethoscope,
 } from 'lucide-react';
@@ -35,14 +30,19 @@ export default function DoctorsPage({ onBack }) {
     setBookingSuccess(false);
   };
 
-  // Close the booking modal with the Escape key
+  // Close the booking modal with the Escape key and lock body scroll while open
   useEffect(() => {
     if (!selectedDoctorForModal) return;
+    const prevOverflow = document.body.style.overflow;
+    document.body.style.overflow = 'hidden';
     const onKeyDown = (e) => {
       if (e.key === 'Escape') closeBookingModal();
     };
     window.addEventListener('keydown', onKeyDown);
-    return () => window.removeEventListener('keydown', onKeyDown);
+    return () => {
+      document.body.style.overflow = prevOverflow;
+      window.removeEventListener('keydown', onKeyDown);
+    };
   }, [selectedDoctorForModal]);
 
   // Appointment submission via WhatsApp
@@ -72,14 +72,14 @@ export default function DoctorsPage({ onBack }) {
   };
 
   return (
-    <div className="min-h-screen w-full bg-[#FAF8F5] text-[#0F172A] selection:bg-[#0F172A] selection:text-[#FAF8F5] font-sans antialiased">
+    <div className="min-h-screen w-full bg-[#FAF8F5] text-[#0F172A] selection:bg-[#0F172A] selection:text-[#FAF8F5] font-sans antialiased overflow-x-hidden">
       
       {/* Top Sticky Navigation Bar */}
-      <header className="sticky top-0 z-40 w-full bg-[#FAF8F5]/90 backdrop-blur-md border-b border-[#0F172A]/10 px-6 md:px-16 py-4">
+      <header className="sticky top-0 z-40 w-full bg-[#FAF8F5]/90 backdrop-blur-md border-b border-[#0F172A]/10 px-4 sm:px-6 md:px-16 py-3 sm:py-4">
         <div className="max-w-7xl mx-auto flex items-center justify-between">
           
           {/* Back Button + Brand Logo */}
-          <div className="flex items-center gap-4 sm:gap-6">
+          <div className="flex items-center gap-3 sm:gap-6">
             <a
               href="/"
               onClick={(e) => {
@@ -88,9 +88,9 @@ export default function DoctorsPage({ onBack }) {
                   if (onBack) onBack();
                 }
               }}
-              className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-[#0F172A]/20 bg-[#F4EFE6] hover:bg-[#0F172A] hover:text-[#FAF8F5] text-xs uppercase tracking-wider font-semibold transition-all duration-300 shadow-xs group cursor-pointer"
+              className="inline-flex items-center gap-2 px-4 py-2.5 md:py-2 min-h-[44px] md:min-h-0 rounded-full border border-[#0F172A]/20 bg-[#F4EFE6] hover:bg-[#0F172A] hover:text-[#FAF8F5] text-xs uppercase tracking-wider font-semibold transition-all duration-300 shadow-xs group cursor-pointer"
             >
-              <ArrowLeft className="w-3.5 h-3.5 text-[#C5A059] group-hover:text-[#FAF8F5] group-hover:-translate-x-1 transition-transform" />
+              <ArrowLeft className="w-3.5 h-3.5 text-[#C5A059] group-hover:text-[#FAF8F5] group-hover:-translate-x-1 transition-transform shrink-0" />
               <span>Pagina Principală</span>
             </a>
 
@@ -98,13 +98,14 @@ export default function DoctorsPage({ onBack }) {
 
             <a
               href="/"
+              aria-label="Beta Optic Timișoara — Pagina Principală"
               onClick={(e) => {
                 if (!e.metaKey && !e.ctrlKey && !e.shiftKey && !e.altKey && e.button === 0) {
                   e.preventDefault();
                   if (onBack) onBack();
                 }
               }}
-              className="flex items-center gap-2.5 text-left cursor-pointer group"
+              className="flex items-center justify-center sm:justify-start gap-2.5 min-w-[44px] min-h-[44px] md:min-w-0 md:min-h-0 text-left cursor-pointer group"
             >
               <div className="w-8 h-8 rounded-full border border-[#0F172A]/30 flex items-center justify-center bg-[#FAF8F5] text-[#0F172A] group-hover:border-[#C5A059] transition-colors">
                 <Eye className="w-4 h-4 stroke-[1.5]" />
@@ -123,17 +124,18 @@ export default function DoctorsPage({ onBack }) {
         </div>
       </header>
 
+      <main>
       {/* Hero Section of Doctors Page */}
-      <section className="pt-16 pb-14 px-6 md:px-16 w-full relative overflow-hidden bg-gradient-to-b from-[#F4EFE6]/60 to-[#FAF8F5]">
+      <section className="pt-10 pb-10 sm:pt-16 sm:pb-14 px-4 sm:px-6 md:px-16 w-full relative overflow-hidden bg-gradient-to-b from-[#F4EFE6]/60 to-[#FAF8F5]">
         <div className="max-w-5xl mx-auto text-center">
           
           <motion.div
             initial={{ opacity: 0, y: 15 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
-            className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-[#0F172A]/15 bg-[#F4EFE6] text-[#0F172A] text-xs uppercase tracking-widest mb-6"
+            className="inline-flex items-center gap-2 px-3.5 sm:px-4 py-1.5 rounded-2xl sm:rounded-full border border-[#0F172A]/15 bg-[#F4EFE6] text-[#0F172A] text-[11px] sm:text-xs uppercase tracking-wider sm:tracking-widest mb-5 sm:mb-6"
           >
-            <Stethoscope className="w-3.5 h-3.5 text-[#C5A059]" />
+            <Stethoscope className="w-3.5 h-3.5 text-[#C5A059] shrink-0" />
             <span>Cabinet Oftalmologic & Optometrie Clinică</span>
           </motion.div>
 
@@ -141,7 +143,7 @@ export default function DoctorsPage({ onBack }) {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7, delay: 0.1 }}
-            className="serif-title text-4xl sm:text-6xl md:text-7xl font-semibold text-[#0F172A] leading-tight mb-6"
+            className="serif-title text-3xl sm:text-6xl md:text-7xl font-semibold text-[#0F172A] leading-tight mb-5 sm:mb-6"
           >
             Medici Colaboratori Beta Optic
           </motion.h1>
@@ -150,7 +152,7 @@ export default function DoctorsPage({ onBack }) {
             initial={{ opacity: 0, y: 15 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7, delay: 0.2 }}
-            className="text-[#0F172A]/80 text-base sm:text-xl font-light max-w-2xl mx-auto leading-relaxed mb-8"
+            className="text-[#0F172A]/80 text-base sm:text-xl font-light max-w-2xl mx-auto leading-relaxed mb-0 sm:mb-8"
           >
           </motion.p>
 
@@ -159,14 +161,14 @@ export default function DoctorsPage({ onBack }) {
             initial={{ opacity: 0, scale: 0.95 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.7, delay: 0.3 }}
-            className="flex flex-wrap items-center justify-center gap-3 sm:gap-4 text-xs font-semibold text-[#0F172A]/85"
+            className="flex flex-wrap items-center justify-center gap-2.5 sm:gap-4 text-xs font-semibold text-[#0F172A]/85"
           >
-            <div className="px-4 py-2 rounded-full bg-[#FAF8F5] border border-[#0F172A]/15 flex items-center gap-2 shadow-2xs">
-              <ShieldCheck className="w-4 h-4 text-[#C5A059]" />
+            <div className="px-3.5 sm:px-4 py-2 rounded-full bg-[#FAF8F5] border border-[#0F172A]/15 flex items-center gap-2 shadow-2xs">
+              <ShieldCheck className="w-4 h-4 text-[#C5A059] shrink-0" />
               <span>Aparatură de Diagnostic Avansat</span>
             </div>
-            <div className="px-4 py-2 rounded-full bg-[#FAF8F5] border border-[#0F172A]/15 flex items-center gap-2 shadow-2xs">
-              <Award className="w-4 h-4 text-[#C5A059]" />
+            <div className="px-3.5 sm:px-4 py-2 rounded-full bg-[#FAF8F5] border border-[#0F172A]/15 flex items-center gap-2 shadow-2xs">
+              <Award className="w-4 h-4 text-[#C5A059] shrink-0" />
               <span>Medici Primari & Specialiști Certificați</span>
             </div>
           </motion.div>
@@ -175,8 +177,8 @@ export default function DoctorsPage({ onBack }) {
       </section>
 
       {/* Main Doctors Cards Grid Section */}
-      <section className="py-16 px-6 md:px-16 w-full max-w-7xl mx-auto">
-        <div className="grid grid-cols-1 sm:grid-cols-2 max-w-2xl mx-auto gap-6">
+      <section className="py-12 sm:py-16 px-4 sm:px-6 md:px-16 w-full max-w-7xl mx-auto">
+        <div className="grid grid-cols-1 sm:grid-cols-2 max-w-2xl mx-auto gap-5 sm:gap-6">
           
           {DOCTORS_DATA.map((doctor, index) => (
             <motion.div
@@ -201,7 +203,7 @@ export default function DoctorsPage({ onBack }) {
                   />
                 </div>
 
-                <span className="text-[11px] uppercase tracking-widest font-semibold text-[#C5A059] block mb-1.5">
+                <span className="text-[11px] uppercase tracking-widest font-semibold text-[#8A6928] lg:text-[#C5A059] block mb-1.5">
                   {doctor.title}
                 </span>
 
@@ -237,10 +239,11 @@ export default function DoctorsPage({ onBack }) {
 
         </div>
       </section>
+      </main>
 
       {/* Bottom Visit & Atelier Invitation Section */}
-      <section className="py-20 px-6 md:px-16 w-full bg-[#0F172A] text-[#FAF8F5] relative overflow-hidden">
-        <div className="max-w-5xl mx-auto text-center space-y-8">
+      <section className="py-14 sm:py-20 px-4 sm:px-6 md:px-16 w-full bg-[#0F172A] text-[#FAF8F5] relative overflow-hidden">
+        <div className="max-w-5xl mx-auto text-center space-y-6 sm:space-y-8">
           
           <div className="w-14 h-14 rounded-full bg-[#FAF8F5]/10 text-[#C5A059] flex items-center justify-center mx-auto border border-[#FAF8F5]/20">
             <Eye className="w-7 h-7 stroke-[1.5]" />
@@ -253,7 +256,7 @@ export default function DoctorsPage({ onBack }) {
             <h2 className="serif-title text-3xl sm:text-5xl font-bold text-[#FAF8F5]">
               Te Așteptăm la Beta Optic Timișoara
             </h2>
-            <p className="text-base sm:text-lg text-[#FAF8F5]/75 max-w-xl mx-auto font-light leading-relaxed">
+            <p className="text-sm sm:text-lg text-[#FAF8F5]/75 max-w-xl mx-auto font-light leading-relaxed">
               Fie că ai nevoie de o evaluare medicală a dioptriilor, de adaptarea lentilelor progresive sau de ajustarea ramelor preferate, medicii și optometriștii noștri sunt alături de tine.
             </p>
           </div>
@@ -296,7 +299,7 @@ export default function DoctorsPage({ onBack }) {
               <button
                 onClick={closeBookingModal}
                 aria-label="Închide"
-                className="w-8 h-8 rounded-full border border-[#0F172A]/20 flex items-center justify-center hover:bg-[#0F172A] hover:text-[#FAF8F5] text-xs transition-colors"
+                className="w-11 h-11 md:w-8 md:h-8 rounded-full border border-[#0F172A]/20 flex items-center justify-center hover:bg-[#0F172A] hover:text-[#FAF8F5] text-xs transition-colors"
               >
                 ✕
               </button>
@@ -329,7 +332,7 @@ export default function DoctorsPage({ onBack }) {
                     placeholder="ex. Popescu Ion"
                     value={patientName}
                     onChange={(e) => setPatientName(e.target.value)}
-                    className="w-full px-4 py-3 rounded-xl bg-[#F4EFE6] border border-[#0F172A]/20 text-[#0F172A] text-sm focus:outline-none focus:border-[#0F172A]"
+                    className="w-full px-4 py-3 rounded-xl bg-[#F4EFE6] border border-[#0F172A]/20 text-[#0F172A] text-base sm:text-sm focus:outline-none focus:border-[#0F172A]"
                   />
                 </div>
 
@@ -348,7 +351,7 @@ export default function DoctorsPage({ onBack }) {
                     placeholder="ex. 0721 000 000"
                     value={patientPhone}
                     onChange={(e) => setPatientPhone(e.target.value)}
-                    className="w-full px-4 py-3 rounded-xl bg-[#F4EFE6] border border-[#0F172A]/20 text-[#0F172A] text-sm focus:outline-none focus:border-[#0F172A]"
+                    className="w-full px-4 py-3 rounded-xl bg-[#F4EFE6] border border-[#0F172A]/20 text-[#0F172A] text-base sm:text-sm focus:outline-none focus:border-[#0F172A]"
                   />
                 </div>
 
@@ -362,7 +365,7 @@ export default function DoctorsPage({ onBack }) {
                     min={new Date().toISOString().split('T')[0]}
                     value={patientDate}
                     onChange={(e) => setPatientDate(e.target.value)}
-                    className="w-full px-4 py-3 rounded-xl bg-[#F4EFE6] border border-[#0F172A]/20 text-[#0F172A] text-sm focus:outline-none focus:border-[#0F172A]"
+                    className="w-full px-4 py-3 rounded-xl bg-[#F4EFE6] border border-[#0F172A]/20 text-[#0F172A] text-base sm:text-sm focus:outline-none focus:border-[#0F172A]"
                   />
                 </div>
 
@@ -370,14 +373,14 @@ export default function DoctorsPage({ onBack }) {
                   <button
                     type="button"
                     onClick={closeBookingModal}
-                    className="w-1/2 py-3 rounded-xl border border-[#0F172A]/20 text-xs uppercase font-semibold text-[#0F172A] hover:bg-[#F4EFE6] transition-colors"
+                    className="w-1/2 py-3 min-h-[44px] rounded-xl border border-[#0F172A]/20 text-xs uppercase font-semibold text-[#0F172A] hover:bg-[#F4EFE6] transition-colors"
                   >
                     Anulează
                   </button>
 
                   <button
                     type="submit"
-                    className="w-1/2 py-3 rounded-xl bg-[#0F172A] text-[#FAF8F5] hover:bg-[#C5A059] hover:text-[#0F172A] text-xs uppercase font-semibold transition-colors flex items-center justify-center gap-2"
+                    className="w-1/2 py-3 min-h-[44px] rounded-xl bg-[#0F172A] text-[#FAF8F5] hover:bg-[#C5A059] hover:text-[#0F172A] text-xs uppercase font-semibold transition-colors flex items-center justify-center gap-2"
                   >
                     <Send className="w-3.5 h-3.5" />
                     <span>Trimite pe WhatsApp</span>

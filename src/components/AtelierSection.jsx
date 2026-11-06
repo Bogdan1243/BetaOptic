@@ -5,12 +5,12 @@ import rightCardVideo from '../assets/Video_Atelier_Card_Dreapta.mp4';
 
 export default function AtelierSection({ onOpenGallery }) {
   return (
-    <section className="relative py-28 px-6 md:px-16 w-full overflow-hidden bg-[#0F172A] text-[#FAF8F5]">
+    <section className="relative py-16 sm:py-20 md:py-28 px-4 sm:px-6 md:px-16 w-full overflow-hidden bg-[#0F172A] text-[#FAF8F5]">
       <div className="relative z-10 max-w-7xl mx-auto">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 sm:gap-10 lg:gap-12 items-center">
 
           {/* Left Column: Descriptive Text & Features */}
-          <div className="lg:col-span-7 space-y-8">
+          <div className="lg:col-span-7 space-y-5 sm:space-y-8">
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -26,7 +26,7 @@ export default function AtelierSection({ onOpenGallery }) {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: 0.1 }}
-              className="serif-title text-4xl sm:text-6xl lg:text-7xl font-semibold leading-tight text-[#FAF8F5]"
+              className="serif-title text-3xl sm:text-6xl lg:text-7xl font-semibold leading-tight text-[#FAF8F5]"
             >
               Atelierul Nostru — Tehnologie și Precizie
             </motion.h2>
@@ -41,7 +41,7 @@ export default function AtelierSection({ onOpenGallery }) {
               Nidek & Essilor Mr. Blue
             </motion.p>
             {/* Highlights Grid */}
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 pt-2">
+            <div className="hidden sm:grid grid-cols-1 sm:grid-cols-2 gap-6 pt-2">
 
               
             </div>
@@ -52,13 +52,13 @@ export default function AtelierSection({ onOpenGallery }) {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: 0.3 }}
-              className="pt-4"
+              className="pt-2 sm:pt-4"
             >
               <button
                 onClick={onOpenGallery}
-                className="inline-flex items-center gap-3 px-8 py-4 rounded-full bg-[#FAF8F5] text-[#0F172A] font-semibold text-sm uppercase tracking-wider hover:bg-[#C5A059] hover:text-[#0F172A] transition-all duration-300 shadow-lg group"
+                className="inline-flex items-center justify-center gap-2.5 sm:gap-3 px-5 sm:px-8 py-3.5 sm:py-4 min-h-[48px] md:min-h-0 rounded-full bg-[#FAF8F5] text-[#0F172A] font-semibold text-xs sm:text-sm uppercase tracking-wider hover:bg-[#C5A059] hover:text-[#0F172A] transition-all duration-300 shadow-lg group cursor-pointer"
               >
-                <Grid className="w-4 h-4 text-[#0F172A] group-hover:scale-110 transition-transform" />
+                <Grid className="w-4 h-4 text-[#0F172A] group-hover:scale-110 transition-transform shrink-0" />
                 <span>Vezi Galerie Foto & Video Atelier</span>
               </button>
             </motion.div>
@@ -80,7 +80,7 @@ export default function AtelierSection({ onOpenGallery }) {
                   playsInline
                   preload="metadata"
                   aria-label="Video din atelierul Beta Optic"
-                  className="w-full h-[550px] object-cover group-hover:scale-105 transition-transform duration-700 filter brightness-95"
+                  className="w-full h-[340px] sm:h-[450px] md:h-[550px] object-cover group-hover:scale-105 transition-transform duration-700 filter brightness-95"
               >
                 {/* 2. Use the imported video here. Or, if using an external link, put the URL in quotes like src="https://..." */}
                 <source src={rightCardVideo} type="video/mp4" />

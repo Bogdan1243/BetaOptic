@@ -15,7 +15,7 @@ const renderBrandCard = (brand, index) => {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ delay: index * 0.08 }}
-          className={`p-8 sm:p-9 rounded-3xl bg-[#F4EFE6]/90 border border-[#E5DEC9] shadow-xs hover:shadow-xl hover:border-[#0F172A]/30 transition-all duration-300 flex flex-col justify-between group relative overflow-hidden ${
+          className={`p-6 sm:p-9 rounded-3xl bg-[#F4EFE6]/90 border border-[#E5DEC9] shadow-xs hover:shadow-xl hover:border-[#0F172A]/30 transition-all duration-300 flex flex-col justify-between group relative overflow-hidden ${
               isWide ? 'md:col-span-2 lg:col-span-2' : ''
           }`}
       >
@@ -25,18 +25,18 @@ const renderBrandCard = (brand, index) => {
         </div>
 
         <div>
-          <div className="flex items-center justify-between mb-4">
-        <span className="px-3 py-1 rounded-full text-[11px] font-semibold uppercase tracking-wider bg-[#0F172A] text-[#FAF8F5]">
+          <div className="flex items-start sm:items-center justify-between gap-2 mb-4">
+        <span className="px-3 py-1 rounded-2xl sm:rounded-full text-[11px] font-semibold uppercase tracking-wider bg-[#0F172A] text-[#FAF8F5]">
           {brand.tagline}
         </span>
-            <Gem className="w-4 h-4 text-[#C5A059]" />
+            <Gem className="w-4 h-4 text-[#C5A059] shrink-0 mt-1 sm:mt-0" />
           </div>
 
           <h3 className="serif-title text-3xl font-bold text-[#0F172A] mb-2 group-hover:text-[#0F172A] transition-colors">
             {brand.name}
           </h3>
 
-          <p className="text-xs font-semibold text-[#0F172A]/60 uppercase tracking-wider mb-6 flex items-center gap-1">
+          <p className="text-xs font-semibold text-[#0F172A]/60 uppercase tracking-wider mb-5 sm:mb-6 flex flex-wrap items-center gap-1">
             <span>Materiale:</span> {brand.materials}
           </p>
 
@@ -45,7 +45,7 @@ const renderBrandCard = (brand, index) => {
           </p>
         </div>
 
-        <div className="pt-6 mt-6 border-t border-[#0F172A]/10 flex items-center justify-between text-xs text-[#0F172A]/70">
+        <div className="pt-5 sm:pt-6 mt-5 sm:mt-6 border-t border-[#0F172A]/10 flex flex-wrap items-center justify-between gap-2 text-xs text-[#0F172A]/70">
           <span className="tracking-wider uppercase">Proba Anatomică în Atelier</span>
           <span className="font-medium text-[#0F172A]">Beta Optic Select</span>
         </div>
@@ -68,11 +68,11 @@ export default function FrameBrandsSection({ onOpenExtraFrames }) {
   };
 
   return (
-      <section className="py-28 px-6 md:px-16 w-full bg-[#FAF8F5] text-[#0F172A] border-t border-[#0F172A]/10">
+      <section className="py-16 sm:py-20 md:py-28 px-4 sm:px-6 md:px-16 w-full bg-[#FAF8F5] text-[#0F172A] border-t border-[#0F172A]/10">
         <div className="max-w-7xl mx-auto">
 
           {/* Section Header */}
-          <div className="text-center max-w-3xl mx-auto mb-20">
+          <div className="text-center max-w-3xl mx-auto mb-10 sm:mb-16 md:mb-20">
            
 
             <motion.h2
@@ -80,7 +80,7 @@ export default function FrameBrandsSection({ onOpenExtraFrames }) {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: 0.1 }}
-                className="serif-title text-4xl sm:text-6xl font-semibold text-[#0F172A] leading-tight mb-4"
+                className="serif-title text-3xl sm:text-6xl font-semibold text-[#0F172A] leading-tight mb-4"
             >
               Branduri Rame de Ochelari
             </motion.h2>
@@ -90,14 +90,14 @@ export default function FrameBrandsSection({ onOpenExtraFrames }) {
                 whileInView={{ opacity: 1 }}
                 viewport={{ once: true }}
                 transition={{ delay: 0.2 }}
-                className="text-[#0F172A]/75 text-base md:text-lg font-normal"
+                className="text-[#0F172A]/75 text-sm sm:text-base md:text-lg font-normal"
             >
               Rame alese pentru personalitate, rigoare inginerească și nobilimea materialelor.
             </motion.p>
           </div>
 
           {/* Main Featured Frame Brands Grid (Eyeglasses) */}
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-16">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 sm:gap-8 mb-10 sm:mb-16">
             {FRAME_BRANDS_MAIN.map((brand, index) => renderBrandCard(brand, index))}
           </div>
 
@@ -106,7 +106,7 @@ export default function FrameBrandsSection({ onOpenExtraFrames }) {
               initial={{ opacity: 0 }}
               whileInView={{ opacity: 1 }}
               viewport={{ once: true }}
-              className="flex items-center gap-4 sm:gap-6 mb-16"
+              className="flex items-center gap-4 sm:gap-6 mb-10 sm:mb-16"
               role="separator"
               aria-label="Ochelari de Soare"
           >
@@ -119,15 +119,15 @@ export default function FrameBrandsSection({ onOpenExtraFrames }) {
           </motion.div>
 
           {/* Sunglasses Brands Grid */}
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-20">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 sm:gap-8 mb-12 sm:mb-20">
             {SUNGLASS_BRANDS_MAIN.map((brand, index) => renderBrandCard(brand, index))}
           </div>
 
           {/* Secondary Frame Brands Minimalist Horizontal Carousel */}
-          <div className="p-8 rounded-3xl bg-[#F4EFE6] border border-[#E5DEC9]">
-            <div className="flex items-center justify-between mb-6">
+          <div className="p-5 sm:p-8 rounded-3xl bg-[#F4EFE6] border border-[#E5DEC9]">
+            <div className="flex items-center justify-between gap-3 mb-6">
               <div>
-                <h3 className="serif-title text-2xl font-semibold text-[#0F172A]">
+                <h3 className="serif-title text-xl sm:text-2xl font-semibold text-[#0F172A]">
                   Alte Branduri de Rame Premium
                 </h3>
                 <p className="text-xs text-[#0F172A]/70">
@@ -135,17 +135,17 @@ export default function FrameBrandsSection({ onOpenExtraFrames }) {
                 </p>
               </div>
 
-              <div className="flex items-center gap-2">
+              <div className="flex items-center gap-2 shrink-0">
                 <button
                     onClick={() => scrollCarousel('left')}
-                    className="w-9 h-9 rounded-full border border-[#0F172A]/20 bg-[#FAF8F5] flex items-center justify-center hover:bg-[#0F172A] hover:text-[#FAF8F5] transition-all cursor-pointer"
+                    className="w-11 h-11 md:w-9 md:h-9 rounded-full border border-[#0F172A]/20 bg-[#FAF8F5] flex items-center justify-center hover:bg-[#0F172A] hover:text-[#FAF8F5] transition-all cursor-pointer"
                     aria-label="Carusel anterior"
                 >
                   <ChevronLeft className="w-4 h-4" />
                 </button>
                 <button
                     onClick={() => scrollCarousel('right')}
-                    className="w-9 h-9 rounded-full border border-[#0F172A]/20 bg-[#FAF8F5] flex items-center justify-center hover:bg-[#0F172A] hover:text-[#FAF8F5] transition-all cursor-pointer"
+                    className="w-11 h-11 md:w-9 md:h-9 rounded-full border border-[#0F172A]/20 bg-[#FAF8F5] flex items-center justify-center hover:bg-[#0F172A] hover:text-[#FAF8F5] transition-all cursor-pointer"
                     aria-label="Carusel următor"
                 >
                   <ChevronRight className="w-4 h-4" />
@@ -189,7 +189,7 @@ export default function FrameBrandsSection({ onOpenExtraFrames }) {
             <div className="mt-6 pt-4 border-t border-[#0F172A]/10 flex justify-center">
               <button
                   onClick={onOpenExtraFrames}
-                  className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-[#0F172A] text-[#FAF8F5] font-semibold text-xs uppercase tracking-wider hover:bg-[#C5A059] hover:text-[#0F172A] transition-all shadow-sm group cursor-pointer"
+                  className="inline-flex items-center gap-2 px-6 py-3 min-h-[44px] md:min-h-0 rounded-full bg-[#0F172A] text-[#FAF8F5] font-semibold text-xs uppercase tracking-wider hover:bg-[#C5A059] hover:text-[#0F172A] transition-all shadow-sm group cursor-pointer"
               >
                 <Grid className="w-4 h-4 group-hover:scale-110 transition-transform" />
                 <span>Vezi Toate Ramele Disponibile</span>

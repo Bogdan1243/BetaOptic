@@ -18,17 +18,17 @@ export default function LensBrandsSection() {
   };
 
   return (
-    <section className="py-28 px-6 md:px-16 w-full bg-[#FAF8F5] text-[#0F172A] border-t border-[#0F172A]/10">
+    <section className="py-16 sm:py-20 md:py-28 px-4 sm:px-6 md:px-16 w-full bg-[#FAF8F5] text-[#0F172A] border-t border-[#0F172A]/10">
       <div className="max-w-7xl mx-auto">
         
         {/* Section Header */}
-        <div className="text-center max-w-3xl mx-auto mb-20">
+        <div className="text-center max-w-3xl mx-auto mb-10 sm:mb-16 md:mb-20">
           <motion.h2
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ delay: 0.1 }}
-            className="serif-title text-4xl sm:text-6xl font-semibold text-[#0F172A] leading-tight mb-4"
+            className="serif-title text-3xl sm:text-6xl font-semibold text-[#0F172A] leading-tight mb-4"
           >
             Branduri Partenere Lentile
           </motion.h2>
@@ -38,14 +38,14 @@ export default function LensBrandsSection() {
             whileInView={{ opacity: 1 }}
             viewport={{ once: true }}
             transition={{ delay: 0.2 }}
-            className="text-[#0F172A]/75 text-base md:text-lg font-normal"
+            className="text-[#0F172A]/75 text-sm sm:text-base md:text-lg font-normal"
           >
             Alegem exclusiv producători mondiali care redefinesc performanța optică, puritatea cromatică și rezistența la zgârieturi.
           </motion.p>
         </div>
 
         {/* Featured Main Brands (4 Main Lens Giants) */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-20">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-5 sm:gap-8 mb-8 sm:mb-16 md:mb-20">
           {LENS_BRANDS_MAIN.map((brand, index) => (
             <motion.div
               key={brand.id}
@@ -53,7 +53,7 @@ export default function LensBrandsSection() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: index * 0.1 }}
-              className="p-8 sm:p-10 rounded-3xl bg-[#F4EFE6]/90 border border-[#E5DEC9] shadow-xs hover:shadow-lg hover:border-[#0F172A]/30 transition-all duration-300 flex flex-col justify-between group relative overflow-hidden"
+              className="p-6 sm:p-10 rounded-3xl bg-[#F4EFE6]/90 border border-[#E5DEC9] shadow-xs hover:shadow-lg hover:border-[#0F172A]/30 transition-all duration-300 flex flex-col justify-between group relative overflow-hidden"
             >
               {/* Subtle background emblem */}
               <div aria-hidden="true" className="absolute -right-8 -bottom-8 opacity-5 text-[#0F172A] pointer-events-none font-serif text-9xl uppercase font-bold">
@@ -61,11 +61,11 @@ export default function LensBrandsSection() {
               </div>
 
               <div>
-                <div className="flex items-center justify-between mb-6">
-                  <span className="px-3 py-1 rounded-full text-xs font-semibold uppercase tracking-wider bg-[#0F172A] text-[#FAF8F5]">
+                <div className="flex flex-wrap items-center justify-between gap-2 mb-5 sm:mb-6">
+                  <span className="px-3 py-1 rounded-2xl sm:rounded-full text-[11px] sm:text-xs font-semibold uppercase tracking-wider bg-[#0F172A] text-[#FAF8F5]">
                     {brand.badge}
                   </span>
-                  <span className="text-xs uppercase tracking-widest font-semibold text-[#0F172A]/50 flex items-center gap-1">
+                  <span className="text-xs uppercase tracking-widest font-semibold text-[#0F172A]/50 flex items-center gap-1 shrink-0">
                     <ShieldCheck className="w-3.5 h-3.5 text-[#C5A059]" />
                     {brand.origin}
                   </span>
@@ -74,7 +74,7 @@ export default function LensBrandsSection() {
                 <h3 className="serif-title text-3xl sm:text-4xl font-bold text-[#0F172A] mb-2 group-hover:text-[#0F172A] transition-colors">
                   {brand.name}
                 </h3>
-                <p className="text-xs font-semibold text-[#C5A059] uppercase tracking-wider mb-6">
+                <p className="text-xs font-semibold text-[#8A6928] lg:text-[#C5A059] uppercase tracking-wider mb-5 sm:mb-6">
                   {brand.tagline}
                 </p>
 
@@ -83,7 +83,7 @@ export default function LensBrandsSection() {
                 </p>
               </div>
 
-              <div className="pt-8 mt-6 border-t border-[#0F172A]/10 flex items-center justify-between text-xs text-[#0F172A]/70">
+              <div className="pt-5 sm:pt-8 mt-5 sm:mt-6 border-t border-[#0F172A]/10 flex flex-wrap items-center justify-between gap-2 text-xs text-[#0F172A]/70">
                 <span className="tracking-wider uppercase">Garanție Oficială Premium</span>
                 <span className="font-medium flex items-center gap-1 text-[#0F172A]">
                   Disponibil la Beta Optic

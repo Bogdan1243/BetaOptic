@@ -36,7 +36,7 @@ export default function HeroSection({ onOpenDoctors, onOpenOffer, onOpenOutlet }
   }, [isOffersMenuOpen]);
 
   return (
-      <section className="relative min-h-[75vh] md:min-h-[80vh] w-full flex flex-col justify-between overflow-hidden bg-[#FAF8F5]">
+      <section className="relative min-h-[75svh] md:min-h-[80vh] w-full flex flex-col justify-between overflow-hidden bg-[#FAF8F5]">
       {/* Background Image with Subtle Overlay */}
       <div className="absolute inset-0 w-full h-full z-0 overflow-hidden">
         {/* Storefront photo with subtle dark/beige ambient overlay */}
@@ -55,7 +55,7 @@ export default function HeroSection({ onOpenDoctors, onOpenOffer, onOpenOutlet }
       </div>
 
       {/* Top Ambient Branding Watermark & Top-Right Action Buttons */}
-      <header className="relative z-30 w-full pt-8 sm:pt-10 px-6 sm:px-8 md:px-16 flex flex-wrap items-center justify-between gap-4">
+      <header className="relative z-30 w-full pt-5 sm:pt-10 px-4 sm:px-8 md:px-16 flex flex-wrap items-center justify-between gap-3 sm:gap-4">
         <motion.div
           initial={{ opacity: 0, y: -10 }}
           animate={{ opacity: 1, y: 0 }}
@@ -76,7 +76,7 @@ export default function HeroSection({ onOpenDoctors, onOpenOffer, onOpenOutlet }
         </motion.div>
 
         {/* Top-Right Action Group: Medicii Noștri + Oferte Dropdown + Outlet */}
-        <nav aria-label="Navigare principală" className="flex flex-wrap items-center gap-2.5 sm:gap-3">
+        <nav aria-label="Navigare principală" className="relative flex flex-wrap items-center gap-2 sm:gap-3 w-full sm:w-auto">
           {/* 1. Medicii Noștri Button */}
           <motion.a
             href="/medici"
@@ -89,17 +89,18 @@ export default function HeroSection({ onOpenDoctors, onOpenOffer, onOpenOutlet }
                 if (onOpenDoctors) onOpenDoctors();
               }
             }}
-            className="inline-flex items-center gap-2 sm:gap-2.5 px-4 sm:px-5 py-2.5 rounded-full bg-[#FAF8F5]/85 hover:bg-[#0F172A] border border-[#0F172A]/20 hover:border-[#0F172A] backdrop-blur-md text-[#0F172A] hover:text-[#FAF8F5] transition-all duration-300 shadow-sm cursor-pointer group"
+            className="inline-flex items-center gap-1.5 sm:gap-2.5 px-3.5 sm:px-5 py-2.5 min-h-[44px] md:min-h-0 rounded-full bg-[#FAF8F5]/85 hover:bg-[#0F172A] border border-[#0F172A]/20 hover:border-[#0F172A] backdrop-blur-md text-[#0F172A] hover:text-[#FAF8F5] transition-all duration-300 shadow-sm cursor-pointer group"
           >
-            <Stethoscope className="w-4 h-4 text-[#C5A059] group-hover:scale-110 transition-transform" />
-            <span className="text-xs uppercase tracking-widest font-semibold">
-              Medicii Colaboratori
+            <Stethoscope className="w-4 h-4 text-[#C5A059] group-hover:scale-110 transition-transform shrink-0" />
+            <span className="text-[11px] sm:text-xs uppercase tracking-wider sm:tracking-widest font-semibold">
+              <span className="sm:hidden" aria-hidden="true">Medici</span>
+              <span className="sr-only sm:not-sr-only">Medicii Colaboratori</span>
             </span>
             <ArrowRight className="w-3.5 h-3.5 opacity-60 group-hover:opacity-100 group-hover:translate-x-1 transition-all hidden sm:block" />
           </motion.a>
 
           {/* 2. Oferte Button with Dropdown */}
-          <div className="relative" ref={offersMenuRef}>
+          <div className="sm:relative" ref={offersMenuRef}>
             <motion.button
               initial={{ opacity: 0, y: -10 }}
               animate={{ opacity: 1, y: 0 }}
@@ -107,21 +108,21 @@ export default function HeroSection({ onOpenDoctors, onOpenOffer, onOpenOutlet }
               onClick={() => setIsOffersMenuOpen((prev) => !prev)}
               aria-expanded={isOffersMenuOpen}
               aria-haspopup="true"
-              className={`inline-flex items-center gap-2 px-4 sm:px-5 py-2.5 rounded-full border backdrop-blur-md transition-all duration-300 shadow-sm cursor-pointer group ${
+              className={`inline-flex items-center gap-1.5 sm:gap-2 px-3.5 sm:px-5 py-2.5 min-h-[44px] md:min-h-0 rounded-full border backdrop-blur-md transition-all duration-300 shadow-sm cursor-pointer group ${
                 isOffersMenuOpen
                   ? 'bg-[#0F172A] border-[#0F172A] text-[#FAF8F5]'
                   : 'bg-[#FAF8F5]/85 hover:bg-[#0F172A] border-[#0F172A]/20 hover:border-[#0F172A] text-[#0F172A] hover:text-[#FAF8F5]'
               }`}
             >
-              <span className="relative flex items-center justify-center">
+              <span className="relative flex items-center justify-center shrink-0">
                 <Gift className="w-4 h-4 text-[#C5A059] group-hover:scale-110 transition-transform" />
                 <span className="absolute -top-0.5 -right-0.5 w-1.5 h-1.5 rounded-full bg-[#C5A059] animate-pulse" />
               </span>
-              <span className="text-xs uppercase tracking-widest font-semibold">
+              <span className="text-[11px] sm:text-xs uppercase tracking-wider sm:tracking-widest font-semibold">
                 Oferte
               </span>
               <ChevronDown
-                className={`w-3.5 h-3.5 opacity-70 transition-transform duration-300 ${
+                className={`w-3.5 h-3.5 opacity-70 transition-transform duration-300 shrink-0 ${
                   isOffersMenuOpen ? 'rotate-180 opacity-100' : 'group-hover:opacity-100'
                 }`}
               />
@@ -134,7 +135,7 @@ export default function HeroSection({ onOpenDoctors, onOpenOffer, onOpenOutlet }
                   animate={{ opacity: 1, y: 0, scale: 1 }}
                   exit={{ opacity: 0, y: 8, scale: 0.96 }}
                   transition={{ duration: 0.2 }}
-                  className="absolute right-0 mt-2.5 w-64 rounded-2xl bg-[#FAF8F5]/95 backdrop-blur-xl border border-[#E5DEC9] shadow-xl p-2 z-40"
+                  className="absolute left-0 right-0 sm:left-auto sm:right-0 mt-2.5 w-full max-w-[calc(100vw-2rem)] sm:w-64 rounded-2xl bg-[#FAF8F5]/95 backdrop-blur-xl border border-[#E5DEC9] shadow-xl p-2 z-40"
                 >
                   <div className="px-3 py-1.5 border-b border-[#0F172A]/10 mb-1">
                     <span className="text-[10px] uppercase tracking-widest font-bold text-[#C5A059]">
@@ -151,7 +152,7 @@ export default function HeroSection({ onOpenDoctors, onOpenOffer, onOpenOutlet }
                             setIsOffersMenuOpen(false);
                             if (onOpenOffer) onOpenOffer(item.id);
                           }}
-                          className="w-full flex items-center justify-between gap-3 px-3 py-2.5 rounded-xl text-left hover:bg-[#0F172A] text-[#0F172A] hover:text-[#FAF8F5] transition-all duration-200 group cursor-pointer"
+                          className="w-full min-h-[44px] md:min-h-0 flex items-center justify-between gap-3 px-3 py-2.5 rounded-xl text-left hover:bg-[#0F172A] text-[#0F172A] hover:text-[#FAF8F5] transition-all duration-200 group cursor-pointer"
                         >
                           <div className="flex items-center gap-2.5 min-w-0">
                             <div className="w-8 h-8 rounded-full bg-[#F4EFE6] group-hover:bg-[#FAF8F5]/15 border border-[#E5DEC9] group-hover:border-transparent flex items-center justify-center shrink-0 transition-colors">
@@ -192,10 +193,10 @@ export default function HeroSection({ onOpenDoctors, onOpenOffer, onOpenOutlet }
                 if (onOpenOutlet) onOpenOutlet();
               }
             }}
-            className="inline-flex items-center gap-2 sm:gap-2.5 px-4 sm:px-5 py-2.5 rounded-full bg-[#FAF8F5]/85 hover:bg-[#0F172A] border border-[#0F172A]/20 hover:border-[#0F172A] backdrop-blur-md text-[#0F172A] hover:text-[#FAF8F5] transition-all duration-300 shadow-sm cursor-pointer group"
+            className="inline-flex items-center gap-1.5 sm:gap-2.5 px-3.5 sm:px-5 py-2.5 min-h-[44px] md:min-h-0 rounded-full bg-[#FAF8F5]/85 hover:bg-[#0F172A] border border-[#0F172A]/20 hover:border-[#0F172A] backdrop-blur-md text-[#0F172A] hover:text-[#FAF8F5] transition-all duration-300 shadow-sm cursor-pointer group"
           >
-            <Store className="w-4 h-4 text-[#C5A059] group-hover:scale-110 transition-transform" />
-            <span className="text-xs uppercase tracking-widest font-semibold">
+            <Store className="w-4 h-4 text-[#C5A059] group-hover:scale-110 transition-transform shrink-0" />
+            <span className="text-[11px] sm:text-xs uppercase tracking-wider sm:tracking-widest font-semibold">
               Outlet
             </span>
             <ArrowRight className="w-3.5 h-3.5 opacity-60 group-hover:opacity-100 group-hover:translate-x-1 transition-all hidden sm:block" />
@@ -204,7 +205,7 @@ export default function HeroSection({ onOpenDoctors, onOpenOffer, onOpenOutlet }
       </header>
 
       {/* Main Hero Content */}
-      <div className="relative z-10 max-w-5xl mx-auto px-6 py-16 md:py-24 text-center flex flex-col items-center justify-center my-auto">
+      <div className="relative z-10 max-w-5xl mx-auto px-4 sm:px-6 py-10 sm:py-16 md:py-24 text-center flex flex-col items-center justify-center my-auto w-full">
         {/* Subtle Luxury Tag */}
         <motion.div
           initial={{ opacity: 0, scale: 0.9 }}
@@ -218,7 +219,7 @@ export default function HeroSection({ onOpenDoctors, onOpenOffer, onOpenOutlet }
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1, delay: 0.4 }}
-          className="serif-title text-5xl sm:text-7xl md:text-8xl lg:text-9xl font-semibold text-[#0F172A] tracking-tight leading-none mb-10 lowercase"
+          className="serif-title text-[2.5rem] sm:text-7xl md:text-8xl lg:text-9xl font-semibold text-[#0F172A] tracking-tight leading-none mb-6 sm:mb-10 lowercase"
         >
           „{HERO_DATA.slogan}”
         </motion.h1>

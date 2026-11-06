@@ -24,7 +24,19 @@ const ALL_FRAME_BRANDS_GRID = [
   }))
 ];
 
+function useLockBodyScroll(isOpen) {
+  useEffect(() => {
+    if (!isOpen || typeof document === 'undefined') return;
+    const prevOverflow = document.body.style.overflow;
+    document.body.style.overflow = 'hidden';
+    return () => {
+      document.body.style.overflow = prevOverflow;
+    };
+  }, [isOpen]);
+}
+
 export function AtelierGalleryModal({ isOpen, onClose }) {
+  useLockBodyScroll(isOpen);
   if (!isOpen) return null;
 
   return (
@@ -44,17 +56,17 @@ export function AtelierGalleryModal({ isOpen, onClose }) {
               initial={{ opacity: 0, scale: 0.95, y: 20 }}
               animate={{ opacity: 1, scale: 1, y: 0 }}
               exit={{ opacity: 0, scale: 0.95, y: 20 }}
-              className="relative w-full max-w-5xl bg-[#FAF8F5] text-[#0F172A] rounded-3xl shadow-2xl overflow-hidden border border-[#E5DEC9] my-auto z-10 max-h-[90vh] flex flex-col"
+              className="relative w-full max-w-5xl bg-[#FAF8F5] text-[#0F172A] rounded-3xl shadow-2xl overflow-hidden border border-[#E5DEC9] my-auto z-10 max-h-[90dvh] md:max-h-[90vh] flex flex-col"
           >
             {/* Modal Header */}
-            <div className="px-8 py-6 bg-[#F4EFE6] border-b border-[#E5DEC9] flex items-center justify-between flex-none">
+            <div className="px-5 sm:px-8 py-5 sm:py-6 bg-[#F4EFE6] border-b border-[#E5DEC9] flex items-center justify-between gap-3 flex-none">
               <div>
                 <span className="text-xs uppercase tracking-widest font-semibold text-[#C5A059] block mb-1">Galerie Atelier Beta Optic</span>
-                <h3 className="serif-title text-2xl sm:text-3xl font-bold text-[#0F172A]">Echipamente & Măiestrie Artizanală</h3>
+                <h3 className="serif-title text-xl sm:text-3xl font-bold text-[#0F172A]">Echipamente & Măiestrie Artizanală</h3>
               </div>
               <button
                   onClick={onClose}
-                  className="w-10 h-10 rounded-full border border-[#0F172A]/20 bg-[#FAF8F5] text-[#0F172A] flex items-center justify-center hover:bg-[#0F172A] hover:text-[#FAF8F5] transition-all"
+                  className="w-11 h-11 md:w-10 md:h-10 shrink-0 rounded-full border border-[#0F172A]/20 bg-[#FAF8F5] text-[#0F172A] flex items-center justify-center hover:bg-[#0F172A] hover:text-[#FAF8F5] transition-all cursor-pointer"
                   aria-label="Închide modal"
               >
                 <X className="w-5 h-5" />
@@ -62,8 +74,8 @@ export function AtelierGalleryModal({ isOpen, onClose }) {
             </div>
 
             {/* Modal Body: Gallery Grid */}
-            <div className="p-6 sm:p-8 overflow-y-auto space-y-8">
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <div className="p-5 sm:p-8 overflow-y-auto space-y-8">
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-5 sm:gap-6">
                 {ATELIER_GALLERY.map((item, idx) => (
                     <div key={idx} className="rounded-2xl overflow-hidden bg-[#0F172A] border border-[#E5DEC9] group shadow-xs">
 
@@ -75,6 +87,7 @@ export function AtelierGalleryModal({ isOpen, onClose }) {
                                 loop
                                 muted
                                 playsInline
+                                preload="metadata"
                                 aria-label={item.title}
                                 className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                             >
@@ -97,11 +110,11 @@ export function AtelierGalleryModal({ isOpen, onClose }) {
             </div>
 
             {/* Modal Footer */}
-            <div className="px-8 py-4 bg-[#F4EFE6] border-t border-[#E5DEC9] flex items-center justify-between flex-none text-xs text-[#0F172A]/70">
+            <div className="px-5 sm:px-8 py-4 bg-[#F4EFE6] border-t border-[#E5DEC9] flex flex-wrap items-center justify-between gap-3 flex-none text-xs text-[#0F172A]/70">
               <span>Standarde de montaj conform directivelor europene ISO 8980</span>
               <button
                   onClick={onClose}
-                  className="px-6 py-2 rounded-full bg-[#0F172A] text-[#FAF8F5] uppercase tracking-wider font-semibold hover:bg-[#C5A059] hover:text-[#0F172A] transition-all"
+                  className="px-6 py-2.5 md:py-2 min-h-[44px] md:min-h-0 rounded-full bg-[#0F172A] text-[#FAF8F5] uppercase tracking-wider font-semibold hover:bg-[#C5A059] hover:text-[#0F172A] transition-all cursor-pointer"
               >
                 Închide Galeria
               </button>
@@ -113,6 +126,7 @@ export function AtelierGalleryModal({ isOpen, onClose }) {
 }
 
 export function ExtraFramesModal({ isOpen, onClose }) {
+  useLockBodyScroll(isOpen);
   if (!isOpen) return null;
 
   return (
@@ -130,17 +144,17 @@ export function ExtraFramesModal({ isOpen, onClose }) {
               initial={{ opacity: 0, scale: 0.95, y: 20 }}
               animate={{ opacity: 1, scale: 1, y: 0 }}
               exit={{ opacity: 0, scale: 0.95, y: 20 }}
-              className="relative w-full max-w-5xl bg-[#FAF8F5] text-[#0F172A] rounded-3xl shadow-2xl overflow-hidden border border-[#E5DEC9] my-auto z-10 max-h-[90vh] flex flex-col"
+              className="relative w-full max-w-5xl bg-[#FAF8F5] text-[#0F172A] rounded-3xl shadow-2xl overflow-hidden border border-[#E5DEC9] my-auto z-10 max-h-[90dvh] md:max-h-[90vh] flex flex-col"
           >
             {/* Modal Header */}
-            <div className="px-8 py-6 bg-[#F4EFE6] border-b border-[#E5DEC9] flex items-center justify-between flex-none">
+            <div className="px-5 sm:px-8 py-5 sm:py-6 bg-[#F4EFE6] border-b border-[#E5DEC9] flex items-center justify-between gap-3 flex-none">
               <div>
                 <span className="text-xs uppercase tracking-widest font-semibold text-[#C5A059] block mb-1">Catalog Rame Premium</span>
-                <h3 className="serif-title text-2xl sm:text-3xl font-bold text-[#0F172A]">Portofoliul Integrat de Rame & Ochelari</h3>
+                <h3 className="serif-title text-xl sm:text-3xl font-bold text-[#0F172A]">Portofoliul Integrat de Rame & Ochelari</h3>
               </div>
               <button
                   onClick={onClose}
-                  className="w-10 h-10 rounded-full border border-[#0F172A]/20 bg-[#FAF8F5] text-[#0F172A] flex items-center justify-center hover:bg-[#0F172A] hover:text-[#FAF8F5] transition-all"
+                  className="w-11 h-11 md:w-10 md:h-10 shrink-0 rounded-full border border-[#0F172A]/20 bg-[#FAF8F5] text-[#0F172A] flex items-center justify-center hover:bg-[#0F172A] hover:text-[#FAF8F5] transition-all cursor-pointer"
                   aria-label="Închide modal"
               >
                 <X className="w-5 h-5" />
@@ -148,8 +162,8 @@ export function ExtraFramesModal({ isOpen, onClose }) {
             </div>
 
             {/* Grid Layout */}
-            <div className="p-6 sm:p-8 overflow-y-auto">
-              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
+            <div className="p-5 sm:p-8 overflow-y-auto">
+              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-5">
                 {ALL_FRAME_BRANDS_GRID.map((f, idx) => (
                     <div key={idx} className="p-5 rounded-2xl bg-[#F4EFE6] border border-[#E5DEC9] hover:border-[#0F172A]/30 transition-all flex flex-col justify-between">
                       <div>
@@ -187,11 +201,11 @@ export function ExtraFramesModal({ isOpen, onClose }) {
             </div>
 
             {/* Modal Footer */}
-            <div className="px-8 py-4 bg-[#F4EFE6] border-t border-[#E5DEC9] flex items-center justify-between flex-none text-xs text-[#0F172A]/70">
+            <div className="px-5 sm:px-8 py-4 bg-[#F4EFE6] border-t border-[#E5DEC9] flex flex-wrap items-center justify-between gap-3 flex-none text-xs text-[#0F172A]/70">
               <span>Serviciu gratuit de ajustare anatomică a ramelor</span>
               <button
                   onClick={onClose}
-                  className="px-6 py-2 rounded-full bg-[#0F172A] text-[#FAF8F5] uppercase tracking-wider font-semibold hover:bg-[#C5A059] hover:text-[#0F172A] transition-all"
+                  className="px-6 py-2.5 md:py-2 min-h-[44px] md:min-h-0 rounded-full bg-[#0F172A] text-[#FAF8F5] uppercase tracking-wider font-semibold hover:bg-[#C5A059] hover:text-[#0F172A] transition-all cursor-pointer"
               >
                 Închide Catalogul
               </button>
@@ -210,6 +224,7 @@ const OFFER_TABS = [
 
 export function OffersModal({ isOpen, activeTab = 'luna', onTabChange, onClose }) {
   const [selectedTab, setSelectedTab] = useState(activeTab || 'luna');
+  useLockBodyScroll(isOpen);
 
   useEffect(() => {
     if (activeTab) {
@@ -241,11 +256,11 @@ export function OffersModal({ isOpen, activeTab = 'luna', onTabChange, onClose }
           initial={{ opacity: 0, scale: 0.95, y: 20 }}
           animate={{ opacity: 1, scale: 1, y: 0 }}
           exit={{ opacity: 0, scale: 0.95, y: 20 }}
-          className="relative w-full max-w-4xl bg-[#FAF8F5] text-[#0F172A] rounded-3xl shadow-2xl overflow-hidden border border-[#E5DEC9] my-auto z-10 max-h-[92vh] flex flex-col"
+          className="relative w-full max-w-4xl bg-[#FAF8F5] text-[#0F172A] rounded-3xl shadow-2xl overflow-hidden border border-[#E5DEC9] my-auto z-10 max-h-[92dvh] md:max-h-[92vh] flex flex-col"
         >
           {/* Modal Header */}
-          <div className="px-6 sm:px-8 py-5 bg-[#F4EFE6] border-b border-[#E5DEC9] flex flex-col gap-4 flex-none">
-            <div className="flex items-center justify-between">
+          <div className="px-5 sm:px-8 py-4 sm:py-5 bg-[#F4EFE6] border-b border-[#E5DEC9] flex flex-col gap-3 sm:gap-4 flex-none">
+            <div className="flex items-center justify-between gap-3">
               <div>
                 <span className="text-xs uppercase tracking-widest font-semibold text-[#C5A059] flex items-center gap-1.5 mb-1">
                   <Sparkles className="w-3.5 h-3.5" />
@@ -257,7 +272,7 @@ export function OffersModal({ isOpen, activeTab = 'luna', onTabChange, onClose }
               </div>
               <button
                 onClick={onClose}
-                className="w-10 h-10 rounded-full border border-[#0F172A]/20 bg-[#FAF8F5] text-[#0F172A] flex items-center justify-center hover:bg-[#0F172A] hover:text-[#FAF8F5] transition-all cursor-pointer"
+                className="w-11 h-11 md:w-10 md:h-10 shrink-0 rounded-full border border-[#0F172A]/20 bg-[#FAF8F5] text-[#0F172A] flex items-center justify-center hover:bg-[#0F172A] hover:text-[#FAF8F5] transition-all cursor-pointer"
                 aria-label="Închide modal"
               >
                 <X className="w-5 h-5" />
@@ -265,7 +280,7 @@ export function OffersModal({ isOpen, activeTab = 'luna', onTabChange, onClose }
             </div>
 
             {/* Category Tabs: Oferta zilei / Oferta săptămânii / Oferta lunii */}
-            <div className="grid grid-cols-3 gap-2 p-1.5 rounded-2xl bg-[#FAF8F5] border border-[#E5DEC9]">
+            <div className="grid grid-cols-1 sm:grid-cols-3 gap-1.5 sm:gap-2 p-1.5 rounded-2xl bg-[#FAF8F5] border border-[#E5DEC9]">
               {OFFER_TABS.map((tab) => {
                 const Icon = tab.icon;
                 const isActive = selectedTab === tab.id;
@@ -273,13 +288,13 @@ export function OffersModal({ isOpen, activeTab = 'luna', onTabChange, onClose }
                   <button
                     key={tab.id}
                     onClick={() => handleSelectTab(tab.id)}
-                    className={`relative flex items-center justify-center gap-2 py-2.5 px-3 rounded-xl text-xs sm:text-sm font-semibold transition-all duration-200 cursor-pointer ${
+                    className={`relative flex items-center justify-center gap-2 py-2.5 px-3 min-h-[44px] sm:min-h-0 rounded-xl text-xs sm:text-sm font-semibold transition-all duration-200 cursor-pointer ${
                       isActive
                         ? 'bg-[#0F172A] text-[#FAF8F5] shadow-sm'
                         : 'text-[#0F172A]/75 hover:text-[#0F172A] hover:bg-[#F4EFE6]/70'
                     }`}
                   >
-                    <Icon className={`w-3.5 h-3.5 shrink-0 ${isActive ? 'text-[#C5A059]' : 'text-[#C5A059]'}`} />
+                    <Icon className="w-3.5 h-3.5 shrink-0 text-[#C5A059]" />
                     <span className="truncate">{tab.label}</span>
                     {tab.hasActiveOffer && (
                       <span className="w-2 h-2 rounded-full bg-[#C5A059] shrink-0 animate-pulse" />
@@ -291,7 +306,7 @@ export function OffersModal({ isOpen, activeTab = 'luna', onTabChange, onClose }
           </div>
 
           {/* Modal Body */}
-          <div className="p-6 sm:p-8 overflow-y-auto flex-1">
+          <div className="p-5 sm:p-8 overflow-y-auto flex-1">
             {selectedTab === 'luna' ? (
               <motion.div
                 key="luna"
@@ -308,7 +323,7 @@ export function OffersModal({ isOpen, activeTab = 'luna', onTabChange, onClose }
                     width="819"
                     height="1024"
                     loading="lazy"
-                    className="w-full max-h-[62vh] object-contain"
+                    className="w-full max-h-[55svh] md:max-h-[62vh] object-contain"
                   />
                 </div>
 
@@ -320,7 +335,7 @@ export function OffersModal({ isOpen, activeTab = 'luna', onTabChange, onClose }
                       Oferta Lunii • Activă
                     </span>
 
-                    <h4 className="serif-title text-3xl sm:text-4xl font-bold text-[#0F172A] leading-tight">
+                    <h4 className="serif-title text-2xl sm:text-4xl font-bold text-[#0F172A] leading-tight">
                       Nikon 1+1 Cadou
                     </h4>
 
@@ -356,7 +371,7 @@ export function OffersModal({ isOpen, activeTab = 'luna', onTabChange, onClose }
                 initial={{ opacity: 0, y: 10 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.3 }}
-                className="py-12 px-6 text-center max-w-lg mx-auto space-y-5"
+                className="py-10 sm:py-12 px-4 sm:px-6 text-center max-w-lg mx-auto space-y-5"
               >
                 <div className="w-16 h-16 rounded-full bg-[#F4EFE6] border border-[#E5DEC9] flex items-center justify-center mx-auto text-[#C5A059]">
                   {selectedTab === 'zi' ? (
@@ -370,7 +385,7 @@ export function OffersModal({ isOpen, activeTab = 'luna', onTabChange, onClose }
                   <span className="text-xs uppercase tracking-widest font-semibold text-[#C5A059]">
                     {selectedTab === 'zi' ? 'Oferta Zilei' : 'Oferta Săptămânii'}
                   </span>
-                  <h4 className="serif-title text-3xl font-bold text-[#0F172A]">
+                  <h4 className="serif-title text-2xl sm:text-3xl font-bold text-[#0F172A]">
                     În pregătire pentru tine
                   </h4>
                   <p className="text-sm text-[#0F172A]/75 leading-relaxed">
@@ -380,7 +395,7 @@ export function OffersModal({ isOpen, activeTab = 'luna', onTabChange, onClose }
 
                 <button
                   onClick={() => handleSelectTab('luna')}
-                  className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-[#0F172A] text-[#FAF8F5] text-xs uppercase tracking-widest font-semibold hover:bg-[#C5A059] hover:text-[#0F172A] transition-all cursor-pointer shadow-sm"
+                  className="inline-flex items-center gap-2 px-6 py-3 min-h-[44px] rounded-full bg-[#0F172A] text-[#FAF8F5] text-xs uppercase tracking-widest font-semibold hover:bg-[#C5A059] hover:text-[#0F172A] transition-all cursor-pointer shadow-sm"
                 >
                   <Gift className="w-4 h-4 text-[#C5A059] group-hover:text-[#0F172A]" />
                   <span>Vezi Oferta Lunii (Nikon 1+1)</span>
@@ -390,11 +405,11 @@ export function OffersModal({ isOpen, activeTab = 'luna', onTabChange, onClose }
           </div>
 
           {/* Modal Footer */}
-          <div className="px-6 sm:px-8 py-4 bg-[#F4EFE6] border-t border-[#E5DEC9] flex items-center justify-between flex-none text-xs text-[#0F172A]/70">
+          <div className="px-5 sm:px-8 py-4 bg-[#F4EFE6] border-t border-[#E5DEC9] flex flex-wrap items-center justify-between gap-3 flex-none text-xs text-[#0F172A]/70">
             <span>Te așteptăm în showroom-ul Beta Optic Timișoara pentru detalii</span>
             <button
               onClick={onClose}
-              className="px-6 py-2 rounded-full bg-[#0F172A] text-[#FAF8F5] uppercase tracking-wider font-semibold hover:bg-[#C5A059] hover:text-[#0F172A] transition-all cursor-pointer"
+              className="px-6 py-2.5 md:py-2 min-h-[44px] md:min-h-0 rounded-full bg-[#0F172A] text-[#FAF8F5] uppercase tracking-wider font-semibold hover:bg-[#C5A059] hover:text-[#0F172A] transition-all cursor-pointer"
             >
               Închide
             </button>

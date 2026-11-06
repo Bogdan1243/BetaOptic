@@ -79,13 +79,13 @@ export const OUTLET_GALLERY_IMAGES = [
 
 // Eye chart (optotip) rows: from smallest & blurriest at the top to largest & sharpest at the bottom
 const EYE_CHART_ROWS = [
-  { text: 'BETA OPTIC \u00A0 BETA OPTIC \u00A0 BETA OPTIC \u00A0 BETA OPTIC \u00A0 BETA OPTIC \u00A0 BETA OPTIC \u00A0 BETA OPTIC', size: 'text-base md:text-xl', tracking: 'tracking-[0.1em]', blur: 2.9 },
-  { text: 'BETA OPTIC \u00A0 BETA OPTIC \u00A0 BETA OPTIC \u00A0 BETA OPTIC \u00A0 BETA OPTIC \u00A0 BETA OPTIC', size: 'text-lg md:text-2xl', tracking: 'tracking-[0.12em]', blur: 2.7 },
-  { text: 'BETA OPTIC \u00A0 BETA OPTIC \u00A0 BETA OPTIC \u00A0 BETA OPTIC \u00A0 BETA OPTIC', size: 'text-xl md:text-3xl', tracking: 'tracking-[0.15em]', blur: 2.5 },
-  { text: 'BETA OPTIC \u00A0 BETA OPTIC \u00A0 BETA OPTIC \u00A0 BETA OPTIC', size: 'text-2xl md:text-4xl', tracking: 'tracking-[0.18em]', blur: 2 },
-  { text: 'BETA OPTIC \u00A0\u00A0 BETA OPTIC \u00A0\u00A0 BETA OPTIC', size: 'text-3xl md:text-5xl', tracking: 'tracking-[0.2em]', blur: 1.2 },
-  { text: 'BETA OPTIC \u00A0\u00A0 BETA OPTIC', size: 'text-4xl md:text-6xl', tracking: 'tracking-[0.25em]', blur: 0.6 },
-  { text: 'BETA OPTIC', size: 'text-6xl md:text-8xl lg:text-7xl', tracking: 'tracking-[0.3em]', blur: 0 },
+  { text: 'BETA OPTIC \u00A0 BETA OPTIC \u00A0 BETA OPTIC \u00A0 BETA OPTIC \u00A0 BETA OPTIC \u00A0 BETA OPTIC \u00A0 BETA OPTIC', size: 'text-xs sm:text-base md:text-xl', tracking: 'tracking-[0.06em] md:tracking-[0.1em]', blur: 2.9 },
+  { text: 'BETA OPTIC \u00A0 BETA OPTIC \u00A0 BETA OPTIC \u00A0 BETA OPTIC \u00A0 BETA OPTIC \u00A0 BETA OPTIC', size: 'text-sm sm:text-lg md:text-2xl', tracking: 'tracking-[0.08em] md:tracking-[0.12em]', blur: 2.7 },
+  { text: 'BETA OPTIC \u00A0 BETA OPTIC \u00A0 BETA OPTIC \u00A0 BETA OPTIC \u00A0 BETA OPTIC', size: 'text-base sm:text-xl md:text-3xl', tracking: 'tracking-[0.1em] md:tracking-[0.15em]', blur: 2.5 },
+  { text: 'BETA OPTIC \u00A0 BETA OPTIC \u00A0 BETA OPTIC \u00A0 BETA OPTIC', size: 'text-lg sm:text-2xl md:text-4xl', tracking: 'tracking-[0.12em] md:tracking-[0.18em]', blur: 2 },
+  { text: 'BETA OPTIC \u00A0\u00A0 BETA OPTIC \u00A0\u00A0 BETA OPTIC', size: 'text-xl sm:text-3xl md:text-5xl', tracking: 'tracking-[0.14em] md:tracking-[0.2em]', blur: 1.2 },
+  { text: 'BETA OPTIC \u00A0\u00A0 BETA OPTIC', size: 'text-2xl sm:text-4xl md:text-6xl', tracking: 'tracking-[0.16em] md:tracking-[0.25em]', blur: 0.6 },
+  { text: 'BETA OPTIC', size: 'text-3xl sm:text-5xl md:text-8xl lg:text-7xl', tracking: 'tracking-[0.15em] md:tracking-[0.3em]', blur: 0 },
 ];
 
 // Decorative eye chart background — hidden from screen readers and search engines
@@ -128,6 +128,7 @@ function EyeChartBackground() {
 export default function OutletPage({ onBack }) {
   const [selectedOfferTab, setSelectedOfferTab] = useState('luna');
   const [lightboxImage, setLightboxImage] = useState(null);
+  const [mapInteractive, setMapInteractive] = useState(false);
 
   useEffect(() => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
@@ -135,11 +136,16 @@ export default function OutletPage({ onBack }) {
 
   useEffect(() => {
     if (!lightboxImage) return;
+    const prevOverflow = document.body.style.overflow;
+    document.body.style.overflow = 'hidden';
     const onKeyDown = (e) => {
       if (e.key === 'Escape') setLightboxImage(null);
     };
     window.addEventListener('keydown', onKeyDown);
-    return () => window.removeEventListener('keydown', onKeyDown);
+    return () => {
+      document.body.style.overflow = prevOverflow;
+      window.removeEventListener('keydown', onKeyDown);
+    };
   }, [lightboxImage]);
 
   const activeOffer =
@@ -147,8 +153,9 @@ export default function OutletPage({ onBack }) {
 
   return (
       <div className="min-h-screen w-full bg-[#FAF8F5] text-[#0F172A] selection:bg-[#0F172A] selection:text-[#FAF8F5] font-sans antialiased overflow-x-hidden">
+        <main>
         {/* Hero Section with Uploaded Outlet Pictures on the Background (same top bar layout as main page, non-sticky) */}
-        <section className="relative min-h-[75vh] md:min-h-[80vh] w-full flex flex-col justify-between overflow-hidden bg-[#FAF8F5]">
+        <section className="relative min-h-[75svh] md:min-h-[80vh] w-full flex flex-col justify-between overflow-hidden bg-[#FAF8F5]">
           {/* Dual Background Photos (Exterior & Interior of Beta Optic Outlet) */}
           <div className="absolute inset-0 w-full h-full z-0 grid grid-cols-1 md:grid-cols-2 overflow-hidden">
             <div className="relative w-full h-full overflow-hidden">
@@ -176,7 +183,7 @@ export default function OutletPage({ onBack }) {
           </div>
 
           {/* Top Bar inside Hero (matches main page HeroSection, does not follow on scroll) */}
-          <header className="relative z-30 w-full pt-8 sm:pt-10 px-6 sm:px-8 md:px-16 flex flex-wrap items-center justify-between gap-4">
+          <header className="relative z-30 w-full pt-5 sm:pt-10 px-4 sm:px-8 md:px-16 flex flex-wrap items-center justify-between gap-3 sm:gap-4">
             <motion.a
                 href="/"
                 initial={{ opacity: 0, y: -10 }}
@@ -188,7 +195,7 @@ export default function OutletPage({ onBack }) {
                     if (onBack) onBack();
                   }
                 }}
-                className="flex items-center gap-3 text-left cursor-pointer"
+                className="flex items-center gap-3 text-left cursor-pointer min-h-[44px] md:min-h-0"
             >
               <div className="w-10 h-10 rounded-full border border-[#0F172A]/30 flex items-center justify-center bg-[#FAF8F5]/60 backdrop-blur-md text-[#0F172A]">
                 <Eye className="w-5 h-5 stroke-[1.5]" />
@@ -214,24 +221,24 @@ export default function OutletPage({ onBack }) {
                     if (onBack) onBack();
                   }
                 }}
-                className="inline-flex items-center gap-2 sm:gap-2.5 px-4 sm:px-5 py-2.5 rounded-full bg-[#FAF8F5]/85 hover:bg-[#0F172A] border border-[#0F172A]/20 hover:border-[#0F172A] backdrop-blur-md text-[#0F172A] hover:text-[#FAF8F5] transition-all duration-300 shadow-sm cursor-pointer group"
+                className="inline-flex items-center gap-2 sm:gap-2.5 px-3.5 sm:px-5 py-2.5 min-h-[44px] md:min-h-0 rounded-full bg-[#FAF8F5]/85 hover:bg-[#0F172A] border border-[#0F172A]/20 hover:border-[#0F172A] backdrop-blur-md text-[#0F172A] hover:text-[#FAF8F5] transition-all duration-300 shadow-sm cursor-pointer group"
             >
-              <ArrowLeft className="w-4 h-4 text-[#C5A059] group-hover:-translate-x-1 transition-transform" />
-              <span className="text-xs uppercase tracking-widest font-semibold">
+              <ArrowLeft className="w-4 h-4 text-[#C5A059] group-hover:-translate-x-1 transition-transform shrink-0" />
+              <span className="text-[11px] sm:text-xs uppercase tracking-wider sm:tracking-widest font-semibold">
               Pagina Principală
             </span>
             </motion.a>
           </header>
 
           {/* Hero Foreground Content */}
-          <div className="relative z-10 max-w-5xl mx-auto px-6 md:px-16 py-16 md:py-24 text-center flex flex-col items-center justify-center my-auto">
+          <div className="relative z-10 max-w-5xl mx-auto px-4 sm:px-6 md:px-16 py-10 sm:py-16 md:py-24 text-center flex flex-col items-center justify-center my-auto w-full">
             <motion.div
                 initial={{ opacity: 0, y: 15 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6 }}
-                className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-[#0F172A]/20 bg-[#FAF8F5]/90 backdrop-blur-md text-[#0F172A] text-xs uppercase tracking-widest mb-6 shadow-xs"
+                className="inline-flex items-center gap-2 px-3.5 sm:px-4 py-1.5 rounded-2xl sm:rounded-full border border-[#0F172A]/20 bg-[#FAF8F5]/90 backdrop-blur-md text-[#0F172A] text-[11px] sm:text-xs uppercase tracking-wider sm:tracking-widest mb-5 sm:mb-6 shadow-xs"
             >
-              <Store className="w-3.5 h-3.5 text-[#C5A059]" />
+              <Store className="w-3.5 h-3.5 text-[#C5A059] shrink-0" />
               <span>Showroom & Cabinet Oftalmologic • Beta Optic Outlet</span>
             </motion.div>
 
@@ -239,7 +246,7 @@ export default function OutletPage({ onBack }) {
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.7, delay: 0.1 }}
-                className="serif-title text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-semibold text-[#0F172A] leading-tight mb-6"
+                className="serif-title text-4xl sm:text-6xl md:text-7xl lg:text-8xl font-semibold text-[#0F172A] leading-tight mb-4 sm:mb-6"
             >
               Beta Optic Outlet
             </motion.h1>
@@ -248,7 +255,7 @@ export default function OutletPage({ onBack }) {
                 initial={{ opacity: 0, y: 15 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.7, delay: 0.2 }}
-                className="text-[#0F172A]/85 text-base sm:text-xl font-normal max-w-2xl mx-auto leading-relaxed mb-8"
+                className="text-[#0F172A]/85 text-sm sm:text-xl font-normal max-w-2xl mx-auto leading-relaxed mb-6 sm:mb-8"
             >
               Aceeași grijă pentru vederea ta, colecții de rame atent selecționate la prețuri speciale.
             </motion.p>
@@ -258,18 +265,18 @@ export default function OutletPage({ onBack }) {
                 initial={{ opacity: 0, scale: 0.95 }}
                 animate={{ opacity: 1, scale: 1 }}
                 transition={{ duration: 0.7, delay: 0.3 }}
-                className="flex flex-wrap items-center justify-center gap-3 sm:gap-4 text-xs font-semibold text-[#0F172A]/90 mb-10"
+                className="flex flex-wrap items-center justify-center gap-2.5 sm:gap-4 text-xs font-semibold text-[#0F172A]/90 mb-8 sm:mb-10"
             >
-              <div className="px-4 py-2 rounded-full bg-[#FAF8F5]/90 backdrop-blur-md border border-[#0F172A]/15 flex items-center gap-2 shadow-xs">
-                <Stethoscope className="w-4 h-4 text-[#C5A059]" />
+              <div className="px-3.5 sm:px-4 py-2 rounded-full bg-[#FAF8F5]/90 backdrop-blur-md border border-[#0F172A]/15 flex items-center gap-2 shadow-xs">
+                <Stethoscope className="w-4 h-4 text-[#C5A059] shrink-0" />
                 <span>Consult Oftalmologic</span>
               </div>
-              <div className="px-4 py-2 rounded-full bg-[#FAF8F5]/90 backdrop-blur-md border border-[#0F172A]/15 flex items-center gap-2 shadow-xs">
-                <Gift className="w-4 h-4 text-[#C5A059]" />
+              <div className="px-3.5 sm:px-4 py-2 rounded-full bg-[#FAF8F5]/90 backdrop-blur-md border border-[#0F172A]/15 flex items-center gap-2 shadow-xs">
+                <Gift className="w-4 h-4 text-[#C5A059] shrink-0" />
                 <span>Colecții & Promoții Exclusive Outlet</span>
               </div>
-              <div className="px-4 py-2 rounded-full bg-[#FAF8F5]/90 backdrop-blur-md border border-[#0F172A]/15 flex items-center gap-2 shadow-xs">
-                <ShieldCheck className="w-4 h-4 text-[#C5A059]" />
+              <div className="px-3.5 sm:px-4 py-2 rounded-full bg-[#FAF8F5]/90 backdrop-blur-md border border-[#0F172A]/15 flex items-center gap-2 shadow-xs">
+                <ShieldCheck className="w-4 h-4 text-[#C5A059] shrink-0" />
                 <span>Calitate Garantată Beta Optic</span>
               </div>
             </motion.div>
@@ -290,14 +297,14 @@ export default function OutletPage({ onBack }) {
           {/* SECTION 1: Medici în cadrul Outlet-ului (Calaver, Costache, Zinculescu) */}
           <section
               id="outlet-medici"
-              className="relative z-10 py-20 px-6 md:px-16 w-full max-w-7xl mx-auto"
+              className="relative z-10 py-14 sm:py-20 px-4 sm:px-6 md:px-16 w-full max-w-7xl mx-auto"
           >
-            <div className="text-center max-w-3xl mx-auto mb-14">
+            <div className="text-center max-w-3xl mx-auto mb-10 sm:mb-14">
               <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-[#0F172A]/15 bg-[#F4EFE6] text-[#0F172A] text-xs uppercase tracking-widest mb-4">
                 <Stethoscope className="w-3.5 h-3.5 text-[#C5A059]" />
                 <span>Cabinet Oftalmologic Outlet</span>
               </div>
-              <h2 className="serif-title text-4xl sm:text-5xl font-bold text-[#0F172A] leading-tight mb-4">
+              <h2 className="serif-title text-3xl sm:text-5xl font-bold text-[#0F172A] leading-tight mb-4">
                 Medicii Colaboratori
               </h2>
               <p className="text-[#0F172A]/75 text-sm sm:text-base font-light">
@@ -305,7 +312,7 @@ export default function OutletPage({ onBack }) {
               </p>
             </div>
 
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 max-w-5xl mx-auto">
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 sm:gap-6 max-w-5xl mx-auto">
               {OUTLET_DOCTORS_DATA.map((doctor, index) => (
                   <motion.div
                       key={doctor.id}
@@ -329,7 +336,7 @@ export default function OutletPage({ onBack }) {
                         />
                       </div>
 
-                      <span className="text-[11px] uppercase tracking-widest font-semibold text-[#C5A059] block mb-1.5">
+                      <span className="text-[11px] uppercase tracking-widest font-semibold text-[#8A6928] lg:text-[#C5A059] block mb-1.5">
                     {doctor.title}
                   </span>
 
@@ -346,15 +353,15 @@ export default function OutletPage({ onBack }) {
           {/* Background lightened (/80 → /40) so the eye chart shows through */}
           <section
               id="outlet-oferte"
-              className="relative z-10 py-20 px-6 md:px-16 w-full bg-[#F4EFE6]/40 border-y border-[#E5DEC9]"
+              className="relative z-10 py-14 sm:py-20 px-4 sm:px-6 md:px-16 w-full bg-[#F4EFE6]/40 border-y border-[#E5DEC9]"
           >
             <div className="max-w-5xl mx-auto">
-              <div className="text-center max-w-3xl mx-auto mb-12">
+              <div className="text-center max-w-3xl mx-auto mb-8 sm:mb-12">
                 <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-[#0F172A]/15 bg-[#FAF8F5] text-[#0F172A] text-xs uppercase tracking-widest mb-4">
                   <Gift className="w-3.5 h-3.5 text-[#C5A059]" />
                   <span>Promoții Dedicate Outlet</span>
                 </div>
-                <h2 className="serif-title text-4xl sm:text-5xl font-bold text-[#0F172A] leading-tight mb-4">
+                <h2 className="serif-title text-3xl sm:text-5xl font-bold text-[#0F172A] leading-tight mb-4">
                   Oferte Beta Optic Outlet
                 </h2>
                 <p className="text-[#0F172A]/75 text-sm sm:text-base font-light">
@@ -363,7 +370,7 @@ export default function OutletPage({ onBack }) {
               </div>
 
               {/* Inline Category Selector: Oferta zilei / Oferta săptămânii / Oferta lunii */}
-              <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 p-2 rounded-3xl bg-[#0F172A] border border-[#0F172A] shadow-lg mb-8">
+              <div className="grid grid-cols-1 sm:grid-cols-3 gap-2.5 sm:gap-3 p-2 rounded-3xl bg-[#0F172A] border border-[#0F172A] shadow-lg mb-6 sm:mb-8">
                 {OUTLET_OFFER_TABS.map((tab) => {
                   const Icon = tab.icon;
                   const isSelected = selectedOfferTab === tab.id;
@@ -372,7 +379,7 @@ export default function OutletPage({ onBack }) {
                           key={tab.id}
                           onClick={() => setSelectedOfferTab(tab.id)}
                           aria-pressed={isSelected}
-                          className={`flex items-center gap-3 p-4 rounded-2xl text-left transition-all duration-300 cursor-pointer ${
+                          className={`flex items-center gap-3 p-3.5 sm:p-4 min-h-[56px] rounded-2xl text-left transition-all duration-300 cursor-pointer ${
                               isSelected
                                   ? 'bg-[#FAF8F5] text-[#0F172A] shadow-md'
                                   : 'hover:bg-[#FAF8F5]/10 text-[#FAF8F5]'
@@ -392,7 +399,7 @@ export default function OutletPage({ onBack }) {
                         {tab.label}
                       </span>
                           <span
-                              className={`block text-xs truncate ${
+                              className={`block text-xs sm:truncate ${
                                   isSelected ? 'text-[#0F172A]/60' : 'text-[#FAF8F5]/65'
                               }`}
                           >
@@ -412,10 +419,10 @@ export default function OutletPage({ onBack }) {
                     animate={{ opacity: 1, y: 0 }}
                     exit={{ opacity: 0, y: -12 }}
                     transition={{ duration: 0.25 }}
-                    className="rounded-3xl bg-[#0F172A] border border-[#0F172A] p-8 sm:p-12 shadow-2xl text-center max-w-3xl mx-auto space-y-5"
+                    className="rounded-3xl bg-[#0F172A] border border-[#0F172A] p-6 sm:p-12 shadow-2xl text-center max-w-3xl mx-auto space-y-4 sm:space-y-5"
                 >
-                  <div className="w-16 h-16 rounded-full bg-[#FAF8F5]/10 border border-[#FAF8F5]/20 flex items-center justify-center mx-auto text-[#C5A059]">
-                    <activeOffer.icon className="w-7 h-7 stroke-[1.5]" />
+                  <div className="w-14 h-14 sm:w-16 sm:h-16 rounded-full bg-[#FAF8F5]/10 border border-[#FAF8F5]/20 flex items-center justify-center mx-auto text-[#C5A059]">
+                    <activeOffer.icon className="w-6 h-6 sm:w-7 sm:h-7 stroke-[1.5]" />
                   </div>
 
                   <span className="inline-flex items-center gap-1.5 px-3.5 py-1 rounded-full bg-[#C5A059]/20 border border-[#C5A059]/30 text-[#FAF8F5] text-[11px] uppercase tracking-widest font-bold">
@@ -423,7 +430,7 @@ export default function OutletPage({ onBack }) {
                     {activeOffer.label} • Outlet
                 </span>
 
-                  <h3 className="serif-title text-3xl sm:text-4xl font-bold text-[#FAF8F5]">
+                  <h3 className="serif-title text-2xl sm:text-4xl font-bold text-[#FAF8F5]">
                     {activeOffer.title}
                   </h3>
 
@@ -431,8 +438,8 @@ export default function OutletPage({ onBack }) {
                     {activeOffer.description}
                   </p>
 
-                  <div className="pt-4">
-                  <span className="inline-block px-5 py-2.5 rounded-full bg-[#FAF8F5]/10 border border-[#FAF8F5]/20 text-xs uppercase tracking-wider font-semibold text-[#FAF8F5]/75">
+                  <div className="pt-2 sm:pt-4">
+                  <span className="inline-block px-4 sm:px-5 py-2.5 rounded-2xl sm:rounded-full bg-[#FAF8F5]/10 border border-[#FAF8F5]/20 text-xs uppercase tracking-wider font-semibold text-[#FAF8F5]/75">
                     Noile postere promoționale pentru {activeOffer.label.toLowerCase()} vor fi afișate aici
                   </span>
                   </div>
@@ -445,14 +452,14 @@ export default function OutletPage({ onBack }) {
         {/* SECTION 3: Galerie Outlet */}
         <section
             id="outlet-galerie"
-            className="py-20 px-6 md:px-16 w-full max-w-7xl mx-auto"
+            className="py-14 sm:py-20 px-4 sm:px-6 md:px-16 w-full max-w-7xl mx-auto"
         >
-          <div className="text-center max-w-3xl mx-auto mb-14">
+          <div className="text-center max-w-3xl mx-auto mb-10 sm:mb-14">
             <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-[#0F172A]/15 bg-[#F4EFE6] text-[#0F172A] text-xs uppercase tracking-widest mb-4">
               <Camera className="w-3.5 h-3.5 text-[#C5A059]" />
               <span>Imagini Showroom</span>
             </div>
-            <h2 className="serif-title text-4xl sm:text-5xl font-bold text-[#0F172A] leading-tight mb-4">
+            <h2 className="serif-title text-3xl sm:text-5xl font-bold text-[#0F172A] leading-tight mb-4">
               Galeria Beta Optic Outlet
             </h2>
             <p className="text-[#0F172A]/75 text-sm sm:text-base font-light">
@@ -460,15 +467,24 @@ export default function OutletPage({ onBack }) {
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 sm:gap-6">
             {OUTLET_GALLERY_IMAGES.map((img, idx) => (
                 <motion.div
                     key={img.id || idx}
+                    role="button"
+                    tabIndex={0}
+                    aria-label={`Deschide imaginea: ${img.title}`}
                     initial={{ opacity: 0, y: 20 }}
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true }}
                     transition={{ duration: 0.4, delay: idx * 0.08 }}
                     onClick={() => setLightboxImage(img)}
+                    onKeyDown={(e) => {
+                      if (e.key === 'Enter' || e.key === ' ') {
+                        e.preventDefault();
+                        setLightboxImage(img);
+                      }
+                    }}
                     className="group relative rounded-3xl overflow-hidden bg-[#0F172A] border border-[#E5DEC9] shadow-xs hover:shadow-xl transition-all duration-300 cursor-pointer aspect-[4/3]"
                 >
                   <img
@@ -480,8 +496,8 @@ export default function OutletPage({ onBack }) {
                       className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-[#0F172A]/80 via-transparent to-transparent opacity-85 group-hover:opacity-95 transition-opacity" />
-                  <div className="absolute bottom-0 inset-x-0 p-6 text-[#FAF8F5]">
-                    <h3 className="serif-title text-2xl font-bold leading-snug">
+                  <div className="absolute bottom-0 inset-x-0 p-5 sm:p-6 text-[#FAF8F5]">
+                    <h3 className="serif-title text-xl sm:text-2xl font-bold leading-snug">
                       {img.title}
                     </h3>
                     {img.caption && (
@@ -497,12 +513,12 @@ export default function OutletPage({ onBack }) {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.4, delay: 0.16 }}
-                className="rounded-3xl bg-[#F4EFE6] border-2 border-dashed border-[#E5DEC9] p-8 flex flex-col items-center justify-center text-center aspect-[4/3]"
+                className="rounded-3xl bg-[#F4EFE6] border-2 border-dashed border-[#E5DEC9] p-6 sm:p-8 flex flex-col items-center justify-center text-center aspect-[4/3]"
             >
               <div className="w-12 h-12 rounded-full bg-[#FAF8F5] border border-[#E5DEC9] flex items-center justify-center text-[#C5A059] mb-4">
                 <ImageIcon className="w-5 h-5" />
               </div>
-              <span className="text-xs uppercase tracking-widest font-semibold text-[#C5A059] mb-1">
+              <span className="text-xs uppercase tracking-widest font-semibold text-[#8A6928] lg:text-[#C5A059] mb-1">
               Galerie în curs de actualizare
             </span>
               <h3 className="serif-title text-2xl font-bold text-[#0F172A] mb-2">
@@ -514,15 +530,16 @@ export default function OutletPage({ onBack }) {
             </motion.div>
           </div>
         </section>
+        </main>
 
         {/* SECTION 4: Locație Outlet (same style as LocationSection on main page) */}
         <section
             id="locatie-outlet"
-            className="py-28 px-6 md:px-16 w-full bg-[#0F172A] text-[#FAF8F5] relative overflow-hidden"
+            className="py-16 sm:py-20 md:py-28 px-4 sm:px-6 md:px-16 w-full bg-[#0F172A] text-[#FAF8F5] relative overflow-hidden"
         >
           <div className="max-w-7xl mx-auto">
             {/* Section Header */}
-            <div className="text-center max-w-3xl mx-auto mb-16">
+            <div className="text-center max-w-3xl mx-auto mb-10 sm:mb-16">
               <motion.div
                   initial={{ opacity: 0, y: 15 }}
                   whileInView={{ opacity: 1, y: 0 }}
@@ -538,7 +555,7 @@ export default function OutletPage({ onBack }) {
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
                   transition={{ delay: 0.1 }}
-                  className="serif-title text-4xl sm:text-6xl font-semibold text-[#FAF8F5] leading-tight mb-4"
+                  className="serif-title text-3xl sm:text-6xl font-semibold text-[#FAF8F5] leading-tight mb-4"
               >
                 Te Așteptăm la Beta Optic Outlet
               </motion.h2>
@@ -548,7 +565,7 @@ export default function OutletPage({ onBack }) {
                   whileInView={{ opacity: 1 }}
                   viewport={{ once: true }}
                   transition={{ delay: 0.2 }}
-                  className="text-[#FAF8F5]/70 text-base md:text-lg font-light"
+                  className="text-[#FAF8F5]/70 text-sm sm:text-base md:text-lg font-light"
               >
                 O atmosferă primitoare, cu atenție la detalii și servicii dedicate vederii tale.
                 <Smile
@@ -558,17 +575,17 @@ export default function OutletPage({ onBack }) {
               </motion.p>
             </div>
 
-            <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-stretch">
+            <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 sm:gap-10 items-stretch">
               {/* Left Box: Contact & Address Information */}
               <motion.div
-                  initial={{ opacity: 0, x: -30 }}
-                  whileInView={{ opacity: 1, x: 0 }}
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
-                  className="lg:col-span-5 p-8 sm:p-10 rounded-3xl bg-[#FAF8F5]/5 border border-[#FAF8F5]/15 backdrop-blur-md flex flex-col justify-between"
+                  className="lg:col-span-5 p-6 sm:p-10 rounded-3xl bg-[#FAF8F5]/5 border border-[#FAF8F5]/15 backdrop-blur-md flex flex-col justify-between"
               >
-                <div className="space-y-8">
+                <div className="space-y-6 sm:space-y-8">
                   <div>
-                    <h3 className="serif-title text-3xl font-bold text-[#FAF8F5] mb-2">
+                    <h3 className="serif-title text-2xl sm:text-3xl font-bold text-[#FAF8F5] mb-2">
                       Beta Optic Outlet Timișoara
                     </h3>
                     <p className="text-xs uppercase tracking-widest text-[#C5A059]">
@@ -576,7 +593,7 @@ export default function OutletPage({ onBack }) {
                     </p>
                   </div>
 
-                  <address className="not-italic space-y-6 text-sm text-[#FAF8F5]/90">
+                  <address className="not-italic space-y-5 sm:space-y-6 text-sm text-[#FAF8F5]/90">
                     <div className="flex items-start gap-4">
                       <div className="w-10 h-10 rounded-xl bg-[#FAF8F5]/10 flex items-center justify-center text-[#C5A059] flex-none">
                         <MapPin className="w-5 h-5" aria-hidden="true" />
@@ -613,7 +630,7 @@ export default function OutletPage({ onBack }) {
                         </strong>
                         <a
                             href="tel:+40748241952"
-                            className="hover:text-[#C5A059] transition-colors"
+                            className="inline-flex items-center min-h-[44px] md:inline md:min-h-0 -my-2 md:my-0 py-2 md:py-0 hover:text-[#C5A059] transition-colors"
                         >
                           0748 241 952
                         </a>
@@ -630,7 +647,7 @@ export default function OutletPage({ onBack }) {
                         </strong>
                         <a
                             href="mailto:betaoptic@yahoo.com"
-                            className="hover:text-[#C5A059] transition-colors"
+                            className="inline-flex items-center min-h-[44px] md:inline md:min-h-0 -my-2 md:my-0 py-2 md:py-0 hover:text-[#C5A059] transition-colors"
                         >
                           betaoptic@yahoo.com
                         </a>
@@ -639,31 +656,34 @@ export default function OutletPage({ onBack }) {
                   </address>
                 </div>
 
-                <div className="pt-8 mt-8 border-t border-[#FAF8F5]/15">
+                <div className="pt-6 sm:pt-8 mt-6 sm:mt-8 border-t border-[#FAF8F5]/15">
                   <a
                       href="https://www.google.com/maps/search/?api=1&query=Strada+Paris+2a,+300003+Timi%C8%99oara"
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="w-full inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-full bg-[#FAF8F5] text-[#0F172A] font-semibold text-xs uppercase tracking-wider hover:bg-[#C5A059] hover:text-[#0F172A] transition-all shadow-md group"
+                      className="w-full inline-flex items-center justify-center gap-2 px-5 sm:px-6 py-3.5 min-h-[44px] rounded-full bg-[#FAF8F5] text-[#0F172A] font-semibold text-xs uppercase tracking-wider hover:bg-[#C5A059] hover:text-[#0F172A] transition-all shadow-md group"
                   >
-                    <Navigation className="w-4 h-4 text-[#0F172A] group-hover:scale-110 transition-transform" />
+                    <Navigation className="w-4 h-4 text-[#0F172A] group-hover:scale-110 transition-transform shrink-0" />
                     <span>Deschide Navigația Google Maps</span>
-                    <ExternalLink className="w-3.5 h-3.5 opacity-60" />
+                    <ExternalLink className="w-3.5 h-3.5 opacity-60 shrink-0" />
                   </a>
                 </div>
               </motion.div>
 
               {/* Right Box: Google Maps Visual Embed */}
               <motion.div
-                  initial={{ opacity: 0, x: 30 }}
-                  whileInView={{ opacity: 1, x: 0 }}
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
-                  className="lg:col-span-7 rounded-3xl overflow-hidden border border-[#FAF8F5]/15 shadow-2xl relative min-h-[400px] bg-[#1E293B]"
+                  onClick={() => setMapInteractive(true)}
+                  className="lg:col-span-7 rounded-3xl overflow-hidden border border-[#FAF8F5]/15 shadow-2xl relative min-h-[260px] sm:min-h-[320px] md:min-h-[400px] bg-[#1E293B]"
               >
                 <iframe
                     title="Locație Beta Optic Outlet Google Maps"
                     src="https://www.google.com/maps?q=Strada+Paris+2a,+300003+Timisoara&output=embed"
-                    className="w-full h-full min-h-[420px] border-0 filter contrast-125 saturate-75 opacity-90"
+                    className={`w-full h-[260px] sm:h-[320px] md:h-full md:min-h-[420px] border-0 filter contrast-125 saturate-75 opacity-90 ${
+                      mapInteractive ? 'pointer-events-auto' : 'pointer-events-none md:pointer-events-auto'
+                    }`}
                     allowFullScreen=""
                     loading="lazy"
                     referrerPolicy="no-referrer-when-downgrade"
@@ -672,7 +692,7 @@ export default function OutletPage({ onBack }) {
             </div>
 
             {/* Footer Copyright */}
-            <footer className="mt-20 pt-8 border-t border-[#FAF8F5]/10 text-center text-xs text-[#FAF8F5]/50 flex flex-col sm:flex-row items-center justify-between gap-4">
+            <footer className="mt-14 sm:mt-20 pt-8 border-t border-[#FAF8F5]/10 text-center text-xs text-[#FAF8F5]/50 flex flex-col sm:flex-row items-center justify-between gap-4">
               <span>© {new Date().getFullYear()} Beta Optic. Toate drepturile rezervate.</span>
               <span className="serif-title text-base font-semibold tracking-widest text-[#FAF8F5]/80 uppercase">
               „Vizibilitatea ta, viziunea noastră”
@@ -698,20 +718,20 @@ export default function OutletPage({ onBack }) {
                   <button
                       onClick={() => setLightboxImage(null)}
                       aria-label="Închide imaginea"
-                      className="absolute top-4 right-4 z-10 w-10 h-10 rounded-full bg-[#0F172A]/80 text-[#FAF8F5] flex items-center justify-center hover:bg-[#C5A059] hover:text-[#0F172A] transition-colors cursor-pointer"
+                      className="absolute top-3 right-3 sm:top-4 sm:right-4 z-10 w-11 h-11 md:w-10 md:h-10 rounded-full bg-[#0F172A]/85 text-[#FAF8F5] flex items-center justify-center hover:bg-[#C5A059] hover:text-[#0F172A] transition-colors cursor-pointer shadow-md"
                   >
                     <X className="w-5 h-5" />
                   </button>
-                  <div className="bg-[#0F172A] flex items-center justify-center max-h-[75vh] overflow-hidden">
+                  <div className="bg-[#0F172A] flex items-center justify-center max-h-[70dvh] md:max-h-[75vh] overflow-hidden">
                     <img
                         src={lightboxImage.src}
                         alt={lightboxImage.title}
-                        className="w-full max-h-[75vh] object-contain"
+                        className="w-full max-h-[70dvh] md:max-h-[75vh] object-contain"
                     />
                   </div>
-                  <div className="px-6 py-4 bg-[#FAF8F5] flex items-center justify-between">
+                  <div className="px-5 sm:px-6 py-4 bg-[#FAF8F5] flex items-center justify-between">
                     <div>
-                      <h4 className="serif-title text-xl font-bold text-[#0F172A]">
+                      <h4 className="serif-title text-lg sm:text-xl font-bold text-[#0F172A]">
                         {lightboxImage.title}
                       </h4>
                       {lightboxImage.caption && (
