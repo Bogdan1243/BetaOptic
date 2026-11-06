@@ -12,7 +12,7 @@ import OutletPage from './components/OutletPage';
 import { AtelierGalleryModal, ExtraFramesModal, OffersModal } from './components/Modals';
 
 export const PAGE_TITLES = {
-  home: 'Beta Optic: Optică Medicală, Consult Oftalmologic Timișoara',
+  home: 'Beta Optic Timișoara — Vizibilitatea ta, viziunea noastră',
   outlet: 'Beta Optic Outlet Timișoara: Rame, Ochelari de Soare & Consult Oftalmologic',
   doctors: 'Medici Oftalmologi Colaboratori — Beta Optic Timișoara',
 };

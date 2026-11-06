@@ -98,7 +98,6 @@ const ROUTES = [
   {
     view: 'home',
     outFile: 'index.html',
-    title: 'Beta Optic: Optică Medicală, Consult Oftalmologic Timișoara',
     description:
       'Beta Optic Timișoara oferă servicii de optică medicală, consult oftalmologic, atelier propriu de montaj lentile și rame de ochelari pe Str. Lucian Blaga 7.',
     canonical: 'https://betaoptic.ro/',
@@ -107,7 +106,6 @@ const ROUTES = [
   {
     view: 'outlet',
     outFile: path.join('outlet', 'index.html'),
-    title: 'Beta Optic Outlet Timișoara: Rame, Ochelari de Soare & Consult Oftalmologic',
     description:
       'Beta Optic Outlet Timișoara (Str. Paris 2a) — colecții de rame de vedere și ochelari de soare la prețuri speciale de outlet, promoții zilnice și cabinet oftalmologic propriu.',
     canonical: 'https://betaoptic.ro/outlet',
@@ -116,7 +114,6 @@ const ROUTES = [
   {
     view: 'doctors',
     outFile: path.join('medici', 'index.html'),
-    title: 'Medici Oftalmologi Colaboratori — Beta Optic Timișoara',
     description:
       'Echipa de medici primari și specialiști oftalmologi de la Beta Optic Timișoara (Str. Lucian Blaga 7): Dr. Gherman Cristiana și Dr. Oroș Nicoleta. Consult oftalmologic și optometrie clinică.',
     canonical: 'https://betaoptic.ro/medici',
@@ -182,11 +179,12 @@ async function prerender() {
   const template = await fs.readFile(indexHtmlPath, 'utf8');
 
   const serverEntryPath = path.join(SSR_DIR, 'entry-server.js');
-  const { render } = await import(pathToFileURL(serverEntryPath).href);
+  const { render, PAGE_TITLES } = await import(pathToFileURL(serverEntryPath).href);
 
   for (const route of ROUTES) {
+    const title = PAGE_TITLES[route.view] || PAGE_TITLES.home;
     const appHtml = render(route.view);
-    const renderedHtml = applyRouteMeta(template, route, appHtml);
+    const renderedHtml = applyRouteMeta(template, { ...route, title }, appHtml);
     const targetPath = path.join(DIST_DIR, route.outFile);
     await fs.mkdir(path.dirname(targetPath), { recursive: true });
     await fs.writeFile(targetPath, renderedHtml, 'utf8');
