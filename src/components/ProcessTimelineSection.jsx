@@ -25,7 +25,7 @@ export default function ProcessTimelineSection() {
       <div aria-hidden="true" className="absolute inset-0 pointer-events-none overflow-hidden opacity-[0.5]">
         {/* NEW: The "Light Box" Backlight Effect */}
         <div className="absolute inset-0 flex items-center justify-center">
-          <div className="w-[85%] max-w-3xl h-[75%] bg-white/70 blur-[80px] rounded-full" />
+          <div className="w-[85%] max-w-3xl h-[75%] bg-white/70 blur-[40px] md:blur-[80px] rounded-full" />
         </div>
 
         {/* The Text Rows (Your existing text code goes here) */}

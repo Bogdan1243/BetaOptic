@@ -2,6 +2,10 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import { Grid, Cpu } from 'lucide-react';
 import rightCardVideo from '../assets/Video_Atelier_Card_Dreapta.mp4';
+import rightCardVideoMobile from '../assets/Video_Atelier_Card_Dreapta-mobile.mp4';
+
+const VIDEO_POSTER_SVG =
+  "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 9'%3E%3Crect width='16' height='9' fill='%230F172A'/%3E%3C/svg%3E";
 
 export default function AtelierSection({ onOpenGallery }) {
   return (
@@ -79,9 +83,11 @@ export default function AtelierSection({ onOpenGallery }) {
                   muted
                   playsInline
                   preload="metadata"
+                  poster={VIDEO_POSTER_SVG}
                   aria-label="Video din atelierul Beta Optic"
                   className="w-full h-[340px] sm:h-[450px] md:h-[550px] object-cover group-hover:scale-105 transition-transform duration-700 filter brightness-95"
               >
+                <source src={rightCardVideoMobile} type="video/mp4" media="(max-width: 767px)" />
                 {/* 2. Use the imported video here. Or, if using an external link, put the URL in quotes like src="https://..." */}
                 <source src={rightCardVideo} type="video/mp4" />
               </video>

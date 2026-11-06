@@ -1,5 +1,8 @@
 import myVideo from '../assets/Video_Atelier.mp4';
+import myVideoMobile from '../assets/Video_Atelier-mobile.mp4';
 import pozaAtelier from '../assets/A-53.webp';
+import pozaAtelier640 from '../assets/A-53-640w.webp';
+import pozaAtelier960 from '../assets/A-53-960w.webp';
 export const HERO_DATA = {
   slogan: "Vizibilitatea ta, viziunea noastră",
   // Carduri afișate în secțiunea Hero (câte 4 pe pagină).
@@ -483,12 +486,15 @@ export const ATELIER_GALLERY = [
     title: "Atelierul Beta Optic",
     type: "photo",
     image: pozaAtelier,
+    srcSet: `${pozaAtelier640} 640w, ${pozaAtelier960} 960w, ${pozaAtelier} 1200w`,
+    sizes: "(max-width: 767px) 360px, (max-width: 1023px) 640px, 1200px",
   },
   {
     title: "Laboratorul de Șlefuire Automatizată",
     subtitle: "Mașinări CNC de ultimă generație",
     type: "video",
     image: myVideo,
+    mobileVideo: myVideoMobile,
     detail: "Lentilele sunt prelucrate cu diamant sintetic pentru o fixare impecabilă în șanțul ramei."
   }];
 

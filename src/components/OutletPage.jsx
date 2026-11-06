@@ -2,7 +2,13 @@ import React, { useEffect, useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import doctorPlaceholder from '../assets/doctors/doctor-placeholder.webp';
 import outletExterior from '../assets/outlet-exterior.webp';
+import outletExterior640 from '../assets/outlet-exterior-640w.webp';
+import outletExterior960 from '../assets/outlet-exterior-960w.webp';
+import outletExterior1280 from '../assets/outlet-exterior-1280w.webp';
 import outletInterior from '../assets/outlet-interior.webp';
+import outletInterior640 from '../assets/outlet-interior-640w.webp';
+import outletInterior960 from '../assets/outlet-interior-960w.webp';
+import outletInterior1280 from '../assets/outlet-interior-1280w.webp';
 import {
   ArrowLeft,
   Sparkles,
@@ -62,6 +68,8 @@ export const OUTLET_GALLERY_IMAGES = [
   {
     id: 'outlet-ext',
     src: outletExterior,
+    srcSet: `${outletExterior640} 640w, ${outletExterior960} 960w, ${outletExterior1280} 1280w, ${outletExterior} 1920w`,
+    sizes: '(max-width: 767px) 360px, (max-width: 1023px) 640px, 1920px',
     width: 1920,
     height: 1076,
     title: 'Fațada Beta Optic Outlet',
@@ -70,6 +78,8 @@ export const OUTLET_GALLERY_IMAGES = [
   {
     id: 'outlet-int',
     src: outletInterior,
+    srcSet: `${outletInterior640} 640w, ${outletInterior960} 960w, ${outletInterior1280} 1200w`,
+    sizes: '(max-width: 767px) 360px, (max-width: 1023px) 640px, 1200px',
     width: 1200,
     height: 1600,
     title: 'Interiorul Beta Optic Outlet',
@@ -97,7 +107,7 @@ function EyeChartBackground() {
       >
         {/* "Light Box" backlight glow */}
         <div className="absolute inset-0 flex items-center justify-center">
-          <div className="w-[85%] max-w-3xl h-[75%] bg-white/70 blur-[80px] rounded-full" />
+          <div className="w-[85%] max-w-3xl h-[75%] bg-white/70 blur-[40px] md:blur-[80px] rounded-full" />
         </div>
 
         {/* Eye chart rows */}
@@ -161,6 +171,8 @@ export default function OutletPage({ onBack }) {
             <div className="relative w-full h-full overflow-hidden">
               <img
                   src={outletExterior}
+                  srcSet={`${outletExterior640} 640w, ${outletExterior960} 960w, ${outletExterior1280} 1280w, ${outletExterior} 1920w`}
+                  sizes="(max-width: 767px) 360px, (max-width: 1023px) 640px, 1920px"
                   alt="Fațada și vitrina showroom-ului Beta Optic Outlet de pe Strada Paris 2a din Timișoara"
                   width="1920"
                   height="1076"
@@ -489,6 +501,8 @@ export default function OutletPage({ onBack }) {
                 >
                   <img
                       src={img.src}
+                      srcSet={img.srcSet}
+                      sizes={img.sizes}
                       alt={img.title}
                       width={img.width || 1200}
                       height={img.height || 900}

@@ -4,6 +4,11 @@ import { X, Disc, Glasses, Sparkles, ShieldCheck, Check, Gift, Calendar, Clock }
 import { ATELIER_GALLERY, FRAME_BRANDS_EXTRA } from '../data/opticData';
 import { getBrandLogo } from '../data/brandLogos';
 import ofertaLuniiImage from '../assets/oferta-lunii-nikon.webp';
+import ofertaLuniiImage640 from '../assets/oferta-lunii-nikon-640w.webp';
+import ofertaLuniiImage960 from '../assets/oferta-lunii-nikon-960w.webp';
+
+const VIDEO_POSTER_SVG =
+  "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 9'%3E%3Crect width='16' height='9' fill='%230F172A'/%3E%3C/svg%3E";
 
 // Extended frame brands grid content for modal
 const ALL_FRAME_BRANDS_GRID = [
@@ -88,14 +93,20 @@ export function AtelierGalleryModal({ isOpen, onClose }) {
                                 muted
                                 playsInline
                                 preload="metadata"
+                                poster={VIDEO_POSTER_SVG}
                                 aria-label={item.title}
                                 className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                             >
+                              {item.mobileVideo && (
+                                <source src={item.mobileVideo} type="video/mp4" media="(max-width: 767px)" />
+                              )}
                               <source src={item.image} type="video/mp4" />
                             </video>
                         ) : (
                             <img
                                 src={item.image}
+                                srcSet={item.srcSet}
+                                sizes={item.sizes}
                                 alt={item.title}
                                 width="1200"
                                 height="800"
@@ -319,6 +330,8 @@ export function OffersModal({ isOpen, activeTab = 'luna', onTabChange, onClose }
                 <div className="md:col-span-7 rounded-2xl overflow-hidden bg-[#0F172A] border border-[#E5DEC9] shadow-lg flex items-center justify-center">
                   <img
                     src={ofertaLuniiImage}
+                    srcSet={`${ofertaLuniiImage640} 640w, ${ofertaLuniiImage960} 819w`}
+                    sizes="(max-width: 767px) 360px, 819px"
                     alt="Oferta lunii Nikon - 1+1 Cadou lentile progresive Presio Z"
                     width="819"
                     height="1024"

@@ -1,6 +1,9 @@
 import React, { useState, useRef, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import heroImage from '../assets/PozaBuna.webp';
+import heroImage640 from '../assets/PozaBuna-640w.webp';
+import heroImage960 from '../assets/PozaBuna-960w.webp';
+import heroImage1280 from '../assets/PozaBuna-1280w.webp';
 import { Eye, Stethoscope, ArrowRight, Gift, ChevronDown, Clock, Calendar, Store } from 'lucide-react';
 import { HERO_DATA } from '../data/opticData';
 import CardCarousel from './CardCarousel';
@@ -42,6 +45,8 @@ export default function HeroSection({ onOpenDoctors, onOpenOffer, onOpenOutlet }
         {/* Storefront photo with subtle dark/beige ambient overlay */}
         <img
           src={heroImage}
+          srcSet={`${heroImage640} 640w, ${heroImage960} 960w, ${heroImage1280} 1280w, ${heroImage} 1920w`}
+          sizes="(max-width: 767px) 360px, (max-width: 1023px) 768px, 1920px"
           alt="Fațada și vitrina magazinului de optică medicală Beta Optic din Timișoara"
           width="1920"
           height="1440"
