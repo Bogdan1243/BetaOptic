@@ -8,7 +8,7 @@ import ofertaLuniiImage640 from '../assets/oferta-lunii-nikon-640w.webp';
 import ofertaLuniiImage960 from '../assets/oferta-lunii-nikon-960w.webp';
 
 const VIDEO_POSTER_SVG =
-  "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 9'%3E%3Crect width='16' height='9' fill='%230F172A'/%3E%3C/svg%3E";
+  "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 9'/%3E";
 
 // Extended frame brands grid content for modal
 const ALL_FRAME_BRANDS_GRID = [

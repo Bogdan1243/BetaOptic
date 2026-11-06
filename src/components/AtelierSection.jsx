@@ -5,7 +5,7 @@ import rightCardVideo from '../assets/Video_Atelier_Card_Dreapta.mp4';
 import rightCardVideoMobile from '../assets/Video_Atelier_Card_Dreapta-mobile.mp4';
 
 const VIDEO_POSTER_SVG =
-  "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 9'%3E%3Crect width='16' height='9' fill='%230F172A'/%3E%3C/svg%3E";
+  "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 9'/%3E";
 
 export default function AtelierSection({ onOpenGallery }) {
   return (

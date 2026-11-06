@@ -78,8 +78,8 @@ export const OUTLET_GALLERY_IMAGES = [
   {
     id: 'outlet-int',
     src: outletInterior,
-    srcSet: `${outletInterior640} 640w, ${outletInterior960} 960w, ${outletInterior1280} 1200w`,
-    sizes: '(max-width: 767px) 360px, (max-width: 1023px) 640px, 1200px',
+    srcSet: `${outletInterior640} 640w, ${outletInterior960} 960w, ${outletInterior1280} 1200w, ${outletInterior} 1440w`,
+    sizes: '(max-width: 767px) 360px, (max-width: 1023px) 640px, 1440px',
     width: 1200,
     height: 1600,
     title: 'Interiorul Beta Optic Outlet',
@@ -515,7 +515,7 @@ export default function OutletPage({ onBack }) {
                       {img.title}
                     </h3>
                     {img.caption && (
-                        <p className="text-xs text-[#FAF8F5]/80 mt-1">{img.caption}</p>
+                        <p className="text-sm md:text-xs text-[#FAF8F5]/80 mt-1">{img.caption}</p>
                     )}
                   </div>
                 </motion.div>
@@ -538,7 +538,7 @@ export default function OutletPage({ onBack }) {
               <h3 className="serif-title text-2xl font-bold text-[#0F172A] mb-2">
                 Mai multe imagini în curând
               </h3>
-              <p className="text-xs text-[#0F172A]/65 max-w-xs leading-relaxed">
+              <p className="text-sm md:text-xs text-[#0F172A]/65 max-w-xs leading-relaxed">
                 Vom adăuga curând fotografii noi cu ramele și colecțiile din Beta Optic Outlet.
               </p>
             </motion.div>
@@ -549,7 +549,7 @@ export default function OutletPage({ onBack }) {
         {/* SECTION 4: Locație Outlet (same style as LocationSection on main page) */}
         <section
             id="locatie-outlet"
-            className="py-16 sm:py-20 md:py-28 px-4 sm:px-6 md:px-16 w-full bg-[#0F172A] text-[#FAF8F5] relative overflow-hidden"
+            className="py-16 sm:py-20 md:py-28 max-sm:pb-[max(4rem,calc(2.5rem+env(safe-area-inset-bottom)))] px-4 sm:px-6 md:px-16 w-full bg-[#0F172A] text-[#FAF8F5] relative overflow-hidden"
         >
           <div className="max-w-7xl mx-auto">
             {/* Section Header */}
@@ -677,9 +677,9 @@ export default function OutletPage({ onBack }) {
                       rel="noopener noreferrer"
                       className="w-full inline-flex items-center justify-center gap-2 px-5 sm:px-6 py-3.5 min-h-[44px] rounded-full bg-[#FAF8F5] text-[#0F172A] font-semibold text-xs uppercase tracking-wider hover:bg-[#C5A059] hover:text-[#0F172A] transition-all shadow-md group"
                   >
-                    <Navigation className="w-4 h-4 text-[#0F172A] group-hover:scale-110 transition-transform shrink-0" />
+                    <Navigation className="w-4 h-4 text-[#0F172A] group-hover:scale-110 transition-transform max-sm:shrink-0" />
                     <span>Deschide Navigația Google Maps</span>
-                    <ExternalLink className="w-3.5 h-3.5 opacity-60 shrink-0" />
+                    <ExternalLink className="w-3.5 h-3.5 opacity-60 max-sm:shrink-0" />
                   </a>
                 </div>
               </motion.div>

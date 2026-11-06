@@ -25,18 +25,18 @@ const renderBrandCard = (brand, index) => {
         </div>
 
         <div>
-          <div className="flex items-start sm:items-center justify-between gap-2 mb-4">
+          <div className="flex max-sm:items-start items-center justify-between max-sm:gap-2 mb-4">
         <span className="px-3 py-1 rounded-2xl sm:rounded-full text-[11px] font-semibold uppercase tracking-wider bg-[#0F172A] text-[#FAF8F5]">
           {brand.tagline}
         </span>
-            <Gem className="w-4 h-4 text-[#C5A059] shrink-0 mt-1 sm:mt-0" />
+            <Gem className="w-4 h-4 text-[#C5A059] max-sm:shrink-0 max-sm:mt-1" />
           </div>
 
           <h3 className="serif-title text-3xl font-bold text-[#0F172A] mb-2 group-hover:text-[#0F172A] transition-colors">
             {brand.name}
           </h3>
 
-          <p className="text-xs font-semibold text-[#0F172A]/60 uppercase tracking-wider mb-5 sm:mb-6 flex flex-wrap items-center gap-1">
+          <p className="text-xs font-semibold text-[#0F172A]/60 uppercase tracking-wider mb-5 sm:mb-6 flex max-sm:flex-wrap items-center gap-1">
             <span>Materiale:</span> {brand.materials}
           </p>
 
@@ -45,7 +45,7 @@ const renderBrandCard = (brand, index) => {
           </p>
         </div>
 
-        <div className="pt-5 sm:pt-6 mt-5 sm:mt-6 border-t border-[#0F172A]/10 flex flex-wrap items-center justify-between gap-2 text-xs text-[#0F172A]/70">
+        <div className="pt-5 sm:pt-6 mt-5 sm:mt-6 border-t border-[#0F172A]/10 flex max-sm:flex-wrap items-center justify-between max-sm:gap-2 text-xs text-[#0F172A]/70">
           <span className="tracking-wider uppercase">Proba Anatomică în Atelier</span>
           <span className="font-medium text-[#0F172A]">Beta Optic Select</span>
         </div>
@@ -130,7 +130,7 @@ export default function FrameBrandsSection({ onOpenExtraFrames }) {
                 <h3 className="serif-title text-xl sm:text-2xl font-semibold text-[#0F172A]">
                   Alte Branduri de Rame Premium
                 </h3>
-                <p className="text-xs text-[#0F172A]/70">
+                <p className="text-sm md:text-xs text-[#0F172A]/70">
                   Case de design internaționale disponibile pentru probă fizică
                 </p>
               </div>

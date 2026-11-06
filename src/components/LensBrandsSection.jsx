@@ -61,11 +61,11 @@ export default function LensBrandsSection() {
               </div>
 
               <div>
-                <div className="flex flex-wrap items-center justify-between gap-2 mb-5 sm:mb-6">
+                <div className="flex max-sm:flex-wrap items-center justify-between max-sm:gap-2 mb-5 sm:mb-6">
                   <span className="px-3 py-1 rounded-2xl sm:rounded-full text-[11px] sm:text-xs font-semibold uppercase tracking-wider bg-[#0F172A] text-[#FAF8F5]">
                     {brand.badge}
                   </span>
-                  <span className="text-xs uppercase tracking-widest font-semibold text-[#0F172A]/50 flex items-center gap-1 shrink-0">
+                  <span className="text-xs uppercase tracking-widest font-semibold text-[#0F172A]/50 flex items-center gap-1 max-sm:shrink-0">
                     <ShieldCheck className="w-3.5 h-3.5 text-[#C5A059]" />
                     {brand.origin}
                   </span>
@@ -83,7 +83,7 @@ export default function LensBrandsSection() {
                 </p>
               </div>
 
-              <div className="pt-5 sm:pt-8 mt-5 sm:mt-6 border-t border-[#0F172A]/10 flex flex-wrap items-center justify-between gap-2 text-xs text-[#0F172A]/70">
+              <div className="pt-5 sm:pt-8 mt-5 sm:mt-6 border-t border-[#0F172A]/10 flex max-sm:flex-wrap items-center justify-between max-sm:gap-2 text-xs text-[#0F172A]/70">
                 <span className="tracking-wider uppercase">Garanție Oficială Premium</span>
                 <span className="font-medium flex items-center gap-1 text-[#0F172A]">
                   Disponibil la Beta Optic

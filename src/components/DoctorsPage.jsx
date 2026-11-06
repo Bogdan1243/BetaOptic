@@ -242,7 +242,7 @@ export default function DoctorsPage({ onBack }) {
       </main>
 
       {/* Bottom Visit & Atelier Invitation Section */}
-      <section className="py-14 sm:py-20 px-4 sm:px-6 md:px-16 w-full bg-[#0F172A] text-[#FAF8F5] relative overflow-hidden">
+      <section className="py-14 sm:py-20 max-sm:pb-[max(3.5rem,calc(2rem+env(safe-area-inset-bottom)))] px-4 sm:px-6 md:px-16 w-full bg-[#0F172A] text-[#FAF8F5] relative overflow-hidden">
         <div className="max-w-5xl mx-auto text-center space-y-6 sm:space-y-8">
           
           <div className="w-14 h-14 rounded-full bg-[#FAF8F5]/10 text-[#C5A059] flex items-center justify-center mx-auto border border-[#FAF8F5]/20">
