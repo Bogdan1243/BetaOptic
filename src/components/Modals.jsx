@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { X, Disc, Glasses, Sparkles, ShieldCheck, Check, Gift, Calendar, Clock } from 'lucide-react';
+import { X, Disc, Glasses, Sparkles, ShieldCheck, Check, Gift, Calendar } from 'lucide-react';
 import { ATELIER_GALLERY, FRAME_BRANDS_EXTRA } from '../data/opticData';
 import { getBrandLogo } from '../data/brandLogos';
 import ofertaLuniiImage from '../assets/oferta-lunii-nikon.webp';
@@ -228,8 +228,7 @@ export function ExtraFramesModal({ isOpen, onClose }) {
 }
 
 const OFFER_TABS = [
-  { id: 'zi', label: 'Oferta zilei', icon: Clock },
-  { id: 'saptamana', label: 'Oferta săptămânii', icon: Calendar },
+  { id: 'saptamana', label: 'Oferta săptămânii', icon: Calendar, hasActiveOffer: true },
   { id: 'luna', label: 'Oferta lunii', icon: Gift, hasActiveOffer: true },
 ];
 
@@ -290,8 +289,8 @@ export function OffersModal({ isOpen, activeTab = 'luna', onTabChange, onClose }
               </button>
             </div>
 
-            {/* Category Tabs: Oferta zilei / Oferta săptămânii / Oferta lunii */}
-            <div className="grid grid-cols-1 sm:grid-cols-3 gap-1.5 sm:gap-2 p-1.5 rounded-2xl bg-[#FAF8F5] border border-[#E5DEC9]">
+            {/* Category Tabs: Oferta săptămânii / Oferta lunii */}
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-1.5 sm:gap-2 p-1.5 rounded-2xl bg-[#FAF8F5] border border-[#E5DEC9]">
               {OFFER_TABS.map((tab) => {
                 const Icon = tab.icon;
                 const isActive = selectedTab === tab.id;
@@ -380,39 +379,83 @@ export function OffersModal({ isOpen, activeTab = 'luna', onTabChange, onClose }
               </motion.div>
             ) : (
               <motion.div
-                key={selectedTab}
+                key="saptamana"
                 initial={{ opacity: 0, y: 10 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.3 }}
-                className="py-10 sm:py-12 px-4 sm:px-6 text-center max-w-lg mx-auto space-y-5"
+                className="grid grid-cols-1 md:grid-cols-12 gap-6 sm:gap-8 items-center"
               >
-                <div className="w-16 h-16 rounded-full bg-[#F4EFE6] border border-[#E5DEC9] flex items-center justify-center mx-auto text-[#C5A059]">
-                  {selectedTab === 'zi' ? (
-                    <Clock className="w-7 h-7 stroke-[1.5]" />
-                  ) : (
-                    <Calendar className="w-7 h-7 stroke-[1.5]" />
-                  )}
-                </div>
+                {/* Offer Visual Poster Card */}
+                <div className="md:col-span-7 rounded-2xl overflow-hidden bg-[#0F172A] border border-[#E5DEC9] shadow-lg p-6 sm:p-10 flex flex-col items-center justify-center text-center relative min-h-[300px] sm:min-h-[380px]">
+                  <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_right,rgba(197,160,89,0.22),transparent_60%)] pointer-events-none" />
 
-                <div className="space-y-2">
-                  <span className="text-xs uppercase tracking-widest font-semibold text-[#C5A059]">
-                    {selectedTab === 'zi' ? 'Oferta Zilei' : 'Oferta Săptămânii'}
+                  <span className="relative z-10 px-3.5 py-1 rounded-full bg-[#C5A059]/20 border border-[#C5A059]/40 text-[#C5A059] text-[11px] uppercase tracking-widest font-bold mb-5">
+                    Design Independent • Barcelona
                   </span>
-                  <h4 className="serif-title text-2xl sm:text-3xl font-bold text-[#0F172A]">
-                    În pregătire pentru tine
-                  </h4>
-                  <p className="text-sm text-[#0F172A]/75 leading-relaxed">
-                    Momentan pregătim o nouă surpriză pentru această secțiune. Până atunci, te invităm să descoperi promoția activă a lunii!
+
+                  <div className="relative z-10 w-24 h-24 sm:w-28 sm:h-28 rounded-full bg-white border-2 border-[#C5A059]/40 flex items-center justify-center p-4 mb-5 shadow-md">
+                    {getBrandLogo('GigiStudios') ? (
+                      <img
+                        src={getBrandLogo('GigiStudios')}
+                        alt="Logo Gigi Studios"
+                        width="80"
+                        height="80"
+                        loading="lazy"
+                        className="w-full h-full object-contain"
+                      />
+                    ) : (
+                      <Glasses className="w-10 h-10 text-[#C5A059]" />
+                    )}
+                  </div>
+
+                  <h5 className="relative z-10 serif-title text-4xl sm:text-6xl font-bold text-[#C5A059] tracking-tight mb-2">
+                    -40% REDUCERE
+                  </h5>
+
+                  <p className="relative z-10 serif-title text-2xl sm:text-3xl font-semibold text-[#FAF8F5] tracking-wide mb-3">
+                    GIGI STUDIOS
+                  </p>
+
+                  <p className="relative z-10 text-xs sm:text-sm text-[#FAF8F5]/75 max-w-xs leading-relaxed">
                   </p>
                 </div>
 
-                <button
-                  onClick={() => handleSelectTab('luna')}
-                  className="inline-flex items-center gap-2 px-6 py-3 min-h-[44px] rounded-full bg-[#0F172A] text-[#FAF8F5] text-xs uppercase tracking-widest font-semibold hover:bg-[#C5A059] hover:text-[#0F172A] transition-all cursor-pointer shadow-sm"
-                >
-                  <Gift className="w-4 h-4 text-[#C5A059] group-hover:text-[#0F172A]" />
-                  <span>Vezi Oferta Lunii (Nikon 1+1)</span>
-                </button>
+                {/* Offer Details */}
+                <div className="md:col-span-5 flex flex-col justify-between space-y-5">
+                  <div className="space-y-4">
+                    <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#C5A059]/20 text-[#0F172A] border border-[#C5A059]/40 text-[11px] uppercase tracking-wider font-bold">
+                      <Calendar className="w-3.5 h-3.5 text-[#C5A059]" />
+                      Oferta Săptămânii • Activă
+                    </span>
+
+                    <h4 className="serif-title text-2xl sm:text-4xl font-bold text-[#0F172A] leading-tight">
+                      40% Reducere la ramele de vedere Gigi Studios
+                    </h4>
+
+                    <p className="text-sm font-semibold text-[#C5A059] uppercase tracking-wider">
+                      Design Independent din Barcelona
+                    </p>
+
+                    <p className="text-sm text-[#0F172A]/85 leading-relaxed">
+                      Săptămâna aceasta beneficiezi de <strong>40% reducere</strong> la colecția de rame și ochelari <strong>Gigi Studios</strong> disponibilă în showroom-ul Beta Optic.
+                    </p>
+
+                    <div className="p-4 rounded-2xl bg-[#F4EFE6] border border-[#E5DEC9] space-y-2 text-xs text-[#0F172A]/80">
+                      <div className="flex items-start gap-2">
+                        <Check className="w-4 h-4 text-[#C5A059] shrink-0 mt-0.5" />
+                        <span>Rame realizate din Titan Japonez și Acetat Italian de înaltă densitate.</span>
+                      </div>
+                      <div className="flex items-start gap-2">
+                        <Check className="w-4 h-4 text-[#C5A059] shrink-0 mt-0.5" />
+                        <span>Disponibile pentru probă și consiliere personalizată în showroom-ul Beta Optic Timișoara.</span>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div className="pt-4 border-t border-[#E5DEC9] space-y-1.5 text-[11px] text-[#0F172A]/60 leading-relaxed">
+                    <p>*Ofertă valabilă în limita stocului disponibil în showroom-ul Beta Optic.</p>
+                  </div>
+                </div>
               </motion.div>
             )}
           </div>

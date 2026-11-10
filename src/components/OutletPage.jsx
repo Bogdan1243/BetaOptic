@@ -35,15 +35,6 @@ import CardCarousel from './CardCarousel';
 
 const OUTLET_OFFER_TABS = [
   {
-    id: 'zi',
-    label: 'Oferta zilei',
-    subtitle: 'Promoție zilnică Outlet',
-    icon: Clock,
-    title: 'Oferta Zilei în Outlet',
-    description:
-        'În fiecare zi selectăm rame și ochelari de soare din colecțiile noastre la prețuri speciale de outlet. Vizitează-ne în showroom pentru a descoperi surpriza zilei!',
-  },
-  {
     id: 'saptamana',
     label: 'Oferta săptămânii',
     subtitle: 'Selecția săptămânală Outlet',
@@ -159,7 +150,7 @@ export default function OutletPage({ onBack }) {
   }, [lightboxImage]);
 
   const activeOffer =
-      OUTLET_OFFER_TABS.find((t) => t.id === selectedOfferTab) || OUTLET_OFFER_TABS[2];
+      OUTLET_OFFER_TABS.find((t) => t.id === selectedOfferTab) || OUTLET_OFFER_TABS[1];
 
   return (
       <div className="min-h-screen w-full bg-[#FAF8F5] text-[#0F172A] selection:bg-[#0F172A] selection:text-[#FAF8F5] font-sans antialiased overflow-x-hidden">
@@ -381,8 +372,8 @@ export default function OutletPage({ onBack }) {
                 </p>
               </div>
 
-              {/* Inline Category Selector: Oferta zilei / Oferta săptămânii / Oferta lunii */}
-              <div className="grid grid-cols-1 sm:grid-cols-3 gap-2.5 sm:gap-3 p-2 rounded-3xl bg-[#0F172A] border border-[#0F172A] shadow-lg mb-6 sm:mb-8">
+              {/* Inline Category Selector: Oferta săptămânii / Oferta lunii */}
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5 sm:gap-3 p-2 rounded-3xl bg-[#0F172A] border border-[#0F172A] shadow-lg mb-6 sm:mb-8">
                 {OUTLET_OFFER_TABS.map((tab) => {
                   const Icon = tab.icon;
                   const isSelected = selectedOfferTab === tab.id;

@@ -4,13 +4,12 @@ import heroImage from '../assets/PozaBuna.webp';
 import heroImage640 from '../assets/PozaBuna-640w.webp';
 import heroImage960 from '../assets/PozaBuna-960w.webp';
 import heroImage1280 from '../assets/PozaBuna-1280w.webp';
-import { Eye, Stethoscope, ArrowRight, Gift, ChevronDown, Clock, Calendar, Store } from 'lucide-react';
+import { Eye, Stethoscope, ArrowRight, Gift, ChevronDown, Calendar, Store } from 'lucide-react';
 import { HERO_DATA } from '../data/opticData';
 import CardCarousel from './CardCarousel';
 
 const OFFER_MENU_ITEMS = [
-  { id: 'zi', label: 'Oferta zilei', subtitle: 'Promoții zilnice', icon: Clock },
-  { id: 'saptamana', label: 'Oferta săptămânii', subtitle: 'Selecția săptămânii', icon: Calendar },
+  { id: 'saptamana', label: 'Oferta săptămânii', subtitle: '-40% Gigi Studios', icon: Calendar, badge: 'Activă' },
   { id: 'luna', label: 'Oferta lunii', subtitle: 'Nikon 1+1 Cadou', icon: Gift, badge: 'Activă' },
 ];
 

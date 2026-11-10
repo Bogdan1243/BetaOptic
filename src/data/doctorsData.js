@@ -2,7 +2,7 @@ export const DOCTORS_DATA = [
   {
     id: "dr-gherman-cristiana",
     name: "Dr. Gherman Cristiana",
-    title: "Medic Primar",
+    title: "Medic Primar Oftalmolog",
     // schedule: "Luni & Miercuri: 10:00 - 17:00",
   },
   {
