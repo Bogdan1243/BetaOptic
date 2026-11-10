@@ -57,6 +57,14 @@ const JOBS = [
     responsiveQuality: 80,
   },
   {
+    src: 'oferta-saptamanii-gigi.jpg',
+    dest: 'oferta-saptamanii-gigi.webp',
+    maxWidth: 1200,
+    quality: 82,
+    responsiveWidths: [640, 960],
+    responsiveQuality: 80,
+  },
+  {
     src: 'doctors/doctor-placeholder.jpg',
     dest: 'doctors/doctor-placeholder.webp',
     maxWidth: 600,

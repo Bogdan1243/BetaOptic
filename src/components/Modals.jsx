@@ -6,6 +6,9 @@ import { getBrandLogo } from '../data/brandLogos';
 import ofertaLuniiImage from '../assets/oferta-lunii-nikon.webp';
 import ofertaLuniiImage640 from '../assets/oferta-lunii-nikon-640w.webp';
 import ofertaLuniiImage960 from '../assets/oferta-lunii-nikon-960w.webp';
+import ofertaSaptamaniiImage from '../assets/oferta-saptamanii-gigi.webp';
+import ofertaSaptamaniiImage640 from '../assets/oferta-saptamanii-gigi-640w.webp';
+import ofertaSaptamaniiImage960 from '../assets/oferta-saptamanii-gigi-960w.webp';
 
 const VIDEO_POSTER_SVG =
   "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 9'/%3E";
@@ -385,39 +388,18 @@ export function OffersModal({ isOpen, activeTab = 'luna', onTabChange, onClose }
                 transition={{ duration: 0.3 }}
                 className="grid grid-cols-1 md:grid-cols-12 gap-6 sm:gap-8 items-center"
               >
-                {/* Offer Visual Poster Card */}
-                <div className="md:col-span-7 rounded-2xl overflow-hidden bg-[#0F172A] border border-[#E5DEC9] shadow-lg p-6 sm:p-10 flex flex-col items-center justify-center text-center relative min-h-[300px] sm:min-h-[380px]">
-                  <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_right,rgba(197,160,89,0.22),transparent_60%)] pointer-events-none" />
-
-                  <span className="relative z-10 px-3.5 py-1 rounded-full bg-[#C5A059]/20 border border-[#C5A059]/40 text-[#C5A059] text-[11px] uppercase tracking-widest font-bold mb-5">
-                    Design Independent • Barcelona
-                  </span>
-
-                  <div className="relative z-10 w-24 h-24 sm:w-28 sm:h-28 rounded-full bg-white border-2 border-[#C5A059]/40 flex items-center justify-center p-4 mb-5 shadow-md">
-                    {getBrandLogo('GigiStudios') ? (
-                      <img
-                        src={getBrandLogo('GigiStudios')}
-                        alt="Logo Gigi Studios"
-                        width="80"
-                        height="80"
-                        loading="lazy"
-                        className="w-full h-full object-contain"
-                      />
-                    ) : (
-                      <Glasses className="w-10 h-10 text-[#C5A059]" />
-                    )}
-                  </div>
-
-                  <h5 className="relative z-10 serif-title text-4xl sm:text-6xl font-bold text-[#C5A059] tracking-tight mb-2">
-                    -40% REDUCERE
-                  </h5>
-
-                  <p className="relative z-10 serif-title text-2xl sm:text-3xl font-semibold text-[#FAF8F5] tracking-wide mb-3">
-                    GIGI STUDIOS
-                  </p>
-
-                  <p className="relative z-10 text-xs sm:text-sm text-[#FAF8F5]/75 max-w-xs leading-relaxed">
-                  </p>
+                {/* Offer Poster Image */}
+                <div className="md:col-span-7 rounded-2xl overflow-hidden bg-[#0F172A] border border-[#E5DEC9] shadow-lg flex items-center justify-center">
+                  <img
+                    src={ofertaSaptamaniiImage}
+                    srcSet={`${ofertaSaptamaniiImage640} 640w, ${ofertaSaptamaniiImage960} 960w, ${ofertaSaptamaniiImage} 1200w`}
+                    sizes="(max-width: 767px) 360px, 819px"
+                    alt="Rame de vedere Gigi Studios în showroom-ul Beta Optic"
+                    width="1200"
+                    height="900"
+                    loading="lazy"
+                    className="w-full max-h-[55svh] md:max-h-[62vh] object-cover"
+                  />
                 </div>
 
                 {/* Offer Details */}
