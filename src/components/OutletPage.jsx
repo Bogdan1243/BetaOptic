@@ -207,8 +207,9 @@ export default function OutletPage({ onBack }) {
               <span className="font-[Arial] text-2xl font-bold tracking-widest text-[#0F172A] uppercase">
                 BETA OPTIC
               </span>
-                <span className="block text-[10px] tracking-[0.25em] text-[#0F172A]/70 uppercase font-medium">
-                Outlet Timișoara
+                <span className="block text-[12px] tracking-[0.25em] text-[#0F172A]/70 uppercase font-bold">
+                Strada Paris Nr.2a <br/>
+                  0748 241 952
               </span>
               </div>
             </motion.a>

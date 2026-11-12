@@ -73,8 +73,9 @@ export default function HeroSection({ onOpenDoctors, onOpenOffer, onOpenOutlet }
             <span className="font-[Arial] text-2xl font-bold tracking-widest text-[#0F172A] uppercase">
               BETA OPTIC
             </span>
-            <span className="block text-[10px] tracking-[0.25em] text-[#0F172A]/70 uppercase font-medium">
-              Timișoara
+            <span className="block text-[12px] tracking-[0.25em] text-[#0F172A]/70 uppercase font-bold">
+              Strada Lucian Blaga nr.7 <br/>
+              0721 316 224
             </span>
           </div>
         </motion.div>
