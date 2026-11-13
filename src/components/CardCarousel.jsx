@@ -241,7 +241,7 @@ export default function CardCarousel({
       <div
         ref={mobileTrackRef}
         onScroll={handleMobileScroll}
-        className="max-md:flex max-md:overflow-x-auto max-md:snap-x max-md:snap-mandatory max-md:gap-3 max-md:pb-2 max-md:scroll-smooth no-scrollbar md:grid md:grid-cols-1 md:overflow-hidden w-full"
+        className="max-md:flex max-md:overflow-x-auto max-md:snap-x max-md:snap-mandatory max-md:gap-3 max-md:pb-2 max-md:px-[9%] max-sm:-mx-4 max-sm:w-[calc(100%+2rem)] sm:max-md:-mx-6 sm:max-md:w-[calc(100%+3rem)] max-md:scroll-smooth no-scrollbar md:grid md:grid-cols-1 md:overflow-hidden w-full"
       >
         {pages.map((pageCards, pageIdx) => {
           const isActive = pageIdx === currentPage;
@@ -300,7 +300,7 @@ export default function CardCarousel({
                   <div
                     key={globalIndex}
                     data-carousel-card
-                    className="max-md:w-[85%] max-md:shrink-0 max-md:snap-start p-5 sm:p-6 rounded-2xl bg-[#FAF8F5]/90 border border-[#0F172A]/10 shadow-sm backdrop-blur-md hover:border-[#0F172A]/30 transition-all duration-300 flex items-start gap-3.5 sm:gap-4 group"
+                    className="max-md:w-full max-md:shrink-0 max-md:snap-center p-5 sm:p-6 rounded-2xl bg-[#FAF8F5]/90 border border-[#0F172A]/10 shadow-sm backdrop-blur-md hover:border-[#0F172A]/30 transition-all duration-300 flex items-start gap-3.5 sm:gap-4 group"
                   >
                     <span className="serif-title text-xl font-medium text-[#C5A059] group-hover:scale-110 transition-transform">
                       {String(globalIndex + 1).padStart(2, '0')}
