@@ -59,7 +59,7 @@ export function AtelierGalleryModal({ isOpen, onClose }) {
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
               onClick={onClose}
-              className="fixed inset-0 bg-[#0F172A]/80 backdrop-blur-md"
+              className="fixed inset-0 bg-[#172554]/80 backdrop-blur-md"
           />
 
           {/* Modal Window */}
@@ -67,17 +67,17 @@ export function AtelierGalleryModal({ isOpen, onClose }) {
               initial={{ opacity: 0, scale: 0.95, y: 20 }}
               animate={{ opacity: 1, scale: 1, y: 0 }}
               exit={{ opacity: 0, scale: 0.95, y: 20 }}
-              className="relative w-full max-w-5xl bg-[#FAF8F5] text-[#0F172A] rounded-3xl shadow-2xl overflow-hidden border border-[#E5DEC9] my-auto z-10 max-h-[90dvh] md:max-h-[90vh] flex flex-col"
+              className="relative w-full max-w-5xl bg-[#FAF8F5] text-[#172554] rounded-3xl shadow-2xl overflow-hidden border border-[#E5DEC9] my-auto z-10 max-h-[90dvh] md:max-h-[90vh] flex flex-col"
           >
             {/* Modal Header */}
             <div className="px-5 sm:px-8 py-5 sm:py-6 bg-[#F4EFE6] border-b border-[#E5DEC9] flex items-center justify-between gap-3 flex-none">
               <div>
                 <span className="text-xs uppercase tracking-widest font-semibold text-[#C5A059] block mb-1">Galerie Atelier Beta Optic</span>
-                <h3 className="serif-title text-xl sm:text-3xl font-bold text-[#0F172A]">Echipamente & Măiestrie Artizanală</h3>
+                <h3 className="serif-title text-xl sm:text-3xl font-bold text-[#172554]">Echipamente & Măiestrie Artizanală</h3>
               </div>
               <button
                   onClick={onClose}
-                  className="w-11 h-11 md:w-10 md:h-10 shrink-0 rounded-full border border-[#0F172A]/20 bg-[#FAF8F5] text-[#0F172A] flex items-center justify-center hover:bg-[#0F172A] hover:text-[#FAF8F5] transition-all cursor-pointer"
+                  className="w-11 h-11 md:w-10 md:h-10 shrink-0 rounded-full border border-[#172554]/20 bg-[#FAF8F5] text-[#172554] flex items-center justify-center hover:bg-[#172554] hover:text-[#FAF8F5] transition-all cursor-pointer"
                   aria-label="Închide modal"
               >
                 <X className="w-5 h-5" />
@@ -88,7 +88,7 @@ export function AtelierGalleryModal({ isOpen, onClose }) {
             <div className="p-5 sm:p-8 overflow-y-auto space-y-8">
               <div className="grid grid-cols-1 md:grid-cols-2 gap-5 sm:gap-6">
                 {ATELIER_GALLERY.map((item, idx) => (
-                    <div key={idx} className="rounded-2xl overflow-hidden bg-[#0F172A] border border-[#E5DEC9] group shadow-xs">
+                    <div key={idx} className="rounded-2xl overflow-hidden bg-[#172554] border border-[#E5DEC9] group shadow-xs">
 
                       {/* Media fills the whole card (Video or Image), no overlays/text */}
                       <div className="relative aspect-[4/3] overflow-hidden">
@@ -127,11 +127,11 @@ export function AtelierGalleryModal({ isOpen, onClose }) {
             </div>
 
             {/* Modal Footer */}
-            <div className="px-5 sm:px-8 py-4 bg-[#F4EFE6] border-t border-[#E5DEC9] flex flex-wrap items-center justify-between gap-3 flex-none text-xs text-[#0F172A]/70">
+            <div className="px-5 sm:px-8 py-4 bg-[#F4EFE6] border-t border-[#E5DEC9] flex flex-wrap items-center justify-between gap-3 flex-none text-xs text-[#172554]/70">
               <span>Standarde de montaj conform directivelor europene ISO 8980</span>
               <button
                   onClick={onClose}
-                  className="px-6 py-2.5 md:py-2 min-h-[44px] md:min-h-0 rounded-full bg-[#0F172A] text-[#FAF8F5] uppercase tracking-wider font-semibold hover:bg-[#C5A059] hover:text-[#0F172A] transition-all cursor-pointer"
+                  className="px-6 py-2.5 md:py-2 min-h-[44px] md:min-h-0 rounded-full bg-[#172554] text-[#FAF8F5] uppercase tracking-wider font-semibold hover:bg-[#C5A059] hover:text-[#172554] transition-all cursor-pointer"
               >
                 Închide Galeria
               </button>
@@ -154,24 +154,24 @@ export function ExtraFramesModal({ isOpen, onClose }) {
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
               onClick={onClose}
-              className="fixed inset-0 bg-[#0F172A]/80 backdrop-blur-md"
+              className="fixed inset-0 bg-[#172554]/80 backdrop-blur-md"
           />
 
           <motion.div
               initial={{ opacity: 0, scale: 0.95, y: 20 }}
               animate={{ opacity: 1, scale: 1, y: 0 }}
               exit={{ opacity: 0, scale: 0.95, y: 20 }}
-              className="relative w-full max-w-5xl bg-[#FAF8F5] text-[#0F172A] rounded-3xl shadow-2xl overflow-hidden border border-[#E5DEC9] my-auto z-10 max-h-[90dvh] md:max-h-[90vh] flex flex-col"
+              className="relative w-full max-w-5xl bg-[#FAF8F5] text-[#172554] rounded-3xl shadow-2xl overflow-hidden border border-[#E5DEC9] my-auto z-10 max-h-[90dvh] md:max-h-[90vh] flex flex-col"
           >
             {/* Modal Header */}
             <div className="px-5 sm:px-8 py-5 sm:py-6 bg-[#F4EFE6] border-b border-[#E5DEC9] flex items-center justify-between gap-3 flex-none">
               <div>
                 <span className="text-xs uppercase tracking-widest font-semibold text-[#C5A059] block mb-1">Catalog Rame Premium</span>
-                <h3 className="serif-title text-xl sm:text-3xl font-bold text-[#0F172A]">Portofoliul Integrat de Rame & Ochelari</h3>
+                <h3 className="serif-title text-xl sm:text-3xl font-bold text-[#172554]">Portofoliul Integrat de Rame & Ochelari</h3>
               </div>
               <button
                   onClick={onClose}
-                  className="w-11 h-11 md:w-10 md:h-10 shrink-0 rounded-full border border-[#0F172A]/20 bg-[#FAF8F5] text-[#0F172A] flex items-center justify-center hover:bg-[#0F172A] hover:text-[#FAF8F5] transition-all cursor-pointer"
+                  className="w-11 h-11 md:w-10 md:h-10 shrink-0 rounded-full border border-[#172554]/20 bg-[#FAF8F5] text-[#172554] flex items-center justify-center hover:bg-[#172554] hover:text-[#FAF8F5] transition-all cursor-pointer"
                   aria-label="Închide modal"
               >
                 <X className="w-5 h-5" />
@@ -182,13 +182,13 @@ export function ExtraFramesModal({ isOpen, onClose }) {
             <div className="p-5 sm:p-8 overflow-y-auto">
               <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-5">
                 {ALL_FRAME_BRANDS_GRID.map((f, idx) => (
-                    <div key={idx} className="p-5 rounded-2xl bg-[#F4EFE6] border border-[#E5DEC9] hover:border-[#0F172A]/30 transition-all flex flex-col justify-between">
+                    <div key={idx} className="p-5 rounded-2xl bg-[#F4EFE6] border border-[#E5DEC9] hover:border-[#172554]/30 transition-all flex flex-col justify-between">
                       <div>
                         <div className="flex items-center justify-between mb-3">
-                      <span className="px-2.5 py-0.5 rounded-full text-[10px] uppercase font-bold tracking-wider bg-[#0F172A] text-[#FAF8F5]">
+                      <span className="px-2.5 py-0.5 rounded-full text-[10px] uppercase font-bold tracking-wider bg-[#172554] text-[#FAF8F5]">
                         {f.origin}
                       </span>
-                          <div className="w-12 h-12 rounded-full bg-white border border-[#0F172A]/10 flex items-center justify-center overflow-hidden shrink-0">
+                          <div className="w-12 h-12 rounded-full bg-white border border-[#172554]/10 flex items-center justify-center overflow-hidden shrink-0">
                             {getBrandLogo(f.name) ? (
                                 <img
                                     src={getBrandLogo(f.name)}
@@ -203,12 +203,12 @@ export function ExtraFramesModal({ isOpen, onClose }) {
                             )}
                           </div>
                         </div>
-                        <h4 className="serif-title text-2xl font-bold text-[#0F172A] mb-1">{f.name}</h4>
-                        <p className="text-xs text-[#0F172A]/70 mb-2 font-medium">{f.category}</p>
-                        <p className="text-xs text-[#0F172A]/80 font-light">Materiale: {f.material}</p>
-                        {f.desc && <p className="text-xs text-[#0F172A]/80 leading-relaxed mt-2">{f.desc}</p>}
+                        <h4 className="serif-title text-2xl font-bold text-[#172554] mb-1">{f.name}</h4>
+                        <p className="text-xs text-[#172554]/70 mb-2 font-medium">{f.category}</p>
+                        <p className="text-xs text-[#172554]/80 font-light">Materiale: {f.material}</p>
+                        {f.desc && <p className="text-xs text-[#172554]/80 leading-relaxed mt-2">{f.desc}</p>}
                       </div>
-                      <div className="mt-4 pt-3 border-t border-[#0F172A]/10 text-[11px] text-[#C5A059] font-semibold flex items-center gap-1">
+                      <div className="mt-4 pt-3 border-t border-[#172554]/10 text-[11px] text-[#C5A059] font-semibold flex items-center gap-1">
                         <Check className="w-3.5 h-3.5" />
                         <span>Disponibil pentru probă în showroom</span>
                       </div>
@@ -218,11 +218,11 @@ export function ExtraFramesModal({ isOpen, onClose }) {
             </div>
 
             {/* Modal Footer */}
-            <div className="px-5 sm:px-8 py-4 bg-[#F4EFE6] border-t border-[#E5DEC9] flex flex-wrap items-center justify-between gap-3 flex-none text-xs text-[#0F172A]/70">
+            <div className="px-5 sm:px-8 py-4 bg-[#F4EFE6] border-t border-[#E5DEC9] flex flex-wrap items-center justify-between gap-3 flex-none text-xs text-[#172554]/70">
               <span>Serviciu gratuit de ajustare anatomică a ramelor</span>
               <button
                   onClick={onClose}
-                  className="px-6 py-2.5 md:py-2 min-h-[44px] md:min-h-0 rounded-full bg-[#0F172A] text-[#FAF8F5] uppercase tracking-wider font-semibold hover:bg-[#C5A059] hover:text-[#0F172A] transition-all cursor-pointer"
+                  className="px-6 py-2.5 md:py-2 min-h-[44px] md:min-h-0 rounded-full bg-[#172554] text-[#FAF8F5] uppercase tracking-wider font-semibold hover:bg-[#C5A059] hover:text-[#172554] transition-all cursor-pointer"
               >
                 Închide Catalogul
               </button>
@@ -242,22 +242,22 @@ export function ActiveOffersSection({ onOpenOffer }) {
   return (
     <section
       id="oferte"
-      className="py-16 sm:py-20 md:py-24 px-4 sm:px-6 md:px-16 w-full bg-[#FAF8F5] text-[#0F172A] border-t border-[#0F172A]/10"
+      className="py-16 sm:py-20 md:py-24 px-4 sm:px-6 md:px-16 w-full bg-[#FAF8F5] text-[#172554] border-t border-[#172554]/10"
     >
       <div className="max-w-7xl mx-auto">
         {/* Section Header */}
         <div className="text-center max-w-3xl mx-auto mb-10 sm:mb-14">
-          <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full border border-[#0F172A]/15 bg-[#F4EFE6] text-[#0F172A] text-xs uppercase tracking-widest mb-4">
+          <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full border border-[#172554]/15 bg-[#F4EFE6] text-[#172554] text-xs uppercase tracking-widest mb-4">
             <Sparkles className="w-3.5 h-3.5 text-[#C5A059]" />
             <span>Promoții Exclusive Beta Optic</span>
           </div>
 
-          <h2 className="serif-title text-3xl sm:text-5xl md:text-6xl font-semibold text-[#0F172A] leading-tight mb-4">
+          <h2 className="serif-title text-3xl sm:text-5xl md:text-6xl font-semibold text-[#172554] leading-tight mb-4">
             Oferte Active — Lentile și Rame de Ochelari
             <span className="sr-only"> în Timișoara</span>
           </h2>
 
-          <p className="text-[#0F172A]/75 text-sm sm:text-base md:text-lg font-normal">
+          <p className="text-[#172554]/75 text-sm sm:text-base md:text-lg font-normal">
             Descoperă promoțiile lunii și săptămânii disponibile în showroom-ul Beta Optic Timișoara (Str. Lucian Blaga 7).
           </p>
         </div>
@@ -267,11 +267,11 @@ export function ActiveOffersSection({ onOpenOffer }) {
           {/* Card 1: Oferta Lunii — Nikon 1+1 Cadou */}
           <article
             onClick={() => onOpenOffer && onOpenOffer('luna')}
-            className="p-6 sm:p-8 rounded-3xl bg-[#F4EFE6]/90 border border-[#E5DEC9] shadow-xs hover:shadow-xl hover:border-[#0F172A]/30 transition-all duration-300 flex flex-col justify-between group cursor-pointer"
+            className="p-6 sm:p-8 rounded-3xl bg-[#F4EFE6]/90 border border-[#E5DEC9] shadow-xs hover:shadow-xl hover:border-[#172554]/30 transition-all duration-300 flex flex-col justify-between group cursor-pointer"
           >
             <div>
               <div className="flex flex-wrap items-center justify-between gap-2 mb-5">
-                <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#0F172A] text-[#FAF8F5] text-[11px] uppercase tracking-wider font-semibold">
+                <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#172554] text-[#FAF8F5] text-[11px] uppercase tracking-wider font-semibold">
                   <Gift className="w-3.5 h-3.5 text-[#C5A059]" />
                   Oferta Lunii • Activă
                 </span>
@@ -280,7 +280,7 @@ export function ActiveOffersSection({ onOpenOffer }) {
                 </span>
               </div>
 
-              <div className="rounded-2xl overflow-hidden bg-[#0F172A] border border-[#E5DEC9] mb-5 aspect-[16/10] flex items-center justify-center">
+              <div className="rounded-2xl overflow-hidden bg-[#172554] border border-[#E5DEC9] mb-5 aspect-[16/10] flex items-center justify-center">
                 <img
                   src={ofertaLuniiImage}
                   srcSet={`${ofertaLuniiImage640} 640w, ${ofertaLuniiImage960} 819w`}
@@ -293,7 +293,7 @@ export function ActiveOffersSection({ onOpenOffer }) {
                 />
               </div>
 
-              <h3 className="serif-title text-2xl sm:text-3xl font-bold text-[#0F172A] mb-2">
+              <h3 className="serif-title text-2xl sm:text-3xl font-bold text-[#172554] mb-2">
                 Nikon Presio Z — 1+1 Cadou
               </h3>
 
@@ -301,14 +301,14 @@ export function ActiveOffersSection({ onOpenOffer }) {
                 Vezi bine. Economisești inteligent.
               </p>
 
-              <p className="text-sm text-[#0F172A]/85 leading-relaxed mb-4">
+              <p className="text-sm text-[#172554]/85 leading-relaxed mb-4">
                 La achiziția unei perechi de lentile progresive <strong>Nikon Presio Z</strong> (Z Suite Progressives), primești <strong>CADOU</strong> încă o pereche de lentile progresive — ideală pentru o pereche de rezervă sau o a doua ramă.*
               </p>
             </div>
 
-            <div className="pt-4 border-t border-[#0F172A]/10 flex items-center justify-between text-xs text-[#0F172A]/70">
+            <div className="pt-4 border-t border-[#172554]/10 flex items-center justify-between text-xs text-[#172554]/70">
               <span>*Condiționat de achiziția unei rame noi (valabil până la 31.12.2026)</span>
-              <span className="font-semibold text-[#0F172A] group-hover:text-[#8A6928] transition-colors shrink-0 ml-2">
+              <span className="font-semibold text-[#172554] group-hover:text-[#8A6928] transition-colors shrink-0 ml-2">
                 Vezi detalii →
               </span>
             </div>
@@ -317,11 +317,11 @@ export function ActiveOffersSection({ onOpenOffer }) {
           {/* Card 2: Oferta Săptămânii — Gigi Studios -40% */}
           <article
             onClick={() => onOpenOffer && onOpenOffer('saptamana')}
-            className="p-6 sm:p-8 rounded-3xl bg-[#F4EFE6]/90 border border-[#E5DEC9] shadow-xs hover:shadow-xl hover:border-[#0F172A]/30 transition-all duration-300 flex flex-col justify-between group cursor-pointer"
+            className="p-6 sm:p-8 rounded-3xl bg-[#F4EFE6]/90 border border-[#E5DEC9] shadow-xs hover:shadow-xl hover:border-[#172554]/30 transition-all duration-300 flex flex-col justify-between group cursor-pointer"
           >
             <div>
               <div className="flex flex-wrap items-center justify-between gap-2 mb-5">
-                <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#0F172A] text-[#FAF8F5] text-[11px] uppercase tracking-wider font-semibold">
+                <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#172554] text-[#FAF8F5] text-[11px] uppercase tracking-wider font-semibold">
                   <Calendar className="w-3.5 h-3.5 text-[#C5A059]" />
                   Oferta Săptămânii • Activă
                 </span>
@@ -330,7 +330,7 @@ export function ActiveOffersSection({ onOpenOffer }) {
                 </span>
               </div>
 
-              <div className="rounded-2xl overflow-hidden bg-[#0F172A] border border-[#E5DEC9] mb-5 aspect-[16/10] flex items-center justify-center">
+              <div className="rounded-2xl overflow-hidden bg-[#172554] border border-[#E5DEC9] mb-5 aspect-[16/10] flex items-center justify-center">
                 <img
                   src={ofertaSaptamaniiImage}
                   srcSet={`${ofertaSaptamaniiImage640} 640w, ${ofertaSaptamaniiImage960} 960w, ${ofertaSaptamaniiImage} 1200w`}
@@ -343,7 +343,7 @@ export function ActiveOffersSection({ onOpenOffer }) {
                 />
               </div>
 
-              <h3 className="serif-title text-2xl sm:text-3xl font-bold text-[#0F172A] mb-2">
+              <h3 className="serif-title text-2xl sm:text-3xl font-bold text-[#172554] mb-2">
                 40% Reducere la Ramele de Vedere Gigi Studios
               </h3>
 
@@ -351,14 +351,14 @@ export function ActiveOffersSection({ onOpenOffer }) {
                 Design Independent din Barcelona • Titan Japonez & Acetat Italian
               </p>
 
-              <p className="text-sm text-[#0F172A]/85 leading-relaxed mb-4">
+              <p className="text-sm text-[#172554]/85 leading-relaxed mb-4">
                 Săptămâna aceasta beneficiezi de <strong>40% reducere</strong> la colecția de rame și ochelari de vedere <strong>Gigi Studios</strong> disponibilă pentru probă și consiliere personalizată în showroom-ul Beta Optic Timișoara.
               </p>
             </div>
 
-            <div className="pt-4 border-t border-[#0F172A]/10 flex items-center justify-between text-xs text-[#0F172A]/70">
+            <div className="pt-4 border-t border-[#172554]/10 flex items-center justify-between text-xs text-[#172554]/70">
               <span>*În limita stocului disponibil în showroom</span>
-              <span className="font-semibold text-[#0F172A] group-hover:text-[#8A6928] transition-colors shrink-0 ml-2">
+              <span className="font-semibold text-[#172554] group-hover:text-[#8A6928] transition-colors shrink-0 ml-2">
                 Vezi detalii →
               </span>
             </div>
@@ -395,7 +395,7 @@ export function OffersModal({ isOpen, activeTab = 'luna', onTabChange, onClose }
           animate={{ opacity: 1 }}
           exit={{ opacity: 0 }}
           onClick={onClose}
-          className="fixed inset-0 bg-[#0F172A]/80 backdrop-blur-md"
+          className="fixed inset-0 bg-[#172554]/80 backdrop-blur-md"
         />
 
         {/* Modal Window */}
@@ -403,7 +403,7 @@ export function OffersModal({ isOpen, activeTab = 'luna', onTabChange, onClose }
           initial={{ opacity: 0, scale: 0.95, y: 20 }}
           animate={{ opacity: 1, scale: 1, y: 0 }}
           exit={{ opacity: 0, scale: 0.95, y: 20 }}
-          className="relative w-full max-w-4xl bg-[#FAF8F5] text-[#0F172A] rounded-3xl shadow-2xl overflow-hidden border border-[#E5DEC9] my-auto z-10 max-h-[92dvh] md:max-h-[92vh] flex flex-col"
+          className="relative w-full max-w-4xl bg-[#FAF8F5] text-[#172554] rounded-3xl shadow-2xl overflow-hidden border border-[#E5DEC9] my-auto z-10 max-h-[92dvh] md:max-h-[92vh] flex flex-col"
         >
           {/* Modal Header */}
           <div className="px-5 sm:px-8 py-4 sm:py-5 bg-[#F4EFE6] border-b border-[#E5DEC9] flex flex-col gap-3 sm:gap-4 flex-none">
@@ -413,13 +413,13 @@ export function OffersModal({ isOpen, activeTab = 'luna', onTabChange, onClose }
                   <Sparkles className="w-3.5 h-3.5" />
                   Promoții Exclusive Beta Optic
                 </span>
-                <h3 className="serif-title text-2xl sm:text-3xl font-bold text-[#0F172A]">
+                <h3 className="serif-title text-2xl sm:text-3xl font-bold text-[#172554]">
                   Ofertele Noastre
                 </h3>
               </div>
               <button
                 onClick={onClose}
-                className="w-11 h-11 md:w-10 md:h-10 shrink-0 rounded-full border border-[#0F172A]/20 bg-[#FAF8F5] text-[#0F172A] flex items-center justify-center hover:bg-[#0F172A] hover:text-[#FAF8F5] transition-all cursor-pointer"
+                className="w-11 h-11 md:w-10 md:h-10 shrink-0 rounded-full border border-[#172554]/20 bg-[#FAF8F5] text-[#172554] flex items-center justify-center hover:bg-[#172554] hover:text-[#FAF8F5] transition-all cursor-pointer"
                 aria-label="Închide modal"
               >
                 <X className="w-5 h-5" />
@@ -437,8 +437,8 @@ export function OffersModal({ isOpen, activeTab = 'luna', onTabChange, onClose }
                     onClick={() => handleSelectTab(tab.id)}
                     className={`relative flex items-center justify-center gap-2 py-2.5 px-3 min-h-[44px] sm:min-h-0 rounded-xl text-xs sm:text-sm font-semibold transition-all duration-200 cursor-pointer ${
                       isActive
-                        ? 'bg-[#0F172A] text-[#FAF8F5] shadow-sm'
-                        : 'text-[#0F172A]/75 hover:text-[#0F172A] hover:bg-[#F4EFE6]/70'
+                        ? 'bg-[#172554] text-[#FAF8F5] shadow-sm'
+                        : 'text-[#172554]/75 hover:text-[#172554] hover:bg-[#F4EFE6]/70'
                     }`}
                   >
                     <Icon className="w-3.5 h-3.5 shrink-0 text-[#C5A059]" />
@@ -463,7 +463,7 @@ export function OffersModal({ isOpen, activeTab = 'luna', onTabChange, onClose }
                 className="grid grid-cols-1 md:grid-cols-12 gap-6 sm:gap-8 items-center"
               >
                 {/* Offer Poster Image */}
-                <div className="md:col-span-7 rounded-2xl overflow-hidden bg-[#0F172A] border border-[#E5DEC9] shadow-lg flex items-center justify-center">
+                <div className="md:col-span-7 rounded-2xl overflow-hidden bg-[#172554] border border-[#E5DEC9] shadow-lg flex items-center justify-center">
                   <img
                     src={ofertaLuniiImage}
                     srcSet={`${ofertaLuniiImage640} 640w, ${ofertaLuniiImage960} 819w`}
@@ -479,12 +479,12 @@ export function OffersModal({ isOpen, activeTab = 'luna', onTabChange, onClose }
                 {/* Offer Details */}
                 <div className="md:col-span-5 flex flex-col justify-between space-y-5">
                   <div className="space-y-4">
-                    <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#C5A059]/20 text-[#0F172A] border border-[#C5A059]/40 text-[11px] uppercase tracking-wider font-bold">
+                    <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#C5A059]/20 text-[#172554] border border-[#C5A059]/40 text-[11px] uppercase tracking-wider font-bold">
                       <Gift className="w-3.5 h-3.5 text-[#C5A059]" />
                       Oferta Lunii • Activă
                     </span>
 
-                    <h4 className="serif-title text-2xl sm:text-4xl font-bold text-[#0F172A] leading-tight">
+                    <h4 className="serif-title text-2xl sm:text-4xl font-bold text-[#172554] leading-tight">
                       Nikon 1+1 Cadou
                     </h4>
 
@@ -492,11 +492,11 @@ export function OffersModal({ isOpen, activeTab = 'luna', onTabChange, onClose }
                       Vezi bine. Economisești inteligent.
                     </p>
 
-                    <p className="text-sm text-[#0F172A]/85 leading-relaxed">
+                    <p className="text-sm text-[#172554]/85 leading-relaxed">
                       La achiziția unei perechi de lentile progresive <strong>Nikon Presio Z</strong>, primești <strong>CADOU</strong> încă o pereche de lentile progresive.*
                     </p>
 
-                    <div className="p-4 rounded-2xl bg-[#F4EFE6] border border-[#E5DEC9] space-y-2 text-xs text-[#0F172A]/80">
+                    <div className="p-4 rounded-2xl bg-[#F4EFE6] border border-[#E5DEC9] space-y-2 text-xs text-[#172554]/80">
                       <div className="flex items-start gap-2">
                         <Check className="w-4 h-4 text-[#C5A059] shrink-0 mt-0.5" />
                         <span>Oferta perfectă pentru o pereche de rezervă sau o a doua ramă!</span>
@@ -508,7 +508,7 @@ export function OffersModal({ isOpen, activeTab = 'luna', onTabChange, onClose }
                     </div>
                   </div>
 
-                  <div className="pt-4 border-t border-[#E5DEC9] space-y-1.5 text-[11px] text-[#0F172A]/60 leading-relaxed">
+                  <div className="pt-4 border-t border-[#E5DEC9] space-y-1.5 text-[11px] text-[#172554]/60 leading-relaxed">
                     <p>*Acordarea perechii gratuite este condiționată de achiziția unei rame noi din magazinul partener.</p>
                     <p>*Promoție valabilă până la data de 31 decembrie 2026.</p>
                   </div>
@@ -523,7 +523,7 @@ export function OffersModal({ isOpen, activeTab = 'luna', onTabChange, onClose }
                 className="grid grid-cols-1 md:grid-cols-12 gap-6 sm:gap-8 items-center"
               >
                 {/* Offer Poster Image */}
-                <div className="md:col-span-7 rounded-2xl overflow-hidden bg-[#0F172A] border border-[#E5DEC9] shadow-lg flex items-center justify-center">
+                <div className="md:col-span-7 rounded-2xl overflow-hidden bg-[#172554] border border-[#E5DEC9] shadow-lg flex items-center justify-center">
                   <img
                     src={ofertaSaptamaniiImage}
                     srcSet={`${ofertaSaptamaniiImage640} 640w, ${ofertaSaptamaniiImage960} 960w, ${ofertaSaptamaniiImage} 1200w`}
@@ -539,12 +539,12 @@ export function OffersModal({ isOpen, activeTab = 'luna', onTabChange, onClose }
                 {/* Offer Details */}
                 <div className="md:col-span-5 flex flex-col justify-between space-y-5">
                   <div className="space-y-4">
-                    <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#C5A059]/20 text-[#0F172A] border border-[#C5A059]/40 text-[11px] uppercase tracking-wider font-bold">
+                    <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#C5A059]/20 text-[#172554] border border-[#C5A059]/40 text-[11px] uppercase tracking-wider font-bold">
                       <Calendar className="w-3.5 h-3.5 text-[#C5A059]" />
                       Oferta Săptămânii • Activă
                     </span>
 
-                    <h4 className="serif-title text-2xl sm:text-4xl font-bold text-[#0F172A] leading-tight">
+                    <h4 className="serif-title text-2xl sm:text-4xl font-bold text-[#172554] leading-tight">
                       40% Reducere la ramele de vedere Gigi Studios
                     </h4>
 
@@ -552,11 +552,11 @@ export function OffersModal({ isOpen, activeTab = 'luna', onTabChange, onClose }
                       Design Independent din Barcelona
                     </p>
 
-                    <p className="text-sm text-[#0F172A]/85 leading-relaxed">
+                    <p className="text-sm text-[#172554]/85 leading-relaxed">
                       Săptămâna aceasta beneficiezi de <strong>40% reducere</strong> la colecția de rame și ochelari <strong>Gigi Studios</strong> disponibilă în showroom-ul Beta Optic.
                     </p>
 
-                    <div className="p-4 rounded-2xl bg-[#F4EFE6] border border-[#E5DEC9] space-y-2 text-xs text-[#0F172A]/80">
+                    <div className="p-4 rounded-2xl bg-[#F4EFE6] border border-[#E5DEC9] space-y-2 text-xs text-[#172554]/80">
                       <div className="flex items-start gap-2">
                         <Check className="w-4 h-4 text-[#C5A059] shrink-0 mt-0.5" />
                         <span>Rame realizate din Titan Japonez și Acetat Italian de înaltă densitate.</span>
@@ -568,7 +568,7 @@ export function OffersModal({ isOpen, activeTab = 'luna', onTabChange, onClose }
                     </div>
                   </div>
 
-                  <div className="pt-4 border-t border-[#E5DEC9] space-y-1.5 text-[11px] text-[#0F172A]/60 leading-relaxed">
+                  <div className="pt-4 border-t border-[#E5DEC9] space-y-1.5 text-[11px] text-[#172554]/60 leading-relaxed">
                     <p>*Ofertă valabilă în limita stocului disponibil în showroom-ul Beta Optic.</p>
                   </div>
                 </div>
@@ -577,11 +577,11 @@ export function OffersModal({ isOpen, activeTab = 'luna', onTabChange, onClose }
           </div>
 
           {/* Modal Footer */}
-          <div className="px-5 sm:px-8 py-4 bg-[#F4EFE6] border-t border-[#E5DEC9] flex flex-wrap items-center justify-between gap-3 flex-none text-xs text-[#0F172A]/70">
+          <div className="px-5 sm:px-8 py-4 bg-[#F4EFE6] border-t border-[#E5DEC9] flex flex-wrap items-center justify-between gap-3 flex-none text-xs text-[#172554]/70">
             <span>Te așteptăm în showroom-ul Beta Optic Timișoara pentru detalii</span>
             <button
               onClick={onClose}
-              className="px-6 py-2.5 md:py-2 min-h-[44px] md:min-h-0 rounded-full bg-[#0F172A] text-[#FAF8F5] uppercase tracking-wider font-semibold hover:bg-[#C5A059] hover:text-[#0F172A] transition-all cursor-pointer"
+              className="px-6 py-2.5 md:py-2 min-h-[44px] md:min-h-0 rounded-full bg-[#172554] text-[#FAF8F5] uppercase tracking-wider font-semibold hover:bg-[#C5A059] hover:text-[#172554] transition-all cursor-pointer"
             >
               Închide
             </button>

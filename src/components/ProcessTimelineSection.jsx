@@ -19,7 +19,7 @@ const iconMap = {
 
 export default function ProcessTimelineSection() {
   return (
-    <section id="proces" className="relative py-16 px-4 md:px-12 w-full overflow-hidden bg-[#FAF8F5] border-t border-[#0F172A]/10">
+    <section id="proces" className="relative py-16 px-4 md:px-12 w-full overflow-hidden bg-[#FAF8F5] border-t border-[#172554]/10">
       
       {/* Background Visual: "BETA OPTIC" Eye Chart with Progressive Blur — fills entire section */}
       <div aria-hidden="true" className="absolute inset-0 pointer-events-none overflow-hidden opacity-[0.5]">
@@ -30,28 +30,28 @@ export default function ProcessTimelineSection() {
 
         {/* The Text Rows (Your existing text code goes here) */}
         <div className="relative z-10 select-none text-center w-full h-full flex flex-col justify-between pt-64 pb-16 md:py-80">
-          <div className="serif-title font-bold text-[#0F172A] tracking-[0.15em] md:tracking-[0.3em] leading-none whitespace-nowrap" style={{ filter: 'blur(0px)' }}>
+          <div className="serif-title font-bold text-[#172554] tracking-[0.15em] md:tracking-[0.3em] leading-none whitespace-nowrap" style={{ filter: 'blur(0px)' }}>
             <span className="text-3xl sm:text-5xl md:text-8xl lg:text-7xl">BETA OPTIC</span>
           </div>
-          <div className="serif-title font-bold text-[#0F172A] tracking-[0.12em] md:tracking-[0.25em] leading-none whitespace-nowrap" style={{ filter: 'blur(0.6px)' }}>
+          <div className="serif-title font-bold text-[#172554] tracking-[0.12em] md:tracking-[0.25em] leading-none whitespace-nowrap" style={{ filter: 'blur(0.6px)' }}>
             <span className="text-2xl sm:text-4xl md:text-6xl lg:text-6xl">BETA OPTIC &nbsp;&nbsp; BETA OPTIC</span>
           </div>
-          <div className="serif-title font-bold text-[#0F172A] tracking-[0.1em] md:tracking-[0.2em] leading-none whitespace-nowrap" style={{ filter: 'blur(1.2px)' }}>
+          <div className="serif-title font-bold text-[#172554] tracking-[0.1em] md:tracking-[0.2em] leading-none whitespace-nowrap" style={{ filter: 'blur(1.2px)' }}>
             <span className="text-xl sm:text-3xl md:text-5xl lg:text-5xl">BETA OPTIC &nbsp;&nbsp; BETA OPTIC &nbsp;&nbsp; BETA OPTIC</span>
           </div>
-          <div className="serif-title font-bold text-[#0F172A] tracking-[0.08em] md:tracking-[0.18em] leading-none whitespace-nowrap" style={{ filter: 'blur(2px)' }}>
+          <div className="serif-title font-bold text-[#172554] tracking-[0.08em] md:tracking-[0.18em] leading-none whitespace-nowrap" style={{ filter: 'blur(2px)' }}>
             <span className="text-lg sm:text-2xl md:text-4xl lg:text-4xl">BETA OPTIC &nbsp; BETA OPTIC &nbsp; BETA OPTIC &nbsp; BETA OPTIC</span>
           </div>
-          <div className="serif-title font-bold text-[#0F172A] tracking-[0.08em] md:tracking-[0.15em] leading-none whitespace-nowrap" style={{ filter: 'blur(2.5px)' }}>
+          <div className="serif-title font-bold text-[#172554] tracking-[0.08em] md:tracking-[0.15em] leading-none whitespace-nowrap" style={{ filter: 'blur(2.5px)' }}>
             <span className="text-base sm:text-xl md:text-3xl lg:text-3xl">BETA OPTIC &nbsp; BETA OPTIC &nbsp; BETA OPTIC &nbsp; BETA OPTIC &nbsp; BETA OPTIC</span>
           </div>
-          <div className="serif-title font-bold text-[#0F172A] tracking-[0.06em] md:tracking-[0.12em] leading-none whitespace-nowrap" style={{ filter: 'blur(2.7px)' }}>
+          <div className="serif-title font-bold text-[#172554] tracking-[0.06em] md:tracking-[0.12em] leading-none whitespace-nowrap" style={{ filter: 'blur(2.7px)' }}>
             <span className="text-sm sm:text-lg md:text-2xl lg:text-2xl">BETA OPTIC &nbsp; BETA OPTIC &nbsp; BETA OPTIC &nbsp; BETA OPTIC &nbsp; BETA OPTIC &nbsp; BETA OPTIC</span>
           </div>
-          <div className="serif-title font-bold text-[#0F172A] tracking-[0.06em] md:tracking-[0.1em] leading-none whitespace-nowrap" style={{ filter: 'blur(2.9px)' }}>
+          <div className="serif-title font-bold text-[#172554] tracking-[0.06em] md:tracking-[0.1em] leading-none whitespace-nowrap" style={{ filter: 'blur(2.9px)' }}>
             <span className="text-xs sm:text-base md:text-xl lg:text-xl">BETA OPTIC &nbsp; BETA OPTIC &nbsp; BETA OPTIC &nbsp; BETA OPTIC &nbsp; BETA OPTIC &nbsp; BETA OPTIC &nbsp; BETA OPTIC</span>
           </div>
-          <div className="serif-title font-bold text-[#0F172A] tracking-[0.05em] md:tracking-[0.08em] leading-none whitespace-nowrap" style={{ filter: 'blur(3.2px)' }}>
+          <div className="serif-title font-bold text-[#172554] tracking-[0.05em] md:tracking-[0.08em] leading-none whitespace-nowrap" style={{ filter: 'blur(3.2px)' }}>
             <span className="text-xs sm:text-sm md:text-lg lg:text-xl">BETA OPTIC &nbsp; BETA OPTIC &nbsp; BETA OPTIC &nbsp; BETA OPTIC &nbsp; BETA OPTIC &nbsp; BETA OPTIC &nbsp; BETA OPTIC &nbsp; BETA OPTIC</span>
           </div>
         </div>
@@ -68,7 +68,7 @@ export default function ProcessTimelineSection() {
             initial={{ opacity: 0, y: 15 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full border border-[#0F172A]/15 bg-[#F4EFE6] text-[#0F172A] text-xs uppercase tracking-widest mb-4 shadow-xs"
+            className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full border border-[#172554]/15 bg-[#F4EFE6] text-[#172554] text-xs uppercase tracking-widest mb-4 shadow-xs"
           >
             <Sparkles className="w-3.5 h-3.5 text-[#C5A059]" />
             <span>Standardul Beta Optic</span>
@@ -79,7 +79,7 @@ export default function ProcessTimelineSection() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ delay: 0.1 }}
-            className="serif-title text-2xl sm:text-4xl md:text-5xl font-semibold text-[#0F172A] leading-tight mb-4"
+            className="serif-title text-2xl sm:text-4xl md:text-5xl font-semibold text-[#172554] leading-tight mb-4"
           >
             <span className="sr-only">
               Optică Medicală și Consult Oftalmologic în Timișoara — Alegerea Ramelor și Lentilelor de Ochelari:{' '}
@@ -92,7 +92,7 @@ export default function ProcessTimelineSection() {
             whileInView={{ opacity: 1 }}
             viewport={{ once: true }}
             transition={{ delay: 0.2 }}
-            className="text-[#0F172A]/70 text-sm sm:text-base md:text-lg font-normal max-w-2xl mx-auto"
+            className="text-[#172554]/70 text-sm sm:text-base md:text-lg font-normal max-w-2xl mx-auto"
           >
             Descoperă cei 7 pași meticuloși prin care transformăm nevoile tale vizuale într-o piesă optică perfect personalizată.
           </motion.p>
@@ -102,10 +102,10 @@ export default function ProcessTimelineSection() {
         <div className="relative">
           
           {/* Center vertical line — visible on md+ */}
-          <div className="hidden md:block absolute left-1/2 top-0 bottom-0 w-px bg-gradient-to-b from-[#0F172A]/5 via-[#0F172A]/25 to-[#0F172A]/5 -translate-x-1/2" />
+          <div className="hidden md:block absolute left-1/2 top-0 bottom-0 w-px bg-gradient-to-b from-[#172554]/5 via-[#172554]/25 to-[#172554]/5 -translate-x-1/2" />
 
           {/* Mobile left-side line */}
-          <div className="block md:hidden absolute left-4 sm:left-6 top-0 bottom-0 w-px bg-gradient-to-b from-[#0F172A]/5 via-[#0F172A]/25 to-[#0F172A]/5" />
+          <div className="block md:hidden absolute left-4 sm:left-6 top-0 bottom-0 w-px bg-gradient-to-b from-[#172554]/5 via-[#172554]/25 to-[#172554]/5" />
 
           <div className="flex flex-col gap-5 sm:gap-6 md:gap-10">
             {PROCESS_STEPS.map((step, idx) => {
@@ -143,7 +143,7 @@ export default function ProcessTimelineSection() {
                       whileInView={{ scale: 1, opacity: 1 }}
                       viewport={{ once: true, margin: "-80px" }}
                       transition={{ duration: 0.4, delay: 0.2 }}
-                      className="w-5 h-5 rounded-full border-[3px] border-[#0F172A] bg-[#FAF8F5] shadow-md group-hover:bg-[#C5A059] transition-colors"
+                      className="w-5 h-5 rounded-full border-[3px] border-[#172554] bg-[#FAF8F5] shadow-md group-hover:bg-[#C5A059] transition-colors"
                     />
                   </div>
 
@@ -173,7 +173,7 @@ export default function ProcessTimelineSection() {
                       whileInView={{ scale: 1, opacity: 1 }}
                       viewport={{ once: true, margin: "-40px" }}
                       transition={{ duration: 0.4, delay: 0.1 }}
-                      className="w-4 h-4 rounded-full border-[2.5px] border-[#0F172A] bg-[#FAF8F5] shadow-sm"
+                      className="w-4 h-4 rounded-full border-[2.5px] border-[#172554] bg-[#FAF8F5] shadow-sm"
                     />
                   </div>
 
@@ -203,35 +203,35 @@ export default function ProcessTimelineSection() {
 /** Reusable timeline card component */
 function TimelineCard({ step, idx, IconComp }) {
   return (
-    <div className="h-full p-5 rounded-2xl bg-[#F4EFE6]/90 border border-[#E5DEC9] shadow-xs hover:shadow-md hover:border-[#0F172A]/30 transition-all duration-300 flex flex-col justify-between relative overflow-hidden backdrop-blur-xs group">
+    <div className="h-full p-5 rounded-2xl bg-[#F4EFE6]/90 border border-[#E5DEC9] shadow-xs hover:shadow-md hover:border-[#172554]/30 transition-all duration-300 flex flex-col justify-between relative overflow-hidden backdrop-blur-xs group">
       
       {/* Top Step Badge & Icon */}
       <div className="flex items-center justify-between mb-4 relative">
         {/* Step Circle */}
-        <div className="w-11 h-11 rounded-2xl bg-[#0F172A] text-[#FAF8F5] flex items-center justify-center shadow-md group-hover:scale-105 group-hover:bg-[#C5A059] group-hover:text-[#0F172A] transition-all duration-300">
+        <div className="w-11 h-11 rounded-2xl bg-[#172554] text-[#FAF8F5] flex items-center justify-center shadow-md group-hover:scale-105 group-hover:bg-[#C5A059] group-hover:text-[#172554] transition-all duration-300">
           <IconComp className="w-7 h-7 stroke-[1.5]" />
         </div>
 
         {/* Step Number */}
-        <span className="serif-title text-3xl font-bold text-[#0F172A]/30 group-hover:text-[#0F172A] transition-colors">
+        <span className="serif-title text-3xl font-bold text-[#172554]/30 group-hover:text-[#172554] transition-colors">
           {step.number}
         </span>
       </div>
 
       {/* Content */}
       <div>
-        <h3 className="serif-title text-2xl font-semibold text-[#0F172A] mb-3 group-hover:text-[#0F172A] transition-colors">
+        <h3 className="serif-title text-2xl font-semibold text-[#172554] mb-3 group-hover:text-[#172554] transition-colors">
           {step.title}
         </h3>
-        <p className="text-[#0F172A]/80 text-sm leading-relaxed font-normal">
+        <p className="text-[#172554]/80 text-sm leading-relaxed font-normal">
           {step.description}
         </p>
       </div>
 
       {/* Progress indicator bar inside card */}
-      <div className="w-full h-1 bg-[#0F172A]/10 rounded-full mt-6 overflow-hidden">
+      <div className="w-full h-1 bg-[#172554]/10 rounded-full mt-6 overflow-hidden">
         <div 
-          className="h-full bg-[#0F172A] group-hover:bg-[#C5A059] transition-all duration-500"
+          className="h-full bg-[#172554] group-hover:bg-[#C5A059] transition-all duration-500"
           style={{ width: `${((idx + 1) / 7) * 100}%` }}
         />
       </div>

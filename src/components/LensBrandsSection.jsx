@@ -18,7 +18,7 @@ export default function LensBrandsSection() {
   };
 
   return (
-    <section className="py-16 sm:py-20 md:py-28 px-4 sm:px-6 md:px-16 w-full bg-[#FAF8F5] text-[#0F172A] border-t border-[#0F172A]/10">
+    <section className="py-16 sm:py-20 md:py-28 px-4 sm:px-6 md:px-16 w-full bg-[#FAF8F5] text-[#172554] border-t border-[#172554]/10">
       <div className="max-w-7xl mx-auto">
         
         {/* Section Header */}
@@ -28,7 +28,7 @@ export default function LensBrandsSection() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ delay: 0.1 }}
-            className="serif-title text-3xl sm:text-6xl font-semibold text-[#0F172A] leading-tight mb-4"
+            className="serif-title text-3xl sm:text-6xl font-semibold text-[#172554] leading-tight mb-4"
           >
             Branduri Partenere Lentile
             <span className="sr-only"> de Ochelari în Timișoara — Nikon, Zeiss, Hoya, Essilor, ItalLenti</span>
@@ -39,7 +39,7 @@ export default function LensBrandsSection() {
             whileInView={{ opacity: 1 }}
             viewport={{ once: true }}
             transition={{ delay: 0.2 }}
-            className="text-[#0F172A]/75 text-sm sm:text-base md:text-lg font-normal"
+            className="text-[#172554]/75 text-sm sm:text-base md:text-lg font-normal"
           >
             Alegem exclusiv producători mondiali care redefinesc performanța optică, puritatea cromatică și rezistența la zgârieturi.
           </motion.p>
@@ -54,39 +54,39 @@ export default function LensBrandsSection() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: index * 0.1 }}
-              className="p-6 sm:p-10 rounded-3xl bg-[#F4EFE6]/90 border border-[#E5DEC9] shadow-xs hover:shadow-lg hover:border-[#0F172A]/30 transition-all duration-300 flex flex-col justify-between group relative overflow-hidden"
+              className="p-6 sm:p-10 rounded-3xl bg-[#F4EFE6]/90 border border-[#E5DEC9] shadow-xs hover:shadow-lg hover:border-[#172554]/30 transition-all duration-300 flex flex-col justify-between group relative overflow-hidden"
             >
               {/* Subtle background emblem */}
-              <div aria-hidden="true" className="absolute -right-8 -bottom-8 opacity-5 text-[#0F172A] pointer-events-none font-serif text-9xl uppercase font-bold">
+              <div aria-hidden="true" className="absolute -right-8 -bottom-8 opacity-5 text-[#172554] pointer-events-none font-serif text-9xl uppercase font-bold">
                 {brand.name[0]}
               </div>
 
               <div>
                 <div className="flex max-sm:flex-wrap items-center justify-between max-sm:gap-2 mb-5 sm:mb-6">
-                  <span className="px-3 py-1 rounded-2xl sm:rounded-full text-[11px] sm:text-xs font-semibold uppercase tracking-wider bg-[#0F172A] text-[#FAF8F5]">
+                  <span className="px-3 py-1 rounded-2xl sm:rounded-full text-[11px] sm:text-xs font-semibold uppercase tracking-wider bg-[#172554] text-[#FAF8F5]">
                     {brand.badge}
                   </span>
-                  <span className="text-xs uppercase tracking-widest font-semibold text-[#0F172A]/50 flex items-center gap-1 max-sm:shrink-0">
+                  <span className="text-xs uppercase tracking-widest font-semibold text-[#172554]/50 flex items-center gap-1 max-sm:shrink-0">
                     <ShieldCheck className="w-3.5 h-3.5 text-[#C5A059]" />
                     {brand.origin}
                   </span>
                 </div>
 
-                <h3 className="serif-title text-3xl sm:text-4xl font-bold text-[#0F172A] mb-2 group-hover:text-[#0F172A] transition-colors">
+                <h3 className="serif-title text-3xl sm:text-4xl font-bold text-[#172554] mb-2 group-hover:text-[#172554] transition-colors">
                   {brand.name}
                 </h3>
                 <p className="text-xs font-semibold text-[#8A6928] lg:text-[#C5A059] uppercase tracking-wider mb-5 sm:mb-6">
                   {brand.tagline}
                 </p>
 
-                <p className="text-[#0F172A]/85 text-sm sm:text-base leading-relaxed font-normal">
+                <p className="text-[#172554]/85 text-sm sm:text-base leading-relaxed font-normal">
                   {brand.text}
                 </p>
               </div>
 
-              <div className="pt-5 sm:pt-8 mt-5 sm:mt-6 border-t border-[#0F172A]/10 flex max-sm:flex-wrap items-center justify-between max-sm:gap-2 text-xs text-[#0F172A]/70">
+              <div className="pt-5 sm:pt-8 mt-5 sm:mt-6 border-t border-[#172554]/10 flex max-sm:flex-wrap items-center justify-between max-sm:gap-2 text-xs text-[#172554]/70">
                 <span className="tracking-wider uppercase">Garanție Oficială Premium</span>
-                <span className="font-medium flex items-center gap-1 text-[#0F172A]">
+                <span className="font-medium flex items-center gap-1 text-[#172554]">
                   Disponibil la Beta Optic
                 </span>
               </div>

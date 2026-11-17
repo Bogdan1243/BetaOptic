@@ -117,7 +117,7 @@ export default function App({ initialView = 'home' }) {
   }
 
   return (
-    <div className="w-full min-h-screen bg-[#FAF8F5] text-[#0F172A] selection:bg-[#0F172A] selection:text-[#FAF8F5] font-sans antialiased overflow-x-hidden">
+    <div className="w-full min-h-screen bg-[#FAF8F5] text-[#172554] selection:bg-[#172554] selection:text-[#FAF8F5] font-sans antialiased overflow-x-hidden">
       <main>
         {/* Secțiunea 1: Hero / Introducere */}
         <HeroSection

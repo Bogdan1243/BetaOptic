@@ -299,16 +299,16 @@ export default function CardCarousel({
                   <div
                     key={globalIndex}
                     data-carousel-card
-                    className="max-md:w-full max-md:shrink-0 max-md:snap-center p-5 sm:p-6 rounded-2xl bg-[#FAF8F5]/90 border border-[#0F172A]/10 shadow-sm backdrop-blur-md hover:border-[#0F172A]/30 transition-all duration-300 flex items-start gap-3.5 sm:gap-4 group"
+                    className="max-md:w-full max-md:shrink-0 max-md:snap-center p-5 sm:p-6 rounded-2xl bg-[#FAF8F5]/90 border border-[#172554]/10 shadow-sm backdrop-blur-md hover:border-[#172554]/30 transition-all duration-300 flex items-start gap-3.5 sm:gap-4 group"
                   >
                     <span className="serif-title text-xl font-medium text-[#C5A059] group-hover:scale-110 transition-transform">
                       {String(globalIndex + 1).padStart(2, '0')}
                     </span>
                     <div>
-                      <h3 className="text-[#0F172A]/90 text-sm md:text-base leading-relaxed font-semibold">
+                      <h3 className="text-[#172554] text-sm md:text-base leading-relaxed font-semibold">
                         {card.question}
                       </h3>
-                      <p className="text-[#0F172A]/90 text-sm md:text-base leading-relaxed font-normal">
+                      <p className="text-[#172554]/90 text-sm md:text-base leading-relaxed font-normal">
                         {card.answer}
                       </p>
                     </div>
@@ -327,7 +327,7 @@ export default function CardCarousel({
             type="button"
             aria-label="Cardurile anterioare"
             onClick={() => stepPage(-1, true)}
-            className="w-11 h-11 md:w-10 md:h-10 rounded-full bg-[#FAF8F5]/85 border border-[#0F172A]/20 hover:bg-[#0F172A] hover:border-[#0F172A] text-[#0F172A] hover:text-[#FAF8F5] backdrop-blur-md shadow-sm flex items-center justify-center transition-all duration-300 cursor-pointer"
+            className="w-11 h-11 md:w-10 md:h-10 rounded-full bg-[#FAF8F5]/85 border border-[#172554]/20 hover:bg-[#172554] hover:border-[#172554] text-[#172554] hover:text-[#FAF8F5] backdrop-blur-md shadow-sm flex items-center justify-center transition-all duration-300 cursor-pointer"
           >
             <ChevronLeft className="w-5 h-5 text-[#C5A059]" aria-hidden="true" />
           </button>
@@ -348,7 +348,7 @@ export default function CardCarousel({
                     className={
                       isActive
                         ? 'block w-6 h-2.5 rounded-full bg-[#C5A059] transition-all duration-300'
-                        : 'block w-2.5 h-2.5 rounded-full bg-[#0F172A]/20 hover:bg-[#0F172A]/40 transition-all duration-300'
+                        : 'block w-2.5 h-2.5 rounded-full bg-[#172554]/20 hover:bg-[#172554]/40 transition-all duration-300'
                     }
                   />
                 </button>
@@ -360,7 +360,7 @@ export default function CardCarousel({
             type="button"
             aria-label="Cardurile următoare"
             onClick={() => stepPage(1, true)}
-            className="w-11 h-11 md:w-10 md:h-10 rounded-full bg-[#FAF8F5]/85 border border-[#0F172A]/20 hover:bg-[#0F172A] hover:border-[#0F172A] text-[#0F172A] hover:text-[#FAF8F5] backdrop-blur-md shadow-sm flex items-center justify-center transition-all duration-300 cursor-pointer"
+            className="w-11 h-11 md:w-10 md:h-10 rounded-full bg-[#FAF8F5]/85 border border-[#172554]/20 hover:bg-[#172554] hover:border-[#172554] text-[#172554] hover:text-[#FAF8F5] backdrop-blur-md shadow-sm flex items-center justify-center transition-all duration-300 cursor-pointer"
           >
             <ChevronRight className="w-5 h-5 text-[#C5A059]" aria-hidden="true" />
           </button>

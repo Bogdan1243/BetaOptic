@@ -129,7 +129,7 @@ function EyeChartBackground() {
           {EYE_CHART_ROWS.map((row, i) => (
               <div
                   key={i}
-                  className={`serif-title font-bold text-[#0F172A] ${row.tracking} leading-none whitespace-nowrap`}
+                  className={`serif-title font-bold text-[#172554] ${row.tracking} leading-none whitespace-nowrap`}
                   style={{ filter: `blur(${row.blur}px)` }}
               >
                 <span className={row.size}>{row.text}</span>
@@ -176,7 +176,7 @@ export default function OutletPage({ onBack }) {
       OUTLET_OFFER_TABS.find((t) => t.id === selectedOfferTab) || OUTLET_OFFER_TABS[1];
 
   return (
-      <div className="min-h-screen w-full bg-[#FAF8F5] text-[#0F172A] selection:bg-[#0F172A] selection:text-[#FAF8F5] font-sans antialiased overflow-x-hidden">
+      <div className="min-h-screen w-full bg-[#FAF8F5] text-[#172554] selection:bg-[#172554] selection:text-[#FAF8F5] font-sans antialiased overflow-x-hidden">
         <main>
         {/* Hero Section with Uploaded Outlet Pictures on the Background (same top bar layout as main page, non-sticky) */}
         <section className="relative min-h-[75svh] md:min-h-[80vh] w-full flex flex-col justify-between overflow-hidden bg-[#FAF8F5]">
@@ -194,7 +194,7 @@ export default function OutletPage({ onBack }) {
             />
             {/* Soft Luxury Overlay for Legibility */}
             <div className="absolute inset-0 bg-gradient-to-b from-[#FAF8F5]/75 via-[#FAF8F5]/65 to-[#FAF8F5]" />
-            <div className="absolute inset-0 bg-[#0F172A]/10 mix-blend-overlay" />
+            <div className="absolute inset-0 bg-[#172554]/10 mix-blend-overlay" />
           </div>
 
           {/* Top Bar inside Hero (matches main page HeroSection, does not follow on scroll) */}
@@ -212,14 +212,14 @@ export default function OutletPage({ onBack }) {
                 }}
                 className="flex items-center gap-3 text-left cursor-pointer min-h-[44px] md:min-h-0"
             >
-              <div className="w-10 h-10 rounded-full border border-[#0F172A]/30 flex items-center justify-center bg-[#FAF8F5]/60 backdrop-blur-md text-[#0F172A]">
+              <div className="w-10 h-10 rounded-full border border-[#172554]/30 flex items-center justify-center bg-[#FAF8F5]/60 backdrop-blur-md text-[#172554]">
                 <Eye className="w-5 h-5 stroke-[1.5]" />
               </div>
               <div>
-              <span className="font-[Arial] text-2xl font-bold tracking-widest text-[#0F172A] uppercase">
+              <span className="font-[Arial] text-2xl font-bold tracking-widest text-[#172554] uppercase">
                 BETA OPTIC
               </span>
-                <span className="block text-[12px] tracking-[0.25em] text-[#0F172A]/70 uppercase font-bold">
+                <span className="block text-[12px] tracking-[0.25em] text-[#172554]/70 uppercase font-bold">
                 Strada Paris Nr.2a <br/>
                   0748 241 952
               </span>
@@ -237,7 +237,7 @@ export default function OutletPage({ onBack }) {
                     if (onBack) onBack();
                   }
                 }}
-                className="inline-flex items-center gap-2 sm:gap-2.5 px-3.5 sm:px-5 py-2.5 min-h-[44px] md:min-h-0 rounded-full bg-[#FAF8F5]/85 hover:bg-[#0F172A] border border-[#0F172A]/20 hover:border-[#0F172A] backdrop-blur-md text-[#0F172A] hover:text-[#FAF8F5] transition-all duration-300 shadow-sm cursor-pointer group"
+                className="inline-flex items-center gap-2 sm:gap-2.5 px-3.5 sm:px-5 py-2.5 min-h-[44px] md:min-h-0 rounded-full bg-[#FAF8F5]/85 hover:bg-[#172554] border border-[#172554]/20 hover:border-[#172554] backdrop-blur-md text-[#172554] hover:text-[#FAF8F5] transition-all duration-300 shadow-sm cursor-pointer group"
             >
               <ArrowLeft className="w-4 h-4 text-[#C5A059] group-hover:-translate-x-1 transition-transform shrink-0" />
               <span className="text-[11px] sm:text-xs uppercase tracking-wider sm:tracking-widest font-semibold">
@@ -252,7 +252,7 @@ export default function OutletPage({ onBack }) {
                 initial={{ opacity: 0, y: 15 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6 }}
-                className="inline-flex items-center gap-2 px-3.5 sm:px-4 py-1.5 rounded-2xl sm:rounded-full border border-[#0F172A]/20 bg-[#FAF8F5]/90 backdrop-blur-md text-[#0F172A] text-[11px] sm:text-xs uppercase tracking-wider sm:tracking-widest mb-5 sm:mb-6 shadow-xs"
+                className="inline-flex items-center gap-2 px-3.5 sm:px-4 py-1.5 rounded-2xl sm:rounded-full border border-[#172554]/20 bg-[#FAF8F5]/90 backdrop-blur-md text-[#172554] text-[11px] sm:text-xs uppercase tracking-wider sm:tracking-widest mb-5 sm:mb-6 shadow-xs"
             >
               <Store className="w-3.5 h-3.5 text-[#C5A059] shrink-0" />
               <span>Showroom & Cabinet Oftalmologic • Beta Optic Outlet</span>
@@ -262,7 +262,7 @@ export default function OutletPage({ onBack }) {
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.7, delay: 0.1 }}
-                className="serif-title text-4xl sm:text-6xl md:text-7xl lg:text-8xl font-semibold text-[#0F172A] leading-tight mb-4 sm:mb-6"
+                className="serif-title text-4xl sm:text-6xl md:text-7xl lg:text-8xl font-semibold text-[#172554] leading-tight mb-4 sm:mb-6"
             >
               Beta Optic Outlet<span className="sr-only"> Timișoara — Optică Medicală, Rame Ochelari de Vedere, Ochelari de Soare și Consult Oftalmologic</span>
             </motion.h1>
@@ -271,7 +271,7 @@ export default function OutletPage({ onBack }) {
                 initial={{ opacity: 0, y: 15 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.7, delay: 0.2 }}
-                className="text-[#0F172A]/85 text-sm sm:text-xl font-normal max-w-2xl mx-auto leading-relaxed mb-6 sm:mb-8"
+                className="text-[#172554]/85 text-sm sm:text-xl font-normal max-w-2xl mx-auto leading-relaxed mb-6 sm:mb-8"
             >
               Aceeași grijă pentru vederea ta, colecții de rame atent selecționate la prețuri speciale.
             </motion.p>
@@ -281,17 +281,17 @@ export default function OutletPage({ onBack }) {
                 initial={{ opacity: 0, scale: 0.95 }}
                 animate={{ opacity: 1, scale: 1 }}
                 transition={{ duration: 0.7, delay: 0.3 }}
-                className="flex flex-wrap items-center justify-center gap-2.5 sm:gap-4 text-xs font-semibold text-[#0F172A]/90 mb-8 sm:mb-10"
+                className="flex flex-wrap items-center justify-center gap-2.5 sm:gap-4 text-xs font-semibold text-[#172554]/90 mb-8 sm:mb-10"
             >
-              <div className="px-3.5 sm:px-4 py-2 rounded-full bg-[#FAF8F5]/90 backdrop-blur-md border border-[#0F172A]/15 flex items-center gap-2 shadow-xs">
+              <div className="px-3.5 sm:px-4 py-2 rounded-full bg-[#FAF8F5]/90 backdrop-blur-md border border-[#172554]/15 flex items-center gap-2 shadow-xs">
                 <Stethoscope className="w-4 h-4 text-[#C5A059] shrink-0" />
                 <span>Consult Oftalmologic</span>
               </div>
-              <div className="px-3.5 sm:px-4 py-2 rounded-full bg-[#FAF8F5]/90 backdrop-blur-md border border-[#0F172A]/15 flex items-center gap-2 shadow-xs">
+              <div className="px-3.5 sm:px-4 py-2 rounded-full bg-[#FAF8F5]/90 backdrop-blur-md border border-[#172554]/15 flex items-center gap-2 shadow-xs">
                 <Gift className="w-4 h-4 text-[#C5A059] shrink-0" />
                 <span>Colecții & Promoții Exclusive Outlet</span>
               </div>
-              <div className="px-3.5 sm:px-4 py-2 rounded-full bg-[#FAF8F5]/90 backdrop-blur-md border border-[#0F172A]/15 flex items-center gap-2 shadow-xs">
+              <div className="px-3.5 sm:px-4 py-2 rounded-full bg-[#FAF8F5]/90 backdrop-blur-md border border-[#172554]/15 flex items-center gap-2 shadow-xs">
                 <ShieldCheck className="w-4 h-4 text-[#C5A059] shrink-0" />
                 <span>Calitate Garantată Beta Optic</span>
               </div>
@@ -316,14 +316,14 @@ export default function OutletPage({ onBack }) {
               className="relative z-10 py-14 sm:py-20 px-4 sm:px-6 md:px-16 w-full max-w-7xl mx-auto"
           >
             <div className="text-center max-w-3xl mx-auto mb-10 sm:mb-14">
-              <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-[#0F172A]/15 bg-[#F4EFE6] text-[#0F172A] text-xs uppercase tracking-widest mb-4">
+              <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-[#172554]/15 bg-[#F4EFE6] text-[#172554] text-xs uppercase tracking-widest mb-4">
                 <Stethoscope className="w-3.5 h-3.5 text-[#C5A059]" />
                 <span>Cabinet Oftalmologic Outlet</span>
               </div>
-              <h2 className="serif-title text-3xl sm:text-5xl font-bold text-[#0F172A] leading-tight mb-4">
+              <h2 className="serif-title text-3xl sm:text-5xl font-bold text-[#172554] leading-tight mb-4">
                 Medicii <span className="sr-only">Oftalmologi </span>Colaboratori<span className="sr-only"> — Beta Optic Outlet Timișoara</span>
               </h2>
-              <p className="text-[#0F172A]/75 text-sm sm:text-base font-light">
+              <p className="text-[#172554]/75 text-sm sm:text-base font-light">
                 Un hub de medici tineri, specialiști oftalmologi care oferă consultații în cadrul locației Beta Optic Outlet.
               </p>
             </div>
@@ -337,11 +337,11 @@ export default function OutletPage({ onBack }) {
                       whileInView={{ opacity: 1, y: 0 }}
                       viewport={{ once: true }}
                       transition={{ duration: 0.4, delay: index * 0.05 }}
-                      className="rounded-3xl bg-[#F4EFE6] border border-[#E5DEC9] p-6 shadow-xs hover:shadow-md hover:border-[#0F172A]/30 transition-all duration-300 flex flex-col justify-between group"
+                      className="rounded-3xl bg-[#F4EFE6] border border-[#E5DEC9] p-6 shadow-xs hover:shadow-md hover:border-[#172554]/30 transition-all duration-300 flex flex-col justify-between group"
                   >
                     <div>
                       {/* Doctor Avatar with Eye */}
-                      <div className="w-full aspect-square rounded-2xl overflow-hidden bg-white border border-[#E5DEC9] flex items-center justify-center p-6 mb-5 shadow-2xs group-hover:border-[#0F172A]/20 transition-colors">
+                      <div className="w-full aspect-square rounded-2xl overflow-hidden bg-white border border-[#E5DEC9] flex items-center justify-center p-6 mb-5 shadow-2xs group-hover:border-[#172554]/20 transition-colors">
                         <img
                             src={doctorPlaceholder}
                             alt={doctor.name}
@@ -356,7 +356,7 @@ export default function OutletPage({ onBack }) {
                     {doctor.title}
                   </span>
 
-                      <h3 className="serif-title text-2xl font-bold text-[#0F172A] leading-snug">
+                      <h3 className="serif-title text-2xl font-bold text-[#172554] leading-snug">
                         {doctor.name}
                       </h3>
                     </div>
@@ -373,20 +373,20 @@ export default function OutletPage({ onBack }) {
           >
             <div className="max-w-5xl mx-auto">
               <div className="text-center max-w-3xl mx-auto mb-8 sm:mb-12">
-                <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-[#0F172A]/15 bg-[#FAF8F5] text-[#0F172A] text-xs uppercase tracking-widest mb-4">
+                <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-[#172554]/15 bg-[#FAF8F5] text-[#172554] text-xs uppercase tracking-widest mb-4">
                   <Gift className="w-3.5 h-3.5 text-[#C5A059]" />
                   <span>Promoții Dedicate Outlet</span>
                 </div>
-                <h2 className="serif-title text-3xl sm:text-5xl font-bold text-[#0F172A] leading-tight mb-4">
+                <h2 className="serif-title text-3xl sm:text-5xl font-bold text-[#172554] leading-tight mb-4">
                   Oferte Beta Optic Outlet<span className="sr-only"> Timișoara — Promoții Rame de Vedere, Lentile și Consult Oftalmologic</span>
                 </h2>
-                <p className="text-[#0F172A]/75 text-sm sm:text-base font-light">
+                <p className="text-[#172554]/75 text-sm sm:text-base font-light">
                   Selectează categoria dorită pentru a vedea promoțiile dedicate exclusiv showroom-ului nostru Outlet.
                 </p>
               </div>
 
               {/* Inline Category Selector: Oferta săptămânii / Oferta lunii */}
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5 sm:gap-3 p-2 rounded-3xl bg-[#0F172A] border border-[#0F172A] shadow-lg mb-6 sm:mb-8">
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5 sm:gap-3 p-2 rounded-3xl bg-[#172554] border border-[#172554] shadow-lg mb-6 sm:mb-8">
                 {OUTLET_OFFER_TABS.map((tab) => {
                   const Icon = tab.icon;
                   const isSelected = selectedOfferTab === tab.id;
@@ -397,7 +397,7 @@ export default function OutletPage({ onBack }) {
                           aria-pressed={isSelected}
                           className={`flex items-center gap-3 p-3.5 sm:p-4 min-h-[56px] rounded-2xl text-left transition-all duration-300 cursor-pointer ${
                               isSelected
-                                  ? 'bg-[#FAF8F5] text-[#0F172A] shadow-md'
+                                  ? 'bg-[#FAF8F5] text-[#172554] shadow-md'
                                   : 'hover:bg-[#FAF8F5]/10 text-[#FAF8F5]'
                           }`}
                       >
@@ -416,7 +416,7 @@ export default function OutletPage({ onBack }) {
                       </span>
                           <span
                               className={`block text-xs sm:truncate ${
-                                  isSelected ? 'text-[#0F172A]/60' : 'text-[#FAF8F5]/65'
+                                  isSelected ? 'text-[#172554]/60' : 'text-[#FAF8F5]/65'
                               }`}
                           >
                         {tab.subtitle}
@@ -435,7 +435,7 @@ export default function OutletPage({ onBack }) {
                     animate={{ opacity: 1, y: 0 }}
                     exit={{ opacity: 0, y: -12 }}
                     transition={{ duration: 0.25 }}
-                    className="rounded-3xl bg-[#0F172A] border border-[#0F172A] p-6 sm:p-10 shadow-2xl max-w-4xl mx-auto"
+                    className="rounded-3xl bg-[#172554] border border-[#172554] p-6 sm:p-10 shadow-2xl max-w-4xl mx-auto"
                 >
                   <div className={`grid grid-cols-1 ${activeOffer.image ? 'md:grid-cols-12 gap-6 sm:gap-8 items-center text-left' : 'max-w-2xl mx-auto text-center space-y-5'}`}>
                     {activeOffer.image && (
@@ -509,14 +509,14 @@ export default function OutletPage({ onBack }) {
             className="py-14 sm:py-20 px-4 sm:px-6 md:px-16 w-full max-w-7xl mx-auto"
         >
           <div className="text-center max-w-3xl mx-auto mb-10 sm:mb-14">
-            <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-[#0F172A]/15 bg-[#F4EFE6] text-[#0F172A] text-xs uppercase tracking-widest mb-4">
+            <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-[#172554]/15 bg-[#F4EFE6] text-[#172554] text-xs uppercase tracking-widest mb-4">
               <Camera className="w-3.5 h-3.5 text-[#C5A059]" />
               <span>Imagini Showroom</span>
             </div>
-            <h2 className="serif-title text-3xl sm:text-5xl font-bold text-[#0F172A] leading-tight mb-4">
+            <h2 className="serif-title text-3xl sm:text-5xl font-bold text-[#172554] leading-tight mb-4">
               Galeria Beta Optic Outlet<span className="sr-only"> Timișoara — Showroom Optică Medicală Strada Paris 2a</span>
             </h2>
-            <p className="text-[#0F172A]/75 text-sm sm:text-base font-light">
+            <p className="text-[#172554]/75 text-sm sm:text-base font-light">
               Explorează atmosfera și colecțiile expuse în cadrul locației noastre Outlet.
             </p>
           </div>
@@ -539,7 +539,7 @@ export default function OutletPage({ onBack }) {
                         setLightboxImage(img);
                       }
                     }}
-                    className="group relative rounded-3xl overflow-hidden bg-[#0F172A] border border-[#E5DEC9] shadow-xs hover:shadow-xl transition-all duration-300 cursor-pointer aspect-[4/3]"
+                    className="group relative rounded-3xl overflow-hidden bg-[#172554] border border-[#E5DEC9] shadow-xs hover:shadow-xl transition-all duration-300 cursor-pointer aspect-[4/3]"
                 >
                   <img
                       src={img.src}
@@ -551,7 +551,7 @@ export default function OutletPage({ onBack }) {
                       loading="lazy"
                       className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-[#0F172A]/80 via-transparent to-transparent opacity-85 group-hover:opacity-95 transition-opacity" />
+                  <div className="absolute inset-0 bg-gradient-to-t from-[#172554]/80 via-transparent to-transparent opacity-85 group-hover:opacity-95 transition-opacity" />
                   <div className="absolute bottom-0 inset-x-0 p-5 sm:p-6 text-[#FAF8F5]">
                     <h3 className="serif-title text-xl sm:text-2xl font-bold leading-snug">
                       {img.title}
@@ -577,10 +577,10 @@ export default function OutletPage({ onBack }) {
               <span className="text-xs uppercase tracking-widest font-semibold text-[#8A6928] lg:text-[#C5A059] mb-1">
               Galerie în curs de actualizare
             </span>
-              <h3 className="serif-title text-2xl font-bold text-[#0F172A] mb-2">
+              <h3 className="serif-title text-2xl font-bold text-[#172554] mb-2">
                 Mai multe imagini în curând
               </h3>
-              <p className="text-sm md:text-xs text-[#0F172A]/65 max-w-xs leading-relaxed">
+              <p className="text-sm md:text-xs text-[#172554]/65 max-w-xs leading-relaxed">
                 Vom adăuga curând fotografii noi cu ramele și colecțiile din Beta Optic Outlet.
               </p>
             </motion.div>
@@ -591,7 +591,7 @@ export default function OutletPage({ onBack }) {
         {/* SECTION 4: Locație Outlet (same style as LocationSection on main page) */}
         <section
             id="locatie-outlet"
-            className="py-16 sm:py-20 md:py-28 max-sm:pb-[max(4rem,calc(2.5rem+env(safe-area-inset-bottom)))] px-4 sm:px-6 md:px-16 w-full bg-[#0F172A] text-[#FAF8F5] relative overflow-hidden"
+            className="py-16 sm:py-20 md:py-28 max-sm:pb-[max(4rem,calc(2.5rem+env(safe-area-inset-bottom)))] px-4 sm:px-6 md:px-16 w-full bg-[#172554] text-[#FAF8F5] relative overflow-hidden"
         >
           <div className="max-w-7xl mx-auto">
             {/* Section Header */}
@@ -717,9 +717,9 @@ export default function OutletPage({ onBack }) {
                       href="https://www.google.com/maps/search/?api=1&query=Strada+Paris+2a,+300003+Timi%C8%99oara"
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="w-full inline-flex items-center justify-center gap-2 px-5 sm:px-6 py-3.5 min-h-[44px] rounded-full bg-[#FAF8F5] text-[#0F172A] font-semibold text-xs uppercase tracking-wider hover:bg-[#C5A059] hover:text-[#0F172A] transition-all shadow-md group"
+                      className="w-full inline-flex items-center justify-center gap-2 px-5 sm:px-6 py-3.5 min-h-[44px] rounded-full bg-[#FAF8F5] text-[#172554] font-semibold text-xs uppercase tracking-wider hover:bg-[#C5A059] hover:text-[#172554] transition-all shadow-md group"
                   >
-                    <Navigation className="w-4 h-4 text-[#0F172A] group-hover:scale-110 transition-transform max-sm:shrink-0" />
+                    <Navigation className="w-4 h-4 text-[#172554] group-hover:scale-110 transition-transform max-sm:shrink-0" />
                     <span>Deschide Navigația Google Maps</span>
                     <ExternalLink className="w-3.5 h-3.5 opacity-60 max-sm:shrink-0" />
                   </a>
@@ -761,7 +761,7 @@ export default function OutletPage({ onBack }) {
         <AnimatePresence>
           {lightboxImage && (
               <div
-                  className="fixed inset-0 z-50 flex items-center justify-center p-4 sm:p-8 bg-[#0F172A]/85 backdrop-blur-md"
+                  className="fixed inset-0 z-50 flex items-center justify-center p-4 sm:p-8 bg-[#172554]/85 backdrop-blur-md"
                   onClick={() => setLightboxImage(null)}
               >
                 <motion.div
@@ -774,11 +774,11 @@ export default function OutletPage({ onBack }) {
                   <button
                       onClick={() => setLightboxImage(null)}
                       aria-label="Închide imaginea"
-                      className="absolute top-3 right-3 sm:top-4 sm:right-4 z-10 w-11 h-11 md:w-10 md:h-10 rounded-full bg-[#0F172A]/85 text-[#FAF8F5] flex items-center justify-center hover:bg-[#C5A059] hover:text-[#0F172A] transition-colors cursor-pointer shadow-md"
+                      className="absolute top-3 right-3 sm:top-4 sm:right-4 z-10 w-11 h-11 md:w-10 md:h-10 rounded-full bg-[#172554]/85 text-[#FAF8F5] flex items-center justify-center hover:bg-[#C5A059] hover:text-[#172554] transition-colors cursor-pointer shadow-md"
                   >
                     <X className="w-5 h-5" />
                   </button>
-                  <div className="bg-[#0F172A] flex items-center justify-center max-h-[70dvh] md:max-h-[75vh] overflow-hidden">
+                  <div className="bg-[#172554] flex items-center justify-center max-h-[70dvh] md:max-h-[75vh] overflow-hidden">
                     <img
                         src={lightboxImage.src}
                         alt={lightboxImage.title}
@@ -787,11 +787,11 @@ export default function OutletPage({ onBack }) {
                   </div>
                   <div className="px-5 sm:px-6 py-4 bg-[#FAF8F5] flex items-center justify-between">
                     <div>
-                      <h4 className="serif-title text-lg sm:text-xl font-bold text-[#0F172A]">
+                      <h4 className="serif-title text-lg sm:text-xl font-bold text-[#172554]">
                         {lightboxImage.title}
                       </h4>
                       {lightboxImage.caption && (
-                          <p className="text-xs text-[#0F172A]/70">{lightboxImage.caption}</p>
+                          <p className="text-xs text-[#172554]/70">{lightboxImage.caption}</p>
                       )}
                     </div>
                   </div>

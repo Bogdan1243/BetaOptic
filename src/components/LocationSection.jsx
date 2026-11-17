@@ -25,7 +25,7 @@ export default function LocationSection() {
   };
 
   return (
-    <section id="locatie" className="py-16 sm:py-20 md:py-28 max-sm:pb-[max(4rem,calc(2.5rem+env(safe-area-inset-bottom)))] px-4 sm:px-6 md:px-16 w-full bg-[#0F172A] text-[#FAF8F5] relative overflow-hidden">
+    <section id="locatie" className="py-16 sm:py-20 md:py-28 max-sm:pb-[max(4rem,calc(2.5rem+env(safe-area-inset-bottom)))] px-4 sm:px-6 md:px-16 w-full bg-[#172554] text-[#FAF8F5] relative overflow-hidden">
       <div className="max-w-7xl mx-auto">
         
         {/* Section Header */}
@@ -140,9 +140,9 @@ export default function LocationSection() {
                 href="https://www.google.com/maps/place/Beta+Optic/@45.7540572,21.2251246,17z/data=!3m1!4b1!4m6!3m5!1s0x47455d7ff8235135:0xa3750d3f6ff5eecc!8m2!3d45.7540535!4d21.2277049!16s%2Fg%2F11c1n9nsmq"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-full inline-flex items-center justify-center gap-2 px-5 sm:px-6 py-3.5 min-h-[44px] rounded-full bg-[#FAF8F5] text-[#0F172A] font-semibold text-xs uppercase tracking-wider hover:bg-[#C5A059] hover:text-[#0F172A] transition-all shadow-md group"
+                className="w-full inline-flex items-center justify-center gap-2 px-5 sm:px-6 py-3.5 min-h-[44px] rounded-full bg-[#FAF8F5] text-[#172554] font-semibold text-xs uppercase tracking-wider hover:bg-[#C5A059] hover:text-[#172554] transition-all shadow-md group"
               >
-                <Navigation className="w-4 h-4 text-[#0F172A] group-hover:scale-110 transition-transform max-sm:shrink-0" />
+                <Navigation className="w-4 h-4 text-[#172554] group-hover:scale-110 transition-transform max-sm:shrink-0" />
                 <span>Deschide Navigația Google Maps</span>
                 <ExternalLink className="w-3.5 h-3.5 opacity-60 max-sm:shrink-0" />
               </a>

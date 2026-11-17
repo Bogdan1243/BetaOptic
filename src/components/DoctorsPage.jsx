@@ -72,10 +72,10 @@ export default function DoctorsPage({ onBack }) {
   };
 
   return (
-    <div className="min-h-screen w-full bg-[#FAF8F5] text-[#0F172A] selection:bg-[#0F172A] selection:text-[#FAF8F5] font-sans antialiased overflow-x-hidden">
+    <div className="min-h-screen w-full bg-[#FAF8F5] text-[#172554] selection:bg-[#172554] selection:text-[#FAF8F5] font-sans antialiased overflow-x-hidden">
       
       {/* Top Sticky Navigation Bar */}
-      <header className="sticky top-0 z-40 w-full bg-[#FAF8F5]/90 backdrop-blur-md border-b border-[#0F172A]/10 px-4 sm:px-6 md:px-16 py-3 sm:py-4">
+      <header className="sticky top-0 z-40 w-full bg-[#FAF8F5]/90 backdrop-blur-md border-b border-[#172554]/10 px-4 sm:px-6 md:px-16 py-3 sm:py-4">
         <div className="max-w-7xl mx-auto flex items-center justify-between">
           
           {/* Back Button + Brand Logo */}
@@ -88,13 +88,13 @@ export default function DoctorsPage({ onBack }) {
                   if (onBack) onBack();
                 }
               }}
-              className="inline-flex items-center gap-2 px-4 py-2.5 md:py-2 min-h-[44px] md:min-h-0 rounded-full border border-[#0F172A]/20 bg-[#F4EFE6] hover:bg-[#0F172A] hover:text-[#FAF8F5] text-xs uppercase tracking-wider font-semibold transition-all duration-300 shadow-xs group cursor-pointer"
+              className="inline-flex items-center gap-2 px-4 py-2.5 md:py-2 min-h-[44px] md:min-h-0 rounded-full border border-[#172554]/20 bg-[#F4EFE6] hover:bg-[#172554] hover:text-[#FAF8F5] text-xs uppercase tracking-wider font-semibold transition-all duration-300 shadow-xs group cursor-pointer"
             >
               <ArrowLeft className="w-3.5 h-3.5 text-[#C5A059] group-hover:text-[#FAF8F5] group-hover:-translate-x-1 transition-transform shrink-0" />
               <span>Pagina Principală</span>
             </a>
 
-            <div className="h-6 w-px bg-[#0F172A]/15 hidden sm:block" />
+            <div className="h-6 w-px bg-[#172554]/15 hidden sm:block" />
 
             <a
               href="/"
@@ -107,14 +107,14 @@ export default function DoctorsPage({ onBack }) {
               }}
               className="flex items-center justify-center sm:justify-start gap-2.5 min-w-[44px] min-h-[44px] md:min-w-0 md:min-h-0 text-left cursor-pointer group"
             >
-              <div className="w-8 h-8 rounded-full border border-[#0F172A]/30 flex items-center justify-center bg-[#FAF8F5] text-[#0F172A] group-hover:border-[#C5A059] transition-colors">
+              <div className="w-8 h-8 rounded-full border border-[#172554]/30 flex items-center justify-center bg-[#FAF8F5] text-[#172554] group-hover:border-[#C5A059] transition-colors">
                 <Eye className="w-4 h-4 stroke-[1.5]" />
               </div>
               <div className="hidden sm:block">
-                <span className="serif-title text-lg font-bold tracking-widest text-[#0F172A] uppercase leading-none block">
+                <span className="serif-title text-lg font-bold tracking-widest text-[#172554] uppercase leading-none block">
                   BETA OPTIC
                 </span>
-                <span className="text-[9px] tracking-[0.25em] text-[#0F172A]/60 uppercase font-medium">
+                <span className="text-[9px] tracking-[0.25em] text-[#172554]/60 uppercase font-medium">
                   Timișoara
                 </span>
               </div>
@@ -133,7 +133,7 @@ export default function DoctorsPage({ onBack }) {
             initial={{ opacity: 0, y: 15 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
-            className="inline-flex items-center gap-2 px-3.5 sm:px-4 py-1.5 rounded-2xl sm:rounded-full border border-[#0F172A]/15 bg-[#F4EFE6] text-[#0F172A] text-[11px] sm:text-xs uppercase tracking-wider sm:tracking-widest mb-5 sm:mb-6"
+            className="inline-flex items-center gap-2 px-3.5 sm:px-4 py-1.5 rounded-2xl sm:rounded-full border border-[#172554]/15 bg-[#F4EFE6] text-[#172554] text-[11px] sm:text-xs uppercase tracking-wider sm:tracking-widest mb-5 sm:mb-6"
           >
             <Stethoscope className="w-3.5 h-3.5 text-[#C5A059] shrink-0" />
             <span>Cabinet Oftalmologic & Optometrie Clinică</span>
@@ -143,7 +143,7 @@ export default function DoctorsPage({ onBack }) {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7, delay: 0.1 }}
-            className="serif-title text-3xl sm:text-6xl md:text-7xl font-semibold text-[#0F172A] leading-tight mb-5 sm:mb-6"
+            className="serif-title text-3xl sm:text-6xl md:text-7xl font-semibold text-[#172554] leading-tight mb-5 sm:mb-6"
           >
             Medici <span className="sr-only">Oftalmologi </span>Colaboratori Beta Optic<span className="sr-only"> Timișoara — Consult Oftalmologic și Optometrie Clinică</span>
           </motion.h1>
@@ -152,7 +152,7 @@ export default function DoctorsPage({ onBack }) {
             initial={{ opacity: 0, y: 15 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7, delay: 0.2 }}
-            className="text-[#0F172A]/80 text-base sm:text-xl font-light max-w-2xl mx-auto leading-relaxed mb-0 sm:mb-8"
+            className="text-[#172554]/80 text-base sm:text-xl font-light max-w-2xl mx-auto leading-relaxed mb-0 sm:mb-8"
           >
           </motion.p>
 
@@ -161,13 +161,13 @@ export default function DoctorsPage({ onBack }) {
             initial={{ opacity: 0, scale: 0.95 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.7, delay: 0.3 }}
-            className="flex flex-wrap items-center justify-center gap-2.5 sm:gap-4 text-xs font-semibold text-[#0F172A]/85"
+            className="flex flex-wrap items-center justify-center gap-2.5 sm:gap-4 text-xs font-semibold text-[#172554]/85"
           >
-            <div className="px-3.5 sm:px-4 py-2 rounded-full bg-[#FAF8F5] border border-[#0F172A]/15 flex items-center gap-2 shadow-2xs">
+            <div className="px-3.5 sm:px-4 py-2 rounded-full bg-[#FAF8F5] border border-[#172554]/15 flex items-center gap-2 shadow-2xs">
               <ShieldCheck className="w-4 h-4 text-[#C5A059] shrink-0" />
               <span>Aparatură de Diagnostic Avansat</span>
             </div>
-            <div className="px-3.5 sm:px-4 py-2 rounded-full bg-[#FAF8F5] border border-[#0F172A]/15 flex items-center gap-2 shadow-2xs">
+            <div className="px-3.5 sm:px-4 py-2 rounded-full bg-[#FAF8F5] border border-[#172554]/15 flex items-center gap-2 shadow-2xs">
               <Award className="w-4 h-4 text-[#C5A059] shrink-0" />
               <span>Medici Primari & Specialiști Certificați</span>
             </div>
@@ -188,11 +188,11 @@ export default function DoctorsPage({ onBack }) {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.4, delay: index * 0.05 }}
-              className="rounded-3xl bg-[#F4EFE6] border border-[#E5DEC9] p-6 shadow-xs hover:shadow-md hover:border-[#0F172A]/30 transition-all duration-300 flex flex-col justify-between group"
+              className="rounded-3xl bg-[#F4EFE6] border border-[#E5DEC9] p-6 shadow-xs hover:shadow-md hover:border-[#172554]/30 transition-all duration-300 flex flex-col justify-between group"
             >
               <div>
                 {/* Doctor Avatar with Eye */}
-                <div className="w-full aspect-square rounded-2xl overflow-hidden bg-white border border-[#E5DEC9] flex items-center justify-center p-6 mb-5 shadow-2xs group-hover:border-[#0F172A]/20 transition-colors">
+                <div className="w-full aspect-square rounded-2xl overflow-hidden bg-white border border-[#E5DEC9] flex items-center justify-center p-6 mb-5 shadow-2xs group-hover:border-[#172554]/20 transition-colors">
                   <img
                     src={doctorPlaceholder}
                     alt={`Portret ilustrativ — ${doctor.name}, ${doctor.title} la Beta Optic Timișoara`}
@@ -207,7 +207,7 @@ export default function DoctorsPage({ onBack }) {
                   {doctor.title}
                 </span>
 
-                <h2 className="serif-title text-2xl font-bold text-[#0F172A] leading-snug">
+                <h2 className="serif-title text-2xl font-bold text-[#172554] leading-snug">
                   {doctor.name}
                 </h2>
               </div>
@@ -215,7 +215,7 @@ export default function DoctorsPage({ onBack }) {
               {/* Program consultații (schedule) - lăsat comentat */}
               {/*
               {doctor.schedule && (
-                <div className="pt-4 mt-4 border-t border-[#0F172A]/10 flex items-center gap-2 text-xs text-[#0F172A]/70">
+                <div className="pt-4 mt-4 border-t border-[#172554]/10 flex items-center gap-2 text-xs text-[#172554]/70">
                   <Clock className="w-4 h-4 text-[#C5A059]" />
                   <span>Program: {doctor.schedule}</span>
                 </div>
@@ -224,10 +224,10 @@ export default function DoctorsPage({ onBack }) {
 
               {/* Booking CTA Button (comentat) */}
               {/*
-              <div className="pt-4 mt-4 border-t border-[#0F172A]/10">
+              <div className="pt-4 mt-4 border-t border-[#172554]/10">
                 <button
                   onClick={() => setSelectedDoctorForModal(doctor)}
-                  className="w-full inline-flex items-center justify-center gap-2 px-5 py-2.5 rounded-full bg-[#0F172A] text-[#FAF8F5] text-xs font-semibold uppercase tracking-wider hover:bg-[#C5A059] hover:text-[#0F172A] transition-all duration-300 shadow-sm cursor-pointer"
+                  className="w-full inline-flex items-center justify-center gap-2 px-5 py-2.5 rounded-full bg-[#172554] text-[#FAF8F5] text-xs font-semibold uppercase tracking-wider hover:bg-[#C5A059] hover:text-[#172554] transition-all duration-300 shadow-sm cursor-pointer"
                 >
                   <Calendar className="w-4 h-4" />
                   <span>Programează Consult</span>
@@ -242,7 +242,7 @@ export default function DoctorsPage({ onBack }) {
       </main>
 
       {/* Bottom Visit & Atelier Invitation Section */}
-      <section className="py-14 sm:py-20 max-sm:pb-[max(3.5rem,calc(2rem+env(safe-area-inset-bottom)))] px-4 sm:px-6 md:px-16 w-full bg-[#0F172A] text-[#FAF8F5] relative overflow-hidden">
+      <section className="py-14 sm:py-20 max-sm:pb-[max(3.5rem,calc(2rem+env(safe-area-inset-bottom)))] px-4 sm:px-6 md:px-16 w-full bg-[#172554] text-[#FAF8F5] relative overflow-hidden">
         <div className="max-w-5xl mx-auto text-center space-y-6 sm:space-y-8">
           
           <div className="w-14 h-14 rounded-full bg-[#FAF8F5]/10 text-[#C5A059] flex items-center justify-center mx-auto border border-[#FAF8F5]/20">
@@ -272,7 +272,7 @@ export default function DoctorsPage({ onBack }) {
       {/* Appointment Booking Modal (lăsat pregătit / comentat dacă este necesar) */}
       {selectedDoctorForModal && (
         <div
-          className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-[#0F172A]/75 backdrop-blur-sm"
+          className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-[#172554]/75 backdrop-blur-sm"
           onClick={(e) => { if (e.target === e.currentTarget) closeBookingModal(); }}
           role="dialog"
           aria-modal="true"
@@ -281,17 +281,17 @@ export default function DoctorsPage({ onBack }) {
           <motion.div
             initial={{ opacity: 0, scale: 0.95 }}
             animate={{ opacity: 1, scale: 1 }}
-            className="w-full max-w-lg bg-[#FAF8F5] text-[#0F172A] rounded-3xl p-6 sm:p-8 border border-[#E5DEC9] shadow-2xl relative"
+            className="w-full max-w-lg bg-[#FAF8F5] text-[#172554] rounded-3xl p-6 sm:p-8 border border-[#E5DEC9] shadow-2xl relative"
           >
-            <div className="flex items-center justify-between pb-4 border-b border-[#0F172A]/10 mb-6">
+            <div className="flex items-center justify-between pb-4 border-b border-[#172554]/10 mb-6">
               <div>
                 <span className="text-[10px] uppercase tracking-widest text-[#C5A059] font-bold block">
                   Programare Consultație
                 </span>
-                <h3 id="booking-modal-title" className="serif-title text-2xl font-bold text-[#0F172A]">
+                <h3 id="booking-modal-title" className="serif-title text-2xl font-bold text-[#172554]">
                   {selectedDoctorForModal.name}
                 </h3>
-                <p className="text-xs text-[#0F172A]/60">
+                <p className="text-xs text-[#172554]/60">
                   {selectedDoctorForModal.title}
                 </p>
               </div>
@@ -299,7 +299,7 @@ export default function DoctorsPage({ onBack }) {
               <button
                 onClick={closeBookingModal}
                 aria-label="Închide"
-                className="w-11 h-11 md:w-8 md:h-8 rounded-full border border-[#0F172A]/20 flex items-center justify-center hover:bg-[#0F172A] hover:text-[#FAF8F5] text-xs transition-colors"
+                className="w-11 h-11 md:w-8 md:h-8 rounded-full border border-[#172554]/20 flex items-center justify-center hover:bg-[#172554] hover:text-[#FAF8F5] text-xs transition-colors"
               >
                 ✕
               </button>
@@ -307,20 +307,20 @@ export default function DoctorsPage({ onBack }) {
 
             {bookingSuccess ? (
               <div className="text-center py-8 space-y-3">
-                <div className="w-14 h-14 rounded-full bg-[#0F172A] text-[#C5A059] flex items-center justify-center mx-auto shadow-md">
+                <div className="w-14 h-14 rounded-full bg-[#172554] text-[#C5A059] flex items-center justify-center mx-auto shadow-md">
                   <CheckCircle2 className="w-8 h-8" />
                 </div>
-                <h4 className="serif-title text-2xl font-bold text-[#0F172A]">
+                <h4 className="serif-title text-2xl font-bold text-[#172554]">
                   Continuă în WhatsApp
                 </h4>
-                <p className="text-xs text-[#0F172A]/75 max-w-xs mx-auto">
+                <p className="text-xs text-[#172554]/75 max-w-xs mx-auto">
                   Mulțumim{patientName ? `, ${patientName}` : ''}! Am deschis WhatsApp cu mesajul precompletat — apasă „Trimite” acolo, iar noi te contactăm la <strong>{patientPhone}</strong> pentru confirmarea orei exacte.
                 </p>
               </div>
             ) : (
               <form onSubmit={handleBookingSubmit} className="space-y-4">
                 <div>
-                  <label htmlFor="booking-name" className="block text-xs font-semibold uppercase tracking-wider text-[#0F172A]/70 mb-1.5">
+                  <label htmlFor="booking-name" className="block text-xs font-semibold uppercase tracking-wider text-[#172554]/70 mb-1.5">
                     Nume și Prenume *
                   </label>
                   <input
@@ -332,12 +332,12 @@ export default function DoctorsPage({ onBack }) {
                     placeholder="ex. Popescu Ion"
                     value={patientName}
                     onChange={(e) => setPatientName(e.target.value)}
-                    className="w-full px-4 py-3 rounded-xl bg-[#F4EFE6] border border-[#0F172A]/20 text-[#0F172A] text-base sm:text-sm focus:outline-none focus:border-[#0F172A]"
+                    className="w-full px-4 py-3 rounded-xl bg-[#F4EFE6] border border-[#172554]/20 text-[#172554] text-base sm:text-sm focus:outline-none focus:border-[#172554]"
                   />
                 </div>
 
                 <div>
-                  <label htmlFor="booking-phone" className="block text-xs font-semibold uppercase tracking-wider text-[#0F172A]/70 mb-1.5">
+                  <label htmlFor="booking-phone" className="block text-xs font-semibold uppercase tracking-wider text-[#172554]/70 mb-1.5">
                     Număr de Telefon *
                   </label>
                   <input
@@ -351,12 +351,12 @@ export default function DoctorsPage({ onBack }) {
                     placeholder="ex. 0721 000 000"
                     value={patientPhone}
                     onChange={(e) => setPatientPhone(e.target.value)}
-                    className="w-full px-4 py-3 rounded-xl bg-[#F4EFE6] border border-[#0F172A]/20 text-[#0F172A] text-base sm:text-sm focus:outline-none focus:border-[#0F172A]"
+                    className="w-full px-4 py-3 rounded-xl bg-[#F4EFE6] border border-[#172554]/20 text-[#172554] text-base sm:text-sm focus:outline-none focus:border-[#172554]"
                   />
                 </div>
 
                 <div>
-                  <label htmlFor="booking-date" className="block text-xs font-semibold uppercase tracking-wider text-[#0F172A]/70 mb-1.5">
+                  <label htmlFor="booking-date" className="block text-xs font-semibold uppercase tracking-wider text-[#172554]/70 mb-1.5">
                     Ziua Preferată (Opțional)
                   </label>
                   <input
@@ -365,7 +365,7 @@ export default function DoctorsPage({ onBack }) {
                     min={new Date().toISOString().split('T')[0]}
                     value={patientDate}
                     onChange={(e) => setPatientDate(e.target.value)}
-                    className="w-full px-4 py-3 rounded-xl bg-[#F4EFE6] border border-[#0F172A]/20 text-[#0F172A] text-base sm:text-sm focus:outline-none focus:border-[#0F172A]"
+                    className="w-full px-4 py-3 rounded-xl bg-[#F4EFE6] border border-[#172554]/20 text-[#172554] text-base sm:text-sm focus:outline-none focus:border-[#172554]"
                   />
                 </div>
 
@@ -373,14 +373,14 @@ export default function DoctorsPage({ onBack }) {
                   <button
                     type="button"
                     onClick={closeBookingModal}
-                    className="w-1/2 py-3 min-h-[44px] rounded-xl border border-[#0F172A]/20 text-xs uppercase font-semibold text-[#0F172A] hover:bg-[#F4EFE6] transition-colors"
+                    className="w-1/2 py-3 min-h-[44px] rounded-xl border border-[#172554]/20 text-xs uppercase font-semibold text-[#172554] hover:bg-[#F4EFE6] transition-colors"
                   >
                     Anulează
                   </button>
 
                   <button
                     type="submit"
-                    className="w-1/2 py-3 min-h-[44px] rounded-xl bg-[#0F172A] text-[#FAF8F5] hover:bg-[#C5A059] hover:text-[#0F172A] text-xs uppercase font-semibold transition-colors flex items-center justify-center gap-2"
+                    className="w-1/2 py-3 min-h-[44px] rounded-xl bg-[#172554] text-[#FAF8F5] hover:bg-[#C5A059] hover:text-[#172554] text-xs uppercase font-semibold transition-colors flex items-center justify-center gap-2"
                   >
                     <Send className="w-3.5 h-3.5" />
                     <span>Trimite pe WhatsApp</span>

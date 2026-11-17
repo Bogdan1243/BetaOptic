@@ -9,7 +9,7 @@ const VIDEO_POSTER_SVG =
 
 export default function AtelierSection({ onOpenGallery }) {
   return (
-    <section className="relative py-16 sm:py-20 md:py-28 px-4 sm:px-6 md:px-16 w-full overflow-hidden bg-[#0F172A] text-[#FAF8F5]">
+    <section className="relative py-16 sm:py-20 md:py-28 px-4 sm:px-6 md:px-16 w-full overflow-hidden bg-[#172554] text-[#FAF8F5]">
       <div className="relative z-10 max-w-7xl mx-auto">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 sm:gap-10 lg:gap-12 items-center">
 
@@ -61,9 +61,9 @@ export default function AtelierSection({ onOpenGallery }) {
             >
               <button
                 onClick={onOpenGallery}
-                className="inline-flex items-center justify-center gap-2.5 sm:gap-3 px-5 sm:px-8 py-3.5 sm:py-4 min-h-[48px] md:min-h-0 rounded-full bg-[#FAF8F5] text-[#0F172A] font-semibold text-xs sm:text-sm uppercase tracking-wider hover:bg-[#C5A059] hover:text-[#0F172A] transition-all duration-300 shadow-lg group cursor-pointer"
+                className="inline-flex items-center justify-center gap-2.5 sm:gap-3 px-5 sm:px-8 py-3.5 sm:py-4 min-h-[48px] md:min-h-0 rounded-full bg-[#FAF8F5] text-[#172554] font-semibold text-xs sm:text-sm uppercase tracking-wider hover:bg-[#C5A059] hover:text-[#172554] transition-all duration-300 shadow-lg group cursor-pointer"
               >
-                <Grid className="w-4 h-4 text-[#0F172A] group-hover:scale-110 transition-transform shrink-0" />
+                <Grid className="w-4 h-4 text-[#172554] group-hover:scale-110 transition-transform shrink-0" />
                 <span>Vezi Galerie Foto & Video Atelier</span>
               </button>
             </motion.div>
@@ -93,7 +93,7 @@ export default function AtelierSection({ onOpenGallery }) {
                 <source src={rightCardVideo} type="video/mp4" />
               </video>
 
-              <div className="absolute inset-0 bg-gradient-to-t from-[#0F172A] via-transparent to-transparent" />
+              <div className="absolute inset-0 bg-gradient-to-t from-[#172554] via-transparent to-transparent" />
               {/* Floating Overlay Badge */}
 
             </motion.div>

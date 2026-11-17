@@ -56,7 +56,7 @@ export default function HeroSection({ onOpenDoctors, onOpenOffer, onOpenOutlet }
 
         {/* Layered Luxury Overlay for Perfect Legibility */}
         <div className="absolute inset-0 bg-gradient-to-b from-[#FAF8F5]/75 via-[#FAF8F5]/60 to-[#FAF8F5]" />
-        <div className="absolute inset-0 bg-[#0F172A]/10 mix-blend-overlay" />
+        <div className="absolute inset-0 bg-[#172554]/10 mix-blend-overlay" />
       </div>
 
       {/* Top Ambient Branding Watermark & Top-Right Action Buttons */}
@@ -67,7 +67,7 @@ export default function HeroSection({ onOpenDoctors, onOpenOffer, onOpenOutlet }
           transition={{ duration: 1 }}
           className="flex items-start gap-3.5"
         >
-          <div className="w-14 h-14 rounded-full border border-[#0F172A]/30 flex items-center justify-center bg-[#FAF8F5]/75 backdrop-blur-md p-2 shrink-0 mt-1 shadow-xs">
+          <div className="w-14 h-14 rounded-full border border-[#172554]/30 flex items-center justify-center bg-[#FAF8F5]/75 backdrop-blur-md p-2 shrink-0 mt-1 shadow-xs">
             <img
               src={glassesLogo}
               alt="Sigla Beta Optic Timișoara"
@@ -77,14 +77,14 @@ export default function HeroSection({ onOpenDoctors, onOpenOffer, onOpenOutlet }
             />
           </div>
           <div>
-            <span className="font-[Arial] text-3xl sm:text-4xl font-black tracking-widest text-[#0F172A] uppercase block leading-tight">
+            <span className="font-[Arial] text-3xl sm:text-4xl font-black tracking-widest text-[#172554] uppercase block leading-tight">
               BETA OPTIC
             </span>
-            <span className="block text-sm sm:text-base tracking-[0.2em] text-[#0F172A] uppercase font-extrabold mt-0.5 leading-snug">
+            <span className="block text-sm sm:text-base tracking-[0.2em] text-[#172554] uppercase font-extrabold mt-0.5 leading-snug">
               Strada Lucian Blaga nr.7<span className="sr-only">, Timișoara</span> <br/>
               0721 316 224
             </span>
-            <ul className="mt-4 sm:mt-5 pt-1 space-y-1.5 text-[11px] sm:text-xs tracking-[0.15em] text-[#0F172A] uppercase font-bold">
+            <ul className="mt-4 sm:mt-5 pt-1 space-y-1.5 text-[11px] sm:text-xs tracking-[0.15em] text-[#172554] uppercase font-bold">
               <li className="flex items-center gap-1.5">
                 <span className="text-[#C5A059] font-black">—</span>
                 <span>Lentile personalizate progresive</span>
@@ -116,7 +116,7 @@ export default function HeroSection({ onOpenDoctors, onOpenOffer, onOpenOutlet }
                 if (onOpenDoctors) onOpenDoctors();
               }
             }}
-            className="inline-flex items-center gap-1.5 sm:gap-2.5 px-3.5 sm:px-5 py-2.5 min-h-[44px] md:min-h-0 rounded-full bg-[#FAF8F5]/85 hover:bg-[#0F172A] border border-[#0F172A]/20 hover:border-[#0F172A] backdrop-blur-md text-[#0F172A] hover:text-[#FAF8F5] transition-all duration-300 shadow-sm cursor-pointer group"
+            className="inline-flex items-center gap-1.5 sm:gap-2.5 px-3.5 sm:px-5 py-2.5 min-h-[44px] md:min-h-0 rounded-full bg-[#FAF8F5]/85 hover:bg-[#172554] border border-[#172554]/25 hover:border-[#172554] backdrop-blur-md text-[#172554] hover:text-[#FAF8F5] transition-all duration-300 shadow-sm cursor-pointer group"
           >
             <Stethoscope className="w-4 h-4 text-[#C5A059] group-hover:scale-110 transition-transform shrink-0" />
             <span className="text-[11px] sm:text-xs uppercase tracking-wider sm:tracking-widest font-semibold">
@@ -137,8 +137,8 @@ export default function HeroSection({ onOpenDoctors, onOpenOffer, onOpenOutlet }
               aria-haspopup="true"
               className={`inline-flex items-center gap-1.5 sm:gap-2 px-3.5 sm:px-5 py-2.5 min-h-[44px] md:min-h-0 rounded-full border backdrop-blur-md transition-all duration-300 shadow-sm cursor-pointer group ${
                 isOffersMenuOpen
-                  ? 'bg-[#0F172A] border-[#0F172A] text-[#FAF8F5]'
-                  : 'bg-[#FAF8F5]/85 hover:bg-[#0F172A] border-[#0F172A]/20 hover:border-[#0F172A] text-[#0F172A] hover:text-[#FAF8F5]'
+                  ? 'bg-[#172554] border-[#172554] text-[#FAF8F5]'
+                  : 'bg-[#FAF8F5]/85 hover:bg-[#172554] border-[#172554]/25 hover:border-[#172554] text-[#172554] hover:text-[#FAF8F5]'
               }`}
             >
               <span className="relative flex items-center justify-center shrink-0">
@@ -164,7 +164,7 @@ export default function HeroSection({ onOpenDoctors, onOpenOffer, onOpenOutlet }
                   transition={{ duration: 0.2 }}
                   className="absolute left-0 right-0 sm:left-auto sm:right-0 mt-2.5 w-full max-w-[calc(100vw-2rem)] sm:w-64 rounded-2xl bg-[#FAF8F5]/95 backdrop-blur-xl border border-[#E5DEC9] shadow-xl p-2 z-40"
                 >
-                  <div className="px-3 py-1.5 border-b border-[#0F172A]/10 mb-1">
+                  <div className="px-3 py-1.5 border-b border-[#172554]/10 mb-1">
                     <span className="text-[10px] uppercase tracking-widest font-bold text-[#C5A059]">
                       Alege categoria
                     </span>
@@ -179,7 +179,7 @@ export default function HeroSection({ onOpenDoctors, onOpenOffer, onOpenOutlet }
                             setIsOffersMenuOpen(false);
                             if (onOpenOffer) onOpenOffer(item.id);
                           }}
-                          className="w-full min-h-[44px] md:min-h-0 flex items-center justify-between gap-3 px-3 py-2.5 rounded-xl text-left hover:bg-[#0F172A] text-[#0F172A] hover:text-[#FAF8F5] transition-all duration-200 group cursor-pointer"
+                          className="w-full min-h-[44px] md:min-h-0 flex items-center justify-between gap-3 px-3 py-2.5 rounded-xl text-left hover:bg-[#172554] text-[#172554] hover:text-[#FAF8F5] transition-all duration-200 group cursor-pointer"
                         >
                           <div className="flex items-center gap-2.5 min-w-0">
                             <div className="w-8 h-8 rounded-full bg-[#F4EFE6] group-hover:bg-[#FAF8F5]/15 border border-[#E5DEC9] group-hover:border-transparent flex items-center justify-center shrink-0 transition-colors">
@@ -189,13 +189,13 @@ export default function HeroSection({ onOpenDoctors, onOpenOffer, onOpenOutlet }
                               <span className="block text-xs font-semibold tracking-wide">
                                 {item.label}
                               </span>
-                              <span className="block text-[10px] text-[#0F172A]/60 group-hover:text-[#FAF8F5]/75 truncate">
+                              <span className="block text-[10px] text-[#172554]/60 group-hover:text-[#FAF8F5]/75 truncate">
                                 {item.subtitle}
                               </span>
                             </div>
                           </div>
                           {item.badge && (
-                            <span className="px-2 py-0.5 rounded-full text-[9px] uppercase tracking-wider font-bold bg-[#C5A059] text-[#0F172A] shrink-0">
+                            <span className="px-2 py-0.5 rounded-full text-[9px] uppercase tracking-wider font-bold bg-[#C5A059] text-[#172554] shrink-0">
                               {item.badge}
                             </span>
                           )}
@@ -220,7 +220,7 @@ export default function HeroSection({ onOpenDoctors, onOpenOffer, onOpenOutlet }
                 if (onOpenOutlet) onOpenOutlet();
               }
             }}
-            className="inline-flex items-center gap-1.5 sm:gap-2.5 px-3.5 sm:px-5 py-2.5 min-h-[44px] md:min-h-0 rounded-full bg-[#FAF8F5]/85 hover:bg-[#0F172A] border border-[#0F172A]/20 hover:border-[#0F172A] backdrop-blur-md text-[#0F172A] hover:text-[#FAF8F5] transition-all duration-300 shadow-sm cursor-pointer group"
+            className="inline-flex items-center gap-1.5 sm:gap-2.5 px-3.5 sm:px-5 py-2.5 min-h-[44px] md:min-h-0 rounded-full bg-[#FAF8F5]/85 hover:bg-[#172554] border border-[#172554]/25 hover:border-[#172554] backdrop-blur-md text-[#172554] hover:text-[#FAF8F5] transition-all duration-300 shadow-sm cursor-pointer group"
           >
             <Store className="w-4 h-4 text-[#C5A059] group-hover:scale-110 transition-transform shrink-0" />
             <span className="text-[11px] sm:text-xs uppercase tracking-wider sm:tracking-widest font-semibold">
@@ -246,7 +246,7 @@ export default function HeroSection({ onOpenDoctors, onOpenOffer, onOpenOutlet }
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1, delay: 0.4 }}
-          className="serif-title text-[2.5rem] sm:text-7xl md:text-8xl lg:text-9xl font-semibold text-[#0F172A] tracking-tight leading-none mb-6 sm:mb-10 lowercase"
+          className="serif-title text-[2.5rem] sm:text-7xl md:text-8xl lg:text-9xl font-semibold text-[#172554] tracking-tight leading-none mb-6 sm:mb-10 lowercase"
         >
           <span className="sr-only">
             Beta Optic Timișoara — Optică Medicală, Consult Oftalmologic, Lentile și Rame de Ochelari —{' '}
