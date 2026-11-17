@@ -39,7 +39,7 @@ import {
 } from 'lucide-react';
 import { OUTLET_DOCTORS_DATA } from '../data/doctorsData';
 import { OUTLET_HERO_DATA } from '../data/opticData';
-import CardCarousel from './CardCarousel';
+import CardCarousel, { MobileCarouselGrid } from './CardCarousel';
 
 const OUTLET_OFFER_TABS = [
   {
@@ -328,7 +328,10 @@ export default function OutletPage({ onBack }) {
               </p>
             </div>
 
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 sm:gap-6 max-w-5xl mx-auto">
+            <MobileCarouselGrid
+              desktopClassName="md:grid md:grid-cols-3 md:gap-6 max-w-5xl mx-auto"
+              label="Medicii colaboratori Beta Optic Outlet"
+            >
               {OUTLET_DOCTORS_DATA.map((doctor, index) => (
                   <motion.div
                       key={doctor.id}
@@ -362,7 +365,7 @@ export default function OutletPage({ onBack }) {
                     </div>
                   </motion.div>
               ))}
-            </div>
+            </MobileCarouselGrid>
           </section>
 
           {/* SECTION 2: Oferte Outlet (Inline Section with Oferta zilei / săptămânii / lunii) */}
@@ -521,7 +524,10 @@ export default function OutletPage({ onBack }) {
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 sm:gap-6">
+          <MobileCarouselGrid
+            desktopClassName="md:grid md:grid-cols-2 lg:grid-cols-3 md:gap-6"
+            label="Galeria foto Beta Optic Outlet"
+          >
             {OUTLET_GALLERY_IMAGES.map((img, idx) => (
                 <motion.div
                     key={img.id || idx}
@@ -584,7 +590,7 @@ export default function OutletPage({ onBack }) {
                 Vom adăuga curând fotografii noi cu ramele și colecțiile din Beta Optic Outlet.
               </p>
             </motion.div>
-          </div>
+          </MobileCarouselGrid>
         </section>
         </main>
 

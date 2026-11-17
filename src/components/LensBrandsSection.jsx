@@ -2,6 +2,7 @@ import React, { useRef } from 'react';
 import { motion } from 'framer-motion';
 import { Disc, ShieldCheck } from 'lucide-react';
 import { LENS_BRANDS_MAIN } from '../data/opticData';
+import { MobileCarouselGrid } from './CardCarousel';
 
 export default function LensBrandsSection() {
   const carouselRef = useRef(null);
@@ -45,8 +46,12 @@ export default function LensBrandsSection() {
           </motion.p>
         </div>
 
-        {/* Featured Main Brands (4 Main Lens Giants) */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-5 sm:gap-8 mb-8 sm:mb-16 md:mb-20">
+        {/* Featured Main Brands (Horizontal Swipe on Mobile, 2-Column Grid on Desktop) */}
+        <MobileCarouselGrid
+          desktopClassName="md:grid md:grid-cols-2 md:gap-8"
+          wrapperClassName="mb-8 sm:mb-16 md:mb-20"
+          label="Branduri partenere lentile de ochelari"
+        >
           {LENS_BRANDS_MAIN.map((brand, index) => (
             <motion.div
               key={brand.id}
@@ -92,7 +97,7 @@ export default function LensBrandsSection() {
               </div>
             </motion.div>
           ))}
-        </div>
+        </MobileCarouselGrid>
 
 
 

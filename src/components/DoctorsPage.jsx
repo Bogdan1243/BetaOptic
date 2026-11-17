@@ -11,6 +11,7 @@ import {
   Stethoscope,
 } from 'lucide-react';
 import { DOCTORS_DATA } from '../data/doctorsData';
+import { MobileCarouselGrid } from './CardCarousel';
 
 const WHATSAPP_NUMBER = '40721316224';
 
@@ -178,8 +179,10 @@ export default function DoctorsPage({ onBack }) {
 
       {/* Main Doctors Cards Grid Section */}
       <section className="py-12 sm:py-16 px-4 sm:px-6 md:px-16 w-full max-w-7xl mx-auto">
-        <div className="grid grid-cols-1 sm:grid-cols-2 max-w-2xl mx-auto gap-5 sm:gap-6">
-          
+        <MobileCarouselGrid
+          desktopClassName="md:grid md:grid-cols-2 max-w-2xl mx-auto md:gap-6"
+          label="Medici oftalmologi colaboratori Beta Optic"
+        >
           {DOCTORS_DATA.map((doctor, index) => (
             <motion.div
               key={doctor.id}
@@ -236,8 +239,7 @@ export default function DoctorsPage({ onBack }) {
               */}
             </motion.div>
           ))}
-
-        </div>
+        </MobileCarouselGrid>
       </section>
       </main>
 

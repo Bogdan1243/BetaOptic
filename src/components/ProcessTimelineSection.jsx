@@ -5,6 +5,7 @@ import {
   Sparkles 
 } from 'lucide-react';
 import { PROCESS_STEPS } from '../data/opticData';
+import { MobileCarouselGrid } from './CardCarousel';
 
 // Map string icon names to Lucide icons
 const iconMap = {
@@ -98,16 +99,29 @@ export default function ProcessTimelineSection() {
           </motion.p>
         </div>
 
-        {/* Vertical Alternating Timeline */}
-        <div className="relative">
-          
+        {/* Mobile Horizontal Swipe Carousel (below md) */}
+        <div className="block md:hidden">
+          <MobileCarouselGrid
+            desktopClassName="hidden"
+            label="Cei 7 pași către o viziune mai bună"
+          >
+            {PROCESS_STEPS.map((step, idx) => {
+              const IconComp = iconMap[step.icon] || Activity;
+              return (
+                <div key={step.number} className="h-auto">
+                  <TimelineCard step={step} idx={idx} IconComp={IconComp} />
+                </div>
+              );
+            })}
+          </MobileCarouselGrid>
+        </div>
+
+        {/* Desktop Vertical Alternating Timeline (md+) */}
+        <div className="hidden md:block relative">
           {/* Center vertical line — visible on md+ */}
-          <div className="hidden md:block absolute left-1/2 top-0 bottom-0 w-px bg-gradient-to-b from-[#172554]/5 via-[#172554]/25 to-[#172554]/5 -translate-x-1/2" />
+          <div className="absolute left-1/2 top-0 bottom-0 w-px bg-gradient-to-b from-[#172554]/5 via-[#172554]/25 to-[#172554]/5 -translate-x-1/2" />
 
-          {/* Mobile left-side line */}
-          <div className="block md:hidden absolute left-4 sm:left-6 top-0 bottom-0 w-px bg-gradient-to-b from-[#172554]/5 via-[#172554]/25 to-[#172554]/5" />
-
-          <div className="flex flex-col gap-5 sm:gap-6 md:gap-10">
+          <div className="flex flex-col gap-10">
             {PROCESS_STEPS.map((step, idx) => {
               const IconComp = iconMap[step.icon] || Activity;
               const isLeft = idx % 2 === 0; // even = left side, odd = right side
@@ -115,12 +129,10 @@ export default function ProcessTimelineSection() {
               return (
                 <div
                   key={step.number}
-                  className="relative flex items-center md:items-stretch"
+                  className="relative flex items-stretch"
                 >
-                  {/* ===== DESKTOP LAYOUT (md+) ===== */}
-
                   {/* Left column */}
-                  <div className="hidden md:flex w-1/2 pr-12 justify-end">
+                  <div className="flex w-1/2 pr-12 justify-end">
                     {isLeft ? (
                       <motion.div
                         initial={{ opacity: 0, x: -60 }}
@@ -137,7 +149,7 @@ export default function ProcessTimelineSection() {
                   </div>
 
                   {/* Center dot connector — desktop */}
-                  <div className="hidden md:flex absolute left-1/2 -translate-x-1/2 z-20 items-center justify-center">
+                  <div className="flex absolute left-1/2 -translate-x-1/2 z-20 items-center justify-center">
                     <motion.div
                       initial={{ scale: 0, opacity: 0 }}
                       whileInView={{ scale: 1, opacity: 1 }}
@@ -148,7 +160,7 @@ export default function ProcessTimelineSection() {
                   </div>
 
                   {/* Right column */}
-                  <div className="hidden md:flex w-1/2 pl-12 justify-start">
+                  <div className="flex w-1/2 pl-12 justify-start">
                     {!isLeft ? (
                       <motion.div
                         initial={{ opacity: 0, x: 60 }}
@@ -162,32 +174,6 @@ export default function ProcessTimelineSection() {
                     ) : (
                       <div /> /* Empty placeholder */
                     )}
-                  </div>
-
-                  {/* ===== MOBILE LAYOUT (below md) ===== */}
-
-                  {/* Mobile dot connector */}
-                  <div className="flex md:hidden absolute left-4 sm:left-6 -translate-x-1/2 z-20 items-center justify-center">
-                    <motion.div
-                      initial={{ scale: 0, opacity: 0 }}
-                      whileInView={{ scale: 1, opacity: 1 }}
-                      viewport={{ once: true, margin: "-40px" }}
-                      transition={{ duration: 0.4, delay: 0.1 }}
-                      className="w-4 h-4 rounded-full border-[2.5px] border-[#172554] bg-[#FAF8F5] shadow-sm"
-                    />
-                  </div>
-
-                  {/* Mobile card — always on the right of the line */}
-                  <div className="flex md:hidden w-full pl-10 sm:pl-14">
-                    <motion.div
-                      initial={{ opacity: 0, y: 20 }}
-                      whileInView={{ opacity: 1, y: 0 }}
-                      viewport={{ once: true, margin: "-40px" }}
-                      transition={{ duration: 0.5, ease: "easeOut" }}
-                      className="w-full"
-                    >
-                      <TimelineCard step={step} idx={idx} IconComp={IconComp} />
-                    </motion.div>
                   </div>
                 </div>
               );

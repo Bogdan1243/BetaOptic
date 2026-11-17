@@ -3,6 +3,7 @@ import { motion } from 'framer-motion';
 import { Glasses, ChevronLeft, ChevronRight, Grid, Gem, Sun } from 'lucide-react';
 import { FRAME_BRANDS_MAIN, SUNGLASS_BRANDS_MAIN, FRAME_BRANDS_EXTRA } from '../data/opticData';
 import { getBrandLogo } from '../data/brandLogos';
+import { MobileCarouselGrid } from './CardCarousel';
 
 // Renders a featured brand card (shared by eyeglasses and sunglasses grids)
 const renderBrandCard = (brand, index) => {
@@ -105,10 +106,14 @@ export default function FrameBrandsSection({ onOpenExtraFrames }) {
             </motion.p>
           </div>
 
-          {/* Main Featured Frame Brands Grid (Eyeglasses) */}
-          <div className="grid grid-cols-1 md:grid-cols-6 gap-5 sm:gap-8 mb-10 sm:mb-16">
+          {/* Main Featured Frame Brands Grid (Horizontal Swipe on Mobile, 6-Col Grid on Desktop) */}
+          <MobileCarouselGrid
+            desktopClassName="md:grid md:grid-cols-6 md:gap-8"
+            wrapperClassName="mb-10 sm:mb-16"
+            label="Branduri rame de vedere"
+          >
             {FRAME_BRANDS_MAIN.map((brand, index) => renderBrandCard(brand, index))}
-          </div>
+          </MobileCarouselGrid>
 
           {/* Divider: Eyeglasses vs. Sunglasses */}
           <motion.div
@@ -127,10 +132,14 @@ export default function FrameBrandsSection({ onOpenExtraFrames }) {
             <div className="flex-1 h-px bg-gradient-to-l from-transparent via-[#172554]/20 to-[#172554]/30" />
           </motion.div>
 
-          {/* Sunglasses Brands Grid */}
-          <div className="grid grid-cols-1 md:grid-cols-6 gap-5 sm:gap-8 mb-12 sm:mb-20">
+          {/* Sunglasses Brands Grid (Horizontal Swipe on Mobile, 6-Col Grid on Desktop) */}
+          <MobileCarouselGrid
+            desktopClassName="md:grid md:grid-cols-6 md:gap-8"
+            wrapperClassName="mb-12 sm:mb-20"
+            label="Branduri ochelari de soare"
+          >
             {SUNGLASS_BRANDS_MAIN.map((brand, index) => renderBrandCard(brand, index))}
-          </div>
+          </MobileCarouselGrid>
 
           {/* Secondary Frame Brands Minimalist Horizontal Carousel */}
           <div className="p-5 sm:p-8 rounded-3xl bg-[#F4EFE6] border border-[#E5DEC9]">

@@ -241,7 +241,7 @@ export default function CardCarousel({
       <div
         ref={mobileTrackRef}
         onScroll={handleMobileScroll}
-        className="max-md:flex max-md:overflow-x-auto max-md:snap-x max-md:snap-mandatory max-md:gap-3 max-md:pb-2 max-md:px-[9%] max-sm:-mx-4 max-sm:w-[calc(100%+2rem)] sm:max-md:-mx-6 sm:max-md:w-[calc(100%+3rem)] max-md:scroll-smooth no-scrollbar md:grid md:grid-cols-1 md:overflow-hidden w-full"
+        className="max-md:flex max-md:overflow-x-auto max-md:snap-x max-md:snap-mandatory max-md:gap-3 max-md:pb-2 max-md:scroll-smooth no-scrollbar md:grid md:grid-cols-1 md:overflow-hidden w-full max-w-full"
       >
         {pages.map((pageCards, pageIdx) => {
           const isActive = pageIdx === currentPage;
@@ -250,7 +250,10 @@ export default function CardCarousel({
           let animateProps;
           let transitionProps;
 
-          if (reducedMotion || prevPage === null) {
+          if (isMobileView) {
+            animateProps = { x: '0%', opacity: 1 };
+            transitionProps = { duration: 0 };
+          } else if (reducedMotion || prevPage === null) {
             animateProps = {
               x: '0%',
               opacity: isActive ? 1 : 0,
@@ -299,7 +302,7 @@ export default function CardCarousel({
                   <div
                     key={globalIndex}
                     data-carousel-card
-                    className="max-md:w-full max-md:shrink-0 max-md:snap-center p-5 sm:p-6 rounded-2xl bg-[#FAF8F5]/90 border border-[#172554]/10 shadow-sm backdrop-blur-md hover:border-[#172554]/30 transition-all duration-300 flex items-start gap-3.5 sm:gap-4 group"
+                    className="max-md:w-[88%] max-md:shrink-0 max-md:snap-center p-5 sm:p-6 rounded-2xl bg-[#FAF8F5]/90 border border-[#172554]/10 shadow-sm backdrop-blur-md hover:border-[#172554]/30 transition-all duration-300 flex items-start gap-3.5 sm:gap-4 group"
                   >
                     <span className="serif-title text-xl font-medium text-[#C5A059] group-hover:scale-110 transition-transform">
                       {String(globalIndex + 1).padStart(2, '0')}
@@ -367,5 +370,112 @@ export default function CardCarousel({
         </div>
       )}
     </motion.div>
+  );
+}
+
+/**
+ * MobileCarouselGrid:
+ * On mobile (<768px): renders children in a horizontal scroll-snap swipe carousel with Prev/Next arrows & gold dots (matching HeroSection).
+ * On desktop (md+): renders children in the standard desktop grid (`desktopClassName`).
+ */
+export function MobileCarouselGrid({
+  children,
+  desktopClassName = 'md:grid md:grid-cols-2 md:gap-8',
+  wrapperClassName = '',
+  label = 'Carusel carduri',
+}) {
+  const trackRef = useRef(null);
+  const items = React.Children.toArray(children);
+  const total = items.length;
+  const [activeIndex, setActiveIndex] = useState(0);
+
+  const handleScroll = useCallback(() => {
+    const track = trackRef.current;
+    if (!track || total <= 1) return;
+    const maxScroll = Math.max(1, track.scrollWidth - track.clientWidth);
+    const ratio = track.scrollLeft / maxScroll;
+    const idx = Math.min(total - 1, Math.max(0, Math.round(ratio * (total - 1))));
+    setActiveIndex((prev) => (prev === idx ? prev : idx));
+  }, [total]);
+
+  const scrollToIndex = useCallback(
+    (targetIdx) => {
+      const track = trackRef.current;
+      if (!track || total <= 1) return;
+      const clamped = (targetIdx + total) % total;
+      const cards = track.querySelectorAll('[data-mobile-slide]');
+      if (cards[clamped]) {
+        const card = cards[clamped];
+        const left = card.offsetLeft - (track.clientWidth - card.clientWidth) / 2;
+        track.scrollTo({ left: Math.max(0, left), behavior: 'smooth' });
+      }
+      setActiveIndex(clamped);
+    },
+    [total]
+  );
+
+  return (
+    <div className={`w-full max-w-full ${wrapperClassName}`} aria-label={label}>
+      <div
+        ref={trackRef}
+        onScroll={handleScroll}
+        className={`max-md:flex max-md:overflow-x-auto max-md:snap-x max-md:snap-mandatory max-md:gap-4 max-md:pb-2 max-md:scroll-smooth no-scrollbar w-full max-w-full ${desktopClassName}`}
+      >
+        {items.map((child, idx) => {
+          if (!React.isValidElement(child)) return child;
+          const existingClass = child.props.className || '';
+          return React.cloneElement(child, {
+            'data-mobile-slide': true,
+            className: `max-md:w-[88%] max-md:shrink-0 max-md:snap-center ${existingClass}`,
+          });
+        })}
+      </div>
+
+      {total > 1 && (
+        <div className="mt-4 flex md:hidden items-center justify-center gap-3">
+          <button
+            type="button"
+            aria-label="Cardul anterior"
+            onClick={() => scrollToIndex(activeIndex - 1)}
+            className="w-10 h-10 rounded-full bg-[#FAF8F5] border border-[#172554]/20 active:bg-[#172554] active:text-[#FAF8F5] text-[#172554] shadow-xs flex items-center justify-center transition-all cursor-pointer shrink-0"
+          >
+            <ChevronLeft className="w-5 h-5 text-[#C5A059]" aria-hidden="true" />
+          </button>
+
+          <div className="flex items-center gap-1.5 flex-wrap justify-center max-w-[220px]">
+            {items.map((_, idx) => {
+              const isActive = idx === activeIndex;
+              return (
+                <button
+                  key={idx}
+                  type="button"
+                  aria-label={`Cardul ${idx + 1} din ${total}`}
+                  aria-current={isActive ? 'true' : undefined}
+                  onClick={() => scrollToIndex(idx)}
+                  className="p-1 flex items-center justify-center cursor-pointer"
+                >
+                  <span
+                    className={
+                      isActive
+                        ? 'block w-5 h-2 rounded-full bg-[#C5A059] transition-all duration-300'
+                        : 'block w-2 h-2 rounded-full bg-[#172554]/20 transition-all duration-300'
+                    }
+                  />
+                </button>
+              );
+            })}
+          </div>
+
+          <button
+            type="button"
+            aria-label="Cardul următor"
+            onClick={() => scrollToIndex(activeIndex + 1)}
+            className="w-10 h-10 rounded-full bg-[#FAF8F5] border border-[#172554]/20 active:bg-[#172554] active:text-[#FAF8F5] text-[#172554] shadow-xs flex items-center justify-center transition-all cursor-pointer shrink-0"
+          >
+            <ChevronRight className="w-5 h-5 text-[#C5A059]" aria-hidden="true" />
+          </button>
+        </div>
+      )}
+    </div>
   );
 }

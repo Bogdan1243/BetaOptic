@@ -3,6 +3,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { X, Disc, Glasses, Sparkles, ShieldCheck, Check, Gift, Calendar } from 'lucide-react';
 import { ATELIER_GALLERY, FRAME_BRANDS_EXTRA } from '../data/opticData';
 import { getBrandLogo } from '../data/brandLogos';
+import { MobileCarouselGrid } from './CardCarousel';
 import ofertaLuniiImage from '../assets/oferta-lunii-nikon.webp';
 import ofertaLuniiImage640 from '../assets/oferta-lunii-nikon-640w.webp';
 import ofertaLuniiImage960 from '../assets/oferta-lunii-nikon-960w.webp';
@@ -262,8 +263,11 @@ export function ActiveOffersSection({ onOpenOffer }) {
           </p>
         </div>
 
-        {/* Two Visible & Crawlable Offer Cards */}
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 sm:gap-8">
+        {/* Two Visible & Crawlable Offer Cards (Horizontal Swipe on Mobile, 2-Col Grid on Desktop) */}
+        <MobileCarouselGrid
+          desktopClassName="md:grid md:grid-cols-2 md:gap-8"
+          label="Oferte active Beta Optic"
+        >
           {/* Card 1: Oferta Lunii — Nikon 1+1 Cadou */}
           <article
             onClick={() => onOpenOffer && onOpenOffer('luna')}
@@ -363,7 +367,7 @@ export function ActiveOffersSection({ onOpenOffer }) {
               </span>
             </div>
           </article>
-        </div>
+        </MobileCarouselGrid>
       </div>
     </section>
   );

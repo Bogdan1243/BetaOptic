@@ -12,6 +12,14 @@
   --color-gold-accent: #C5A059;
 }
 
+html,
+body,
+#root {
+  max-width: 100%;
+  overflow-x: clip;
+  position: relative;
+}
+
 /* Custom Utilities & Animations */
 @keyframes focusBlurLoop {
   0% {
