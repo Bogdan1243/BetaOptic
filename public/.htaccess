@@ -16,6 +16,9 @@ DirectoryIndex index.html
   # 3. Serve prerendered sub-routes directly (with or without trailing slash)
   RewriteRule ^outlet/?$ /outlet/index.html [L]
   RewriteRule ^medici/?$ /medici/index.html [L]
+  RewriteRule ^lentile-ochelari-timisoara/?$ /lentile-ochelari-timisoara/index.html [L]
+  RewriteRule ^rame-ochelari-timisoara/?$ /rame-ochelari-timisoara/index.html [L]
+  RewriteRule ^atelier-montaj-ochelari/?$ /atelier-montaj-ochelari/index.html [L]
 
   # 4. SPA fallback: do not rewrite existing files (robots.txt, sitemap.xml, og-image.jpg, /assets/*) or directories
   RewriteRule ^index\.html$ - [L]

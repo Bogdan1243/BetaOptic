@@ -9,18 +9,25 @@ import FrameBrandsSection from './components/FrameBrandsSection';
 import LocationSection from './components/LocationSection';
 import DoctorsPage from './components/DoctorsPage';
 import OutletPage from './components/OutletPage';
-import { AtelierGalleryModal, ExtraFramesModal, OffersModal } from './components/Modals';
+import { LensesSeoPage, FramesSeoPage, AtelierSeoPage } from './components/SeoLandingPages';
+import { AtelierGalleryModal, ExtraFramesModal, OffersModal, ActiveOffersSection } from './components/Modals';
 
 export const PAGE_TITLES = {
   home: 'Beta Optic Timișoara - Optică Medicală, Ochelari, Lentile, Oftalmologie',
   outlet: 'Beta Optic Outlet Timișoara: Rame, Ochelari de Soare & Consult Oftalmologic',
   doctors: 'Medici Oftalmologi Colaboratori — Beta Optic Timișoara',
+  lenses: 'Lentile de Ochelari Timișoara — Nikon, Zeiss, Hoya, Essilor | Beta Optic',
+  frames: 'Rame de Ochelari și Ochelari de Soare Timișoara | Beta Optic',
+  atelier: 'Atelier Montaj Lentile și Ajustare Ochelari Timișoara | Beta Optic',
 };
 
 export function getViewFromLocation(pathname = '/', hash = '') {
   const cleanPath = pathname.replace(/\/+$/, '') || '/';
   if (cleanPath === '/medici') return 'doctors';
   if (cleanPath === '/outlet') return 'outlet';
+  if (cleanPath === '/lentile-ochelari-timisoara') return 'lenses';
+  if (cleanPath === '/rame-ochelari-timisoara') return 'frames';
+  if (cleanPath === '/atelier-montaj-ochelari') return 'atelier';
   if (hash === '#medici') return 'doctors';
   if (hash === '#outlet' || hash.startsWith('#outlet-')) return 'outlet';
   return 'home';
@@ -29,6 +36,9 @@ export function getViewFromLocation(pathname = '/', hash = '') {
 export function getPathForView(view) {
   if (view === 'doctors') return '/medici';
   if (view === 'outlet') return '/outlet';
+  if (view === 'lenses') return '/lentile-ochelari-timisoara';
+  if (view === 'frames') return '/rame-ochelari-timisoara';
+  if (view === 'atelier') return '/atelier-montaj-ochelari';
   return '/';
 }
 
@@ -94,6 +104,18 @@ export default function App({ initialView = 'home' }) {
     return <OutletPage onBack={() => navigateTo('home')} />;
   }
 
+  if (currentView === 'lenses') {
+    return <LensesSeoPage onBack={() => navigateTo('home')} />;
+  }
+
+  if (currentView === 'frames') {
+    return <FramesSeoPage onBack={() => navigateTo('home')} />;
+  }
+
+  if (currentView === 'atelier') {
+    return <AtelierSeoPage onBack={() => navigateTo('home')} />;
+  }
+
   return (
     <div className="w-full min-h-screen bg-[#FAF8F5] text-[#0F172A] selection:bg-[#0F172A] selection:text-[#FAF8F5] font-sans antialiased overflow-x-hidden">
       <main>
@@ -115,6 +137,9 @@ export default function App({ initialView = 'home' }) {
 
         {/* Secțiunea 5: Branduri Rame + Pictograme */}
         <FrameBrandsSection onOpenExtraFrames={() => setIsFramesModalOpen(true)} />
+
+        {/* Secțiunea 6: Oferte Active (Vizibile & Indexabile SEO) */}
+        <ActiveOffersSection onOpenOffer={(tab) => setActiveOfferTab(tab || 'luna')} />
 
         {/* Secțiunea 7: Instagram (hidden until real posts are available) */}
         {/* <InstagramSection /> */}

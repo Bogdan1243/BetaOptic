@@ -11,39 +11,32 @@ export const HERO_DATA = {
   cards: [
     // DE VERIFICAT: Adaugă prețul consultului oftalmologic/optometric și eventualele condiții de gratuitate la achiziția ochelarilor sau decontare CNAS.
     {
-      question: "Am nevoie de rețetă ca să îmi fac ochelari?",
-      answer: "Te așteptăm cu rețeta actualizată de la medicul tău sau putem programa un consult în cabinetul nostru la Dr. Gherman Cristiana sau Dr. Oroș Nicoleta."
+      question: "Te așteptăm cu rețeta actualizată de la medicul tău sau putem programa un consult în cabinetul nostru la Dr. Gherman Cristiana sau Dr. Oroș Nicoleta.",
     },
     {
-      question: "Ce trebuie să aduc la consultul oftalmologic?",
-      answer: "Îți recomandăm să aduci ochelarii actuali și rețetele anterioare. Analizăm istoricul tău vizual și urmărim modificările dioptriilor în timp, pentru o prescripție cât mai precisă."
+      question: "Îți recomandăm să aduci ochelarii actuali și rețetele anterioare. Analizăm istoricul tău vizual și urmărim modificările dioptriilor în timp, pentru o prescripție cât mai precisă.",
     },
     {
-      question: "Cum aleg lentilele potrivite pentru mine?",
-      answer: "Alegem lentilele împreună, discutând despre nevoile tale vizuale zilnice: lucrul la calculator, condusul, cititul, timpul liber sau sportul, pentru o soluție optică adaptată stilului tău de viață potrivit."
+      question: "Alegem lentilele împreună, discutând despre nevoile tale vizuale zilnice: lucrul la calculator, condusul, cititul, timpul liber sau sportul, pentru o soluție optică adaptată stilului tău de viață potrivit.",
     },
     {
-      question: "Unde se realizează lentilele și cine le montează?",
-      answer: "Lentilele se personalizează introducând datele din prescripție și măsurătorile individuale. Montajul lentilelor comandate se face în atelierul nostru propriu, cu echipamente Nidek și Essilor Mr. Blue."
+      question: "Lentilele se personalizează introducând datele din prescripție și măsurătorile individuale. Montajul lentilelor comandate se face în atelierul nostru propriu, cu echipamente Nidek și Essilor Mr. Blue.",
     },
     // DE VERIFICAT: Adaugă timpul mediu de așteptare pentru o programare la consultul oftalmologic.
     {
-      question: "Cum mă programez și care este programul?",
-      answer: "Te poți programa telefonic la: +40 721 316 224 ori în sediul de pe Strada Lucian Blaga 7, Timișoara, de luni până vineri (09:00–18:00) și sâmbăta (09:00–13:00)."
+      question: "Te poți programa telefonic la: +40 721 316 224 ori în sediul de pe Strada Lucian Blaga 7, Timișoara, de luni până vineri (09:00–18:00) și sâmbăta (09:00–13:00).",
     },
     // DE VERIFICAT: Adaugă numărul exact de zile lucrătoare pentru lentilele pe stoc și pentru lentilele personalizate de comandă / progresive.
     {
-      question: "În cât timp sunt gata ochelarii comandați?",
-      answer: "Timpul alocat finalizării comenzii depinde de tipul lentilelor alese. Deoarece montajul se face în laboratorul nostru propriu din Timișoara, predarea este rapidă și atent verificată."
+      question: "Timpul alocat finalizării comenzii depinde de tipul lentilelor alese. Deoarece montajul se face în laboratorul nostru propriu din Timișoara, predarea este rapidă și atent verificată.",
     },
     {
-      question: "Ce branduri de lentile și rame găsesc la Beta Optic?",
-      answer: "Colaborăm cu Nikon — ca unici parteneri oficiali în Timișoara —, Zeiss, Hoya, Essilor și ItalLenti, iar portofoliul de rame include Brunello Cucinelli, Linda Farrow, Henry Jullien, Blackfin, Miu Miu, Maui Jim, Tom Ford și Ray-Ban."
+      question: "Colaborăm cu Nikon — ca unici parteneri oficiali în Timișoara —, Zeiss, Hoya, Essilor și ItalLenti, iar portofoliul de rame include Brunello Cucinelli, Linda Farrow, Henry Jullien, Blackfin, Miu Miu, Maui Jim, Tom Ford și Ray-Ban.",
+
     },
     // DE VERIFICAT: Adaugă perioada exactă de garanție comercială (ex. 24 luni) pentru rame și tratamentele lentilelor.
     {
-      question: "Oferiți garanție și ajustarea ramelor după achiziție?",
-      answer: "Da, toate ramele și lentilele achiziționate la Beta Optic beneficiază de garanție oficială conform standardului ISO 8980, precum și de serviciul gratuit de ajustare anatomică și verificare a monturii în atelierul nostru."
+      question: "Da, toate ramele și lentilele achiziționate la Beta Optic beneficiază de garanție oficială conform standardului ISO 8980, precum și de serviciul gratuit de ajustare anatomică și verificare a monturii în atelierul nostru.",
     }
   ]
 };
@@ -199,6 +192,14 @@ export const FRAME_BRANDS_MAIN = [
     text: "Linda Farrow: O reinterpretare a siluetelor iconice ale anilor ’70, transformate în veritabile piese de moștenire. Departe de capriciile modei trecătoare, ramele Linda Farrow se disting prin densitatea excepțională a acetaților japonezi și strălucirea caldă a detaliilor din metale prețioase. Un echilibru perfect între o prezență vizuală marcantă și un rafinament clasic, de o prestanță incontestabilă."
   },
   {
+    id: "silhouette",
+    name: "Silhouette",
+    fullWidth: true, // Ocupă tot rândul de la stânga la dreapta (100%)
+    tagline: "Imponderabilitate Austriacă & Design Fără Ramă • Din 1964",
+    materials: "High-Tech Titanium • Polimer Patentat SPX®+ • Finisare Manuală în Linz",
+    text: "Silhouette: Etalonul mondial absolut al ochelarilor fără ramă și al imponderabilității optice, creat în Austria din 1964. Fiecare pereche Silhouette trece prin peste 100 de etape de manufactură și inspecție manuală în atelierul din Linz, eliminând complet șuruburile și balamalele clasice în favoarea unei arhitecturi din titan high-tech și polimer SPX®+ de doar câteva grame. O fuziune rară între inginerie spațială și rafinament minimalist pur, creată pentru cei care își doresc o vedere fără limite, o stabilitate anatomică ireproșabilă și o prezență de o discreție suverană."
+  },
+  {
     id: "henry-jullien",
     name: "Henry Jullien",
     featured: true, // Ocupă 2 coloane
@@ -237,6 +238,22 @@ export const FRAME_BRANDS_MAIN = [
     tagline: "Luxul Tăcut al Ingineriei Japoneze",
     materials: "Excellence Titan • Ergonomie Sensorială",
     text: "Charmant: Luxul tăcut al ingineriei japoneze de excepție. Artizanii Charmant creează ochelari a căror complexitate tehnologică este ascunsă sub un design de o simplitate dezarmantă. Excelența lor nu este făcută pentru a fi privită, ci pentru a fi purtată: un confort absolut și o flexibilitate inegalabilă, reprezentând o experiență senzorială rezervată exclusiv purtătorului."
+  },
+  {
+    id: "oliver-peoples",
+    name: "Oliver Peoples",
+    halfWidth: true, // Ocupă jumătate de rând (50%)
+    tagline: "Estetică Vintage din Sunset Boulevard • Los Angeles",
+    materials: "Acetat Custom Takiron • Filigran Metalic Gravat • Titan",
+    text: "Oliver Peoples: Născut în inima Hollywood-ului în 1987, brandul californian definește eleganța intelectuală cu accente retro-contemporane. Eliberate de logo-uri stridente, ramele Oliver Peoples sunt recunoscute de cunoscători prin nuanțele calde de carapace de țestoasă create exclusiv, pinii funcționali discreți și filigranul metalic gravat cu precizie de bijutier pe armătura brațelor."
+  },
+  {
+    id: "bottega-veneta",
+    name: "Bottega Veneta",
+    halfWidth: true, // Ocupă jumătate de rând (50%)
+    tagline: "Haute Couture Venețiană & Sculptură Contemporană",
+    materials: "Acetat Italian de Înaltă Densitate • Metal Aurit • Detalii Intrecciato",
+    text: "Bottega Veneta: Esența meșteșugului italian din Vicenza transpusă în volume arhitecturale îndrăznețe și linii de o puritate sculpturală. Ramele Bottega Veneta îmbină forța expresivă a acetaților fațetați manual cu semnătura iconică a benzii metalice tridimensionale, oferind o prezență magnetică, sofisticată și inconfundabilă."
   }
 ];
 
@@ -269,20 +286,6 @@ export const SUNGLASS_BRANDS_MAIN = [
 ];
 
 export const FRAME_BRANDS_EXTRA = [
-  {
-    name: "Oliver Peoples",
-    origin: "SUA",
-    category: "Vintage Elegance",
-    material: "Acetat Clasic & Titan",
-    desc: "Siluete clasice inspirate de cultura vintage din Los Angeles"
-  },
-  {
-    name: "Bottega Veneta",
-    origin: "Italia",
-    category: "Haute Couture Italiană",
-    material: "Acetat Sculptat & Metal Aurit",
-    desc: "Rafinament discret marcat de detalii inspirate din textura iconică Intrecciato"
-  },
   {
     name: "Alexander McQueen",
     origin: "Marea Britanie",
@@ -338,13 +341,6 @@ export const FRAME_BRANDS_EXTRA = [
     category: "Lux Discret Milanez",
     material: "Acetat Fin & Titan Lustruit",
     desc: "Esența luxului discret milanez, proporții armonioase și sobrietate aristocratică"
-  },
-  {
-    name: "Silhouette",
-    origin: "Austria",
-    category: "Minimalism Ultra-Ușor",
-    material: "Titan High-Tech & Polimer SPX",
-    desc: "Ochelari fără ramă de o imponderabilitate legendară, precizie anatomică absolută"
   },
   {
     name: "Persol",
@@ -450,13 +446,6 @@ export const FRAME_BRANDS_EXTRA = [
     category: "Design Independent Barcelona",
     material: "Titan Japonez & Acetat Italian",
     desc: "Design independent din Barcelona, realizat manual cu o atenție meticuloasă la detalii"
-  },
-  {
-    name: "Porsche Design",
-    origin: "Germania",
-    category: "Inginerie Funcțională",
-    material: "Titan Grade-5 & Fibră de Carbon",
-    desc: "Inginerie de precizie puristă, mecanisme inteligente de balama și materiale high-tech"
   },
   {
     name: "Rodenstock",

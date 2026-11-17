@@ -33,6 +33,7 @@ export default function AtelierSection({ onOpenGallery }) {
               className="serif-title text-3xl sm:text-6xl lg:text-7xl font-semibold leading-tight text-[#FAF8F5]"
             >
               Atelierul Nostru — Tehnologie și Precizie
+              <span className="sr-only"> în Montaj Lentile și Ajustare Ochelari în Timișoara</span>
             </motion.h2>
 
             <motion.p

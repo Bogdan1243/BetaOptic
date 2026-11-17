@@ -22,6 +22,9 @@ const ALL_FRAME_BRANDS_GRID = [
   { name: "Charmant", origin: "Japonia", category: "Inginerie Anatomică", material: "Excellence Titanium" },
   { name: "Henry Jullien", origin: "Franța", category: "Artizanat Istoric Francez", material: "Aur Dublat Laminat & Titan" },
   { name: "Charriol", origin: "Elveția", category: "Eleganță Elvețiană", material: "Cablu din Oțel Nobil & Aur 22K" },
+  { name: "Silhouette", origin: "Austria", category: "Minimalism Ultra-Ușor", material: "Titan High-Tech & Polimer SPX®+" },
+  { name: "Oliver Peoples", origin: "SUA", category: "Vintage Elegance", material: "Acetat Clasic & Titan" },
+  { name: "Bottega Veneta", origin: "Italia", category: "Haute Couture Italiană", material: "Acetat Sculptat & Metal Aurit" },
   { name: "Miu Miu", origin: "Italia", category: "Avangardă Chic", material: "Acetat Sculptural & Cristale" },
   { name: "Oakley", origin: "SUA", category: "Performanță Sportivă", material: "O-Matter & Aliaje C-5" },
   { name: "Maui Jim", origin: "SUA", category: "Claritate Polarizată", material: "Lentile PolarizedPlus2® & Titan" },
@@ -234,6 +237,137 @@ const OFFER_TABS = [
   { id: 'saptamana', label: 'Oferta săptămânii', icon: Calendar, hasActiveOffer: true },
   { id: 'luna', label: 'Oferta lunii', icon: Gift, hasActiveOffer: true },
 ];
+
+export function ActiveOffersSection({ onOpenOffer }) {
+  return (
+    <section
+      id="oferte"
+      className="py-16 sm:py-20 md:py-24 px-4 sm:px-6 md:px-16 w-full bg-[#FAF8F5] text-[#0F172A] border-t border-[#0F172A]/10"
+    >
+      <div className="max-w-7xl mx-auto">
+        {/* Section Header */}
+        <div className="text-center max-w-3xl mx-auto mb-10 sm:mb-14">
+          <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full border border-[#0F172A]/15 bg-[#F4EFE6] text-[#0F172A] text-xs uppercase tracking-widest mb-4">
+            <Sparkles className="w-3.5 h-3.5 text-[#C5A059]" />
+            <span>Promoții Exclusive Beta Optic</span>
+          </div>
+
+          <h2 className="serif-title text-3xl sm:text-5xl md:text-6xl font-semibold text-[#0F172A] leading-tight mb-4">
+            Oferte Active — Lentile și Rame de Ochelari
+            <span className="sr-only"> în Timișoara</span>
+          </h2>
+
+          <p className="text-[#0F172A]/75 text-sm sm:text-base md:text-lg font-normal">
+            Descoperă promoțiile lunii și săptămânii disponibile în showroom-ul Beta Optic Timișoara (Str. Lucian Blaga 7).
+          </p>
+        </div>
+
+        {/* Two Visible & Crawlable Offer Cards */}
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 sm:gap-8">
+          {/* Card 1: Oferta Lunii — Nikon 1+1 Cadou */}
+          <article
+            onClick={() => onOpenOffer && onOpenOffer('luna')}
+            className="p-6 sm:p-8 rounded-3xl bg-[#F4EFE6]/90 border border-[#E5DEC9] shadow-xs hover:shadow-xl hover:border-[#0F172A]/30 transition-all duration-300 flex flex-col justify-between group cursor-pointer"
+          >
+            <div>
+              <div className="flex flex-wrap items-center justify-between gap-2 mb-5">
+                <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#0F172A] text-[#FAF8F5] text-[11px] uppercase tracking-wider font-semibold">
+                  <Gift className="w-3.5 h-3.5 text-[#C5A059]" />
+                  Oferta Lunii • Activă
+                </span>
+                <span className="text-xs font-semibold uppercase tracking-widest text-[#8A6928] lg:text-[#C5A059]">
+                  Lentile Progresive Nikon
+                </span>
+              </div>
+
+              <div className="rounded-2xl overflow-hidden bg-[#0F172A] border border-[#E5DEC9] mb-5 aspect-[16/10] flex items-center justify-center">
+                <img
+                  src={ofertaLuniiImage}
+                  srcSet={`${ofertaLuniiImage640} 640w, ${ofertaLuniiImage960} 819w`}
+                  sizes="(max-width: 767px) 360px, 640px"
+                  alt="Oferta lunii Beta Optic Timișoara: Lentile progresive Nikon Presio Z 1+1 Cadou"
+                  width="819"
+                  height="1024"
+                  loading="lazy"
+                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                />
+              </div>
+
+              <h3 className="serif-title text-2xl sm:text-3xl font-bold text-[#0F172A] mb-2">
+                Nikon Presio Z — 1+1 Cadou
+              </h3>
+
+              <p className="text-xs font-semibold text-[#8A6928] lg:text-[#C5A059] uppercase tracking-wider mb-3">
+                Vezi bine. Economisești inteligent.
+              </p>
+
+              <p className="text-sm text-[#0F172A]/85 leading-relaxed mb-4">
+                La achiziția unei perechi de lentile progresive <strong>Nikon Presio Z</strong> (Z Suite Progressives), primești <strong>CADOU</strong> încă o pereche de lentile progresive — ideală pentru o pereche de rezervă sau o a doua ramă.*
+              </p>
+            </div>
+
+            <div className="pt-4 border-t border-[#0F172A]/10 flex items-center justify-between text-xs text-[#0F172A]/70">
+              <span>*Condiționat de achiziția unei rame noi (valabil până la 31.12.2026)</span>
+              <span className="font-semibold text-[#0F172A] group-hover:text-[#8A6928] transition-colors shrink-0 ml-2">
+                Vezi detalii →
+              </span>
+            </div>
+          </article>
+
+          {/* Card 2: Oferta Săptămânii — Gigi Studios -40% */}
+          <article
+            onClick={() => onOpenOffer && onOpenOffer('saptamana')}
+            className="p-6 sm:p-8 rounded-3xl bg-[#F4EFE6]/90 border border-[#E5DEC9] shadow-xs hover:shadow-xl hover:border-[#0F172A]/30 transition-all duration-300 flex flex-col justify-between group cursor-pointer"
+          >
+            <div>
+              <div className="flex flex-wrap items-center justify-between gap-2 mb-5">
+                <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#0F172A] text-[#FAF8F5] text-[11px] uppercase tracking-wider font-semibold">
+                  <Calendar className="w-3.5 h-3.5 text-[#C5A059]" />
+                  Oferta Săptămânii • Activă
+                </span>
+                <span className="text-xs font-semibold uppercase tracking-widest text-[#8A6928] lg:text-[#C5A059]">
+                  Rame de Vedere Gigi Studios
+                </span>
+              </div>
+
+              <div className="rounded-2xl overflow-hidden bg-[#0F172A] border border-[#E5DEC9] mb-5 aspect-[16/10] flex items-center justify-center">
+                <img
+                  src={ofertaSaptamaniiImage}
+                  srcSet={`${ofertaSaptamaniiImage640} 640w, ${ofertaSaptamaniiImage960} 960w, ${ofertaSaptamaniiImage} 1200w`}
+                  sizes="(max-width: 767px) 360px, 640px"
+                  alt="Oferta săptămânii Beta Optic Timișoara: 40% reducere la ramele de vedere Gigi Studios"
+                  width="1200"
+                  height="900"
+                  loading="lazy"
+                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                />
+              </div>
+
+              <h3 className="serif-title text-2xl sm:text-3xl font-bold text-[#0F172A] mb-2">
+                40% Reducere la Ramele de Vedere Gigi Studios
+              </h3>
+
+              <p className="text-xs font-semibold text-[#8A6928] lg:text-[#C5A059] uppercase tracking-wider mb-3">
+                Design Independent din Barcelona • Titan Japonez & Acetat Italian
+              </p>
+
+              <p className="text-sm text-[#0F172A]/85 leading-relaxed mb-4">
+                Săptămâna aceasta beneficiezi de <strong>40% reducere</strong> la colecția de rame și ochelari de vedere <strong>Gigi Studios</strong> disponibilă pentru probă și consiliere personalizată în showroom-ul Beta Optic Timișoara.
+              </p>
+            </div>
+
+            <div className="pt-4 border-t border-[#0F172A]/10 flex items-center justify-between text-xs text-[#0F172A]/70">
+              <span>*În limita stocului disponibil în showroom</span>
+              <span className="font-semibold text-[#0F172A] group-hover:text-[#8A6928] transition-colors shrink-0 ml-2">
+                Vezi detalii →
+              </span>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+  );
+}
 
 export function OffersModal({ isOpen, activeTab = 'luna', onTabChange, onClose }) {
   const [selectedTab, setSelectedTab] = useState(activeTab || 'luna');

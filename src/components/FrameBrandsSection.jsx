@@ -6,7 +6,18 @@ import { getBrandLogo } from '../data/brandLogos';
 
 // Renders a featured brand card (shared by eyeglasses and sunglasses grids)
 const renderBrandCard = (brand, index) => {
+  const isFullWidth = brand.fullWidth || brand.id === "silhouette";
+  const isHalfWidth = brand.halfWidth || brand.id === "oliver-peoples" || brand.id === "bottega-veneta";
   const isWide = brand.featured || brand.id === "brunello-cucinelli" || brand.id === "henry-jullien";
+
+  let colSpanClass = 'md:col-span-3 lg:col-span-2';
+  if (isFullWidth) {
+    colSpanClass = 'md:col-span-6 lg:col-span-6';
+  } else if (isHalfWidth) {
+    colSpanClass = 'md:col-span-3 lg:col-span-3';
+  } else if (isWide) {
+    colSpanClass = 'md:col-span-6 lg:col-span-4';
+  }
 
   return (
       <motion.div
@@ -15,9 +26,7 @@ const renderBrandCard = (brand, index) => {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ delay: index * 0.08 }}
-          className={`p-6 sm:p-9 rounded-3xl bg-[#F4EFE6]/90 border border-[#E5DEC9] shadow-xs hover:shadow-xl hover:border-[#0F172A]/30 transition-all duration-300 flex flex-col justify-between group relative overflow-hidden ${
-              isWide ? 'md:col-span-2 lg:col-span-2' : ''
-          }`}
+          className={`p-6 sm:p-9 rounded-3xl bg-[#F4EFE6]/90 border border-[#E5DEC9] shadow-xs hover:shadow-xl hover:border-[#0F172A]/30 transition-all duration-300 flex flex-col justify-between group relative overflow-hidden ${colSpanClass}`}
       >
         {/* Subtle background letter mark */}
         <div aria-hidden="true" className="absolute -right-6 -bottom-6 opacity-5 text-[#0F172A] pointer-events-none font-serif text-9xl uppercase font-bold">
@@ -47,7 +56,6 @@ const renderBrandCard = (brand, index) => {
 
         <div className="pt-5 sm:pt-6 mt-5 sm:mt-6 border-t border-[#0F172A]/10 flex max-sm:flex-wrap items-center justify-between max-sm:gap-2 text-xs text-[#0F172A]/70">
           <span className="tracking-wider uppercase">Proba Anatomică în Atelier</span>
-          <span className="font-medium text-[#0F172A]">Beta Optic Select</span>
         </div>
       </motion.div>
   );
@@ -83,6 +91,7 @@ export default function FrameBrandsSection({ onOpenExtraFrames }) {
                 className="serif-title text-3xl sm:text-6xl font-semibold text-[#0F172A] leading-tight mb-4"
             >
               Branduri Rame de Ochelari
+              <span className="sr-only"> de Vedere și Ochelari de Soare în Timișoara</span>
             </motion.h2>
 
             <motion.p
@@ -97,7 +106,7 @@ export default function FrameBrandsSection({ onOpenExtraFrames }) {
           </div>
 
           {/* Main Featured Frame Brands Grid (Eyeglasses) */}
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 sm:gap-8 mb-10 sm:mb-16">
+          <div className="grid grid-cols-1 md:grid-cols-6 gap-5 sm:gap-8 mb-10 sm:mb-16">
             {FRAME_BRANDS_MAIN.map((brand, index) => renderBrandCard(brand, index))}
           </div>
 
@@ -119,7 +128,7 @@ export default function FrameBrandsSection({ onOpenExtraFrames }) {
           </motion.div>
 
           {/* Sunglasses Brands Grid */}
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 sm:gap-8 mb-12 sm:mb-20">
+          <div className="grid grid-cols-1 md:grid-cols-6 gap-5 sm:gap-8 mb-12 sm:mb-20">
             {SUNGLASS_BRANDS_MAIN.map((brand, index) => renderBrandCard(brand, index))}
           </div>
 
@@ -166,6 +175,11 @@ export default function FrameBrandsSection({ onOpenExtraFrames }) {
                     <div>
                       <h4 className="serif-title text-lg font-bold text-[#0F172A]">{item.name}</h4>
                       <span className="text-[11px] text-[#0F172A]/60 block">{item.origin}</span>
+                      {item.desc && (
+                        <span className="sr-only">
+                          {item.category} — {item.material}. {item.desc}
+                        </span>
+                      )}
                     </div>
                     <div className="w-12 h-12 rounded-full bg-white border border-[#0F172A]/10 flex items-center justify-center text-[#0F172A] overflow-hidden shrink-0 ml-3">
                       {getBrandLogo(item.name) ? (

@@ -31,6 +31,7 @@ export default function LensBrandsSection() {
             className="serif-title text-3xl sm:text-6xl font-semibold text-[#0F172A] leading-tight mb-4"
           >
             Branduri Partenere Lentile
+            <span className="sr-only"> de Ochelari în Timișoara — Nikon, Zeiss, Hoya, Essilor, ItalLenti</span>
           </motion.h2>
 
           <motion.p

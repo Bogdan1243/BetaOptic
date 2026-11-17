@@ -81,6 +81,9 @@ export default function ProcessTimelineSection() {
             transition={{ delay: 0.1 }}
             className="serif-title text-2xl sm:text-4xl md:text-5xl font-semibold text-[#0F172A] leading-tight mb-4"
           >
+            <span className="sr-only">
+              Optică Medicală și Consult Oftalmologic în Timișoara — Alegerea Ramelor și Lentilelor de Ochelari:{' '}
+            </span>
             „Împreună vom selecta ramele care îți subliniază personalitatea"
           </motion.h2>
           

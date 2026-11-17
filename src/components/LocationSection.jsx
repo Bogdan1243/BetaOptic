@@ -2,8 +2,27 @@ import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import { MapPin, Phone, Mail, Clock, Navigation, ExternalLink, Smile } from 'lucide-react';
 
+const FOOTER_LINKS = [
+  { href: '/lentile-ochelari-timisoara', label: 'Lentile Ochelari' },
+  { href: '/rame-ochelari-timisoara', label: 'Rame & Ochelari de Soare' },
+  { href: '/atelier-montaj-ochelari', label: 'Atelier Montaj' },
+  { href: '/medici', label: 'Medici Colaboratori' },
+  { href: '/outlet', label: 'Outlet' },
+];
+
 export default function LocationSection() {
   const [mapInteractive, setMapInteractive] = useState(false);
+
+  const handleInternalLinkClick = (e, href) => {
+    if (!e.metaKey && !e.ctrlKey && !e.shiftKey && !e.altKey && e.button === 0) {
+      e.preventDefault();
+      if (window.location.pathname !== href) {
+        window.history.pushState({}, '', href);
+        window.dispatchEvent(new PopStateEvent('popstate'));
+      }
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+  };
 
   return (
     <section id="locatie" className="py-16 sm:py-20 md:py-28 max-sm:pb-[max(4rem,calc(2.5rem+env(safe-area-inset-bottom)))] px-4 sm:px-6 md:px-16 w-full bg-[#0F172A] text-[#FAF8F5] relative overflow-hidden">
@@ -29,6 +48,7 @@ export default function LocationSection() {
             className="serif-title text-3xl sm:text-6xl font-semibold text-[#FAF8F5] leading-tight mb-4"
           >
             Te Așteptăm în Atelierul Nostru
+            <span className="sr-only"> de Optică Medicală și Consult Oftalmologic din Timișoara (Str. Lucian Blaga 7)</span>
           </motion.h2>
 
           <motion.p
@@ -155,12 +175,32 @@ export default function LocationSection() {
 
         </div>
 
-        {/* Footer Copyright */}
-        <footer className="mt-14 sm:mt-20 pt-8 border-t border-[#FAF8F5]/10 text-center text-xs text-[#FAF8F5]/50 flex flex-col sm:flex-row items-center justify-between gap-4">
-          <span>© {new Date().getFullYear()} Beta Optic. Toate drepturile rezervate.</span>
-          <span className="serif-title text-base font-semibold tracking-widest text-[#FAF8F5]/80 uppercase">
-            „Vizibilitatea ta, viziunea noastră”
-          </span>
+        {/* Footer Copyright & Discreet SEO Links */}
+        <footer className="mt-14 sm:mt-20 pt-8 border-t border-[#FAF8F5]/10 text-center text-xs text-[#FAF8F5]/50 space-y-5">
+          <nav
+            aria-label="Pagini și servicii Beta Optic Timișoara"
+            className="flex flex-wrap items-center justify-center gap-x-3 gap-y-2 text-[11px] uppercase tracking-wider text-[#FAF8F5]/60"
+          >
+            {FOOTER_LINKS.map((link, idx) => (
+              <React.Fragment key={link.href}>
+                {idx > 0 && <span aria-hidden="true" className="text-[#C5A059]/60">•</span>}
+                <a
+                  href={link.href}
+                  onClick={(e) => handleInternalLinkClick(e, link.href)}
+                  className="hover:text-[#C5A059] transition-colors py-1"
+                >
+                  {link.label}
+                </a>
+              </React.Fragment>
+            ))}
+          </nav>
+
+          <div className="flex flex-col sm:flex-row items-center justify-between gap-4">
+            <span>© {new Date().getFullYear()} Beta Optic. Toate drepturile rezervate.</span>
+            <span className="serif-title text-base font-semibold tracking-widest text-[#FAF8F5]/80 uppercase">
+              „Vizibilitatea ta, viziunea noastră”
+            </span>
+          </div>
         </footer>
 
       </div>

@@ -288,7 +288,6 @@ export default function CardCarousel({
               initial={false}
               animate={animateProps}
               transition={transitionProps}
-              aria-hidden={isActive || isMobileView ? undefined : 'true'}
               inert={isActive || isMobileView ? undefined : true}
               className={`max-md:contents max-md:!opacity-100 max-md:!transform-none max-md:!pointer-events-auto max-md:!select-auto md:col-start-1 md:row-start-1 md:grid md:grid-cols-2 md:gap-4 w-full ${
                 isActive ? 'z-10' : 'z-0 pointer-events-none select-none'

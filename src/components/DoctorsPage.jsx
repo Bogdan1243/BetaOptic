@@ -145,7 +145,7 @@ export default function DoctorsPage({ onBack }) {
             transition={{ duration: 0.7, delay: 0.1 }}
             className="serif-title text-3xl sm:text-6xl md:text-7xl font-semibold text-[#0F172A] leading-tight mb-5 sm:mb-6"
           >
-            Medici Colaboratori Beta Optic
+            Medici <span className="sr-only">Oftalmologi </span>Colaboratori Beta Optic<span className="sr-only"> Timișoara — Consult Oftalmologic și Optometrie Clinică</span>
           </motion.h1>
 
           <motion.p

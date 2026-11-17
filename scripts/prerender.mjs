@@ -262,6 +262,30 @@ const ROUTES = [
     canonical: 'https://betaoptic.ro/medici',
     jsonLd: DOCTORS_JSON_LD,
   },
+  {
+    view: 'lenses',
+    outFile: path.join('lentile-ochelari-timisoara', 'index.html'),
+    description:
+      'Lentile de ochelari în Timișoara la Beta Optic (Str. Lucian Blaga 7): singurii parteneri oficiali Nikon în Timișoara, plus lentile progresive și monofocale Zeiss, Hoya, Essilor și ItalLenti.',
+    canonical: 'https://betaoptic.ro/lentile-ochelari-timisoara',
+    jsonLd: null,
+  },
+  {
+    view: 'frames',
+    outFile: path.join('rame-ochelari-timisoara', 'index.html'),
+    description:
+      'Rame de ochelari de vedere și ochelari de soare în Timișoara la Beta Optic: Brunello Cucinelli, Linda Farrow, Henry Jullien, Blackfin, Miu Miu, Maui Jim, Ray-Ban, Tom Ford și peste 35 de branduri.',
+    canonical: 'https://betaoptic.ro/rame-ochelari-timisoara',
+    jsonLd: null,
+  },
+  {
+    view: 'atelier',
+    outFile: path.join('atelier-montaj-ochelari', 'index.html'),
+    description:
+      'Atelier propriu de montaj lentile și ajustare ochelari în Timișoara (Str. Lucian Blaga 7) cu echipamente computerizate Nidek și Essilor Mr. Blue conform standardului ISO 8980.',
+    canonical: 'https://betaoptic.ro/atelier-montaj-ochelari',
+    jsonLd: null,
+  },
 ];
 
 function applyRouteMeta(template, route, appHtml) {

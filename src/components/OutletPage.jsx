@@ -9,6 +9,13 @@ import outletInterior from '../assets/outlet-interior.webp';
 import outletInterior640 from '../assets/outlet-interior-640w.webp';
 import outletInterior960 from '../assets/outlet-interior-960w.webp';
 import outletInterior1280 from '../assets/outlet-interior-1280w.webp';
+import outletHero from '../assets/outlet-hero.webp';
+import outletHero640 from '../assets/outlet-hero-640w.webp';
+import outletHero960 from '../assets/outlet-hero-960w.webp';
+import outletHero1280 from '../assets/outlet-hero-1280w.webp';
+import ofertaLuniiImage from '../assets/oferta-lunii-nikon.webp';
+import ofertaLuniiImage640 from '../assets/oferta-lunii-nikon-640w.webp';
+import ofertaLuniiImage960 from '../assets/oferta-lunii-nikon-960w.webp';
 import {
   ArrowLeft,
   Sparkles,
@@ -28,6 +35,7 @@ import {
   Navigation,
   ExternalLink,
   Smile,
+  Check,
 } from 'lucide-react';
 import { OUTLET_DOCTORS_DATA } from '../data/doctorsData';
 import { OUTLET_HERO_DATA } from '../data/opticData';
@@ -37,20 +45,35 @@ const OUTLET_OFFER_TABS = [
   {
     id: 'saptamana',
     label: 'Oferta săptămânii',
-    subtitle: 'Selecția săptămânală Outlet',
-    icon: Calendar,
-    title: 'Oferta Săptămânii în Outlet',
+    subtitle: 'Consult Oftalmologic Gratuit',
+    icon: Stethoscope,
+    title: 'Consult Oftalmologic Gratuit',
+    tagline: 'Evaluare Completă a Vederii în Cabinetul Outlet',
     description:
-        'Săptămânal pregătim pachete avantajoase de rame + lentile dedicate exclusiv locației Beta Optic Outlet.',
+        'Săptămâna aceasta beneficiezi de consult oftalmologic gratuit realizat de medicii noștri specialiști oftalmologi în cadrul cabinetului Beta Optic Outlet (Strada Paris 2a).',
+    highlights: [
+      'Determinarea precisă a dioptriilor și evaluarea sănătății oculare cu aparatură modernă.',
+      'Consiliere personalizată pentru alegerea lentilelor și a ramelor potrivite stilului tău de viață.',
+    ],
+    footnote: '*Programări telefonice la 0748 241 952 sau direct în showroom-ul de pe Strada Paris 2a, Timișoara (Luni - Vineri: 10:00 - 18:00).',
   },
   {
     id: 'luna',
     label: 'Oferta lunii',
-    subtitle: 'Promoția principală a lunii',
+    subtitle: 'Nikon 1+1 Cadou',
     icon: Gift,
-    title: 'Oferta Lunii în Outlet',
+    title: 'Nikon 1+1 Cadou',
+    tagline: 'Vezi bine. Economisești inteligent.',
     description:
-        'Descoperă reducerile lunii la colecțiile de rame și ochelari de soare disponibile în Beta Optic Outlet.',
+        'La achiziția unei perechi de lentile progresive Nikon Presio Z, primești CADOU încă o pereche de lentile progresive.*',
+    image: ofertaLuniiImage,
+    srcSet: `${ofertaLuniiImage640} 640w, ${ofertaLuniiImage960} 819w`,
+    imageAlt: 'Oferta lunii Nikon - 1+1 Cadou lentile progresive Presio Z la Beta Optic Outlet',
+    highlights: [
+      'Oferta perfectă pentru o pereche de rezervă sau o a doua ramă!',
+      'Tehnologia Z Suite Progressives — puterea contrastului și o nouă eră de lentile progresive.',
+    ],
+    footnote: '*Acordarea perechii gratuite este condiționată de achiziția unei rame noi din magazin. Promoție valabilă până la data de 31 decembrie 2026.',
   },
 ];
 
@@ -157,31 +180,20 @@ export default function OutletPage({ onBack }) {
         <main>
         {/* Hero Section with Uploaded Outlet Pictures on the Background (same top bar layout as main page, non-sticky) */}
         <section className="relative min-h-[75svh] md:min-h-[80vh] w-full flex flex-col justify-between overflow-hidden bg-[#FAF8F5]">
-          {/* Dual Background Photos (Exterior & Interior of Beta Optic Outlet) */}
-          <div className="absolute inset-0 w-full h-full z-0 grid grid-cols-1 md:grid-cols-2 overflow-hidden">
-            <div className="relative w-full h-full overflow-hidden">
-              <img
-                  src={outletExterior}
-                  srcSet={`${outletExterior640} 640w, ${outletExterior960} 960w, ${outletExterior1280} 1280w, ${outletExterior} 1920w`}
-                  sizes="(max-width: 767px) 360px, (max-width: 1023px) 640px, 1920px"
-                  alt="Fațada și vitrina showroom-ului Beta Optic Outlet de pe Strada Paris 2a din Timișoara"
-                  width="1920"
-                  height="1076"
-                  fetchPriority="high"
-                  className="w-full h-full object-cover scale-100 filter brightness-75 contrast-[1.05]"
-              />
-            </div>
-            <div className="relative w-full h-full overflow-hidden hidden md:block">
-              <img
-                  src={outletInterior}
-                  alt="Interiorul showroom-ului Beta Optic Outlet Timișoara cu zona de consiliere și expunere a ramelor"
-                  width="1200"
-                  height="1600"
-                  className="w-full h-full object-cover scale-100 filter brightness-75 contrast-[1.05]"
-              />
-            </div>
+          {/* Background Photo of Beta Optic Outlet */}
+          <div className="absolute inset-0 w-full h-full z-0 overflow-hidden">
+            <img
+                src={outletHero}
+                srcSet={`${outletHero640} 640w, ${outletHero960} 960w, ${outletHero1280} 1280w, ${outletHero} 1920w`}
+                sizes="(max-width: 767px) 360px, (max-width: 1023px) 768px, 1920px"
+                alt="Showroom-ul Beta Optic Outlet de pe Strada Paris 2a din Timișoara"
+                width="1920"
+                height="1440"
+                fetchPriority="high"
+                className="w-full h-full object-cover scale-100 filter brightness-80 contrast-[1.05]"
+            />
             {/* Soft Luxury Overlay for Legibility */}
-            <div className="absolute inset-0 bg-gradient-to-b from-[#FAF8F5]/80 via-[#FAF8F5]/70 to-[#FAF8F5]" />
+            <div className="absolute inset-0 bg-gradient-to-b from-[#FAF8F5]/75 via-[#FAF8F5]/65 to-[#FAF8F5]" />
             <div className="absolute inset-0 bg-[#0F172A]/10 mix-blend-overlay" />
           </div>
 
@@ -252,7 +264,7 @@ export default function OutletPage({ onBack }) {
                 transition={{ duration: 0.7, delay: 0.1 }}
                 className="serif-title text-4xl sm:text-6xl md:text-7xl lg:text-8xl font-semibold text-[#0F172A] leading-tight mb-4 sm:mb-6"
             >
-              Beta Optic Outlet
+              Beta Optic Outlet<span className="sr-only"> Timișoara — Optică Medicală, Rame Ochelari de Vedere, Ochelari de Soare și Consult Oftalmologic</span>
             </motion.h1>
 
             <motion.p
@@ -309,7 +321,7 @@ export default function OutletPage({ onBack }) {
                 <span>Cabinet Oftalmologic Outlet</span>
               </div>
               <h2 className="serif-title text-3xl sm:text-5xl font-bold text-[#0F172A] leading-tight mb-4">
-                Medicii Colaboratori
+                Medicii <span className="sr-only">Oftalmologi </span>Colaboratori<span className="sr-only"> — Beta Optic Outlet Timișoara</span>
               </h2>
               <p className="text-[#0F172A]/75 text-sm sm:text-base font-light">
                 Un hub de medici tineri, specialiști oftalmologi care oferă consultații în cadrul locației Beta Optic Outlet.
@@ -366,7 +378,7 @@ export default function OutletPage({ onBack }) {
                   <span>Promoții Dedicate Outlet</span>
                 </div>
                 <h2 className="serif-title text-3xl sm:text-5xl font-bold text-[#0F172A] leading-tight mb-4">
-                  Oferte Beta Optic Outlet
+                  Oferte Beta Optic Outlet<span className="sr-only"> Timișoara — Promoții Rame de Vedere, Lentile și Consult Oftalmologic</span>
                 </h2>
                 <p className="text-[#0F172A]/75 text-sm sm:text-base font-light">
                   Selectează categoria dorită pentru a vedea promoțiile dedicate exclusiv showroom-ului nostru Outlet.
@@ -423,29 +435,67 @@ export default function OutletPage({ onBack }) {
                     animate={{ opacity: 1, y: 0 }}
                     exit={{ opacity: 0, y: -12 }}
                     transition={{ duration: 0.25 }}
-                    className="rounded-3xl bg-[#0F172A] border border-[#0F172A] p-6 sm:p-12 shadow-2xl text-center max-w-3xl mx-auto space-y-4 sm:space-y-5"
+                    className="rounded-3xl bg-[#0F172A] border border-[#0F172A] p-6 sm:p-10 shadow-2xl max-w-4xl mx-auto"
                 >
-                  <div className="w-14 h-14 sm:w-16 sm:h-16 rounded-full bg-[#FAF8F5]/10 border border-[#FAF8F5]/20 flex items-center justify-center mx-auto text-[#C5A059]">
-                    <activeOffer.icon className="w-6 h-6 sm:w-7 sm:h-7 stroke-[1.5]" />
-                  </div>
+                  <div className={`grid grid-cols-1 ${activeOffer.image ? 'md:grid-cols-12 gap-6 sm:gap-8 items-center text-left' : 'max-w-2xl mx-auto text-center space-y-5'}`}>
+                    {activeOffer.image && (
+                      <div className="md:col-span-6 rounded-2xl overflow-hidden bg-[#1B263B] border border-[#FAF8F5]/15 shadow-lg flex items-center justify-center">
+                        <img
+                          src={activeOffer.image}
+                          srcSet={activeOffer.srcSet}
+                          sizes="(max-width: 767px) 360px, 640px"
+                          alt={activeOffer.imageAlt}
+                          width="819"
+                          height="1024"
+                          loading="lazy"
+                          className="w-full max-h-[55svh] md:max-h-[58vh] object-contain"
+                        />
+                      </div>
+                    )}
 
-                  <span className="inline-flex items-center gap-1.5 px-3.5 py-1 rounded-full bg-[#C5A059]/20 border border-[#C5A059]/30 text-[#FAF8F5] text-[11px] uppercase tracking-widest font-bold">
-                  <Sparkles className="w-3.5 h-3.5 text-[#C5A059]" />
-                    {activeOffer.label} • Outlet
-                </span>
+                    <div className={activeOffer.image ? 'md:col-span-6 space-y-4 sm:space-y-5' : 'space-y-4 sm:space-y-5'}>
+                      {!activeOffer.image && (
+                        <div className="w-14 h-14 sm:w-16 sm:h-16 rounded-full bg-[#FAF8F5]/10 border border-[#FAF8F5]/20 flex items-center justify-center mx-auto text-[#C5A059]">
+                          <activeOffer.icon className="w-6 h-6 sm:w-7 sm:h-7 stroke-[1.5]" />
+                        </div>
+                      )}
 
-                  <h3 className="serif-title text-2xl sm:text-4xl font-bold text-[#FAF8F5]">
-                    {activeOffer.title}
-                  </h3>
+                      <span className="inline-flex items-center gap-1.5 px-3.5 py-1 rounded-full bg-[#C5A059]/20 border border-[#C5A059]/30 text-[#FAF8F5] text-[11px] uppercase tracking-widest font-bold">
+                        <Sparkles className="w-3.5 h-3.5 text-[#C5A059]" />
+                        {activeOffer.label} • Activă în Outlet
+                      </span>
 
-                  <p className="text-sm sm:text-base text-[#FAF8F5]/80 leading-relaxed max-w-xl mx-auto">
-                    {activeOffer.description}
-                  </p>
+                      <h3 className="serif-title text-2xl sm:text-4xl font-bold text-[#FAF8F5] leading-tight">
+                        {activeOffer.title}
+                      </h3>
 
-                  <div className="pt-2 sm:pt-4">
-                  <span className="inline-block px-4 sm:px-5 py-2.5 rounded-2xl sm:rounded-full bg-[#FAF8F5]/10 border border-[#FAF8F5]/20 text-xs uppercase tracking-wider font-semibold text-[#FAF8F5]/75">
-                    Noile postere promoționale pentru {activeOffer.label.toLowerCase()} vor fi afișate aici
-                  </span>
+                      {activeOffer.tagline && (
+                        <p className="text-xs sm:text-sm font-semibold text-[#C5A059] uppercase tracking-wider">
+                          {activeOffer.tagline}
+                        </p>
+                      )}
+
+                      <p className="text-sm sm:text-base text-[#FAF8F5]/85 leading-relaxed">
+                        {activeOffer.description}
+                      </p>
+
+                      {activeOffer.highlights && (
+                        <div className="p-4 rounded-2xl bg-[#FAF8F5]/5 border border-[#FAF8F5]/15 space-y-2.5 text-xs sm:text-sm text-[#FAF8F5]/85 text-left">
+                          {activeOffer.highlights.map((item, idx) => (
+                            <div key={idx} className="flex items-start gap-2.5">
+                              <Check className="w-4 h-4 text-[#C5A059] shrink-0 mt-0.5" />
+                              <span>{item}</span>
+                            </div>
+                          ))}
+                        </div>
+                      )}
+
+                      {activeOffer.footnote && (
+                        <p className="pt-3 border-t border-[#FAF8F5]/15 text-[11px] text-[#FAF8F5]/60 leading-relaxed">
+                          {activeOffer.footnote}
+                        </p>
+                      )}
+                    </div>
                   </div>
                 </motion.div>
               </AnimatePresence>
@@ -464,7 +514,7 @@ export default function OutletPage({ onBack }) {
               <span>Imagini Showroom</span>
             </div>
             <h2 className="serif-title text-3xl sm:text-5xl font-bold text-[#0F172A] leading-tight mb-4">
-              Galeria Beta Optic Outlet
+              Galeria Beta Optic Outlet<span className="sr-only"> Timișoara — Showroom Optică Medicală Strada Paris 2a</span>
             </h2>
             <p className="text-[#0F172A]/75 text-sm sm:text-base font-light">
               Explorează atmosfera și colecțiile expuse în cadrul locației noastre Outlet.
@@ -563,7 +613,7 @@ export default function OutletPage({ onBack }) {
                   transition={{ delay: 0.1 }}
                   className="serif-title text-3xl sm:text-6xl font-semibold text-[#FAF8F5] leading-tight mb-4"
               >
-                Te Așteptăm la Beta Optic Outlet
+                Te Așteptăm la Beta Optic Outlet<span className="sr-only"> Timișoara (Strada Paris 2a)</span>
               </motion.h2>
 
               <motion.p
