@@ -16,11 +16,11 @@ import outletHero1280 from '../assets/outlet-hero-1280w.webp';
 import ofertaLuniiImage from '../assets/oferta-lunii-nikon.webp';
 import ofertaLuniiImage640 from '../assets/oferta-lunii-nikon-640w.webp';
 import ofertaLuniiImage960 from '../assets/oferta-lunii-nikon-960w.webp';
+import glassesLogo from '../assets/glasses-logo.webp';
 import {
   ArrowLeft,
   Sparkles,
   ShieldCheck,
-  Eye,
   Stethoscope,
   Gift,
   Clock,
@@ -212,12 +212,18 @@ export default function OutletPage({ onBack }) {
                 }}
                 className="flex items-center gap-3 text-left cursor-pointer min-h-[44px] md:min-h-0"
             >
-              <div className="w-10 h-10 rounded-full border border-[#172554]/30 flex items-center justify-center bg-[#FAF8F5]/60 backdrop-blur-md text-[#172554]">
-                <Eye className="w-5 h-5 stroke-[1.5]" />
+              <div className="w-12 h-12 rounded-full border border-[#172554]/30 flex items-center justify-center bg-[#FAF8F5]/75 backdrop-blur-md p-2 shrink-0 shadow-xs">
+                <img
+                  src={glassesLogo}
+                  alt="Sigla Beta Optic Timișoara"
+                  width="48"
+                  height="34"
+                  className="w-full h-full object-contain"
+                />
               </div>
               <div>
               <span className="font-[Arial] text-2xl font-bold tracking-widest text-[#172554] uppercase">
-                BETA OPTIC
+                BETA OPTIC<sup className="text-xs font-bold align-super ml-0.5">®</sup>
               </span>
                 <span className="block text-[12px] tracking-[0.25em] text-[#172554]/70 uppercase font-bold">
                 Strada Paris Nr.2a <br/>

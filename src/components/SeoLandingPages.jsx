@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
+import glassesLogo from '../assets/glasses-logo.webp';
 import {
   ArrowLeft,
-  Eye,
   Disc,
   ShieldCheck,
   Glasses,
@@ -58,12 +58,18 @@ function SeoPageHeader({ onBack }) {
             }}
             className="flex items-center justify-center sm:justify-start gap-2.5 min-w-[44px] min-h-[44px] md:min-w-0 md:min-h-0 text-left cursor-pointer group"
           >
-            <div className="w-8 h-8 rounded-full border border-[#172554]/30 flex items-center justify-center bg-[#FAF8F5] text-[#172554] group-hover:border-[#C5A059] transition-colors">
-              <Eye className="w-4 h-4 stroke-[1.5]" />
+            <div className="w-9 h-9 rounded-full border border-[#172554]/30 flex items-center justify-center bg-[#FAF8F5] p-1.5 group-hover:border-[#C5A059] transition-colors shrink-0">
+              <img
+                src={glassesLogo}
+                alt="Sigla Beta Optic Timișoara"
+                width="36"
+                height="26"
+                className="w-full h-full object-contain"
+              />
             </div>
             <div className="hidden sm:block">
               <span className="serif-title text-lg font-bold tracking-widest text-[#172554] uppercase leading-none block">
-                BETA OPTIC
+                BETA OPTIC<sup className="text-[10px] font-bold align-super ml-0.5">®</sup>
               </span>
               <span className="text-[9px] tracking-[0.25em] text-[#172554]/60 uppercase font-medium">
                 Timișoara • Str. Lucian Blaga 7

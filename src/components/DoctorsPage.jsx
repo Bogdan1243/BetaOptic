@@ -1,12 +1,12 @@
 import React, { useEffect, useState } from 'react';
 import { motion } from 'framer-motion';
 import doctorPlaceholder from '../assets/doctors/doctor-placeholder.webp';
+import glassesLogo from '../assets/glasses-logo.webp';
 import {
   ArrowLeft,
   Award,
   ShieldCheck,
   CheckCircle2,
-  Eye,
   Send,
   Stethoscope,
 } from 'lucide-react';
@@ -108,12 +108,18 @@ export default function DoctorsPage({ onBack }) {
               }}
               className="flex items-center justify-center sm:justify-start gap-2.5 min-w-[44px] min-h-[44px] md:min-w-0 md:min-h-0 text-left cursor-pointer group"
             >
-              <div className="w-8 h-8 rounded-full border border-[#172554]/30 flex items-center justify-center bg-[#FAF8F5] text-[#172554] group-hover:border-[#C5A059] transition-colors">
-                <Eye className="w-4 h-4 stroke-[1.5]" />
+              <div className="w-9 h-9 rounded-full border border-[#172554]/30 flex items-center justify-center bg-[#FAF8F5] p-1.5 group-hover:border-[#C5A059] transition-colors shrink-0">
+                <img
+                  src={glassesLogo}
+                  alt="Sigla Beta Optic Timișoara"
+                  width="36"
+                  height="26"
+                  className="w-full h-full object-contain"
+                />
               </div>
               <div className="hidden sm:block">
                 <span className="serif-title text-lg font-bold tracking-widest text-[#172554] uppercase leading-none block">
-                  BETA OPTIC
+                  BETA OPTIC<sup className="text-[10px] font-bold align-super ml-0.5">®</sup>
                 </span>
                 <span className="text-[9px] tracking-[0.25em] text-[#172554]/60 uppercase font-medium">
                   Timișoara
@@ -247,8 +253,14 @@ export default function DoctorsPage({ onBack }) {
       <section className="py-14 sm:py-20 max-sm:pb-[max(3.5rem,calc(2rem+env(safe-area-inset-bottom)))] px-4 sm:px-6 md:px-16 w-full bg-[#172554] text-[#FAF8F5] relative overflow-hidden">
         <div className="max-w-5xl mx-auto text-center space-y-6 sm:space-y-8">
           
-          <div className="w-14 h-14 rounded-full bg-[#FAF8F5]/10 text-[#C5A059] flex items-center justify-center mx-auto border border-[#FAF8F5]/20">
-            <Eye className="w-7 h-7 stroke-[1.5]" />
+          <div className="w-14 h-14 rounded-full bg-[#FAF8F5]/90 p-2.5 flex items-center justify-center mx-auto border border-[#FAF8F5]/30">
+            <img
+              src={glassesLogo}
+              alt="Sigla Beta Optic Timișoara"
+              width="48"
+              height="34"
+              className="w-full h-full object-contain"
+            />
           </div>
 
           <div className="space-y-3">

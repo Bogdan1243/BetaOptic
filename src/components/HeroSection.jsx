@@ -78,7 +78,7 @@ export default function HeroSection({ onOpenDoctors, onOpenOffer, onOpenOutlet }
           </div>
           <div>
             <span className="font-[Arial] text-3xl sm:text-4xl font-black tracking-widest text-[#172554] uppercase block leading-tight">
-              BETA OPTIC
+              BETA OPTIC<sup className="text-base sm:text-lg font-bold align-super ml-0.5">®</sup>
             </span>
             <span className="block text-sm sm:text-base tracking-[0.2em] text-[#172554] uppercase font-extrabold mt-0.5 leading-snug">
               Strada Lucian Blaga nr.7<span className="sr-only">, Timișoara</span> <br/>
