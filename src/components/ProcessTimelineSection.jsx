@@ -99,86 +99,46 @@ export default function ProcessTimelineSection() {
           </motion.p>
         </div>
 
-        {/* Mobile Horizontal Swipe Carousel (below md) */}
-        <div className="block md:hidden">
+        {/* Single DOM Tree: Horizontal Swipe Carousel on Mobile (<md), Alternating Vertical Timeline on Desktop (md+) */}
+        <div className="relative">
+          {/* Center vertical line — visible on md+ */}
+          <div className="hidden md:block absolute left-1/2 top-0 bottom-0 w-px bg-gradient-to-b from-[#172554]/5 via-[#172554]/25 to-[#172554]/5 -translate-x-1/2" />
+
           <MobileCarouselGrid
-            desktopClassName="hidden"
+            desktopClassName="md:flex md:flex-col md:gap-10"
             label="Cei 7 pași către o viziune mai bună"
           >
             {PROCESS_STEPS.map((step, idx) => {
               const IconComp = iconMap[step.icon] || Activity;
-              return (
-                <div key={step.number} className="h-auto">
-                  <TimelineCard step={step} idx={idx} IconComp={IconComp} />
-                </div>
-              );
-            })}
-          </MobileCarouselGrid>
-        </div>
-
-        {/* Desktop Vertical Alternating Timeline (md+) */}
-        <div className="hidden md:block relative">
-          {/* Center vertical line — visible on md+ */}
-          <div className="absolute left-1/2 top-0 bottom-0 w-px bg-gradient-to-b from-[#172554]/5 via-[#172554]/25 to-[#172554]/5 -translate-x-1/2" />
-
-          <div className="flex flex-col gap-10">
-            {PROCESS_STEPS.map((step, idx) => {
-              const IconComp = iconMap[step.icon] || Activity;
-              const isLeft = idx % 2 === 0; // even = left side, odd = right side
+              const isLeft = idx % 2 === 0;
 
               return (
                 <div
                   key={step.number}
-                  className="relative flex items-stretch"
+                  className={`relative flex items-stretch ${
+                    isLeft ? 'md:justify-start' : 'md:justify-end'
+                  }`}
                 >
-                  {/* Left column */}
-                  <div className="flex w-1/2 pr-12 justify-end">
-                    {isLeft ? (
-                      <motion.div
-                        initial={{ opacity: 0, x: -60 }}
-                        whileInView={{ opacity: 1, x: 0 }}
-                        viewport={{ once: true, margin: "-80px" }}
-                        transition={{ duration: 0.6, ease: "easeOut" }}
-                        className="w-full max-w-md"
-                      >
-                        <TimelineCard step={step} idx={idx} IconComp={IconComp} />
-                      </motion.div>
-                    ) : (
-                      <div /> /* Empty placeholder */
-                    )}
+                  {/* Center dot connector — desktop only */}
+                  <div className="hidden md:flex absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 z-20 items-center justify-center">
+                    <div className="w-5 h-5 rounded-full border-[3px] border-[#172554] bg-[#FAF8F5] shadow-md" />
                   </div>
 
-                  {/* Center dot connector — desktop */}
-                  <div className="flex absolute left-1/2 -translate-x-1/2 z-20 items-center justify-center">
-                    <motion.div
-                      initial={{ scale: 0, opacity: 0 }}
-                      whileInView={{ scale: 1, opacity: 1 }}
-                      viewport={{ once: true, margin: "-80px" }}
-                      transition={{ duration: 0.4, delay: 0.2 }}
-                      className="w-5 h-5 rounded-full border-[3px] border-[#172554] bg-[#FAF8F5] shadow-md group-hover:bg-[#C5A059] transition-colors"
-                    />
-                  </div>
-
-                  {/* Right column */}
-                  <div className="flex w-1/2 pl-12 justify-start">
-                    {!isLeft ? (
-                      <motion.div
-                        initial={{ opacity: 0, x: 60 }}
-                        whileInView={{ opacity: 1, x: 0 }}
-                        viewport={{ once: true, margin: "-80px" }}
-                        transition={{ duration: 0.6, ease: "easeOut" }}
-                        className="w-full max-w-md"
-                      >
-                        <TimelineCard step={step} idx={idx} IconComp={IconComp} />
-                      </motion.div>
-                    ) : (
-                      <div /> /* Empty placeholder */
-                    )}
+                  <div
+                    className={`w-full ${
+                      isLeft
+                        ? 'md:w-1/2 md:pr-12 md:flex md:justify-end'
+                        : 'md:w-1/2 md:pl-12 md:flex md:justify-start'
+                    }`}
+                  >
+                    <div className="w-full md:max-w-md h-full">
+                      <TimelineCard step={step} idx={idx} IconComp={IconComp} />
+                    </div>
                   </div>
                 </div>
               );
             })}
-          </div>
+          </MobileCarouselGrid>
         </div>
         
       </div>
