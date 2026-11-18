@@ -699,22 +699,7 @@ export default function OutletPage({ onBack }) {
                       </div>
                     </div>
 
-                    <div className="flex items-start gap-4">
-                      <div className="w-10 h-10 rounded-xl bg-[#FAF8F5]/10 flex items-center justify-center text-[#C5A059] flex-none">
-                        <Mail className="w-5 h-5" aria-hidden="true" />
-                      </div>
-                      <div>
-                        <strong className="block text-xs uppercase tracking-wider text-[#FAF8F5]/50 mb-1">
-                          Email Oficial
-                        </strong>
-                        <a
-                            href="mailto:betaoptic@yahoo.com"
-                            className="inline-flex items-center min-h-[44px] md:inline md:min-h-0 -my-2 md:my-0 py-2 md:py-0 hover:text-[#C5A059] transition-colors"
-                        >
-                          betaoptic@yahoo.com
-                        </a>
-                      </div>
-                    </div>
+                    
                   </address>
                 </div>
 
