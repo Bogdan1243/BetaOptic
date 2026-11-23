@@ -16,18 +16,24 @@ const OFFER_MENU_ITEMS = [
 
 export default function HeroSection({ onOpenDoctors, onOpenOffer, onOpenOutlet }) {
   const [isOffersMenuOpen, setIsOffersMenuOpen] = useState(false);
+  const [isDecemberOfferOpen, setIsDecemberOfferOpen] = useState(false);
   const offersMenuRef = useRef(null);
+  const decemberOfferRef = useRef(null);
 
   useEffect(() => {
-    if (!isOffersMenuOpen) return;
+    if (!isOffersMenuOpen && !isDecemberOfferOpen) return;
     const handleClickOutside = (e) => {
       if (offersMenuRef.current && !offersMenuRef.current.contains(e.target)) {
         setIsOffersMenuOpen(false);
+      }
+      if (decemberOfferRef.current && !decemberOfferRef.current.contains(e.target)) {
+        setIsDecemberOfferOpen(false);
       }
     };
     const handleKeyDown = (e) => {
       if (e.key === 'Escape') {
         setIsOffersMenuOpen(false);
+        setIsDecemberOfferOpen(false);
       }
     };
     document.addEventListener('mousedown', handleClickOutside);
@@ -36,7 +42,7 @@ export default function HeroSection({ onOpenDoctors, onOpenOffer, onOpenOutlet }
       document.removeEventListener('mousedown', handleClickOutside);
       window.removeEventListener('keydown', handleKeyDown);
     };
-  }, [isOffersMenuOpen]);
+  }, [isOffersMenuOpen, isDecemberOfferOpen]);
 
   return (
       <section className="relative min-h-[85svh] md:min-h-[92vh] w-full flex flex-col justify-between overflow-hidden bg-[#FAF8F5]">
@@ -60,7 +66,7 @@ export default function HeroSection({ onOpenDoctors, onOpenOffer, onOpenOutlet }
       </div>
 
       {/* Top Ambient Branding Watermark & Top-Right Action Buttons */}
-      <header className="relative z-30 w-full pt-5 sm:pt-10 px-4 sm:px-8 md:px-16 flex flex-wrap items-start justify-between gap-3 sm:gap-4">
+      <header className="relative z-30 w-full pt-5 sm:pt-10 px-4 sm:px-8 md:px-16 flex flex-col md:flex-row md:flex-nowrap items-start justify-between gap-3 sm:gap-4">
         <motion.div
           initial={{ opacity: 0, y: -10 }}
           animate={{ opacity: 1, y: 0 }}
@@ -102,8 +108,9 @@ export default function HeroSection({ onOpenDoctors, onOpenOffer, onOpenOutlet }
           </div>
         </motion.div>
 
-        {/* Top-Right Action Group: Medicii Noștri + Oferte Dropdown + Outlet */}
-        <nav aria-label="Navigare principală" className="relative flex flex-wrap items-center gap-2 sm:gap-3 w-full sm:w-auto">
+        {/* Top-Right Action Group: 3 Buttons on Top Row + Inverted "Oferta lunii decembrie" Below Them */}
+        <nav aria-label="Navigare principală" className="relative flex flex-col items-start md:items-end gap-2 w-full md:w-auto md:shrink-0 md:ml-auto">
+          <div className="flex flex-wrap md:flex-nowrap items-center md:justify-end gap-1.5 sm:gap-2">
           {/* 1. Medicii Noștri Button */}
           <motion.a
             href="/medici"
@@ -116,14 +123,14 @@ export default function HeroSection({ onOpenDoctors, onOpenOffer, onOpenOutlet }
                 if (onOpenDoctors) onOpenDoctors();
               }
             }}
-            className="inline-flex items-center gap-1.5 sm:gap-2.5 px-3.5 sm:px-5 py-2.5 min-h-[44px] md:min-h-0 rounded-full bg-[#FAF8F5]/85 hover:bg-[#172554] border border-[#172554]/25 hover:border-[#172554] backdrop-blur-md text-[#172554] hover:text-[#FAF8F5] transition-all duration-300 shadow-sm cursor-pointer group"
+            className="inline-flex items-center gap-1.5 px-3 sm:px-3.5 py-2 min-h-[40px] md:min-h-0 rounded-full bg-[#FAF8F5]/85 hover:bg-[#172554] border border-[#172554]/25 hover:border-[#172554] backdrop-blur-md text-[#172554] hover:text-[#FAF8F5] transition-all duration-300 shadow-sm cursor-pointer group whitespace-nowrap"
           >
-            <Stethoscope className="w-4 h-4 text-[#C5A059] group-hover:scale-110 transition-transform shrink-0" />
-            <span className="text-[11px] sm:text-xs uppercase tracking-wider sm:tracking-widest font-semibold">
+            <Stethoscope className="w-3.5 h-3.5 text-[#C5A059] group-hover:scale-110 transition-transform shrink-0" />
+            <span className="text-[10px] sm:text-[11px] uppercase tracking-wider font-semibold">
               <span className="sm:hidden" aria-hidden="true">Medici</span>
               <span className="sr-only sm:not-sr-only">Medicii Colaboratori</span>
             </span>
-            <ArrowRight className="w-3.5 h-3.5 opacity-60 group-hover:opacity-100 group-hover:translate-x-1 transition-all hidden sm:block" />
+            <ArrowRight className="w-3 h-3 opacity-60 group-hover:opacity-100 group-hover:translate-x-1 transition-all hidden sm:block" />
           </motion.a>
 
           {/* 2. Oferte Button with Dropdown */}
@@ -132,24 +139,27 @@ export default function HeroSection({ onOpenDoctors, onOpenOffer, onOpenOutlet }
               initial={{ opacity: 0, y: -10 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 1, delay: 0.15 }}
-              onClick={() => setIsOffersMenuOpen((prev) => !prev)}
+              onClick={() => {
+                setIsOffersMenuOpen((prev) => !prev);
+                setIsDecemberOfferOpen(false);
+              }}
               aria-expanded={isOffersMenuOpen}
               aria-haspopup="true"
-              className={`inline-flex items-center gap-1.5 sm:gap-2 px-3.5 sm:px-5 py-2.5 min-h-[44px] md:min-h-0 rounded-full border backdrop-blur-md transition-all duration-300 shadow-sm cursor-pointer group ${
+              className={`inline-flex items-center gap-1.5 px-3 sm:px-3.5 py-2 min-h-[40px] md:min-h-0 rounded-full border backdrop-blur-md transition-all duration-300 shadow-sm cursor-pointer group whitespace-nowrap ${
                 isOffersMenuOpen
                   ? 'bg-[#172554] border-[#172554] text-[#FAF8F5]'
                   : 'bg-[#FAF8F5]/85 hover:bg-[#172554] border-[#172554]/25 hover:border-[#172554] text-[#172554] hover:text-[#FAF8F5]'
               }`}
             >
               <span className="relative flex items-center justify-center shrink-0">
-                <Gift className="w-4 h-4 text-[#C5A059] group-hover:scale-110 transition-transform" />
+                <Gift className="w-3.5 h-3.5 text-[#C5A059] group-hover:scale-110 transition-transform" />
                 <span className="absolute -top-0.5 -right-0.5 w-1.5 h-1.5 rounded-full bg-[#C5A059] animate-pulse" />
               </span>
-              <span className="text-[11px] sm:text-xs uppercase tracking-wider sm:tracking-widest font-semibold">
+              <span className="text-[10px] sm:text-[11px] uppercase tracking-wider font-semibold">
                 Oferte
               </span>
               <ChevronDown
-                className={`w-3.5 h-3.5 opacity-70 transition-transform duration-300 shrink-0 ${
+                className={`w-3 h-3 opacity-70 transition-transform duration-300 shrink-0 ${
                   isOffersMenuOpen ? 'rotate-180 opacity-100' : 'group-hover:opacity-100'
                 }`}
               />
@@ -208,7 +218,7 @@ export default function HeroSection({ onOpenDoctors, onOpenOffer, onOpenOutlet }
             </AnimatePresence>
           </div>
 
-          {/* 3. Outlet Button */}
+          {/* 3. Outlet Button — on the top-right row */}
           <motion.a
             href="/outlet"
             initial={{ opacity: 0, y: -10 }}
@@ -220,14 +230,78 @@ export default function HeroSection({ onOpenDoctors, onOpenOffer, onOpenOutlet }
                 if (onOpenOutlet) onOpenOutlet();
               }
             }}
-            className="inline-flex items-center gap-1.5 sm:gap-2.5 px-3.5 sm:px-5 py-2.5 min-h-[44px] md:min-h-0 rounded-full bg-[#FAF8F5]/85 hover:bg-[#172554] border border-[#172554]/25 hover:border-[#172554] backdrop-blur-md text-[#172554] hover:text-[#FAF8F5] transition-all duration-300 shadow-sm cursor-pointer group"
+            className="inline-flex items-center gap-1.5 px-3 sm:px-3.5 py-2 min-h-[40px] md:min-h-0 rounded-full bg-[#FAF8F5]/85 hover:bg-[#172554] border border-[#172554]/25 hover:border-[#172554] backdrop-blur-md text-[#172554] hover:text-[#FAF8F5] transition-all duration-300 shadow-sm cursor-pointer group whitespace-nowrap"
           >
-            <Store className="w-4 h-4 text-[#C5A059] group-hover:scale-110 transition-transform shrink-0" />
-            <span className="text-[11px] sm:text-xs uppercase tracking-wider sm:tracking-widest font-semibold">
+            <Store className="w-3.5 h-3.5 text-[#C5A059] group-hover:scale-110 transition-transform shrink-0" />
+            <span className="text-[10px] sm:text-[11px] uppercase tracking-wider font-semibold">
               Outlet
             </span>
-            <ArrowRight className="w-3.5 h-3.5 opacity-60 group-hover:opacity-100 group-hover:translate-x-1 transition-all hidden sm:block" />
+            <ArrowRight className="w-3 h-3 opacity-60 group-hover:opacity-100 group-hover:translate-x-1 transition-all hidden sm:block" />
           </motion.a>
+          </div>
+
+          {/* 4. Oferta Lunii Decembrie Box — Positioned Below on the Right with Inverted Colors (Mainly Blue, Secondary Beige) */}
+          <div className="sm:relative md:self-end mt-6 sm:mt-14 md:mt-[72px]" ref={decemberOfferRef}>
+            <motion.button
+              initial={{ opacity: 0, y: -10 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 1, delay: 0.22 }}
+              onClick={() => {
+                setIsDecemberOfferOpen((prev) => !prev);
+                setIsOffersMenuOpen(false);
+              }}
+              aria-expanded={isDecemberOfferOpen}
+              aria-haspopup="true"
+              className={`inline-flex items-center gap-1.5 sm:gap-2 px-4 py-2 min-h-[40px] md:min-h-0 rounded-full border backdrop-blur-md transition-all duration-300 shadow-md cursor-pointer group whitespace-nowrap ${
+                isDecemberOfferOpen
+                  ? 'bg-[#FAF8F5] border-[#172554] text-[#172554]'
+                  : 'bg-[#172554] hover:bg-[#FAF8F5] border-[#FAF8F5]/30 hover:border-[#172554] text-[#FAF8F5] hover:text-[#172554]'
+              }`}
+            >
+              <span className="relative flex items-center justify-center shrink-0">
+                <Gift className="w-3.5 h-3.5 text-[#C5A059] group-hover:scale-110 transition-transform" />
+                <span className="absolute -top-0.5 -right-0.5 w-1.5 h-1.5 rounded-full bg-[#C5A059] animate-pulse" />
+              </span>
+              <span className="text-[10px] sm:text-[11px] uppercase tracking-wider font-semibold">
+                Oferta lunii decembrie
+              </span>
+              <ChevronDown
+                className={`w-3 h-3 opacity-80 transition-transform duration-300 shrink-0 ${
+                  isDecemberOfferOpen ? 'rotate-180 opacity-100' : 'group-hover:opacity-100'
+                }`}
+              />
+            </motion.button>
+
+            <AnimatePresence>
+              {isDecemberOfferOpen && (
+                <motion.div
+                  initial={{ opacity: 0, y: 8, scale: 0.96 }}
+                  animate={{ opacity: 1, y: 0, scale: 1 }}
+                  exit={{ opacity: 0, y: 8, scale: 0.96 }}
+                  transition={{ duration: 0.2 }}
+                  className="absolute left-0 right-0 sm:left-auto sm:right-0 mt-2.5 w-full max-w-[calc(100vw-2rem)] sm:w-80 rounded-2xl bg-[#172554]/95 backdrop-blur-xl border border-[#FAF8F5]/20 shadow-2xl p-4 z-40 text-left text-[#FAF8F5]"
+                >
+                  <div className="flex items-center justify-between pb-2 border-b border-[#FAF8F5]/15 mb-2.5">
+                    <span className="text-[10px] uppercase tracking-widest font-bold text-[#C5A059]">
+                      Promoție de Sărbători
+                    </span>
+                    <span className="px-2 py-0.5 rounded-full text-[9px] uppercase tracking-wider font-bold bg-[#FAF8F5] text-[#172554]">
+                      -30% / -20%
+                    </span>
+                  </div>
+
+                  <p className="text-xs sm:text-sm font-semibold text-[#FAF8F5] leading-relaxed">
+                    Beneficiați în luna Decembrie de reducere la achiziționarea ochelarilor, -30% din prețul ramelor și 20% din prețul lentilelor.
+                  </p>
+
+                  <p className="mt-2.5 pt-2 border-t border-[#FAF8F5]/15 text-[11px] text-[#FAF8F5]/75 font-medium flex items-center gap-1.5">
+                    <Calendar className="w-3.5 h-3.5 text-[#C5A059] shrink-0" />
+                    <span>Valabil în perioada 2 – 19 Decembrie</span>
+                  </p>
+                </motion.div>
+              )}
+            </AnimatePresence>
+          </div>
         </nav>
       </header>
 

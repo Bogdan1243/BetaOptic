@@ -156,8 +156,8 @@ export default function App({ initialView = 'home' }) {
         {/* Secțiunea 6: Oferte Active (Vizibile & Indexabile SEO) */}
         <ActiveOffersSection onOpenOffer={(tab) => setActiveOfferTab(tab || 'luna')} />
 
-        {/* Secțiunea 6B: Voucher 100 RON pe WhatsApp (cu consimțământ GDPR) */}
-        <VoucherSection />
+        {/* Secțiunea 6B: Voucher 100 RON pe WhatsApp (temporar dezactivată) */}
+        {/* <VoucherSection /> */}
 
         {/* Secțiunea 7: Instagram (hidden until real posts are available) */}
         {/* <InstagramSection /> */}
