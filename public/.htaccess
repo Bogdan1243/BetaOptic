@@ -19,6 +19,8 @@ DirectoryIndex index.html
   RewriteRule ^lentile-ochelari-timisoara/?$ /lentile-ochelari-timisoara/index.html [L]
   RewriteRule ^rame-ochelari-timisoara/?$ /rame-ochelari-timisoara/index.html [L]
   RewriteRule ^atelier-montaj-ochelari/?$ /atelier-montaj-ochelari/index.html [L]
+  RewriteRule ^politica-de-confidentialitate/?$ /politica-de-confidentialitate/index.html [L]
+  RewriteRule ^dezabonare/?$ /dezabonare/index.html [L]
 
   # 4. SPA fallback: do not rewrite existing files (robots.txt, sitemap.xml, og-image.jpg, /assets/*) or directories
   RewriteRule ^index\.html$ - [L]

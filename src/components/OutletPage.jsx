@@ -745,11 +745,22 @@ export default function OutletPage({ onBack }) {
             </div>
 
             {/* Footer Copyright */}
-            <footer className="mt-14 sm:mt-20 pt-8 border-t border-[#FAF8F5]/10 text-center text-xs text-[#FAF8F5]/50 flex flex-col sm:flex-row items-center justify-between gap-4">
-              <span>© {new Date().getFullYear()} Beta Optic. Toate drepturile rezervate.</span>
-              <span className="serif-title text-base font-semibold tracking-widest text-[#FAF8F5]/80 uppercase">
-              „Vizibilitatea ta, viziunea noastră”
-            </span>
+            <footer className="mt-14 sm:mt-20 pt-8 border-t border-[#FAF8F5]/10 text-center text-xs text-[#FAF8F5]/50 space-y-4">
+              <div className="flex flex-wrap items-center justify-center gap-x-3 gap-y-1 text-[11px] uppercase tracking-wider text-[#FAF8F5]/60">
+                <a href="/politica-de-confidentialitate" className="hover:text-[#C5A059] transition-colors">
+                  Politică de Confidențialitate (GDPR)
+                </a>
+                <span aria-hidden="true" className="text-[#C5A059]/60">•</span>
+                <a href="/dezabonare" className="hover:text-[#C5A059] transition-colors">
+                  Dezabonare
+                </a>
+              </div>
+              <div className="flex flex-col sm:flex-row items-center justify-between gap-4">
+                <span>© {new Date().getFullYear()} Beta Optic. Toate drepturile rezervate.</span>
+                <span className="serif-title text-base font-semibold tracking-widest text-[#FAF8F5]/80 uppercase">
+                  „Vizibilitatea ta, viziunea noastră”
+                </span>
+              </div>
             </footer>
           </div>
         </section>

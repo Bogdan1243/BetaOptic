@@ -8,6 +8,8 @@ const FOOTER_LINKS = [
   { href: '/atelier-montaj-ochelari', label: 'Atelier Montaj' },
   { href: '/medici', label: 'Medici Colaboratori' },
   { href: '/outlet', label: 'Outlet' },
+  { href: '/politica-de-confidentialitate', label: 'Politică de Confidențialitate (GDPR)' },
+  { href: '/dezabonare', label: 'Dezabonare' },
 ];
 
 export default function LocationSection() {

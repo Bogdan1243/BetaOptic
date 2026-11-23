@@ -11,6 +11,7 @@ import DoctorsPage from './components/DoctorsPage';
 import OutletPage from './components/OutletPage';
 import { LensesSeoPage, FramesSeoPage, AtelierSeoPage } from './components/SeoLandingPages';
 import { AtelierGalleryModal, ExtraFramesModal, OffersModal, ActiveOffersSection } from './components/Modals';
+import { VoucherSection, PrivacyPolicyPage, UnsubscribePage } from './components/VoucherGdprSection';
 
 export const PAGE_TITLES = {
   home: 'Beta Optic Timișoara - Optică Medicală, Ochelari, Lentile, Oftalmologie',
@@ -19,6 +20,8 @@ export const PAGE_TITLES = {
   lenses: 'Lentile de Ochelari Timișoara — Nikon, Zeiss, Hoya, Essilor | Beta Optic',
   frames: 'Rame de Ochelari și Ochelari de Soare Timișoara | Beta Optic',
   atelier: 'Atelier Montaj Lentile și Ajustare Ochelari Timișoara | Beta Optic',
+  privacy: 'Politica de Confidențialitate (GDPR) & Regulament Voucher | Beta Optic Timișoara',
+  unsubscribe: 'Dezabonare Comunicații Comerciale WhatsApp | Beta Optic Timișoara',
 };
 
 export function getViewFromLocation(pathname = '/', hash = '') {
@@ -28,6 +31,8 @@ export function getViewFromLocation(pathname = '/', hash = '') {
   if (cleanPath === '/lentile-ochelari-timisoara') return 'lenses';
   if (cleanPath === '/rame-ochelari-timisoara') return 'frames';
   if (cleanPath === '/atelier-montaj-ochelari') return 'atelier';
+  if (cleanPath === '/politica-de-confidentialitate') return 'privacy';
+  if (cleanPath === '/dezabonare') return 'unsubscribe';
   if (hash === '#medici') return 'doctors';
   if (hash === '#outlet' || hash.startsWith('#outlet-')) return 'outlet';
   return 'home';
@@ -39,6 +44,8 @@ export function getPathForView(view) {
   if (view === 'lenses') return '/lentile-ochelari-timisoara';
   if (view === 'frames') return '/rame-ochelari-timisoara';
   if (view === 'atelier') return '/atelier-montaj-ochelari';
+  if (view === 'privacy') return '/politica-de-confidentialitate';
+  if (view === 'unsubscribe') return '/dezabonare';
   return '/';
 }
 
@@ -116,6 +123,14 @@ export default function App({ initialView = 'home' }) {
     return <AtelierSeoPage onBack={() => navigateTo('home')} />;
   }
 
+  if (currentView === 'privacy') {
+    return <PrivacyPolicyPage onBack={() => navigateTo('home')} />;
+  }
+
+  if (currentView === 'unsubscribe') {
+    return <UnsubscribePage onBack={() => navigateTo('home')} />;
+  }
+
   return (
     <div className="w-full min-h-screen bg-[#FAF8F5] text-[#172554] selection:bg-[#172554] selection:text-[#FAF8F5] font-sans antialiased overflow-x-hidden">
       <main>
@@ -140,6 +155,9 @@ export default function App({ initialView = 'home' }) {
 
         {/* Secțiunea 6: Oferte Active (Vizibile & Indexabile SEO) */}
         <ActiveOffersSection onOpenOffer={(tab) => setActiveOfferTab(tab || 'luna')} />
+
+        {/* Secțiunea 6B: Voucher 100 RON pe WhatsApp (cu consimțământ GDPR) */}
+        <VoucherSection />
 
         {/* Secțiunea 7: Instagram (hidden until real posts are available) */}
         {/* <InstagramSection /> */}

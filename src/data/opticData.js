@@ -286,13 +286,7 @@ export const SUNGLASS_BRANDS_MAIN = [
 ];
 
 export const FRAME_BRANDS_EXTRA = [
-  {
-    name: "Alexander McQueen",
-    origin: "Marea Britanie",
-    category: "Design Avangardist",
-    material: "Acetat Dens & Linii Metalice",
-    desc: "Estetică avangardistă cu accente dramatice și finisaje structurale puternice"
-  },
+
   {
     name: "Burberry",
     origin: "Marea Britanie",

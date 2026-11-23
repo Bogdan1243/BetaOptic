@@ -286,6 +286,22 @@ const ROUTES = [
     canonical: 'https://betaoptic.ro/atelier-montaj-ochelari',
     jsonLd: null,
   },
+  {
+    view: 'privacy',
+    outFile: path.join('politica-de-confidentialitate', 'index.html'),
+    description:
+      'Politica de Confidențialitate (GDPR) și Regulamentul Oficial al Campaniei Voucher 100 RON Reducere la Beta Optic Timișoara.',
+    canonical: 'https://betaoptic.ro/politica-de-confidentialitate',
+    jsonLd: null,
+  },
+  {
+    view: 'unsubscribe',
+    outFile: path.join('dezabonare', 'index.html'),
+    description:
+      'Pagină de dezabonare și retragere a consimțământului GDPR pentru comunicările comerciale pe WhatsApp Beta Optic Timișoara.',
+    canonical: 'https://betaoptic.ro/dezabonare',
+    jsonLd: null,
+  },
 ];
 
 function applyRouteMeta(template, route, appHtml) {
