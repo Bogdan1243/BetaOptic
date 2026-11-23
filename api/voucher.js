@@ -61,7 +61,6 @@ async function logToGoogleSheet(payload) {
 async function sendMetaWhatsAppVoucher({ toPhone, code }) {
   const token = process.env.WHATSAPP_TOKEN;
   const phoneId = process.env.WHATSAPP_PHONE_NUMBER_ID;
-  // Default to "voucher_beta_optic" in production, or "hello_world" when testing with Meta's sandbox
   const templateName = process.env.WHATSAPP_TEMPLATE_NAME || 'hello_world';
   const templateLang = process.env.WHATSAPP_TEMPLATE_LANG || (templateName === 'hello_world' ? 'en_US' : 'ro');
 
@@ -74,23 +73,22 @@ async function sendMetaWhatsAppVoucher({ toPhone, code }) {
 
   const url = `https://graph.facebook.com/v21.0/${phoneId}/messages`;
 
-  // If using custom template (e.g. voucher_beta_optic), pass {{1}} = voucher code
   const templatePayload =
-    templateName === 'hello_world'
-      ? {
-          name: 'hello_world',
-          language: { code: 'en_US' },
-        }
-      : {
-          name: templateName,
-          language: { code: templateLang },
-          components: [
-            {
-              type: 'body',
-              parameters: [{ type: 'text', text: code }],
-            },
-          ],
-        };
+      templateName === 'hello_world'
+          ? {
+            name: 'hello_world',
+            language: { code: 'en_US' },
+          }
+          : {
+            name: templateName,
+            language: { code: templateLang },
+            components: [
+              {
+                type: 'body',
+                parameters: [{ type: 'text', text: code }],
+              },
+            ],
+          };
 
   const response = await fetch(url, {
     method: 'POST',
@@ -140,12 +138,31 @@ async function sendMetaWhatsAppTextReply({ toPhone, text }) {
 }
 
 export default async function handler(req, res) {
+  // CORS pentru site-ul găzduit pe CyberFolks (betaoptic.ro)
+  const allowedOrigins = ['https://betaoptic.ro', 'https://www.betaoptic.ro'];
+  const origin = req.headers.origin;
+  if (allowedOrigins.includes(origin)) {
+    res.setHeader('Access-Control-Allow-Origin', origin);
+  } else {
+    res.setHeader('Access-Control-Allow-Origin', 'https://betaoptic.ro');
+  }
+  res.setHeader('Access-Control-Allow-Methods', 'GET, POST, OPTIONS');
+  res.setHeader('Access-Control-Allow-Headers', 'Content-Type');
+
+  if (req.method === 'OPTIONS') {
+    return res.status(200).end();
+  }
+
   // 1. Meta Webhook Verification (GET /api/voucher?hub.mode=subscribe&hub.verify_token=...)
   if (req.method === 'GET') {
     const mode = req.query?.['hub.mode'];
     const token = req.query?.['hub.verify_token'];
     const challenge = req.query?.['hub.challenge'];
-    const verifyToken = process.env.WHATSAPP_WEBHOOK_VERIFY_TOKEN || 'betaoptic_verify_token';
+    const verifyToken = (
+        process.env.WHATSAPP_VERIFY_TOKEN ||
+        process.env.WHATSAPP_WEBHOOK_VERIFY_TOKEN ||
+        'betaoptic2026'
+    ).trim();
 
     if (mode === 'subscribe' && token === verifyToken) {
       return res.status(200).send(challenge);
@@ -154,7 +171,7 @@ export default async function handler(req, res) {
   }
 
   if (req.method !== 'POST') {
-    res.setHeader('Allow', 'GET, POST');
+    res.setHeader('Allow', 'GET, POST, OPTIONS');
     return res.status(405).json({ error: 'Method Not Allowed' });
   }
 
@@ -169,12 +186,12 @@ export default async function handler(req, res) {
       if (message && message.from) {
         const senderPhone = message.from;
         const textBody = (
-          message.text?.body ||
-          message.button?.text ||
-          ''
+            message.text?.body ||
+            message.button?.text ||
+            ''
         )
-          .trim()
-          .toUpperCase();
+            .trim()
+            .toUpperCase();
 
         if (textBody === 'STOP' || textBody === 'DEZABONARE' || textBody.includes('DEZABONARE')) {
           await logToGoogleSheet({
@@ -253,7 +270,7 @@ export default async function handler(req, res) {
     whatsappSent: waResult.sent,
     sheetLogged: sheetResult.logged,
     note: waResult.sent
-      ? 'Mesajul cu codul de reducere a fost trimis pe WhatsApp.'
-      : 'Codul a fost generat (completează cheile Meta API în variabilele de mediu pentru trimitere automată pe WhatsApp).',
+        ? 'Mesajul cu codul de reducere a fost trimis pe WhatsApp.'
+        : 'Codul a fost generat (completează cheile Meta API în variabilele de mediu pentru trimitere automată pe WhatsApp).',
   });
 }
