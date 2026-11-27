@@ -274,7 +274,7 @@ const ROUTES = [
     view: 'frames',
     outFile: path.join('rame-ochelari-timisoara', 'index.html'),
     description:
-      'Rame de ochelari de vedere și ochelari de soare în Timișoara la Beta Optic: Brunello Cucinelli, Linda Farrow, Henry Jullien, Blackfin, Miu Miu, Maui Jim, Ray-Ban, Tom Ford și peste 35 de branduri.',
+      'Rame de ochelari de vedere și ochelari de soare în Timișoara la Beta Optic: Brunello Cucinelli, Linda Farrow, Henry Jullien, Blackfin, Miu Miu, Maui Jim, Ray-Ban, Tom Ford și 50 de branduri.',
     canonical: 'https://betaoptic.ro/rame-ochelari-timisoara',
     jsonLd: null,
   },

@@ -130,6 +130,8 @@ export const LENS_BRANDS_MAIN = [
   {
     id: "nikon",
     name: "Nikon",
+    fullWidth: true,
+    topBadge: "Claritate fără compromis",
     tagline: "Inginerie Ultra-Subțire de Înaltă Definiție",
     origin: "Japonia",
     badge: "Singurii Parteneri Oficiali Nikon din Timișoara",
@@ -286,7 +288,48 @@ export const SUNGLASS_BRANDS_MAIN = [
 ];
 
 export const FRAME_BRANDS_EXTRA = [
-
+  {
+    name: "Ad Lib",
+    origin: "Japonia / Franța",
+    category: "Design Urban Dinamic",
+    material: "Titan & Beta-Titan Flexibil",
+    desc: "Linii contemporane inspirate din cultura urbană, confort ultra-ușor din titan și contraste cromatice"
+  },
+  {
+    name: "Ana Hickmann",
+    origin: "Europa",
+    category: "Eleganță Feminină Contemporană",
+    material: "Acetat Fin & Detalii Duo-Fashion",
+    desc: "Siluete feminine sofisticate cu brațe rotative Duo-Fashion și finisaje prețioase"
+  },
+  {
+    name: "Armani Exchange",
+    origin: "Italia",
+    category: "Stil Urban Modern",
+    material: "Bio-Acetat & Oțel Inoxidabil",
+    desc: "Design tineresc cu ADN milanez, geometrii curate și materiale ușoare pentru purtare zilnică"
+  },
+  {
+    name: "Azzaro",
+    origin: "Franța",
+    category: "Șic Francez",
+    material: "Acetat Clasic & Inox Fin",
+    desc: "Rafinament mediteranean parizian, linii fluide și accente de croială impecabilă"
+  },
+  {
+    name: "Balenciaga",
+    origin: "Franța",
+    category: "Avangardă High-Fashion",
+    material: "Acetat Dens & Aliaje Turnate",
+    desc: "Siluete futuriste sculpturale, linii cat-eye ascuțite și volumetrii avangardiste"
+  },
+  {
+    name: "Bulget",
+    origin: "Europa",
+    category: "Rafinament Clasic & Confort",
+    material: "Acetat Polizat & Aliaje Ușoare",
+    desc: "Proporții echilibrate, ergonomie verificată și un raport excelent între eleganță și funcționalitate"
+  },
   {
     name: "Burberry",
     origin: "Marea Britanie",
@@ -295,11 +338,11 @@ export const FRAME_BRANDS_EXTRA = [
     desc: "Eleganță britanică clasică, detalii subtile Tartan și proporții atemporale"
   },
   {
-    name: "Ray-Ban",
+    name: "Bvlgari",
     origin: "Italia",
-    category: "Design Iconic Global",
-    material: "Acetat & Aliaje Metalice",
-    desc: "Modele iconice de referință mondială, ergonomie verificată și stil inconfundabil"
+    category: "Haute Joaillerie Romană",
+    material: "Metale Nobile & Cristale Emblematice",
+    desc: "Motive Haute Joaillerie Serpenti și B.zero1, rafinament somptuos de bijuterie"
   },
   {
     name: "Chantal Thomass",
@@ -309,11 +352,11 @@ export const FRAME_BRANDS_EXTRA = [
     desc: "Feminitate senzuală pariziană, linii retro-șic și detalii sofisticate de atelier"
   },
   {
-    name: "Vogue",
-    origin: "Italia",
-    category: "Fashion Contemporan",
-    material: "Acetat Ușor & Metal Polizat",
-    desc: "Tendințe contemporane vibrante, profiluri expresive și eleganță accesibilă"
+    name: "Cocoa Mint",
+    origin: "Marea Britanie",
+    category: "Design Britanic Sofisticat",
+    material: "Acetat Mazzucchelli & Oțel Fin",
+    desc: "Colecții britanice premiate pentru armonia cromatică, confort anatomic și detalii rafinate"
   },
   {
     name: "Dolce&Gabbana",
@@ -330,46 +373,25 @@ export const FRAME_BRANDS_EXTRA = [
     desc: "Linii dinamice urbane, minimalism contemporan și confort pentru purtare zilnică"
   },
   {
+    name: "Fitche",
+    origin: "Franța",
+    category: "Minimalism Tehnic & Ergonomie",
+    material: "Oțel Chirurgical & Acetat",
+    desc: "Design francez cu linii arhitecturale curate, greutate redusă și stabilitate pe fizionomie"
+  },
+  {
+    name: "Gigi Studios",
+    origin: "Spania",
+    category: "Design Independent Barcelona",
+    material: "Titan Japonez & Acetat Italian",
+    desc: "Design independent din Barcelona, realizat manual cu o atenție meticuloasă la detalii"
+  },
+  {
     name: "Giorgio Armani",
     origin: "Italia",
     category: "Lux Discret Milanez",
     material: "Acetat Fin & Titan Lustruit",
     desc: "Esența luxului discret milanez, proporții armonioase și sobrietate aristocratică"
-  },
-  {
-    name: "Persol",
-    origin: "Italia",
-    category: "Tradiție Artizanală Clasică",
-    material: "Acetat de Bumbac & Sistem Meflecto",
-    desc: "Moștenire torineză din 1917, săgeata argintie Silver Arrow și balamale flexibile"
-  },
-  {
-    name: "Tom Ford",
-    origin: "Italia",
-    category: "Lux Cosmopolit",
-    material: "Acetat Japonez Dens & Titan",
-    desc: "Design sculptural cu balamaua iconică T-Logo și eleganță cosmopolită magnetică"
-  },
-  {
-    name: "Prada",
-    origin: "Italia",
-    category: "Minimalism Arhitectural",
-    material: "Acetat Pur & Detalii Geometrice",
-    desc: "Geometrii arhitecturale conceptuale, unghiuri curate și eleganță milaneză pură"
-  },
-  {
-    name: "Versace",
-    origin: "Italia",
-    category: "Opulență & Caracter",
-    material: "Acetat Lucios & Accente Nobile",
-    desc: "Prezență impunătoare, emblema Medusa iconică și finisaje metalice somptuoase"
-  },
-  {
-    name: "Azzaro",
-    origin: "Franța",
-    category: "Șic Francez",
-    material: "Acetat Clasic & Inox Fin",
-    desc: "Rafinament mediteranean parizian, linii fluide și accente de croială impecabilă"
   },
   {
     name: "Gucci",
@@ -379,18 +401,39 @@ export const FRAME_BRANDS_EXTRA = [
     desc: "Estetică eclectică sofisticată, motive monogramă reinterpretate și lux asumat"
   },
   {
-    name: "Arnette",
-    origin: "SUA",
-    category: "Street Style Activ",
-    material: "Bio-Acetat & Grilamid",
-    desc: "Spirit tineresc activ, confort ergonomic și materiale bio-sustenabile ușoare"
+    name: "Hickmann Eyewear",
+    origin: "Europa",
+    category: "Stil Contemporan & Versatilitate",
+    material: "Acetat Multistrat & Titan",
+    desc: "Rame moderne cu accente arhitecturale subtile și ergonomie adaptată purtării îndelungate"
   },
   {
-    name: "Swarovski",
-    origin: "Austria",
-    category: "Haute Cristallerie",
-    material: "Cristale Fațetate & Metal Rodiat",
-    desc: "Jocuri de lumină radiante, fațetări precise de cristal și eleganță rafinată"
+    name: "Jimmy Choo",
+    origin: "Marea Britanie",
+    category: "Glamour Red-Carpet",
+    material: "Acetat Italian & Detalii Cristal",
+    desc: "Strălucire couture londoneză, aplicații fine de cristal și siluete feminine magnetice"
+  },
+  {
+    name: "Lamarca",
+    origin: "Italia",
+    category: "Artă Mozaic în Acetat",
+    material: "Acetat Mazzucchelli Termosudat Manual",
+    desc: "Măiestrie artizanală italiană unde policromia acetatului este sculptată și fațetată ca o bijuterie"
+  },
+  {
+    name: "Michael Kors",
+    origin: "SUA",
+    category: "Jet-Set Chic American",
+    material: "Acetat & Metal Aurit",
+    desc: "Eleganță cosmopolită new-yorkeză, forme clasice reinterpretate și accente metalice emblematice"
+  },
+  {
+    name: "Minamoto",
+    origin: "Japonia",
+    category: "Măiestrie Artizanală Sabae",
+    material: "Titan Japonez Pur 100% & Toc din Lemn Paulownia",
+    desc: "Filozofie Zen și tradiție niponă din Sabae, cu rame din titan pur gravate manual"
   },
   {
     name: "Montblanc",
@@ -400,53 +443,46 @@ export const FRAME_BRANDS_EXTRA = [
     desc: "Rigoare mecanică germană, emblema stelei albe alpine și materiale nobile durabile"
   },
   {
-    name: "Catherine de Medici",
-    origin: "Italia",
-    category: "Artă Optică Renașcentistă",
-    material: "Acetat Nobil & Piese Turnate Fin",
-    desc: "Bijuterii optice inspirate din Renașterea toscană, forme artistice și detalii nobile"
-  },
-  {
-    name: "Brioni",
-    origin: "Italia",
-    category: "Sartorial Roman de Lux",
-    material: "Corn Natural & Titan Placat",
-    desc: "Croială sartorială romană supremă transpusă în rame discrete de o sobrietate rară"
-  },
-  {
-    name: "Bvlgari",
-    origin: "Italia",
-    category: "Haute Joaillerie Romană",
-    material: "Metale Nobile & Cristale Emblematice",
-    desc: "Motive Haute Joaillerie Serpenti și B.zero1, rafinament somptuos de bijuterie"
-  },
-  {
-    name: "Tiffany&Co.",
-    origin: "SUA",
-    category: "Bijuterie Clasică Americană",
-    material: "Acetat Fin & Argint/Aur Tratate",
-    desc: "Rafinament new-yorkez inconfundabil cu atingeri de Tiffany Blue și motive iconice T"
-  },
-  {
-    name: "Balenciaga",
+    name: "Nina Ricci",
     origin: "Franța",
-    category: "Avangardă High-Fashion",
-    material: "Acetat Dens & Aliaje Turnate",
-    desc: "Siluete futuriste sculpturale, linii cat-eye ascuțite și volumetrii avangardiste"
+    category: "Romantism Parizian",
+    material: "Acetat Translucid & Metal Fin",
+    desc: "Gratie pariziană luminoasă, nuanțe pudrate și linii delicate de inspirație haute couture"
   },
   {
-    name: "GigiStudios",
+    name: "Persol",
+    origin: "Italia",
+    category: "Tradiție Artizanală Clasică",
+    material: "Acetat de Bumbac & Sistem Meflecto",
+    desc: "Moștenire torineză din 1917, săgeata argintie Silver Arrow și balamale flexibile"
+  },
+  {
+    name: "Prada",
+    origin: "Italia",
+    category: "Minimalism Arhitectural",
+    material: "Acetat Pur & Detalii Geometrice",
+    desc: "Geometrii arhitecturale conceptuale, unghiuri curate și eleganță milaneză pură"
+  },
+  {
+    name: "Ray-Ban",
+    origin: "Italia",
+    category: "Design Iconic Global",
+    material: "Acetat & Aliaje Metalice",
+    desc: "Modele iconice de referință mondială, ergonomie verificată și stil inconfundabil"
+  },
+  {
+    name: "Reserve",
+    origin: "Europa",
+    category: "Colecții Clasice & Funcționale",
+    material: "Acetat & Aliaje Metalice Ușoare",
+    desc: "Linii clasice atemporale, construcție rezistentă și confort zilnic echilibrat"
+  },
+  {
+    name: "Roundten",
     origin: "Spania",
-    category: "Design Independent Barcelona",
-    material: "Titan Japonez & Acetat Italian",
-    desc: "Design independent din Barcelona, realizat manual cu o atenție meticuloasă la detalii"
-  },
-  {
-    name: "Rodenstock",
-    origin: "Germania",
-    category: "Precizie Optică Germană",
-    material: "Titan & Polimeri Medicali",
-    desc: "Peste 140 de ani de perfecțiune optică germană și stabilitate biomecanică remarcabilă"
+    category: "Design Modular & Tehnologie Flex",
+    material: "Polimeri High-Tech & Oțel Chirurgical",
+    desc: "Inovație optică cu flexibilitate ridicată, greutate minimă și rezistență mecanică superioară"
   },
   {
     name: "Saint Laurent",
@@ -456,11 +492,60 @@ export const FRAME_BRANDS_EXTRA = [
     desc: "Eleganță pariziană minimalistă, siluete androgine curate și atitudine sobră"
   },
   {
-    name: "Seiko",
-    origin: "Japonia",
-    category: "Inginerie Titan Japonia",
-    material: "Titan Pur 100% & Beta-Titan",
-    desc: "Maeștri ai titanului japonez ultra-rezistent, puritate tehnologică și ergonomie perfectă"
+    name: "Sferoflex",
+    origin: "Italia",
+    category: "Balamale Flexibile Brevetate",
+    material: "Acetat & Metal cu Sistem Sferoflex",
+    desc: "Tehnologie italiană brevetată a balamalei sferice elastice pentru o adaptare perfectă pe tâmple"
+  },
+  {
+    name: "Starck",
+    origin: "Franța",
+    category: "Bionism Biomecanic",
+    material: "Balamale Sphere 360° & Titan",
+    desc: "Viziune semnată de Philippe Starck cu balamaua biomecanică 360° inspirată din articulația umană"
+  },
+  {
+    name: "Swarovski",
+    origin: "Austria",
+    category: "Haute Cristallerie",
+    material: "Cristale Fațetate & Metal Rodiat",
+    desc: "Jocuri de lumină radiante, fațetări precise de cristal și eleganță rafinată"
+  },
+  {
+    name: "Tiffany&Co",
+    origin: "SUA",
+    category: "Bijuterie Clasică Americană",
+    material: "Acetat Fin & Argint/Aur Tratate",
+    desc: "Rafinament new-yorkez inconfundabil cu atingeri de Tiffany Blue și motive iconice T"
+  },
+  {
+    name: "Tom Ford",
+    origin: "Italia",
+    category: "Lux Cosmopolit",
+    material: "Acetat Japonez Dens & Titan",
+    desc: "Design sculptural cu balamaua iconică T-Logo și eleganță cosmopolită magnetică"
+  },
+  {
+    name: "Versace",
+    origin: "Italia",
+    category: "Opulență & Caracter",
+    material: "Acetat Lucios & Accente Nobile",
+    desc: "Prezență impunătoare, emblema Medusa iconică și finisaje metalice somptuoase"
+  },
+  {
+    name: "Vogue",
+    origin: "Italia",
+    category: "Fashion Contemporan",
+    material: "Acetat Ușor & Metal Polizat",
+    desc: "Tendințe contemporane vibrante, profiluri expresive și eleganță accesibilă"
+  },
+  {
+    name: "Woodys",
+    origin: "Spania",
+    category: "Cromatică Vibrantă din Barcelona",
+    material: "Acetat Italian & Titan Japonez",
+    desc: "Design expresiv din Barcelona ce combină transparențe cromatice unice și structuri ușoare"
   }
 ];
 
@@ -485,7 +570,7 @@ export const INSTAGRAM_POSTS = [
   {
     id: 1,
     image: "https://images.unsplash.com/photo-1577401239170-897942555fb3?auto=format&fit=crop&w=800&q=80",
-    caption: "Puritatea materialelor. Rame Brunello Cucinelli confecționate din corn natural și detalii din titan. #BetaOptic #QuietLuxury",
+    caption: "Puritatea materialelor. Rame Silhouette confecționate din titan high-tech și polimer SPX®+. #BetaOptic #QuietLuxury",
     likes: "248",
     comments: "14"
   },

@@ -10,7 +10,7 @@ import { HERO_DATA } from '../data/opticData';
 import CardCarousel from './CardCarousel';
 
 const OFFER_MENU_ITEMS = [
-  { id: 'saptamana', label: 'Oferta săptămânii', subtitle: '-40% Gigi Studios', icon: Calendar, badge: 'Activă' },
+  { id: 'saptamana', label: 'Oferta săptămânii', subtitle: '-40% Gigi Studios, Montblanc, Chloé, Philipp Plein', icon: Calendar, badge: 'Activă' },
   { id: 'luna', label: 'Oferta lunii', subtitle: 'Nikon 1+1 Cadou', icon: Gift, badge: 'Activă' },
 ];
 

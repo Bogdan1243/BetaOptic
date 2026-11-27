@@ -7,9 +7,85 @@ import { MobileCarouselGrid } from './CardCarousel';
 import ofertaLuniiImage from '../assets/oferta-lunii-nikon.webp';
 import ofertaLuniiImage640 from '../assets/oferta-lunii-nikon-640w.webp';
 import ofertaLuniiImage960 from '../assets/oferta-lunii-nikon-960w.webp';
-import ofertaSaptamaniiImage from '../assets/oferta-saptamanii-gigi.webp';
-import ofertaSaptamaniiImage640 from '../assets/oferta-saptamanii-gigi-640w.webp';
-import ofertaSaptamaniiImage960 from '../assets/oferta-saptamanii-gigi-960w.webp';
+import ofertaGigiImage from '../assets/oferta-saptamanii-gigi.webp';
+import ofertaGigiImage640 from '../assets/oferta-saptamanii-gigi-640w.webp';
+import ofertaGigiImage960 from '../assets/oferta-saptamanii-gigi-960w.webp';
+import ofertaMontblancImage from '../assets/oferta-saptamanii-montblanc.webp';
+import ofertaMontblancImage640 from '../assets/oferta-saptamanii-montblanc-640w.webp';
+import ofertaMontblancImage960 from '../assets/oferta-saptamanii-montblanc-960w.webp';
+import ofertaChloeImage from '../assets/oferta-saptamanii-chloe.webp';
+import ofertaChloeImage640 from '../assets/oferta-saptamanii-chloe-640w.webp';
+import ofertaChloeImage960 from '../assets/oferta-saptamanii-chloe-960w.webp';
+import ofertaPhilippPleinImage from '../assets/oferta-saptamanii-philipp-plein.webp';
+import ofertaPhilippPleinImage640 from '../assets/oferta-saptamanii-philipp-plein-640w.webp';
+import ofertaPhilippPleinImage960 from '../assets/oferta-saptamanii-philipp-plein-960w.webp';
+
+const WEEKLY_OFFER_BRANDS = [
+  {
+    id: 'gigi-studios',
+    brand: 'Gigi Studios',
+    title: '40% Reducere la ramele de vedere Gigi Studios',
+    subtitle: 'Design Independent din Barcelona',
+    description:
+      'Săptămâna aceasta beneficiezi de 40% reducere la colecția de rame și ochelari Gigi Studios disponibilă în showroom-ul Beta Optic.',
+    bullets: [
+      'Rame realizate din Titan Japonez și Acetat Italian de înaltă densitate.',
+      'Disponibile pentru probă și consiliere personalizată în showroom-ul Beta Optic Timișoara.',
+    ],
+    img: ofertaGigiImage,
+    img640: ofertaGigiImage640,
+    img960: ofertaGigiImage960,
+    alt: 'Oferta săptămânii Beta Optic Timișoara: 40% reducere la ramele de vedere Gigi Studios',
+  },
+  {
+    id: 'montblanc',
+    brand: 'Montblanc',
+    title: '40% Reducere la ramele de vedere Montblanc',
+    subtitle: 'Rafinament Clasic & Măiestrie Germană',
+    description:
+      'Săptămâna aceasta beneficiezi de 40% reducere la colecția de rame și ochelari Montblanc disponibilă în showroom-ul Beta Optic.',
+    bullets: [
+      'Finisaje emblematice din metal prețios, titan ușor și acetat premium.',
+      'Disponibile pentru probă și consiliere personalizată în showroom-ul Beta Optic Timișoara.',
+    ],
+    img: ofertaMontblancImage,
+    img640: ofertaMontblancImage640,
+    img960: ofertaMontblancImage960,
+    alt: 'Oferta săptămânii Beta Optic Timișoara: 40% reducere la ramele de vedere Montblanc',
+  },
+  {
+    id: 'chloe',
+    brand: 'Chloé',
+    title: '40% Reducere la ramele de vedere Chloé',
+    subtitle: 'Feminitate Pariziană & Siluete Luminoase',
+    description:
+      'Săptămâna aceasta beneficiezi de 40% reducere la colecția de rame și ochelari Chloé disponibilă în showroom-ul Beta Optic.',
+    bullets: [
+      'Nuanțe calde, linii fluide și detalii bijuterie cu semnătura casei pariziene.',
+      'Disponibile pentru probă și consiliere personalizată în showroom-ul Beta Optic Timișoara.',
+    ],
+    img: ofertaChloeImage,
+    img640: ofertaChloeImage640,
+    img960: ofertaChloeImage960,
+    alt: 'Oferta săptămânii Beta Optic Timișoara: 40% reducere la ramele de vedere Chloé',
+  },
+  {
+    id: 'philipp-plein',
+    brand: 'Philipp Plein',
+    title: '40% Reducere la ramele de vedere Philipp Plein',
+    subtitle: 'Design Îndrăzneț & Detalii Sculpturale',
+    description:
+      'Săptămâna aceasta beneficiezi de 40% reducere la colecția de rame și ochelari Philipp Plein disponibilă în showroom-ul Beta Optic.',
+    bullets: [
+      'Construcție statement din acetat masiv și inserții metalice cu accente de lux.',
+      'Disponibile pentru probă și consiliere personalizată în showroom-ul Beta Optic Timișoara.',
+    ],
+    img: ofertaPhilippPleinImage,
+    img640: ofertaPhilippPleinImage640,
+    img960: ofertaPhilippPleinImage960,
+    alt: 'Oferta săptămânii Beta Optic Timișoara: 40% reducere la ramele de vedere Philipp Plein',
+  },
+];
 
 const VIDEO_POSTER_SVG =
   "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 9'/%3E";
@@ -318,7 +394,7 @@ export function ActiveOffersSection({ onOpenOffer }) {
             </div>
           </article>
 
-          {/* Card 2: Oferta Săptămânii — Gigi Studios -40% */}
+          {/* Card 2: Oferta Săptămânii — Gigi Studios, Montblanc, Chloé & Philipp Plein -40% */}
           <article
             onClick={() => onOpenOffer && onOpenOffer('saptamana')}
             className="p-6 sm:p-8 rounded-3xl bg-[#F4EFE6]/90 border border-[#E5DEC9] shadow-xs hover:shadow-xl hover:border-[#172554]/30 transition-all duration-300 flex flex-col justify-between group cursor-pointer"
@@ -330,40 +406,47 @@ export function ActiveOffersSection({ onOpenOffer }) {
                   Oferta Săptămânii • Activă
                 </span>
                 <span className="text-xs font-semibold uppercase tracking-widest text-[#8A6928] lg:text-[#C5A059]">
-                  Rame de Vedere Gigi Studios
+                  -40% Rame de Vedere
                 </span>
               </div>
 
-              <div className="rounded-2xl overflow-hidden bg-[#172554] border border-[#E5DEC9] mb-5 aspect-[16/10] flex items-center justify-center">
-                <img
-                  src={ofertaSaptamaniiImage}
-                  srcSet={`${ofertaSaptamaniiImage640} 640w, ${ofertaSaptamaniiImage960} 960w, ${ofertaSaptamaniiImage} 1200w`}
-                  sizes="(max-width: 767px) 360px, 640px"
-                  alt="Oferta săptămânii Beta Optic Timișoara: 40% reducere la ramele de vedere Gigi Studios"
-                  width="1200"
-                  height="900"
-                  loading="lazy"
-                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-                />
+              <div className="rounded-2xl overflow-hidden bg-[#172554] border border-[#E5DEC9] mb-5 aspect-[16/10] grid grid-cols-2 grid-rows-2 gap-0.5 p-0.5">
+                {WEEKLY_OFFER_BRANDS.map((item) => (
+                  <div key={item.id} className="relative overflow-hidden bg-[#172554]">
+                    <img
+                      src={item.img}
+                      srcSet={`${item.img640} 640w, ${item.img960} 960w, ${item.img} 1200w`}
+                      sizes="(max-width: 767px) 180px, 320px"
+                      alt={item.alt}
+                      width="1200"
+                      height="900"
+                      loading="lazy"
+                      className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                    />
+                    <span className="absolute bottom-1.5 left-1.5 px-2 py-0.5 rounded-full bg-[#172554]/85 backdrop-blur-xs text-[#FAF8F5] text-[10px] font-semibold tracking-wide border border-[#C5A059]/40">
+                      {item.brand} • <span className="text-[#C5A059]">-40%</span>
+                    </span>
+                  </div>
+                ))}
               </div>
 
               <h3 className="serif-title text-2xl sm:text-3xl font-bold text-[#172554] mb-2">
-                40% Reducere la Ramele de Vedere Gigi Studios
+                40% Reducere — Gigi Studios, Montblanc, Chloé & Philipp Plein
               </h3>
 
               <p className="text-xs font-semibold text-[#8A6928] lg:text-[#C5A059] uppercase tracking-wider mb-3">
-                Design Independent din Barcelona • Titan Japonez & Acetat Italian
+                Colecții Selecționate de Rame și Ochelari de Vedere
               </p>
 
               <p className="text-sm text-[#172554]/85 leading-relaxed mb-4">
-                Săptămâna aceasta beneficiezi de <strong>40% reducere</strong> la colecția de rame și ochelari de vedere <strong>Gigi Studios</strong> disponibilă pentru probă și consiliere personalizată în showroom-ul Beta Optic Timișoara.
+                Săptămâna aceasta beneficiezi de <strong>40% reducere</strong> la colecțiile de rame și ochelari de vedere <strong>Gigi Studios</strong>, <strong>Montblanc</strong>, <strong>Chloé</strong> și <strong>Philipp Plein</strong> disponibile pentru probă și consiliere personalizată în showroom-ul Beta Optic Timișoara.
               </p>
             </div>
 
             <div className="pt-4 border-t border-[#172554]/10 flex items-center justify-between text-xs text-[#172554]/70">
               <span>*În limita stocului disponibil în showroom</span>
               <span className="font-semibold text-[#172554] group-hover:text-[#8A6928] transition-colors shrink-0 ml-2">
-                Vezi detalii →
+                Vezi toate cele 4 oferte →
               </span>
             </div>
           </article>
@@ -375,6 +458,7 @@ export function ActiveOffersSection({ onOpenOffer }) {
 
 export function OffersModal({ isOpen, activeTab = 'luna', onTabChange, onClose }) {
   const [selectedTab, setSelectedTab] = useState(activeTab || 'luna');
+  const [selectedBrandId, setSelectedBrandId] = useState('all');
   useLockBodyScroll(isOpen);
 
   useEffect(() => {
@@ -389,6 +473,11 @@ export function OffersModal({ isOpen, activeTab = 'luna', onTabChange, onClose }
     setSelectedTab(tabId);
     if (onTabChange) onTabChange(tabId);
   };
+
+  const visibleWeeklyBrands =
+    selectedBrandId === 'all'
+      ? WEEKLY_OFFER_BRANDS
+      : WEEKLY_OFFER_BRANDS.filter((b) => b.id === selectedBrandId);
 
   return (
     <AnimatePresence>
@@ -524,57 +613,97 @@ export function OffersModal({ isOpen, activeTab = 'luna', onTabChange, onClose }
                 initial={{ opacity: 0, y: 10 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.3 }}
-                className="grid grid-cols-1 md:grid-cols-12 gap-6 sm:gap-8 items-center"
+                className="space-y-6 sm:space-y-8"
               >
-                {/* Offer Poster Image */}
-                <div className="md:col-span-7 rounded-2xl overflow-hidden bg-[#172554] border border-[#E5DEC9] shadow-lg flex items-center justify-center">
-                  <img
-                    src={ofertaSaptamaniiImage}
-                    srcSet={`${ofertaSaptamaniiImage640} 640w, ${ofertaSaptamaniiImage960} 960w, ${ofertaSaptamaniiImage} 1200w`}
-                    sizes="(max-width: 767px) 360px, 819px"
-                    alt="Rame de vedere Gigi Studios în showroom-ul Beta Optic"
-                    width="1200"
-                    height="900"
-                    loading="lazy"
-                    className="w-full max-h-[55svh] md:max-h-[62vh] object-cover"
-                  />
+                {/* Brand Filter Pills */}
+                <div className="flex flex-wrap items-center gap-2 pb-4 border-b border-[#E5DEC9]">
+                  <button
+                    type="button"
+                    onClick={() => setSelectedBrandId('all')}
+                    className={`px-3.5 py-1.5 rounded-full text-xs font-semibold uppercase tracking-wider transition-all cursor-pointer ${
+                      selectedBrandId === 'all'
+                        ? 'bg-[#172554] text-[#FAF8F5] shadow-xs'
+                        : 'bg-[#F4EFE6] text-[#172554]/80 border border-[#E5DEC9] hover:border-[#172554]/30 hover:text-[#172554]'
+                    }`}
+                  >
+                    Toate ({WEEKLY_OFFER_BRANDS.length})
+                  </button>
+                  {WEEKLY_OFFER_BRANDS.map((item) => (
+                    <button
+                      key={item.id}
+                      type="button"
+                      onClick={() => setSelectedBrandId(item.id)}
+                      className={`px-3.5 py-1.5 rounded-full text-xs font-semibold uppercase tracking-wider transition-all cursor-pointer flex items-center gap-1.5 ${
+                        selectedBrandId === item.id
+                          ? 'bg-[#172554] text-[#FAF8F5] shadow-xs'
+                          : 'bg-[#F4EFE6] text-[#172554]/80 border border-[#E5DEC9] hover:border-[#172554]/30 hover:text-[#172554]'
+                      }`}
+                    >
+                      <span>{item.brand}</span>
+                      <span className="text-[#C5A059] font-bold">-40%</span>
+                    </button>
+                  ))}
                 </div>
 
-                {/* Offer Details */}
-                <div className="md:col-span-5 flex flex-col justify-between space-y-5">
-                  <div className="space-y-4">
-                    <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#C5A059]/20 text-[#172554] border border-[#C5A059]/40 text-[11px] uppercase tracking-wider font-bold">
-                      <Calendar className="w-3.5 h-3.5 text-[#C5A059]" />
-                      Oferta Săptămânii • Activă
-                    </span>
-
-                    <h4 className="serif-title text-2xl sm:text-4xl font-bold text-[#172554] leading-tight">
-                      40% Reducere la ramele de vedere Gigi Studios
-                    </h4>
-
-                    <p className="text-sm font-semibold text-[#C5A059] uppercase tracking-wider">
-                      Design Independent din Barcelona
-                    </p>
-
-                    <p className="text-sm text-[#172554]/85 leading-relaxed">
-                      Săptămâna aceasta beneficiezi de <strong>40% reducere</strong> la colecția de rame și ochelari <strong>Gigi Studios</strong> disponibilă în showroom-ul Beta Optic.
-                    </p>
-
-                    <div className="p-4 rounded-2xl bg-[#F4EFE6] border border-[#E5DEC9] space-y-2 text-xs text-[#172554]/80">
-                      <div className="flex items-start gap-2">
-                        <Check className="w-4 h-4 text-[#C5A059] shrink-0 mt-0.5" />
-                        <span>Rame realizate din Titan Japonez și Acetat Italian de înaltă densitate.</span>
+                {/* Weekly Offer Brand Cards */}
+                <div className="space-y-8 sm:space-y-10">
+                  {visibleWeeklyBrands.map((item, idx) => (
+                    <div
+                      key={item.id}
+                      className={`grid grid-cols-1 md:grid-cols-12 gap-6 sm:gap-8 items-center ${
+                        idx > 0 ? 'pt-8 sm:pt-10 border-t border-[#E5DEC9]' : ''
+                      }`}
+                    >
+                      {/* Offer Poster Image */}
+                      <div className="md:col-span-7 rounded-2xl overflow-hidden bg-[#172554] border border-[#E5DEC9] shadow-lg flex items-center justify-center">
+                        <img
+                          src={item.img}
+                          srcSet={`${item.img640} 640w, ${item.img960} 960w, ${item.img} 1200w`}
+                          sizes="(max-width: 767px) 360px, 819px"
+                          alt={item.alt}
+                          width="1200"
+                          height="900"
+                          loading="lazy"
+                          className="w-full max-h-[55svh] md:max-h-[62vh] object-cover"
+                        />
                       </div>
-                      <div className="flex items-start gap-2">
-                        <Check className="w-4 h-4 text-[#C5A059] shrink-0 mt-0.5" />
-                        <span>Disponibile pentru probă și consiliere personalizată în showroom-ul Beta Optic Timișoara.</span>
+
+                      {/* Offer Details */}
+                      <div className="md:col-span-5 flex flex-col justify-between space-y-5">
+                        <div className="space-y-4">
+                          <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#C5A059]/20 text-[#172554] border border-[#C5A059]/40 text-[11px] uppercase tracking-wider font-bold">
+                            <Calendar className="w-3.5 h-3.5 text-[#C5A059]" />
+                            Oferta Săptămânii • {item.brand}
+                          </span>
+
+                          <h4 className="serif-title text-2xl sm:text-4xl font-bold text-[#172554] leading-tight">
+                            {item.title}
+                          </h4>
+
+                          <p className="text-sm font-semibold text-[#C5A059] uppercase tracking-wider">
+                            {item.subtitle}
+                          </p>
+
+                          <p className="text-sm text-[#172554]/85 leading-relaxed">
+                            Săptămâna aceasta beneficiezi de <strong>40% reducere</strong> la colecția de rame și ochelari <strong>{item.brand}</strong> disponibilă în showroom-ul Beta Optic.
+                          </p>
+
+                          <div className="p-4 rounded-2xl bg-[#F4EFE6] border border-[#E5DEC9] space-y-2 text-xs text-[#172554]/80">
+                            {item.bullets.map((bullet, bIdx) => (
+                              <div key={bIdx} className="flex items-start gap-2">
+                                <Check className="w-4 h-4 text-[#C5A059] shrink-0 mt-0.5" />
+                                <span>{bullet}</span>
+                              </div>
+                            ))}
+                          </div>
+                        </div>
+
+                        <div className="pt-4 border-t border-[#E5DEC9] space-y-1.5 text-[11px] text-[#172554]/60 leading-relaxed">
+                          <p>*Ofertă valabilă în limita stocului disponibil în showroom-ul Beta Optic.</p>
+                        </div>
                       </div>
                     </div>
-                  </div>
-
-                  <div className="pt-4 border-t border-[#E5DEC9] space-y-1.5 text-[11px] text-[#172554]/60 leading-relaxed">
-                    <p>*Ofertă valabilă în limita stocului disponibil în showroom-ul Beta Optic.</p>
-                  </div>
+                  ))}
                 </div>
               </motion.div>
             )}

@@ -31,28 +31,28 @@ export default function ProcessTimelineSection() {
 
         {/* The Text Rows (Your existing text code goes here) */}
         <div className="relative z-10 select-none text-center w-full h-full flex flex-col justify-between pt-64 pb-16 md:py-80">
-          <div className="serif-title font-bold text-[#172554] tracking-[0.15em] md:tracking-[0.3em] leading-none whitespace-nowrap" style={{ filter: 'blur(0px)' }}>
+          <div className="font-[Arial,sans-serif] font-bold text-[#172554] tracking-[0.15em] md:tracking-[0.3em] leading-none whitespace-nowrap" style={{ filter: 'blur(0px)' }}>
             <span className="text-3xl sm:text-5xl md:text-8xl lg:text-7xl">BETA OPTIC</span>
           </div>
-          <div className="serif-title font-bold text-[#172554] tracking-[0.12em] md:tracking-[0.25em] leading-none whitespace-nowrap" style={{ filter: 'blur(0.6px)' }}>
+          <div className="font-[Arial,sans-serif] font-bold text-[#172554] tracking-[0.12em] md:tracking-[0.25em] leading-none whitespace-nowrap" style={{ filter: 'blur(0.6px)' }}>
             <span className="text-2xl sm:text-4xl md:text-6xl lg:text-6xl">BETA OPTIC &nbsp;&nbsp; BETA OPTIC</span>
           </div>
-          <div className="serif-title font-bold text-[#172554] tracking-[0.1em] md:tracking-[0.2em] leading-none whitespace-nowrap" style={{ filter: 'blur(1.2px)' }}>
+          <div className="font-[Arial,sans-serif] font-bold text-[#172554] tracking-[0.1em] md:tracking-[0.2em] leading-none whitespace-nowrap" style={{ filter: 'blur(1.2px)' }}>
             <span className="text-xl sm:text-3xl md:text-5xl lg:text-5xl">BETA OPTIC &nbsp;&nbsp; BETA OPTIC &nbsp;&nbsp; BETA OPTIC</span>
           </div>
-          <div className="serif-title font-bold text-[#172554] tracking-[0.08em] md:tracking-[0.18em] leading-none whitespace-nowrap" style={{ filter: 'blur(2px)' }}>
+          <div className="font-[Arial,sans-serif] font-bold text-[#172554] tracking-[0.08em] md:tracking-[0.18em] leading-none whitespace-nowrap" style={{ filter: 'blur(2px)' }}>
             <span className="text-lg sm:text-2xl md:text-4xl lg:text-4xl">BETA OPTIC &nbsp; BETA OPTIC &nbsp; BETA OPTIC &nbsp; BETA OPTIC</span>
           </div>
-          <div className="serif-title font-bold text-[#172554] tracking-[0.08em] md:tracking-[0.15em] leading-none whitespace-nowrap" style={{ filter: 'blur(2.5px)' }}>
+          <div className="font-[Arial,sans-serif] font-bold text-[#172554] tracking-[0.08em] md:tracking-[0.15em] leading-none whitespace-nowrap" style={{ filter: 'blur(2.5px)' }}>
             <span className="text-base sm:text-xl md:text-3xl lg:text-3xl">BETA OPTIC &nbsp; BETA OPTIC &nbsp; BETA OPTIC &nbsp; BETA OPTIC &nbsp; BETA OPTIC</span>
           </div>
-          <div className="serif-title font-bold text-[#172554] tracking-[0.06em] md:tracking-[0.12em] leading-none whitespace-nowrap" style={{ filter: 'blur(2.7px)' }}>
+          <div className="font-[Arial,sans-serif] font-bold text-[#172554] tracking-[0.06em] md:tracking-[0.12em] leading-none whitespace-nowrap" style={{ filter: 'blur(2.7px)' }}>
             <span className="text-sm sm:text-lg md:text-2xl lg:text-2xl">BETA OPTIC &nbsp; BETA OPTIC &nbsp; BETA OPTIC &nbsp; BETA OPTIC &nbsp; BETA OPTIC &nbsp; BETA OPTIC</span>
           </div>
-          <div className="serif-title font-bold text-[#172554] tracking-[0.06em] md:tracking-[0.1em] leading-none whitespace-nowrap" style={{ filter: 'blur(2.9px)' }}>
+          <div className="font-[Arial,sans-serif] font-bold text-[#172554] tracking-[0.06em] md:tracking-[0.1em] leading-none whitespace-nowrap" style={{ filter: 'blur(2.9px)' }}>
             <span className="text-xs sm:text-base md:text-xl lg:text-xl">BETA OPTIC &nbsp; BETA OPTIC &nbsp; BETA OPTIC &nbsp; BETA OPTIC &nbsp; BETA OPTIC &nbsp; BETA OPTIC &nbsp; BETA OPTIC</span>
           </div>
-          <div className="serif-title font-bold text-[#172554] tracking-[0.05em] md:tracking-[0.08em] leading-none whitespace-nowrap" style={{ filter: 'blur(3.2px)' }}>
+          <div className="font-[Arial,sans-serif] font-bold text-[#172554] tracking-[0.05em] md:tracking-[0.08em] leading-none whitespace-nowrap" style={{ filter: 'blur(3.2px)' }}>
             <span className="text-xs sm:text-sm md:text-lg lg:text-xl">BETA OPTIC &nbsp; BETA OPTIC &nbsp; BETA OPTIC &nbsp; BETA OPTIC &nbsp; BETA OPTIC &nbsp; BETA OPTIC &nbsp; BETA OPTIC &nbsp; BETA OPTIC</span>
           </div>
         </div>

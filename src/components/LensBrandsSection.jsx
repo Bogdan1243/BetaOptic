@@ -52,14 +52,18 @@ export default function LensBrandsSection() {
           wrapperClassName="mb-8 sm:mb-16 md:mb-20"
           label="Branduri partenere lentile de ochelari"
         >
-          {LENS_BRANDS_MAIN.map((brand, index) => (
+          {LENS_BRANDS_MAIN.map((brand, index) => {
+            const isFullWidth = brand.fullWidth || brand.id === 'nikon';
+            return (
             <motion.div
               key={brand.id}
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: index * 0.1 }}
-              className="p-6 sm:p-10 rounded-3xl bg-[#F4EFE6]/90 border border-[#E5DEC9] shadow-xs hover:shadow-lg hover:border-[#172554]/30 transition-all duration-300 flex flex-col justify-between group relative overflow-hidden"
+              className={`p-6 sm:p-10 rounded-3xl bg-[#F4EFE6]/90 border border-[#E5DEC9] shadow-xs hover:shadow-lg hover:border-[#172554]/30 transition-all duration-300 flex flex-col justify-between group relative overflow-hidden ${
+                isFullWidth ? 'md:col-span-2' : ''
+              }`}
             >
               {/* Subtle background emblem */}
               <div aria-hidden="true" className="absolute -right-8 -bottom-8 opacity-5 text-[#172554] pointer-events-none font-serif text-9xl uppercase font-bold">
@@ -67,10 +71,17 @@ export default function LensBrandsSection() {
               </div>
 
               <div>
-                <div className="flex max-sm:flex-wrap items-center justify-between max-sm:gap-2 mb-5 sm:mb-6">
-                  <span className="px-3 py-1 rounded-2xl sm:rounded-full text-[11px] sm:text-xs font-semibold uppercase tracking-wider bg-[#172554] text-[#FAF8F5]">
-                    {brand.badge}
-                  </span>
+                <div className="flex max-sm:flex-wrap items-start justify-between max-sm:gap-2 mb-5 sm:mb-6">
+                  <div className="flex flex-col items-start gap-1.5">
+                    {brand.topBadge && (
+                      <span className="text-[11px] sm:text-xs font-bold uppercase tracking-widest text-[#8A6928] lg:text-[#C5A059] pl-1">
+                        {brand.topBadge}
+                      </span>
+                    )}
+                    <span className="px-3 py-1 rounded-2xl sm:rounded-full text-[11px] sm:text-xs font-semibold uppercase tracking-wider bg-[#172554] text-[#FAF8F5]">
+                      {brand.badge}
+                    </span>
+                  </div>
                   <span className="text-xs uppercase tracking-widest font-semibold text-[#172554]/50 flex items-center gap-1 max-sm:shrink-0">
                     <ShieldCheck className="w-3.5 h-3.5 text-[#C5A059]" />
                     {brand.origin}
@@ -84,7 +95,7 @@ export default function LensBrandsSection() {
                   {brand.tagline}
                 </p>
 
-                <p className="text-[#172554]/85 text-sm sm:text-base leading-relaxed font-normal">
+                <p className="text-[#172554]/85 text-sm sm:text-base leading-relaxed font-normal whitespace-pre-line">
                   {brand.text}
                 </p>
               </div>
@@ -96,7 +107,8 @@ export default function LensBrandsSection() {
                 </span>
               </div>
             </motion.div>
-          ))}
+            );
+          })}
         </MobileCarouselGrid>
 
 

@@ -130,7 +130,7 @@ function EyeChartBackground() {
           {EYE_CHART_ROWS.map((row, i) => (
               <div
                   key={i}
-                  className={`serif-title font-bold text-[#172554] ${row.tracking} leading-none whitespace-nowrap`}
+                  className={`font-[Arial,sans-serif] font-bold text-[#172554] ${row.tracking} leading-none whitespace-nowrap`}
                   style={{ filter: `blur(${row.blur}px)` }}
               >
                 <span className={row.size}>{row.text}</span>

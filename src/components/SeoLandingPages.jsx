@@ -139,16 +139,27 @@ export function LensesSeoPage({ onBack }) {
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8">
-            {LENS_BRANDS_MAIN.map((brand) => (
+            {LENS_BRANDS_MAIN.map((brand) => {
+              const isFullWidth = brand.fullWidth || brand.id === 'nikon';
+              return (
               <article
                 key={brand.id}
-                className="p-6 sm:p-10 rounded-3xl bg-[#F4EFE6]/90 border border-[#E5DEC9] shadow-xs flex flex-col justify-between"
+                className={`p-6 sm:p-10 rounded-3xl bg-[#F4EFE6]/90 border border-[#E5DEC9] shadow-xs flex flex-col justify-between ${
+                  isFullWidth ? 'md:col-span-2' : ''
+                }`}
               >
                 <div>
-                  <div className="flex flex-wrap items-center justify-between gap-2 mb-5">
-                    <span className="px-3 py-1 rounded-full text-xs font-semibold uppercase tracking-wider bg-[#172554] text-[#FAF8F5]">
-                      {brand.badge}
-                    </span>
+                  <div className="flex flex-wrap items-start justify-between gap-2 mb-5">
+                    <div className="flex flex-col items-start gap-1.5">
+                      {brand.topBadge && (
+                        <span className="text-xs font-bold uppercase tracking-widest text-[#8A6928] lg:text-[#C5A059] pl-1">
+                          {brand.topBadge}
+                        </span>
+                      )}
+                      <span className="px-3 py-1 rounded-full text-xs font-semibold uppercase tracking-wider bg-[#172554] text-[#FAF8F5]">
+                        {brand.badge}
+                      </span>
+                    </div>
                     <span className="text-xs uppercase tracking-widest font-semibold text-[#172554]/60 flex items-center gap-1">
                       <ShieldCheck className="w-3.5 h-3.5 text-[#C5A059]" />
                       {brand.origin}
@@ -171,7 +182,8 @@ export function LensesSeoPage({ onBack }) {
                   <span className="font-semibold text-[#172554]">Disponibil la Beta Optic Timișoara</span>
                 </div>
               </article>
-            ))}
+              );
+            })}
           </div>
         </section>
       </main>
